@@ -1,0 +1,10 @@
+{% extends "base_ventas.html" %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <h3>¿Está seguro que desea eliminar el reporte {{ object.id }} {{ object.empresa }}?</h3>
+    <button class="btn btn-danger" type="submit">Sí</button>
+    <a class="btn btn-secondary" href="{% url 'index' %}">No</a>
+</form>
+{% endblock content %}

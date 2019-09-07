@@ -1,0 +1,53 @@
+from django.db import models
+
+# Create your models here.
+class ReporteContacto(models.Model):
+	empresa=models.CharField(max_length=50)
+	canal_de_contacto=models.CharField(max_length=100)
+	motivo_de_contacto=models.TextField(max_length=500)
+	lugar=models.CharField(max_length=100)
+	fecha=models.DateField()
+	hora_inicio=models.TimeField()
+	hora_fin=models.TimeField()
+	nombre_contacto=models.CharField(max_length=100)
+	telefono=models.CharField(max_length=10)
+	cargo=models.CharField(max_length=100)
+	correo_electronico=models.CharField(max_length=100)
+	asistentes=models.CharField(max_length=100)
+	situacion_actual=models.TextField(max_length=500)
+	situacion_deseada=models.TextField(max_length=500)
+	servicios_requeridos=models.CharField(max_length=50)
+
+class Capacitacion(models.Model):
+	tema=models.CharField(max_length=25)
+	tipo=models.CharField(max_length=25)
+	modalidad=models.CharField(max_length=25)
+	area=models.CharField(max_length=100)
+	nivel_organizacion=models.CharField(max_length=25)
+	numero_participantes=models.IntegerField()
+	horario_trabajo=models.CharField(max_length=50)
+	nivel_educacion=models.CharField(max_length=25)
+	edad_promedio=models.CharField(max_length=25)
+	lugar=models.CharField(max_length=50)
+	ciudad=models.CharField(max_length=25)
+	fecha_evento=models.DateField()
+	horario_evento=models.TimeField()
+	observaciones=models.TextField(max_length=500)
+	acuerdos=models.TextField(max_length=500)
+	exclusivo_acad=models.TextField(max_length=500)
+	reporte=models.ForeignKey(ReporteContacto, on_delete=models.CASCADE, blank=True, null=True)
+
+class Asesoria(models.Model):
+	tipo=models.CharField(max_length=25)
+	descripcion=models.CharField(max_length=500)
+	alcance=models.CharField(max_length=250)
+	con_sin_imple=models.CharField(max_length=25)
+	fecha_inicio=models.DateField()
+	fecha_fin=models.DateField()
+	proveedor=models.CharField(max_length=25)
+	entregables=models.CharField(max_length=500)
+	observaciones=models.TextField(max_length=500)
+	acuerdos=models.TextField(max_length=500)
+	exclusivo_acad=models.TextField(max_length=500)
+	reporte=models.ForeignKey(ReporteContacto, on_delete=models.CASCADE, blank=True, null=True)
+

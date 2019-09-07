@@ -1,0 +1,137 @@
+from django import forms
+from .models import ReporteContacto, Capacitacion,Asesoria
+from django.forms import formset_factory
+
+
+class ReporteContactoForm(forms.ModelForm):
+    class Meta:
+        model = ReporteContacto
+
+        fields=[
+            'empresa',
+            'canal_de_contacto',
+            'motivo_de_contacto',
+            'lugar',
+            'fecha',
+            'hora_inicio',
+            'hora_fin',
+            'nombre_contacto',
+            'telefono',
+            'cargo',
+            'correo_electronico',
+            'asistentes',
+            'situacion_actual',
+            'situacion_deseada',
+            'servicios_requeridos',
+        ]
+
+        labels={
+            'empresa': 'Empresa',
+            'canal_de_contacto': 'Canal de contacto',
+            'motivo_de_contacto': 'Motivo de Contacto',
+            'lugar':'Lugar',
+            'fecha':'Fecha',
+            'hora_inicio':'Hora de inicio',
+            'hora_fin':'Hora de fin',
+            'nombre_contacto':'Nombre del contacto de la Empresa',
+            'telefono':'Teléfono',
+            'cargo':'Cargo',
+            'correo_electronico':'Correo electrónico',
+            'asistentes':'Asistentes',
+            'situacion_actual':'Situación actual',
+            'situacion_deseada':'Situación deseada',
+            'servicios_requeridos': 'Servicios requeridos',
+        }
+        widgets={
+            'motivo_de_contacto':forms.Textarea(attrs={'rows':5}),
+            'situacion_actual':forms.Textarea(attrs={'rows':5}),
+            'situacion_deseada':forms.Textarea(attrs={'rows':5}),
+
+        }
+
+class CapacitacionForm(forms.ModelForm):
+    class Meta:
+        model = Capacitacion
+
+        fields=[
+            'tema',
+            'tipo',
+            'modalidad',
+            'area',
+            'nivel_organizacion',
+            'numero_participantes',
+            'horario_trabajo',
+            'nivel_educacion',
+            'edad_promedio',
+            'lugar',
+            'ciudad',
+            'fecha_evento',
+            'horario_evento',
+            'observaciones',
+            'acuerdos',
+            'exclusivo_acad',
+        ]
+
+        labels={
+            'tema':'Tema de capacitación sugerido',
+            'tipo':'Tipo de capacitación sugerido',
+            'modalidad':'Modalidad',
+            'area':'Área(s) del evento',
+            'nivel_organizacion':'Nivel organizacional de los participantes',
+            'numero_participantes':'Número de participantes',
+            'horario_trabajo':'Horario normales de trabajo',
+            'nivel_educacion':'Nivel de educación',
+            'edad_promedio':'Edad promedio de los participantes',
+            'lugar':'Lugar para la capacitación',
+            'ciudad':'Ciudad',
+            'fecha_evento':'Fechas estimadas para el evento',
+            'horario_evento':'Horarios estimados para el evento',
+            'observaciones':'Observaciones',
+            'acuerdos':'Acuerdos',
+            'exclusivo_acad':'Para uso exclusivo del área acedémica',
+        }
+        widgets={
+            'observaciones':forms.Textarea(attrs={'rows':5}),
+            'acuerdos':forms.Textarea(attrs={'rows':5}),
+            'exclusivo_acad':forms.Textarea(attrs={'rows':5}),
+
+        }
+
+class AsesoriaForm(forms.ModelForm):
+    class Meta:
+        model=Asesoria
+
+        fields = [
+            'tipo',
+            'descripcion',
+            'alcance',
+            'con_sin_imple',
+            'fecha_inicio',
+            'fecha_fin',
+            'proveedor',
+            'entregables',
+            'observaciones',
+            'acuerdos',
+            'exclusivo_acad',
+        ]
+
+        labels={
+            
+            'tipo':'Tipo de servicio',
+            'descripcion':'Descripción',
+            'alcance':'Alcance',
+            'con_sin_imple':'Con/Sin Implementación',
+            'fecha_inicio':'Fecha de inicio',
+            'fecha_fin':'Fecha de fin',
+            'proveedor':'Proveedor de la información',
+            'entregables':'Entregables',
+            'observaciones':'Observaciones',
+            'acuerdos':'Acuerdos',
+            'exclusivo_acad':'Para uso exclusivo del área acedémica',
+        }
+        widgets={
+            'observaciones':forms.Textarea(attrs={'rows':5}),
+            'acuerdos':forms.Textarea(attrs={'rows':5}),
+            'exclusivo_acad':forms.Textarea(attrs={'rows':5}),
+
+        }

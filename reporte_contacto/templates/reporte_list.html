@@ -1,0 +1,34 @@
+{% extends "base_ventas.html" %}
+
+{% block content %}
+<h2>Reporte de Contacto</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>N</td>
+            <td>Empresa</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for reporte in object_list %}
+        <tr>
+            <td>{{reporte.id}}</td>
+            <td>{{reporte.empresa}}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'reporte_editar' reporte.id%}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.id%}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay datos</h1>
+        {% endif %}
+
+    </tbody>
+</table>
+<a href="{% url 'reporte_nuevo' %}">Agregar nuevo</a>
+  
+{% endblock content %}

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "personas_juridicas.apps.PersonasJuridicasConfig",
+    'personas_juridicas.apps.PersonasJuridicasConfig',
+    'reporte_contacto.apps.ReporteContactoConfig',
     'crispy_forms',
     "fontawesome_5",
     "bootstrap4",
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'educacion_continua2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +82,11 @@ WSGI_APPLICATION = 'educacion_continua2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'edu_continuadb',
         'USER': 'postgres',
-        'PASSWORD': 'educontinua',
-        'HOST': '127.0.0.1',
+        'PASSWORD': '1810',#'educontinua',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ec'
 
 TIME_ZONE = 'America/Guayaquil'
 

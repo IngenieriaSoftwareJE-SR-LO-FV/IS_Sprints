@@ -1,3 +1,4 @@
+{% extends 'base_ventas.html' %}
 {% block content %}
 <a href="{% url 'juridicas_view' %}">Agregar persona juridica</a><br>
 <form method="get" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
