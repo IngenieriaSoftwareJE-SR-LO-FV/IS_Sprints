@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'personas_juridicas.apps.PersonasJuridicasConfig',
     'reporte_contacto.apps.ReporteContactoConfig',
+    'personas_naturales.apps.PersonasNaturalesConfig',
     'crispy_forms',
     "fontawesome_5",
     "bootstrap4",
@@ -85,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'edu_continuadb',
         'USER': 'postgres',
-        'PASSWORD': '1810',#'educontinua',
+        'PASSWORD': 'educontinua',
         'HOST': 'localhost',
         'PORT': '5432',
     }
