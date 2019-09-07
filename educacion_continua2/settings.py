@@ -85,8 +85,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'edu_continuadb',
-        'USER': 'postgres',
-        'PASSWORD': 'educontinua',
+        'USER': 'usuario_educontinua',
+        'PASSWORD': 'usuario_educontinua',
         'HOST': 'localhost',
         'PORT': '5432',
     }
