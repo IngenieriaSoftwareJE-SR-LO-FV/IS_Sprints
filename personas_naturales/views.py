@@ -16,7 +16,9 @@ def natural_nuevo(request):
 	if(request.method == "POST"):
 		form = forms.Natural_NuevoForm(request.POST)
 		if(form.is_valid()):
-			form.save()
+			print(form.save())
+		else:
+			print("HY")
 		return redirect("index")
 	else:
 		form = forms.Natural_NuevoForm()
