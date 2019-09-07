@@ -1,0 +1,62 @@
+header{
+	display: inline-block;
+}
+
+div#menu h3{
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+p#username{
+	align-self: center;
+}
+
+button#salir{
+	height: 40px;
+	width: 25%;
+	border-color: #A4A4A4;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+	align-self: center;
+	border-radius: 5px;
+}
+
+div#menu a{
+	display: block; /*para que se muestren uno debajo de otro*/
+	padding: 12px;
+	color: #000000;
+	text-decoration: none;
+	text-align: center;
+}
+
+div#menu a:hover{
+	background-color: #D8D8D8
+}
+
+div#extras div{
+	height: 5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-width: 2px;
+	/*border-style: solid;
+	border-color: #A4A4A4;
+	border-width: 2px;*/
+}
+
+div>i{
+	padding-right: 1%;
+}
+
+a#plus{
+	background-color: #A4A4A4;
+	align-items: right;
+	color: #FFFFFF;
+	padding-left: 3%;
+}

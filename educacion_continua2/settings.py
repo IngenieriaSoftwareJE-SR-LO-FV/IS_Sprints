@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'personas_juridicas.apps.PersonasJuridicasConfig',
     'reporte_contacto.apps.ReporteContactoConfig',
+    'personas_naturales.apps.PersonasNaturalesConfig',
     'crispy_forms',
     "fontawesome_5",
     "bootstrap4",

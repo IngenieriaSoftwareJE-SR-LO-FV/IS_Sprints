@@ -1,0 +1,150 @@
+{% extends 'base_ventas.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}{{ "EC - Persona Natural" }}{% endblock title %}
+
+{% block content %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
+	<div class="row" id="title">
+		<h1 class="col-9 col-xl-9">Persona Natural</h1>
+		<a class="col-3 col-xl-3" href="nuevo" id="agregar">Agregar Persona Natural</a>
+	</div>
+
+	<h5 id="consultas">Consultas</h5>
+	<form method="GET">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.cedula.label_tag }}
+        		{{ naturales_filter.form.cedula }}-->
+        		{{ naturales_filter.form.cedula|as_crispy_field }}
+			</div>
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.nombres.label_tag }}
+        		{{ naturales_filter.form.nombres }}-->
+        		{{ naturales_filter.form.nombres|as_crispy_field }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.apellidos.label_tag }}
+        		{{ naturales_filter.form.apellidos }}-->
+        		{{ naturales_filter.form.apellidos|as_crispy_field }}
+			</div>
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.empresa.label_tag }}
+        		{{ naturales_filter.form.empresa }}-->
+        		{{ naturales_filter.form.empresa|as_crispy_field }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.un_tercernivel.label_tag }}
+        		{{ naturales_filter.form.un_tercernivel }}-->
+        		{{ naturales_filter.form.un_tercernivel|as_crispy_field }}
+			</div>
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.cargo.label_tag }}
+        		{{ naturales_filter.form.cargo }}-->
+        		{{ naturales_filter.form.cargo|as_crispy_field }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.profesion.label_tag }}
+        		{{ naturales_filter.form.profesion }}-->
+        		{{ naturales_filter.form.profesion|as_crispy_field }}
+			</div>
+			<div class="col-6 col-xl-6">
+				<!--{{ naturales_filter.form.ci_domicilio.label_tag }}
+        		{{ naturales_filter.form.ci_domicilio }}-->
+        		{{ naturales_filter.form.ci_domicilio|as_crispy_field }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4 col-xl-4">
+				<!--{{ naturales_filter.form.tel_domicilio.label_tag }}
+        		{{ naturales_filter.form.tel_domicilio }}-->
+        		{{ naturales_filter.form.tel_domicilio|as_crispy_field }}
+			</div>
+			<div class="col-4 col-xl-4">
+				<!--{{ naturales_filter.form.celular.label_tag }}
+        		{{ naturales_filter.form.celular }}-->
+        		{{ naturales_filter.form.celular|as_crispy_field }}
+			</div>
+			<div class="col-4 col-xl-4">
+				<!--{{ naturales_filter.form.email.label_tag }}
+        		{{ naturales_filter.form.email }}-->
+        		{{ naturales_filter.form.email|as_crispy_field }}
+			</div>
+		</div>
+        <div id="contenedor_boton"><button id="buscar" type="submit"><i class="fas fa-search"></i> Buscar</button></div>
+    </form>
+
+	<div id="tabla" class="table-container">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Cédula</th>
+					<th>Apellidos</th>
+					<th>Nombres</th>
+					<th>Fecha de Nacimiento</th>
+					<th>Telefono</th>
+					<th>Celular</t>
+					<th>Email</th>
+					<th>Ciudad</th>
+					<th>Dirección</th>
+					<th>Nivel de Estudio</th>
+					<th>Titulo Tercer Nivel</th>
+					<th>Universidad Tercer Nivel</th>
+					<th>Titulo Cuarto Nivel</th>
+					<th>Universidad Cuarto Nivel</th>
+					<th>Profesión</th>
+					<th>Trabajo</th>
+					<th>Empresa</th>
+					<th>Cargo</th>
+					<th>Ciudad Trabajo</th>
+					<th>Area/Departamento</th>
+					<th>Dirección Trabajo</th>
+					<th>Teléfono Trabajo</th>
+					<th>Red Social</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if naturales_filter %}
+				{% for persona in naturales_filter.qs %}
+				<tr>
+					<td>{{ persona.cedula }}</td>
+					<td>{{ persona.apellidos }}</td>
+					<td>{{ persona.nombres }}</td>
+					<td>{{ persona.fecha_nacimiento }}</td>
+					<td>{{ persona.tel_domicilio }}</td>
+					<td>{{ persona.celular }}</td>
+					<td>{{ persona.email }}</td>
+					<td>{{ persona.ci_domicilio }}</td>
+					<td>{{ persona.dir_domicilio }}</td>
+					<td>{{ persona.nivel_estudio }}</td>
+					<td>{{ persona.ti_tercernivel }}</td>
+					<td>{{ persona.un_tercernivel }}</td>
+					<td>{{ persona.ti_cuartonivel }}</td>
+					<td>{{ persona.un_cuartonivel }}</td>
+					<td>{{ persona.profesion }}</td>
+					<td>{{ persona.forma_trabajo }}</td>
+					<td>{{ persona.empresa }}</td>
+					<td>{{ persona.cargo }}</td>
+					<td>{{ persona.ci_trabajo }}</td>
+					<td>{{ persona.area }}</td>
+					<td>{{ persona.dir_trabajo }}</td>
+					<td>{{ persona.tel_trabajo }}</td>
+					<td>{{ persona.red_social }}</td>
+				</tr>
+				{% endfor%}
+				{% else %}
+					<h2>No hay Registros</h2>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+	
+{% endblock %}
