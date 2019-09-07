@@ -1,8 +1,10 @@
 {% extends "base_ventas.html" %}
 
 {% block content %}
-<h2>Reporte de Contacto</h2>
-
+<div class="row my-3">
+<h2 class="col-12">Reporte de Contacto</h2>
+</div>
+<div class="row">
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -18,7 +20,7 @@
             <td>{{reporte.id}}</td>
             <td>{{reporte.empresa}}</td>
             <td>
-                <a class="btn btn-primary" href="{% url 'reporte_editar' reporte.id%}">Editar</a>
+                <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte.id%}">Editar</a>
                 <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.id%}">Eliminar</a>
             </td>
         </tr>
@@ -29,6 +31,6 @@
 
     </tbody>
 </table>
-<a href="{% url 'reporte_nuevo' %}">Agregar nuevo</a>
-  
+<a class="btn btn-secondary" href="{% url 'reporte_nuevo' %}">Agregar nuevo</a>
+</div>
 {% endblock content %}

@@ -5,7 +5,7 @@
 {% block content %}
   <form method="post" novalidate>
     {% csrf_token %}
-    <h3>Agregar nuevo reporte de contacto</h3>
+    <h3>Reporte de contacto</h3>
     <div class="form-row">
       <div class="form-group col-6 mb-0">
         {{ form.empresa|as_crispy_field }}
@@ -53,60 +53,72 @@
         {{ form.servicios_requeridos|as_crispy_field }}
       </div>
     </div>
-    <h4>Capacitacion</h4>
+    <h3>Capacitacion</h3>
     <div class="form-row">
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.tema|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.tipo|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.modalidad|as_crispy_field }}
       </div>
       
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.area|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.nivel_organizacion|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
         {{ form2.numero_participantes|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.horario_trabajo|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.nivel_educacion|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.edad_promedio|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.lugar|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.ciudad|as_crispy_field }}
       </div>
 
-      <div class="form-group col-6 col-md-3 mb-0">
+      <div class="form-group col-6 col-md-4 mb-0">
           {{ form2.fecha_evento|as_crispy_field }}
       </div>
-
-      <div class="form-group col-6 col-md-3 mb-0">
-          {{ form2.horario_evento|as_crispy_field }}
+    </div>
+    <div class="form-row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <label class="col-form-label py-0">Horario estimado del evento</label>
+          </div>
+          <div class="form-group col-6 col-md-4 mb-0">
+            {{ form2.horario_evento_inicio|as_crispy_field }}
+          </div>
+          <div class="form-group col-6 col-md-4 mb-0">
+            {{ form2.horario_evento_fin|as_crispy_field }}
+          </div>
+        </div>
       </div>
-
+    </div>
+    <div class="form-row">
       <div class="form-group col-12 mb-0">
           {{ form2.observaciones|as_crispy_field }}
       </div>
@@ -120,7 +132,43 @@
       </div>
         
     </div>
-    
+    <h3>Asesoría</h3>
+    <div class="form-row">
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.tipo|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.descripcion|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.alcance|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.con_sin_imple|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.fecha_inicio|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.fecha_fin|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.proveedor|as_crispy_field }}
+        </div>
+        <div class="form-group col-6 col-md-4 mb-0">
+          {{ form3.entregables|as_crispy_field }}
+        </div>
+        <div class="form-group col-12 mb-0">
+            {{ form3.observaciones|as_crispy_field }}
+        </div>
+        <div class="form-group col-12 mb-0">
+            {{ form3.acuerdos|as_crispy_field }}
+        </div>
+        <div class="form-group col-12 mb-0">
+            {{ form3.exclusivo_acad|as_crispy_field }}
+        </div>
+    </div>
     <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'index' %}"> Cancelar </a>
   </form>
 {% endblock content %}
