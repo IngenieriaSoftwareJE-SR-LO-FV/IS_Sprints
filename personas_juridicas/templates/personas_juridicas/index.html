@@ -1,0 +1,178 @@
+{% block content %}
+<a href="{% url 'juridicas_view' %}">Agregar persona juridica</a><br>
+<form method="get" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
+	{% csrf_token %}
+	<h1>Información empresa</h1>
+	<div class="row">
+	    {{ filter.form.nombre.errors }}
+	    {{ filter.form.nombre.label_tag }}
+	    {{ filter.form.nombre }}
+
+	    {{ filter.form.ruc.errors }}
+	    {{ filter.form.ruc.label_tag }}
+	    {{ filter.form.ruc }}
+	</div>
+	<div class="row">
+	    {{ filter.form.tipo_empresa.errors }}
+	    {{ filter.form.tipo_empresa.label_tag }}
+	    {{ filter.form.tipo_empresa }}
+
+	    {{ filter.form.sector.errors }}
+	    {{ filter.form.sector.label_tag }}
+	    {{ filter.form.sector }}
+	</div>
+	<div class="row">
+	    {{ filter.form.direccion.errors }}
+	    {{ filter.form.direccion.label_tag }}
+	    {{ filter.form.direccion }}
+
+	    {{ filter.form.ciudad.errors }}
+	    {{ filter.form.ciudad.label_tag }}
+	    {{ filter.form.ciudad }}
+	</div>
+	<div class="row">
+	    {{ filter.form.provincia.errors }}
+	    {{ filter.form.provincia.label_tag }}
+	    {{ filter.form.provincia }}
+
+	    {{ filter.form.telefono.errors }}
+	    {{ filter.form.telefono.label_tag }}
+	    {{ filter.form.telefono }}
+
+	    {{ filter.form.celular.errors }}
+	    {{ filter.form.celular.label_tag }}
+	    {{ filter.form.celular }}
+	</div>
+	<div class="row">
+	    {{ filter.form.correo.errors }}
+	    {{ filter.form.correo.label_tag }}
+	    {{ filter.form.correo }}
+
+	    {{ filter.form.representante.errors }}
+	    {{ filter.form.representante.label_tag }}
+	    {{ filter.form.representante }}
+	</div>
+	<div class="row">
+	    {{ filter.form.maximo_facturas.errors }}
+	    {{ filter.form.maximo_facturas.label_tag }}
+	    {{ filter.form.maximo_facturas }}
+
+	    {{ filter.form.forma_pago.errors }}
+	    {{ filter.form.forma_pago.label_tag }}
+	    {{ filter.form.forma_pago }}
+	</div>
+	<h1>Contacto empresa</h1>
+
+	<div class="row">
+	    {{ filter.form.contacto_cedula.errors }}
+	    {{ filter.form.contacto_cedula.label_tag }}
+	    {{ filter.form.contacto_cedula }}
+	</div>
+	<div class="row">
+	    {{ filter.form.contacto_nombres.errors }}
+	    {{ filter.form.contacto_nombres.label_tag }}
+	    {{ filter.form.contacto_nombres }}
+	</div>
+	<div class="row">
+	    {{ filter.form.contacto_apellidos.errors }}
+	    {{ filter.form.contacto_apellidos.label_tag }}
+	    {{ filter.form.contacto_apellidos }}
+	</div>
+	<div class="row">
+	    {{ filter.form.contacto_cargo.errors }}
+	    {{ filter.form.contacto_cargo.label_tag }}
+	    {{ filter.form.contacto_cargo }}
+
+	    {{ filter.form.contacto_correo.errors }}
+	    {{ filter.form.contacto_correo.label_tag }}
+	    {{ filter.form.contacto_correo }}
+	</div>
+	<div class="row">
+	    {{ filter.form.contacto_telefono.errors }}
+	    {{ filter.form.contacto_telefono.label_tag }}
+	    {{ filter.form.contacto_telefono }}
+
+	    {{ filter.form.contacto_celular.errors }}
+	    {{ filter.form.contacto_celular.label_tag }}
+	    {{ filter.form.contacto_celular }}
+	</div>
+
+	<div class="row">
+		<a href="{% url 'index' %}">Cancelar</a>
+		<button type="submit">Buscar</button>
+	</div>
+	
+</form>
+ 
+{% if juridicas %}
+
+    {# Each "contact" is a Contact model object. #}
+    <table>
+  <tr>
+    <th>N</th>
+    <th>RUC</th> 
+    <th>Ciudad</th>
+    <th>Provincia</th>
+    <th>Tipo</th>
+    <th>Sector</th>
+    <th>Forma de pago</th>
+    <th>Teléfono</th>
+    <th>Celular</th>
+    <th>Representante legal</th>
+  </tr>
+  {% for j in juridicas %}
+  <tr>
+  	 <td>{{j.id}}</td> 
+    <td>{{j.ruc}}</td> 
+    <td>{{j.ciudad}}</td>
+    <td>{{j.provincia}}</td>
+    <td>{{j.tipo_empresa}}</td>
+    <td>{{j.sector}}</td>
+    <td>{{j.forma_pago}}</td>
+    <td>{{j.telefono}}</td>
+    <td>{{j.celular}}</td>
+    <td>{{j.representante}}</td>
+  </tr>
+{% endfor %}
+
+
+{% else %}
+<h2>No hay elementos que mostrar</h2>
+{% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if juridicas.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ juridicas.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ juridicas.number }} of {{ juridicas.paginator.num_pages }}.
+        </span>
+
+        {% if juridicas.has_next %}
+            <a href="?page={{ juridicas.next_page_number }}">next</a>
+            <a href="?page={{ juridicas.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    $("#id_provincia").change(function () {
+      var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
+      var countryId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'provincia': countryId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+{% endblock %}

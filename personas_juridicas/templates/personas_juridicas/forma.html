@@ -1,0 +1,131 @@
+{% extends 'base_ventas.html' %}
+
+
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
+	{% csrf_token %}
+	<h1>Información empresa</h1>
+	<div class="row">
+		<div class="col-8 col-xl-8">
+		    {{ form.nombre |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.ruc|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-8 col-xl-8">
+
+		    {{ form.tipo_empresa|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		    {{ form.sector|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-xl-12">
+
+	    {{ form.direccion |as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-3 col-xl-3">
+	    {{ form.provincia|as_crispy_field}}
+	</div>
+	<div class="col-3 col-xl-3">
+	    {{ form.ciudad|as_crispy_field}}
+	</div>
+	<div class="col-3 col-xl-3">
+	    {{ form.telefono|as_crispy_field}}
+	</div>
+	<div class="col-3 col-xl-3">
+	    {{ form.celular|as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-xl-6">
+
+	    {{ form.correo |as_crispy_field}}
+		</div>
+		<div class="col-6 col-xl-6">
+	    {{ form.representante |as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-xl-6">
+
+	    {{ form.maximo_facturas |as_crispy_field}}
+	</div>
+	<div class="col-6 col-xl-6">
+	    {{ form.forma_pago |as_crispy_field}}
+	</div>
+	</div>
+	<h1>Contacto empresa</h1>
+
+	<div class="row">
+		<div class="col-12 col-xl-12">
+	    {{ form.contacto_cedula|as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-xl-12">
+
+	    {{ form.contacto_nombres |as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-xl-12">
+
+	    {{ form.contacto_apellidos|as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-xl-6">
+	    {{ form.contacto_cargo |as_crispy_field}}
+	</div>
+		<div class="col-6 col-xl-6">
+
+	    {{ form.contacto_correo |as_crispy_field}}
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-xl-6">
+
+	    {{ form.contacto_telefono|as_crispy_field}}
+		</div>
+		<div class="col-6 col-xl-6">
+
+	    {{ form.contacto_celular|as_crispy_field}}
+	</div>
+	</div>
+
+	<div class="row">
+		<a href="{% url 'index' %}">Cancelar</a>
+		<button type="submit" class="btn btn-success">Guardar </button>
+	</div>
+	
+</form>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    $("#id_provincia").change(function () {
+      var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
+      var countryId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'provincia': countryId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+{% endblock %}
