@@ -6,7 +6,7 @@ class ReporteContacto(models.Model):
 	canal_de_contacto=models.CharField(max_length=100)
 	motivo_de_contacto=models.CharField(max_length=500)
 	lugar=models.CharField(max_length=100)
-	fecha=models.DateField()
+	fecha=models.CharField(max_length=12)
 	hora_inicio=models.TimeField()
 	hora_fin=models.TimeField()
 	nombre_contacto=models.CharField(max_length=100)
@@ -22,6 +22,8 @@ class ReporteContacto(models.Model):
 		return '{}'.format(self.empresa)
 
 class Capacitacion(models.Model):
+	CIUDADES_CHOICES = [("Alamor","Alamor"),("Alausí","Alausí"),("Amaluza","Amaluza"),("Ambato","Ambato"),("Arajuno","Arajuno"),("Archidona","Archidona"),("Arenillas","Arenillas"),("Atacames","Atacames"),("Atuntaquí","Atuntaquí"),("Azogues","Azogues"),("Baba","Baba"),("Babahoyo","Babahoyo"),("Baeza","Baeza"),("Bahía de Caráquez","Bahía de Caráquez"),("Balao","Balao"),("Balsas","Balsas"),("Balzar","Balzar"),("Baños de Agua Santa","Baños de Agua Santa"),("Biblián","Biblián"),("Bolívar","Bolívar"),("Bucay","Bucay"),("Buena Fe","Buena Fe"),("Cajabamba","Cajabamba"),("Calceta","Calceta"),("Caluma","Caluma"),("Camilo Ponce Enríquez","Camilo Ponce Enríquez"),("Cariamanga","Cariamanga"),("Carlos Julio Arosemena Tola","Carlos Julio Arosemena Tola"),("Catacocha","Catacocha"),("Catamayo","Catamayo"),("Catarama","Catarama"),("Cayambe","Cayambe"),("Cañar","Cañar"),("Celica","Celica"),("Cevallos","Cevallos"),("Chaguarpamba","Chaguarpamba"),("Chambo","Chambo"),("Chilla","Chilla"),("Chillanes","Chillanes"),("Chimbo","Chimbo"),("Chone","Chone"),("Chordeleg","Chordeleg"),("Chunchi","Chunchi"),("Cnel. Marcelino Maridueña","Cnel. Marcelino Maridueña"),("Colimes","Colimes"),("Cotacachi","Cotacachi"),("Cuenca","Cuenca"),("Cumandá","Cumandá"),("Daule","Daule"),("Durán","Durán"),("Déleg","Déleg"),("Echendía","Echendía"),("El Carmen","El Carmen"),("El Chaco","El Chaco"),("El Corazón","El Corazón"),("El Dorado de Cascales","El Dorado de Cascales"),("El Guabo","El Guabo"),("El Pan","El Pan"),("El Pangui","El Pangui"),("El Tambo","El Tambo"),("El Triunfo","El Triunfo"),("El Ángel","El Ángel"),("Esmeraldas","Esmeraldas"),("Flavio Alfaro","Flavio Alfaro"),("Girón","Girón"),("Gonzanamá","Gonzanamá"),("Guachapala","Guachapala"),("Gualaceo","Gualaceo"),("Gualaquiza","Gualaquiza"),("Guamote","Guamote"),("Guano","Guano"),("Guaranda","Guaranda"),("Guayaquil","Guayaquil"),("Guayzimi","Guayzimi"),("Huaca","Huaca"),("Huamboya","Huamboya"),("Huaquillas","Huaquillas"),("Ibarra","Ibarra"),("Ididrio Ayora","Ididrio Ayora"),("Jama","Jama"),("Jaramijó","Jaramijó"),("Jipijapa","Jipijapa"),("Jujan","Jujan"),("Junín","Junín"),("La Bonita","La Bonita"),("La Concordia","La Concordia"),("La Joya de los Sachas","La Joya de los Sachas"),("La Libertad","La Libertad"),("La Maná","La Maná"),("La Troncal","La Troncal"),("La Victoria","La Victoria"),("Las Naves","Las Naves"),("Latacunga","Latacunga"),("Limones","Limones"),("Limón","Limón"),("Logroño","Logroño"),("Loja","Loja"),("Lomaas de Sargentillo","Lomaas de Sargentillo"),("Loreto","Loreto"),("Lumbaqui","Lumbaqui"),("Macará","Macará"),("Macas","Macas"),("Machachi","Machachi"),("Machala","Machala"),("Manta","Manta"),("Marcabelí","Marcabelí"),("Mera","Mera"),("Milagro","Milagro"),("Mira","Mira"),("Mocache","Mocache"),("Mocha","Mocha"),("Montalvo","Montalvo"),("Montecristi","Montecristi"),("Muisne","Muisne"),("Nabón","Nabón"),("Naranjal","Naranjal"),("Naranjito","Naranjito"),("Nobol","Nobol"),("Nueva Loja","Nueva Loja"),("Nuevo Rocafuerte","Nuevo Rocafuerte"),("Olmedo","Olmedo"),("Olmedo","Olmedo"),("Otavalo","Otavalo"),("Oña","Oña"),("Pablo Sexto","Pablo Sexto"),("Paccha","Paccha"),("Paján","Paján"),("Palanda","Palanda"),("Palenque","Palenque"),("Palestina","Palestina"),("Pallatanga","Pallatanga"),("Palora","Palora"),("Paquisha","Paquisha"),("Pasaje","Pasaje"),("Patate","Patate"),("Paute","Paute"),("Pedernales","Pedernales"),("Pedro Carbo","Pedro Carbo"),("Pedro Vicendo Maldonado","Pedro Vicendo Maldonado"),("Pelileo","Pelileo"),("Penipe","Penipe"),("Pichincha","Pichincha"),("Pimampiro","Pimampiro"),("Pindal","Pindal"),("Piñas","Piñas"),("Playas","Playas"),("Portovelo","Portovelo"),("Portoviejo","Portoviejo"),("Pucará","Pucará"),("Puebloviejo","Puebloviejo"),("Puerto Ayora","Puerto Ayora"),("Puerto Bauerizo Moreno","Puerto Bauerizo Moreno"),("Puerto Francisco de Orellana","Puerto Francisco de Orellana"),("Puerto López","Puerto López"),("Puerto Quito","Puerto Quito"),("Puerto Villamil","Puerto Villamil"),("Pujulí","Pujulí"),("Putumayo","Putumayo"),("Puyo","Puyo"),("Píllaro","Píllaro"),("Quero","Quero"),("Quevedo","Quevedo"),("Quinindé","Quinindé"),("Quinsaloma","Quinsaloma"),("Quito","Quito"),("Riobamba","Riobamba"),("Rioverde","Rioverde"),("Rocafuerte","Rocafuerte"),("Salcedo","Salcedo"),("Salinas","Salinas"),("Salitre","Salitre"),("Samborondón","Samborondón"),("Samn Fernando","Samn Fernando"),("San Gabriel","San Gabriel"),("San Juan Bosco","San Juan Bosco"),("San Lorenzo","San Lorenzo"),("San Miguel","San Miguel"),("San Miguel de los Bancos","San Miguel de los Bancos"),("San Vicente","San Vicente"),("Sangolquí","Sangolquí"),("Santa Ana","Santa Ana"),("Santa Clara","Santa Clara"),("Santa Elena","Santa Elena"),("Santa Isabel","Santa Isabel"),("Santa Lucía","Santa Lucía"),("Santa Rosa","Santa Rosa"),("Santiago","Santiago"),("Santiago de Méndez","Santiago de Méndez"),("Santo Domingo","Santo Domingo"),("Saquisilí","Saquisilí"),("Saraguro","Saraguro"),("Sevilla de Oro","Sevilla de Oro"),("Shushufinfi","Shushufinfi"),("Sigchos","Sigchos"),("Simón Bolívar","Simón Bolívar"),("Sorozanga","Sorozanga"),("Sucre","Sucre"),("Sucúa","Sucúa"),("Suscal","Suscal"),("Sígsig","Sígsig"),("Tabacundo","Tabacundo"),("Taisha","Taisha"),("Tarapoa","Tarapoa"),("Tena","Tena"),("Tiputini","Tiputini"),("Tisaleo","Tisaleo"),("Tosagua","Tosagua"),("Tulcán","Tulcán"),("Urcuquí","Urcuquí"),("Valencia","Valencia"),("Velasco Ibarra","Velasco Ibarra"),("Ventanas","Ventanas"),("Vinces","Vinces"),("Yacuambi","Yacuambi"),("Yaguachi","Yaguachi"),("Yantzaza","Yantzaza"),("Zamora","Zamora"),("Zapotillo","Zapotillo"),("Zaruma","Zaruma"),("Zumba","Zumba"),("Zumbi","Zumbi")]
+
 	TIPO_CHOICES=	[
 						('CR','Curso'),
 						('CNF','Conferencia'),
@@ -104,8 +106,8 @@ class Capacitacion(models.Model):
 	edad_promedio=models.CharField(max_length=25,
 									choices=EDAD_PROMEDIO_CHOICES)
 	lugar=models.CharField(max_length=50)
-	ciudad=models.CharField(max_length=25)
-	fecha_evento=models.DateField()
+	ciudad=models.CharField(max_length=25,choices=CIUDADES_CHOICES)
+	fecha_evento=models.CharField(max_length=12)
 	horario_evento_inicio=models.TimeField()
 	horario_evento_fin=models.TimeField()
 	observaciones=models.CharField(max_length=500)
@@ -123,12 +125,14 @@ class Asesoria(models.Model):
 								('SI','Sin implementación'),
 							]
 
-	tipo=models.CharField(max_length=25)
+	tipo_servicio=models.CharField(max_length=25)
 	descripcion=models.CharField(max_length=500)
 	alcance=models.CharField(max_length=250)
-	con_sin_imple=models.CharField(max_length=25)
-	fecha_inicio=models.DateField()
-	fecha_fin=models.DateField()
+	con_sin_imple=models.CharField(max_length=25,
+									choices=IMPLEMENTACION_CHOICES,
+									default='CI')
+	fecha_inicio=models.CharField(max_length=12)
+	fecha_fin=models.CharField(max_length=12)
 	proveedor=models.CharField(max_length=25)
 	entregables=models.CharField(max_length=500)
 	observaciones=models.CharField(max_length=500)
@@ -137,4 +141,4 @@ class Asesoria(models.Model):
 	reporte=models.ForeignKey(ReporteContacto, on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
-		return '{}'.format(self.tipo)
+		return '{}'.format(self.tipo_servicio)

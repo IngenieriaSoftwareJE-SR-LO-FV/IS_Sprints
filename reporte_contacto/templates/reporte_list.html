@@ -1,10 +1,36 @@
 {% extends "base_ventas.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="row my-3">
 <h2 class="col-12">Reporte de Contacto</h2>
 </div>
 <div class="row">
+<div class="col-12">
+    <form action="" method="get">
+        <div class="form-row ">
+            <div class="col-6">
+                {{ filter.form.fecha|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                    {{ filter.form.empresa|as_crispy_field }}
+                </div>
+            <div class="col-6">
+                {{ filter.form.canal_de_contacto|as_crispy_field }}
+            </div>
+            <div class="col-6 align-self-end">
+                <div class="form-group">
+                        <button type="submit" class="btn btn-secondary">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+            
+</div>
+</div>
+
+<div class="row">
+    <div class="col-12">
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -14,8 +40,9 @@
         </tr>
     </thead>
     <tbody>
-        {% if object_list %}
-        {% for reporte in object_list %}
+
+        {% if filter %}
+        {% for reporte in filter.qs %}
         <tr>
             <td>{{reporte.id}}</td>
             <td>{{reporte.empresa}}</td>
@@ -32,5 +59,6 @@
     </tbody>
 </table>
 <a class="btn btn-secondary" href="{% url 'reporte_nuevo' %}">Agregar nuevo</a>
+</div>
 </div>
 {% endblock content %}

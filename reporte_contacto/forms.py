@@ -1,6 +1,5 @@
 from django import forms
 from .models import ReporteContacto, Capacitacion,Asesoria
-from django.forms import formset_factory
 
 
 class ReporteContactoForm(forms.ModelForm):
@@ -109,7 +108,7 @@ class AsesoriaForm(forms.ModelForm):
         model=Asesoria
 
         fields = [
-            'tipo',
+            'tipo_servicio',
             'descripcion',
             'alcance',
             'con_sin_imple',
@@ -124,7 +123,7 @@ class AsesoriaForm(forms.ModelForm):
 
         labels={
             
-            'tipo':'Tipo de servicio',
+            'tipo_servicio':'Tipo de servicio',
             'descripcion':'Descripción',
             'alcance':'Alcance',
             'con_sin_imple':'Con/Sin Implementación',
