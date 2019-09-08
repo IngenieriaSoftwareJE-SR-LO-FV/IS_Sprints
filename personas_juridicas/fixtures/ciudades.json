@@ -1,0 +1,1999 @@
+[
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 1,
+        "fields": {
+            "nombre":"Guayaquil",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 2,
+        "fields": {
+            "nombre":"Durán",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 3,
+        "fields": {
+            "nombre":"Milagro",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 4,
+        "fields": {
+            "nombre":"Daule",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 5,
+        "fields": {
+            "nombre":"Samborondó",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 6,
+        "fields": {
+            "nombre":"Velasco Ibarra",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 7,
+        "fields": {
+            "nombre":"El Triunfo",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 8,
+        "fields": {
+            "nombre":"Playas",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 9,
+        "fields": {
+            "nombre":"Balzar",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 10,
+        "fields": {
+            "nombre":"Naranjito",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 11,
+        "fields": {
+            "nombre":"Naranjal",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 12,
+        "fields": {
+            "nombre":"Pedro Carbo",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 13,
+        "fields": {
+            "nombre":"Yaguachi",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 14,
+        "fields": {
+            "nombre":"Lomas de Sargentillo",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 15,
+        "fields": {
+            "nombre":"Salitre",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 16,
+        "fields": {
+            "nombre":"Balao",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 17,
+        "fields": {
+            "nombre":"Santa Lucía",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 18,
+        "fields": {
+            "nombre":"Palestina",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 19,
+        "fields": {
+            "nombre":"Alfredo Baquerizo Moreno (Jujan)",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 20,
+        "fields": {
+            "nombre":"Nobol",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 21,
+        "fields": {
+            "nombre":"Simón Bolívar",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 22,
+        "fields": {
+            "nombre":"Cnel. Marcelino Maridueña",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 23,
+        "fields": {
+            "nombre":"Colimes",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 24,
+        "fields": {
+            "nombre":"Gral. Antonio Elizalde (Bucay)",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 25,
+        "fields": {
+            "nombre":"Isidro Ayora",
+            "provincia_id":1
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 26,
+        "fields": {
+            "nombre":"Quito",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 27,
+        "fields": {
+            "nombre":"Sangolquí",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 28,
+        "fields": {
+            "nombre":"Cayambe",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 29,
+        "fields": {
+            "nombre":"Machachi",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 30,
+        "fields": {
+            "nombre":"Tabacundo",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 31,
+        "fields": {
+            "nombre":"Pedro Vicente Maldonado",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 32,
+        "fields": {
+            "nombre":"San Miguel de Los Bancos",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 33,
+        "fields": {
+            "nombre":"Puerto Quito",
+            "provincia_id":2
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 34,
+        "fields": {
+            "nombre":"Cuenca",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 35,
+        "fields": {
+            "nombre":"Gualaceo",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 36,
+        "fields": {
+            "nombre":"Paute",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 37,
+        "fields": {
+            "nombre":"Santa Isabel",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 38,
+        "fields": {
+            "nombre":"Camilo Ponce Enríquez",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 39,
+        "fields": {
+            "nombre":"Chordeleg",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 40,
+        "fields": {
+            "nombre":"Girón",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 41,
+        "fields": {
+            "nombre":"Sígsig",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 42,
+        "fields": {
+            "nombre":"San Fernando",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 43,
+        "fields": {
+            "nombre":"Nabón",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 44,
+        "fields": {
+            "nombre":"Guachapala",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 45,
+        "fields": {
+            "nombre":"Pucará",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 46,
+        "fields": {
+            "nombre":"Oña",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 47,
+        "fields": {
+            "nombre":"Sevilla de Oro",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 48,
+        "fields": {
+            "nombre":"El Pan",
+            "provincia_id":3
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 49,
+        "fields": {
+            "nombre":"Santo Domingo",
+            "provincia_id":4
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 50,
+        "fields": {
+            "nombre":"La Concordia",
+            "provincia_id":4
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 51,
+        "fields": {
+            "nombre":"Machala",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 52,
+        "fields": {
+            "nombre":"Pasaje",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 53,
+        "fields": {
+            "nombre":"Santa Rosa",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 54,
+        "fields": {
+            "nombre":"Huaquillas",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 55,
+        "fields": {
+            "nombre":"El Guabo",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 56,
+        "fields": {
+            "nombre":"Arenillas",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 57,
+        "fields": {
+            "nombre":"Piñas",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 58,
+        "fields": {
+            "nombre":"Zaruma",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 59,
+        "fields": {
+            "nombre":"Portovelo",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 60,
+        "fields": {
+            "nombre":"Balsas",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 61,
+        "fields": {
+            "nombre":"Marcabelí",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 62,
+        "fields": {
+            "nombre":"Paccha",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 63,
+        "fields": {
+            "nombre":"La Victoria",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 64,
+        "fields": {
+            "nombre":"Chilla",
+            "provincia_id":5
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 65,
+        "fields": {
+            "nombre":"Manta",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 66,
+        "fields": {
+            "nombre":"Portoviejo",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 67,
+        "fields": {
+            "nombre":"Chone",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 68,
+        "fields": {
+            "nombre":"El Carmen",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 69,
+        "fields": {
+            "nombre":"Montecristi",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 70,
+        "fields": {
+            "nombre":"Jipijapa",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 71,
+        "fields": {
+            "nombre":"Pedernales",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 72,
+        "fields": {
+            "nombre":"Bahía de Caráquez",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 73,
+        "fields": {
+            "nombre":"Calceta",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 74,
+        "fields": {
+            "nombre":"Jaramijó",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 75,
+        "fields": {
+            "nombre":"Tosagua",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 76,
+        "fields": {
+            "nombre":"Puerto López",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 77,
+        "fields": {
+            "nombre":"San Vicente",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 78,
+        "fields": {
+            "nombre":"Santa Ana",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 79,
+        "fields": {
+            "nombre":"Rocafuerte",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 80,
+        "fields": {
+            "nombre":"Pajá",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 81,
+        "fields": {
+            "nombre":"Flavio",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 82,
+        "fields": {
+            "nombre":"Jama",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 83,
+        "fields": {
+            "nombre":"Junín",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 84,
+        "fields": {
+            "nombre":"Pichincha",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 85,
+        "fields": {
+            "nombre":"Sucre",
+            "provincia_id":6
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 86,
+        "fields": {
+            "nombre":"Olmedo",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 87,
+        "fields": {
+            "nombre":"Loja",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 88,
+        "fields": {
+            "nombre":"Catamayo",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 89,
+        "fields": {
+            "nombre":"Cariamanga",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 90,
+        "fields": {
+            "nombre":"Macará",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 91,
+        "fields": {
+            "nombre":"Catacocha",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 92,
+        "fields": {
+            "nombre":"Alamor",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 93,
+        "fields": {
+            "nombre":"Celica",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 94,
+        "fields": {
+            "nombre":"Saraguro",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 95,
+        "fields": {
+            "nombre":"Zapotillo",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 96,
+        "fields": {
+            "nombre":"Pindal",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 97,
+        "fields": {
+            "nombre":"Amaluza",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 98,
+        "fields": {
+            "nombre":"Gonzanamá",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 99,
+        "fields": {
+            "nombre":"Chaguarpamba",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 100,
+        "fields": {
+            "nombre":"Sozoranga",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 101,
+        "fields": {
+            "nombre":"Quilanga",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 102,
+        "fields": {
+            "nombre":"Olmedo",
+            "provincia_id":7
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 103,
+        "fields": {
+            "nombre":"Ambato",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 104,
+        "fields": {
+            "nombre":"Baños de Agua Santa",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 105,
+        "fields": {
+            "nombre":"Pelileo",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 106,
+        "fields": {
+            "nombre":"Píllaro",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 107,
+        "fields": {
+            "nombre":"Quero",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 108,
+        "fields": {
+            "nombre":"Cevallos",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 109,
+        "fields": {
+            "nombre":"Patate",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 110,
+        "fields": {
+            "nombre":"Tisaleo",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 111,
+        "fields": {
+            "nombre":"Mocha",
+            "provincia_id":8
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 112,
+        "fields": {
+            "nombre":"Esmeraldas",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 113,
+        "fields": {
+            "nombre":"Quinindé",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 114,
+        "fields": {
+            "nombre":"San Lorenzo",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 115,
+        "fields": {
+            "nombre":"Atacames",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 116,
+        "fields": {
+            "nombre":"Muisne",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 117,
+        "fields": {
+            "nombre":"Valdez (Limones)",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 118,
+        "fields": {
+            "nombre":"Rioverde",
+            "provincia_id":9
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 119,
+        "fields": {
+            "nombre":"Quevedo",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 120,
+        "fields": {
+            "nombre":"Babahoyo",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 121,
+        "fields": {
+            "nombre":"Buena Fe",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 122,
+        "fields": {
+            "nombre":"Ventanas",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 123,
+        "fields": {
+            "nombre":"Vinces",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 124,
+        "fields": {
+            "nombre":"Valencia",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 125,
+        "fields": {
+            "nombre":"Montalvo",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 126,
+        "fields": {
+            "nombre":"Mocache",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 127,
+        "fields": {
+            "nombre":"Puebloviejo",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 128,
+        "fields": {
+            "nombre":"Palenque",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 129,
+        "fields": {
+            "nombre":"Catarama",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 130,
+        "fields": {
+            "nombre":"Baba",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 131,
+        "fields": {
+            "nombre":"Quinsaloma",
+            "provincia_id":10
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 132,
+        "fields": {
+            "nombre":"Riobamba",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 133,
+        "fields": {
+            "nombre":"Cumandá",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 134,
+        "fields": {
+            "nombre":"Guano",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 135,
+        "fields": {
+            "nombre":"Alausí",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 136,
+        "fields": {
+            "nombre":"Chambo",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 137,
+        "fields": {
+            "nombre":"Chunchi",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 138,
+        "fields": {
+            "nombre":"Pallatanga",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 139,
+        "fields": {
+            "nombre":"Guamote",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 140,
+        "fields": {
+            "nombre":"Villa La Unión (Cajabamba)",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 141,
+        "fields": {
+            "nombre":"Penipe",
+            "provincia_id":11
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 142,
+        "fields": {
+            "nombre":"Ibarra",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 143,
+        "fields": {
+            "nombre":"Otavalo",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 144,
+        "fields": {
+            "nombre":"Atuntaqui",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 145,
+        "fields": {
+            "nombre":"Cotacachi",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 146,
+        "fields": {
+            "nombre":"Pimampiro",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 147,
+        "fields": {
+            "nombre":"Urcuquí",
+            "provincia_id":12
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 148,
+        "fields": {
+            "nombre":"La Libertad",
+            "provincia_id":13
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 149,
+        "fields": {
+            "nombre":"Santa Elena",
+            "provincia_id":13
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 150,
+        "fields": {
+            "nombre":"Salinas",
+            "provincia_id":13
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 151,
+        "fields": {
+            "nombre":"Latacunga",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 152,
+        "fields": {
+            "nombre":"La Maná",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 153,
+        "fields": {
+            "nombre":"Salcedo",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 154,
+        "fields": {
+            "nombre":"Pujilí",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 155,
+        "fields": {
+            "nombre":"Saquisilí",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 156,
+        "fields": {
+            "nombre":"Sigchos",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 157,
+        "fields": {
+            "nombre":"El Corazón",
+            "provincia_id":14
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 158,
+        "fields": {
+            "nombre":"Tulcá",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 159,
+        "fields": {
+            "nombre":"San Gabriel",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 160,
+        "fields": {
+            "nombre":"El Ángel",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 161,
+        "fields": {
+            "nombre":"Huaca",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 162,
+        "fields": {
+            "nombre":"Mira",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 163,
+        "fields": {
+            "nombre":"Bolívar",
+            "provincia_id":15
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 164,
+        "fields": {
+            "nombre":"Nueva Loja",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 165,
+        "fields": {
+            "nombre":"Shushufindi",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 166,
+        "fields": {
+            "nombre":"Puerto El Carmen de Putumayo",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 167,
+        "fields": {
+            "nombre":"El Dorado de Cascales",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 168,
+        "fields": {
+            "nombre":"Lumbaqui",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 169,
+        "fields": {
+            "nombre":"Tarapoa",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 170,
+        "fields": {
+            "nombre":"La Bonita",
+            "provincia_id":16
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 171,
+        "fields": {
+            "nombre":"Puerto Francisco de Orellana",
+            "provincia_id":17
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 172,
+        "fields": {
+            "nombre":"La Joya de los Sachas",
+            "provincia_id":17
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 173,
+        "fields": {
+            "nombre":"Loreto",
+            "provincia_id":17
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 174,
+        "fields": {
+            "nombre":"Nuevo Rocafuerte",
+            "provincia_id":17
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 175,
+        "fields": {
+            "nombre":"Tiputini",
+            "provincia_id":17
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 176,
+        "fields": {
+            "nombre":"La Troncal",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 177,
+        "fields": {
+            "nombre":"Azogues",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 178,
+        "fields": {
+            "nombre":"Cañar",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 179,
+        "fields": {
+            "nombre":"Biblián",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 180,
+        "fields": {
+            "nombre":"El Tambo",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 181,
+        "fields": {
+            "nombre":"Suscal",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 182,
+        "fields": {
+            "nombre":"Déleg",
+            "provincia_id":18
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 183,
+        "fields": {
+            "nombre":"Puyo",
+            "provincia_id":19
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 184,
+        "fields": {
+            "nombre":"Santa Clara",
+            "provincia_id":19
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 185,
+        "fields": {
+            "nombre":"Arajuno",
+            "provincia_id":19
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 186,
+        "fields": {
+            "nombre":"Mera",
+            "provincia_id":19
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 187,
+        "fields": {
+            "nombre":"Guaranda",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 188,
+        "fields": {
+            "nombre":"San Miguel",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 189,
+        "fields": {
+            "nombre":"Caluma",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 190,
+        "fields": {
+            "nombre":"Echendí",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 191,
+        "fields": {
+            "nombre":"Chimbo",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 192,
+        "fields": {
+            "nombre":"Chillanes",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 193,
+        "fields": {
+            "nombre":"Las Naves",
+            "provincia_id":20
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 194,
+        "fields": {
+            "nombre":"Tena",
+            "provincia_id":21
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 195,
+        "fields": {
+            "nombre":"Archidona",
+            "provincia_id":21
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 196,
+        "fields": {
+            "nombre":"El Chaco",
+            "provincia_id":21
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 197,
+        "fields": {
+            "nombre":"Baeza",
+            "provincia_id":21
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 198,
+        "fields": {
+            "nombre":"Carlos Julio Arosemena Tola",
+            "provincia_id":21
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 199,
+        "fields": {
+            "nombre":"Macas",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 200,
+        "fields": {
+            "nombre":"Sucúa",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 201,
+        "fields": {
+            "nombre":"Gualaquiza",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 202,
+        "fields": {
+            "nombre":"Gral. Leonidas Plaza Gutiérrez (Limón)",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 203,
+        "fields": {
+            "nombre":"Palora",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 204,
+        "fields": {
+            "nombre":"Santiago de Méndez",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 205,
+        "fields": {
+            "nombre":"Logroño",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 206,
+        "fields": {
+            "nombre":"San Juan Bosco",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 207,
+        "fields": {
+            "nombre":"Santiago",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 208,
+        "fields": {
+            "nombre":"Taisha",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 209,
+        "fields": {
+            "nombre":"Huamboya",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 210,
+        "fields": {
+            "nombre":"Pablo Sexto",
+            "provincia_id":22
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 211,
+        "fields": {
+            "nombre":"Zamora",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 212,
+        "fields": {
+            "nombre":"Yantzaza",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 213,
+        "fields": {
+            "nombre":"Zumba",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 214,
+        "fields": {
+            "nombre":"El Pangui",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 215,
+        "fields": {
+            "nombre":"Zumbi",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 216,
+        "fields": {
+            "nombre":"Palanda",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 217,
+        "fields": {
+            "nombre":"Guayzimi",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 218,
+        "fields": {
+            "nombre":"Yacuambi",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 219,
+        "fields": {
+            "nombre":"Paquisha",
+            "provincia_id":23
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 220,
+        "fields": {
+            "nombre":"Puerto Ayora",
+            "provincia_id":24
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 221,
+        "fields": {
+            "nombre":"Puerto Baquerizo Moreno",
+            "provincia_id":24
+        }
+    },
+
+    {
+        "model":"personas_juridicas.Ciudad",
+        "pk": 222,
+        "fields": {
+            "nombre":"Puerto Villamil",
+            "provincia_id":24
+        }
+    }
+]

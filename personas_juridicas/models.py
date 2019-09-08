@@ -1,6 +1,18 @@
 from django.db import models
 
-# Create your models here.
+
+class Provincia(models.Model):
+	nombre = models.CharField(max_length=50,verbose_name="Provincia")
+	def __str__(self):
+		return self.nombre
+
+
+class Ciudad(models.Model):
+	provincia=models.ForeignKey(Provincia, on_delete=models.CASCADE)
+	nombre = models.CharField(max_length=50,verbose_name="Ciudad")
+	def __str__(self):
+		return self.nombre
+
 class Juridica(models.Model):
 	nombre = models.CharField(max_length=200)
 	ruc = models.CharField(max_length=13)
@@ -8,7 +20,8 @@ class Juridica(models.Model):
 	sector = models.CharField(max_length=200)
 	direccion = models.CharField(max_length=200)
 	ciudad = models.CharField(max_length=50)
-	provincia = models.CharField(max_length=35)
+	provincia = models.ForeignKey(Provincia, on_delete=models.SET_NULL, null=True)
+	ciudad = models.ForeignKey(Ciudad, on_delete=models.SET_NULL, null=True)
 	telefono = models.CharField(max_length=20)
 	celular = models.CharField(max_length=20)
 	correo = models.CharField(max_length=100)
@@ -27,5 +40,7 @@ class Juridica(models.Model):
 
 	def __str__(self):
 		return self.nombre+" - "+self.ruc
+
+
 
 
