@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 # Create your views here.
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
-from .models import ReporteContacto, Capacitacion
+from .models import ReporteContacto, Capacitacion, Asesoria
 from .forms import ReporteContactoForm, CapacitacionForm, AsesoriaForm
 
 def index(request):
@@ -19,64 +19,178 @@ class ReporteContactoCreate(CreateView):
     model=ReporteContacto
     template_name= 'reporte_form.html'
     form_class=ReporteContactoForm
-    second_form_class=CapacitacionForm
-    success_url='/reporte_contacto'
-
-    def get_context_data(self, **kwargs):
-        context =super(ReporteContactoCreate, self).get_context_data(**kwargs)
-        if 'form' not in context:
-            context['form']=self.form_class(self.request.GET)
-        if 'form2' not in context:
-            context['form2']=self.second_form_class(self.request.GET)
-        return context
+    success_url='/reporte_contacto/editar'
     
     def post(self, request, *args, **kwargs):
         self.object =self.get_object
         form=self.form_class(request.POST)
-        form2=self.second_form_class(request.POST)
-        if form.is_valid() and form2.is_valid():
-            capacitacion=form2.save(commit=False)
-            capacitacion.reporte=form.save()
-            capacitacion.save()
-            return HttpResponseRedirect(self.get_success_url())
+        if form.is_valid():
+            reporte=form.save()
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte.id))
         else:
-            return self.render_to_response(self.get_context_data(form=form, form2=form2))
+            return self.render_to_response(self.get_context_data(form=form))
 
 
 class ReporteContactoUpdate(UpdateView):
     model=ReporteContacto
     second_model=Capacitacion
-    template_name='reporte_form.html'
+    third_model=Asesoria
+    template_name='reporte_update.html'
     form_class=ReporteContactoForm
-    second_form_class=CapacitacionForm
     success_url='/reporte_contacto'
 
     def get_context_data(self, **kwargs):
         context =super(ReporteContactoUpdate, self).get_context_data(**kwargs)
         pk=self.kwargs.get('pk',0)
-        capacitacion=self.second_model.objects.get(id=pk)
-        reporte=self.model.objects.get(id=capacitacion.reporte_id)
-        if 'form' not in context:   
-            context['form']=self.form_class(instance=reporte)
-        if 'form2' not in context:
-            context['form2']=self.second_form_class(instance=capacitacion)
-        context['id']=pk
+        capacitaciones=self.second_model.objects.filter(reporte_id=pk)
+        asesorias=self.third_model.objects.filter(reporte_id=pk)
+        context['capacitaciones']=capacitaciones
+        context['asesorias']=asesorias
+        context['reporte_id']=pk
         return context
-    def post(self, request, *args, **kwargs):
-        self.object =self.get_object
-        id_capacitacion=kwargs['pk']
-        capacitacion=self.second_model.objects.get(id=id_capacitacion)
-        reporte =self.model.objects.get(id=capacitacion.reporte_id)
-        form=self.form_class(request.POST, instance=reporte)
-        form2=self.second_form_class(request.POST, instance=capacitacion)
-        if form.is_valid() and form2.is_valid():
-            form.save()
-            form2.save()
-            return HttpResponseRedirect(self.get_success_url())
-        else:
-            return HttpResponseRedirect(self.get_success_url())
 
 class ReporteContactoDelete(DeleteView):
     model=ReporteContacto
     template_name='reporte_delete.html'
     success_url='/reporte_contacto'
+
+class CapacitacionCreate(CreateView):
+    model=Capacitacion
+    form_class=CapacitacionForm
+    template_name='capacitacion_form.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(CapacitacionCreate,self).get_context_data(**kwargs)
+        pk=self.kwargs.get('pk',0)
+        context['reporte_id']=pk
+        return context
+
+    def post(self, request,*args,**kwargs):
+        self.object =self.get_object
+        form=self.form_class(request.POST)
+        if form.is_valid():
+            reporte_id=kwargs['pk']
+            c=form.save(commit=False)
+            c.reporte_id=reporte_id
+            c.save()
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
+
+
+class CapacitacionUpdate(UpdateView):
+    model=Capacitacion
+    form_class=CapacitacionForm
+    template_name='capacitacion_form.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(CapacitacionUpdate,self).get_context_data(**kwargs)
+        fk=self.kwargs.get('fk',0)
+        context['reporte_id']=fk
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object=self.get_object
+        reporte_id=kwargs['fk']
+        pk=kwargs['pk']
+        capacitacion=self.model.objects.get(id=pk)
+        form=self.form_class(request.POST, instance=capacitacion)
+        if form.is_valid():
+            c=form.save(commit=False)
+            c.reporte_id=reporte_id
+            c.save()
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
+
+
+class CapacitacionDelete(DeleteView):
+    model=Capacitacion
+    form_class=CapacitacionForm
+    template_name='capacitacion_delete.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(CapacitacionDelete,self).get_context_data(**kwargs)
+        fk=self.kwargs.get('fk',0)
+        context['reporte_id']=fk
+        return context
+
+    def post(self, request, *args, **kwargs):
+        reporte_id=kwargs['fk']
+        self.object=self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))
+
+
+class AsesoriaCreate(CreateView):
+    model=Asesoria
+    form_class=AsesoriaForm
+    template_name='asesoria_form.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(AsesoriaCreate,self).get_context_data(**kwargs)
+        pk=self.kwargs.get('pk',0)
+        context['reporte_id']=pk
+        return context
+
+    def post(self, request,*args,**kwargs):
+        self.object =self.get_object
+        form=self.form_class(request.POST)
+        if form.is_valid():
+            reporte_id=kwargs['pk']
+            a=form.save(commit=False)
+            a.reporte_id=reporte_id
+            a.save()
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
+
+class AsesoriaUpdate(UpdateView):
+    model=Asesoria
+    form_class=AsesoriaForm
+    template_name='asesoria_form.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(AsesoriaUpdate,self).get_context_data(**kwargs)
+        fk=self.kwargs.get('fk',0)
+        context['reporte_id']=fk
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object=self.get_object
+        reporte_id=kwargs['fk']
+        pk=kwargs['pk']
+        asesoria=self.model.objects.get(id=pk)
+        form=self.form_class(request.POST, instance=asesoria)
+        if form.is_valid():
+            a=form.save(commit=False)
+            a.reporte_id=reporte_id
+            a.save()
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
+
+
+
+class AsesoriaDelete(DeleteView):
+    model=Asesoria
+    form_class=AsesoriaForm
+    template_name='asesoria_delete.html'
+    success_url='/reporte_contacto/editar'
+
+    def get_context_data(self, **kwargs):
+        context=super(AsesoriaDelete,self).get_context_data(**kwargs)
+        fk=self.kwargs.get('fk',0)
+        context['reporte_id']=fk
+        return context
+
+    def post(self, request, *args, **kwargs):
+        reporte_id=kwargs['fk']
+        self.object=self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte_id))

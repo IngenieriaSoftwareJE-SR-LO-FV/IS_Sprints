@@ -1,0 +1,91 @@
+{% extends 'base_ventas.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" novalidate>
+        {% csrf_token %}
+<h3>Capacitacion</h3>
+    <div class="form-row">
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.tema|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.tipo|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.modalidad|as_crispy_field }}
+      </div>
+      
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.area|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.nivel_organizacion|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+        {{ form.numero_participantes|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.horario_trabajo|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.nivel_educacion|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.edad_promedio|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.lugar|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.ciudad|as_crispy_field }}
+      </div>
+
+      <div class=" col-6 col-md-4 mb-0">
+          {{ form.fecha_evento|as_crispy_field }}
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <label class="col-form-label py-0">Horario estimado del evento</label>
+          </div>
+          <div class=" col-6 col-md-4 mb-0">
+            {{ form.horario_evento_inicio|as_crispy_field }}
+          </div>
+          <div class=" col-6 col-md-4 mb-0">
+            {{ form.horario_evento_fin|as_crispy_field }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class=" col-12 mb-0">
+          {{ form.observaciones|as_crispy_field }}
+      </div>
+
+      <div class=" col-12 mb-0">
+          {{ form.acuerdos|as_crispy_field }}
+      </div>
+
+      <div class=" col-12 mb-0">
+          {{ form.exclusivo_acad|as_crispy_field }}
+      </div>
+        
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte_id%}"> Cancelar </a>
+  </form>
+
+{% endblock content %}

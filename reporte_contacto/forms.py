@@ -1,6 +1,5 @@
 from django import forms
 from .models import ReporteContacto, Capacitacion,Asesoria
-from django.forms import formset_factory
 
 
 class ReporteContactoForm(forms.ModelForm):
@@ -43,10 +42,13 @@ class ReporteContactoForm(forms.ModelForm):
             'servicios_requeridos': 'Servicios requeridos',
         }
         widgets={
-            'motivo_de_contacto':forms.Textarea(attrs={'rows':5}),
-            'situacion_actual':forms.Textarea(attrs={'rows':5}),
-            'situacion_deseada':forms.Textarea(attrs={'rows':5}),
-
+            'acuerdos':forms.Textarea(attrs={'rows':2}),
+            'motivo_de_contacto':forms.Textarea(attrs={'rows':2}),
+            'situacion_actual':forms.Textarea(attrs={'rows':2}),
+            'situacion_deseada':forms.Textarea(attrs={'rows':2}),
+            'fecha':forms.DateInput(attrs={'type':'date'}),
+            'hora_inicio':forms.TimeInput(attrs={'type':'time'}),
+            'hora_fin':forms.TimeInput(attrs={'type':'time'})
         }
 
 class CapacitacionForm(forms.ModelForm):
@@ -66,7 +68,8 @@ class CapacitacionForm(forms.ModelForm):
             'lugar',
             'ciudad',
             'fecha_evento',
-            'horario_evento',
+            'horario_evento_inicio',
+            'horario_evento_fin',
             'observaciones',
             'acuerdos',
             'exclusivo_acad',
@@ -85,16 +88,19 @@ class CapacitacionForm(forms.ModelForm):
             'lugar':'Lugar para la capacitación',
             'ciudad':'Ciudad',
             'fecha_evento':'Fechas estimadas para el evento',
-            'horario_evento':'Horarios estimados para el evento',
+            'horario_evento_inicio':'Hora de inicio',
+            'horario_evento_fin':'Hora de fin',
             'observaciones':'Observaciones',
             'acuerdos':'Acuerdos',
             'exclusivo_acad':'Para uso exclusivo del área acedémica',
         }
         widgets={
-            'observaciones':forms.Textarea(attrs={'rows':5}),
-            'acuerdos':forms.Textarea(attrs={'rows':5}),
-            'exclusivo_acad':forms.Textarea(attrs={'rows':5}),
-
+            'observaciones':forms.Textarea(attrs={'rows':2}),
+            'acuerdos':forms.Textarea(attrs={'rows':2}),
+            'exclusivo_acad':forms.Textarea(attrs={'rows':2}),
+            'fecha_evento':forms.DateInput(attrs={'type':'date'}),
+            'horario_evento_inicio':forms.TimeInput(attrs={'type':'time'}),
+            'horario_evento_fin':forms.TimeInput(attrs={'type':'time'})
         }
 
 class AsesoriaForm(forms.ModelForm):
@@ -102,7 +108,7 @@ class AsesoriaForm(forms.ModelForm):
         model=Asesoria
 
         fields = [
-            'tipo',
+            'tipo_servicio',
             'descripcion',
             'alcance',
             'con_sin_imple',
@@ -117,7 +123,7 @@ class AsesoriaForm(forms.ModelForm):
 
         labels={
             
-            'tipo':'Tipo de servicio',
+            'tipo_servicio':'Tipo de servicio',
             'descripcion':'Descripción',
             'alcance':'Alcance',
             'con_sin_imple':'Con/Sin Implementación',
@@ -130,8 +136,10 @@ class AsesoriaForm(forms.ModelForm):
             'exclusivo_acad':'Para uso exclusivo del área acedémica',
         }
         widgets={
-            'observaciones':forms.Textarea(attrs={'rows':5}),
-            'acuerdos':forms.Textarea(attrs={'rows':5}),
-            'exclusivo_acad':forms.Textarea(attrs={'rows':5}),
+            'observaciones':forms.Textarea(attrs={'rows':2}),
+            'acuerdos':forms.Textarea(attrs={'rows':2}),
+            'exclusivo_acad':forms.Textarea(attrs={'rows':2}),
+            'fecha_inicio':forms.DateInput(attrs={'type':'date'}),
+            'fecha_fin':forms.DateInput(attrs={'type':'date'}),
 
         }

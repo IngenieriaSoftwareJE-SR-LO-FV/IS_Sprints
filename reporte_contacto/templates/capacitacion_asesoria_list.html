@@ -1,0 +1,122 @@
+{% extends "base_ventas.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+  <h3 class="col-12 mt-4">Capacitaciones</h3>
+  <div class="col-12">
+    <div id="tabla" class="table-container">
+{% if capacitaciones %}
+        <table class="table table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th>Acciones</th>
+              <th>Tema de capacitación sugerido</th>
+              <th>Tipo de capacitación sugerido</th>
+              <th>Modalidad</th>
+              <th>Área(s) del evento</th>
+              <th>Nivel organizacional de los participantes</th>
+              <th>Número de participantes</th>
+              <th>Horario normales de trabajo</th>
+              <th>Nivel de educación</th>
+              <th>Edad promedio de los participantes</th>
+              <th>Lugar para la capacitación</th>
+              <th>Ciudad</th>
+              <th>Fechas estimadas para el evento</th>
+              <th>Hora de inicio</th>
+              <th>Hora de fin</th>
+              <th>Observaciones</th>
+              <th>Acuerdos</th>
+              <th>Para uso exclusivo del área acedémica</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in capacitaciones %}
+            <tr>
+                <td>
+                    <a class="btn btn-secondary" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i class="fas fa-trash"></i></a>
+                </td>
+                <td>{{ c.tema }}</td>
+                <td>{{ c.get_tipo_display }}</td>
+                <td>{{ c.get_modalidad_display }}</td>
+                <td>{{ c.get_area_display }}</td>
+                <td>{{ c.get_nivel_organizacion_display }}</td>
+                <td>{{ c.numero_participantes }}</td>
+                <td>{{ c.horario_trabajo }}</td>
+                <td>{{ c.get_nivel_educacion_display }}</td>
+                <td>{{ c.get_edad_promedio_display }}</td>
+                <td>{{ c.lugar }}</td>
+                <td>{{ c.get_ciudad_display }}</td>
+                <td>{{ c.fecha_evento }}</td>
+                <td>{{ c.horario_evento_inicio }}</td>
+                <td>{{ c.horario_evento_fin }}</td>
+                <td>{{ c.observaciones }}</td>
+                <td>{{ c.acuerdos }}</td>
+                <td>{{ c.exclusivo_acad }}</td>
+            </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+        {% endif %}
+        <a class="btn btn-secondary" href="{% url 'capacitacion_nuevo' reporte_id%}">Agregar capacitación</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h3 class="col-12 mt-4">Asesorias/Otros</h3>
+  <div class="col-12">
+    <div id="tabla" class="table-container">
+    {% if asesorias %}
+        <table class="table table-bordered table-responsive">
+          <thead>
+            <tr>
+              <th>Acciones</th>
+              <th>Tipo de servicio</th>
+              <th>Descripción</th>
+              <th>Alcance</th>
+              <th>Con/Sin Implementación</th>
+              <th>Fecha de inicio</th>
+              <th>Fecha de fin</th>
+              <th>Proveedor de la información</th>
+              <th>Entregables</th>
+              <th>Observaciones</th>
+              <th>Acuerdos</th>
+              <th>Para uso exclusivo del área acedémica</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for a in asesorias %}
+            <tr>
+                <td>
+                    <a class="btn btn-secondary" href="{% url 'asesoria_editar' a.id reporte_id%}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger" href="{% url 'asesoria_eliminar' a.id reporte_id%}"><i class="fas fa-trash"></i></a>
+                </td>
+                <td>{{ a.tipo_servicio }}</td>
+                <td>{{ a.descripcion }}</td>
+                <td>{{ a.alcance }}</td>
+                <td>{{ a.get_con_sin_imple_display }}</td>
+                <td>{{ a.fecha_inicio }}</td>
+                <td>{{ a.fecha_fin }}</td>
+                <td>{{ a.proveedor }}</td>
+                <td>{{ a.entregables }}</td>
+                <td>{{ a.observaciones }}</td>
+                <td>{{ a.acuerdos }}</td>
+                <td>{{ a.exclusivo_acad }}</td>
+            </tr>
+            {% endfor%}
+          </tbody>
+          
+        </table>
+        {% endif %}
+        <a class="btn btn-secondary" href="{% url 'asesoria_nuevo' reporte_id%}">Agregar asesoría</a>
+  </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+  </div>
+</div>
+{% endblock content %}
