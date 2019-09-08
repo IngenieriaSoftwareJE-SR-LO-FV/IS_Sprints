@@ -1,12 +1,13 @@
-{% extends 'base_ventas.html' %}
 
+{% extends 'base_ventas.html' %}
 
 {% load crispy_forms_tags %}
 
 
 
 {% block content %}
-
+<div class="row">
+<div class="col-12 col-xl-12">
 <form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
 	{% csrf_token %}
 	<h1>Información empresa</h1>
@@ -68,18 +69,16 @@
 	<h1>Contacto empresa</h1>
 
 	<div class="row">
-		<div class="col-12 col-xl-12">
+		<div class="col-2 col-xl-2">
 	    {{ form.contacto_cedula|as_crispy_field}}
 	</div>
-	</div>
-	<div class="row">
-		<div class="col-12 col-xl-12">
+
+		<div class="col-5 col-xl-5">
 
 	    {{ form.contacto_nombres |as_crispy_field}}
 	</div>
-	</div>
-	<div class="row">
-		<div class="col-12 col-xl-12">
+
+		<div class="col-5 col-xl-5">
 
 	    {{ form.contacto_apellidos|as_crispy_field}}
 	</div>
@@ -105,21 +104,27 @@
 	</div>
 
 	<div class="row">
-		<a href="{% url 'index' %}">Cancelar</a>
-		<button type="submit" class="btn btn-success">Guardar </button>
+		<div class="col-12 col-xl-12">
+			<button type="submit" class="btn-lg btn-primary float-right">Guardar </button>
+			<a href="{% url 'index_juridicas' %} "class="btn-lg btn-outline-dark float-right mr-3">Cancelar</a>
+		
+	</div>
+
 	</div>
 	
 </form>
+</div>
+</div>
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script>
     $("#id_provincia").change(function () {
       var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
-      var countryId = $(this).val();  // get the selected country ID from the HTML input
+      var provinciaId = $(this).val();  // get the selected country ID from the HTML input
 
       $.ajax({                       // initialize an AJAX request
         url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
         data: {
-          'provincia': countryId       // add the country id to the GET parameters
+          'provincia': provinciaId       // add the country id to the GET parameters
         },
         success: function (data) {   // `data` is the return of the `load_cities` view function
           $("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server

@@ -59,31 +59,8 @@ class JuridicaForm(forms.ModelForm):
 				"tipo_empresa":forms.TextInput(attrs={"class":"form-control"}),
 				"sector":forms.TextInput(attrs={"class":"form-control"}),
 				"direccion":forms.TextInput(attrs={"class":"form-control"}),
-				"ciudad":forms.Select(choices = [(None,"---------")],attrs={"class":"form-control"}),
-				"provincia":forms.Select(choices=[("Guayas","Guayas"),
-				("Pichincha","Pichincha"),
-				("Azuay","Azuay"),
-				("Santo Domingo de los Tsáchilas","Santo Domingo de los Tsáchilas"),
-				("El Oro","El Oro"),
-				("Manabí","Manabí"),
-				("Loja","Loja"),
-				("Tungurahua","Tungurahua"),
-				("Esmeraldas","Esmeraldas"),
-				("Los Ríos","Los Ríos"),
-				("Chimborazo","Chimborazo"),
-				("Imbabura","Imbabura"),
-				("Santa Elena","Santa Elena"),
-				("Cotopaxi","Cotopaxi"),
-				("Carchi","Carchi"),
-				("Sucumbíos","Sucumbíos"),
-				("Orellana","Orellana"),
-				("Cañar","Cañar"),
-				("Pastaza","Pastaza"),
-				("Bolívar","Bolívar"),
-				("Napo","Napo"),
-				("Morona Santiago","Morona Santiago"),
-				("Zamora Chinchipe","Zamora Chinchipe"),
-				("Galápagos","Galápagos")],attrs={"class":"form-control"}),
+				"ciudad":forms.Select(attrs={"class":"form-control"}),
+				"provincia":forms.Select(attrs={"class":"form-control"}),
 				"telefono":forms.TextInput(attrs={"class":"form-control","type":"tel"}),
 				"celular":forms.TextInput(attrs={"class":"form-control","type":"tel"}),
 				"correo":forms.EmailInput(attrs={"class":"form-control"}),
@@ -102,8 +79,16 @@ class JuridicaForm(forms.ModelForm):
 		}
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
+		self.fields['ciudad'].queryset = models.Ciudad.objects.none()
 		#self.fields['ciudad'].choices = [("None","Select_")]
-		self.fields['ciudad'].empty_label = "None"
+		if 'provincia' in self.data:
+			try:
+				provincia_id = int(self.data.get('provincia'))
+				self.fields['ciudad'].queryset = models.Ciudad.objects.filter(provincia_id=provincia_id).order_by('nombre')
+			except (ValueError, TypeError):
+				pass  # invalid input from the client; ignore and fallback to empty City queryset
+		elif self.instance.pk:
+			self.fields['ciudad'].queryset = self.instance.provincia.city_set.order_by('nombre')
 class JuridicaFilter(django_filters.FilterSet):
 	class Meta:
 		model = models.Juridica
@@ -117,6 +102,7 @@ class JuridicaFilter(django_filters.FilterSet):
 					"provincia",
 					"telefono",
 					"celular",
+					"correo",
 					"forma_pago",
 					"contacto_cedula",
 					"contacto_nombres",
@@ -138,7 +124,6 @@ class JuridicaFilter(django_filters.FilterSet):
 					"telefono": "Teléfono",
 					"celular": "Celular",
 					"correo": "Correo electrónico",
-					"representante": "Representante legal",
 					"maximo_facturas": "Fecha máxima de recepción de facturas",
 					"forma_pago": "Forma usual de pago",
 					"contacto_cedula": "Cédula",
@@ -155,35 +140,11 @@ class JuridicaFilter(django_filters.FilterSet):
 				"tipo_empresa":forms.TextInput(attrs={"class":"form-control"}),
 				"sector":forms.TextInput(attrs={"class":"form-control"}),
 				"direccion":forms.TextInput(attrs={"class":"form-control"}),
-				"ciudad":forms.Select(choices = [(None,"---------")],attrs={"class":"form-control"}),
-				"provincia":forms.Select(choices=[("Guayas","Guayas"),
-				("Pichincha","Pichincha"),
-				("Azuay","Azuay"),
-				("Santo Domingo de los Tsáchilas","Santo Domingo de los Tsáchilas"),
-				("El Oro","El Oro"),
-				("Manabí","Manabí"),
-				("Loja","Loja"),
-				("Tungurahua","Tungurahua"),
-				("Esmeraldas","Esmeraldas"),
-				("Los Ríos","Los Ríos"),
-				("Chimborazo","Chimborazo"),
-				("Imbabura","Imbabura"),
-				("Santa Elena","Santa Elena"),
-				("Cotopaxi","Cotopaxi"),
-				("Carchi","Carchi"),
-				("Sucumbíos","Sucumbíos"),
-				("Orellana","Orellana"),
-				("Cañar","Cañar"),
-				("Pastaza","Pastaza"),
-				("Bolívar","Bolívar"),
-				("Napo","Napo"),
-				("Morona Santiago","Morona Santiago"),
-				("Zamora Chinchipe","Zamora Chinchipe"),
-				("Galápagos","Galápagos")],attrs={"class":"form-control"}),
+				"ciudad":forms.Select(attrs={"class":"form-control"}),
+				"provincia":forms.Select(attrs={"class":"form-control"}),
 				"telefono":forms.TextInput(attrs={"class":"form-control","type":"tel"}),
 				"celular":forms.TextInput(attrs={"class":"form-control","type":"tel"}),
 				"correo":forms.EmailInput(attrs={"class":"form-control"}),
-				"representante":forms.TextInput(attrs={"class":"form-control"}),
 				"maximo_facturas":forms.DateInput(attrs={"class":"form-control","type":"date"}),
 				"forma_pago":forms.TextInput(attrs={"class":"form-control"}),
 				"contacto_cedula":forms.TextInput(attrs={"class":"form-control"}),
@@ -198,4 +159,5 @@ class JuridicaFilter(django_filters.FilterSet):
 		}
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
+		self.form.fields['ciudad'].queryset = models.Ciudad.objects.none()
 

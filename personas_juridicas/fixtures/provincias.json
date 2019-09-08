@@ -1,0 +1,193 @@
+[
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 1,
+    "fields": {
+      "nombre":"Guayas"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 2,
+    "fields": {
+      "nombre":"Pichincha"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 3,
+    "fields": {
+      "nombre":"Azuay"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 4,
+    "fields": {
+      "nombre":"Santo Domingo de los Tsáchilas"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 5,
+    "fields": {
+      "nombre":"El Oro"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 6,
+    "fields": {
+      "nombre":"Manabí"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 7,
+    "fields": {
+      "nombre":"Loja"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 8,
+    "fields": {
+      "nombre":"Tungurahua"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 9,
+    "fields": {
+      "nombre":"Esmeraldas"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 10,
+    "fields": {
+      "nombre":"Los Ríos"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 11,
+    "fields": {
+      "nombre":"Chimborazo"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 12,
+    "fields": {
+      "nombre":"Imbabura"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 13,
+    "fields": {
+      "nombre":"Santa Elena"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 14,
+    "fields": {
+      "nombre":"Cotopaxi"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 15,
+    "fields": {
+      "nombre":"Carchi"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 16,
+    "fields": {
+      "nombre":"Sucumbíos"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 17,
+    "fields": {
+      "nombre":"Orellana"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 18,
+    "fields": {
+      "nombre":"Cañar"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 19,
+    "fields": {
+      "nombre":"Pastaza"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 20,
+    "fields": {
+      "nombre":"Bolívar"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 21,
+    "fields": {
+      "nombre":"Napo"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 22,
+    "fields": {
+      "nombre":"Morona Santiago"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 23,
+    "fields": {
+      "nombre":"Zamora Chinchipe"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Provincia",
+    "pk": 24,
+    "fields": {
+      "nombre":"Galápagos"
+    }
+  }
+]

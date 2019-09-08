@@ -1,22 +1,30 @@
+{% load static %}
 {% load fontawesome_5 %}
 {% load bootstrap4 %}
-{% load static %}
 
-<DOCTYPE!>
+<!doctype "html5">
+
+
 <html>
 	<head>
+		
 		<meta charset="utf-8">
 		<title>
 			{% block title %}{{ page_title|default:"Educación Continua" }}{% endblock title %}
    		</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		
+
+
 		{% bootstrap_css %}
 		{% fontawesome_5_static %}
+		
 	</head>
 
 	<body>
 		<div class="container-fluid">
+			<div class ="row">
 		<header class="col-12 col-xl-12">
 			<div class="row">
 				<a class="col-xl-8 col-8" href="#">
@@ -26,7 +34,7 @@
 				<button id="salir" class="col-2 col-xl-2">Salir</button>
 			</div>
 		</header>
-
+			</div>
 		<div class="row">
 			<div class="col-3 col-xl-3">
 				<div id="menu">
@@ -59,8 +67,9 @@
 				{% endblock %}
 			</div>
 		</div>
-	</div>
 		<footer class="col-12 col-xl-12">salu2 jeje</footer>
+	</div>
+		
 		{% bootstrap_javascript jquery='full' %}
 	</body>
 </html>

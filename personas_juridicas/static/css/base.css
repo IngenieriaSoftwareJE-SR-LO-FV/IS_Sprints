@@ -2,14 +2,14 @@ header{
 	display: inline-block;
 }
 
-div#menu{
-	border-bottom: 10px #000000;
-}
-
 div#menu h3{
 	background-color: #A4A4A4;
 	color: #FFFFFF;
 	text-align: center;
+}
+
+p#username{
+	align-self: center;
 }
 
 button#salir{
@@ -40,13 +40,23 @@ div#extras div{
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
 	border-style: solid;
-	border-color: #A4A4A4;
+	border-color: #FFFFFF;
 	border-width: 2px;
+	/*border-style: solid;
+	border-color: #A4A4A4;
+	border-width: 2px;*/
+}
+
+div>i{
+	padding-right: 1%;
 }
 
 a#plus{
-	background-color: #FFFFFF;
+	background-color: #A4A4A4;
 	align-items: right;
-	color: #A4A4A4;
+	color: #FFFFFF;
+	padding-left: 3%;
 }
