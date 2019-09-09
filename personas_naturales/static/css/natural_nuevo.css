@@ -1,17 +1,6 @@
-div#campo{
-	background-color: #A4A4A4;
-	text-align: left;
-}
 
-h5#campo{
-	color: #FFFFFF;
-	margin-left: 1%;
-}
 
-.asteriskField{
-	color: red;
-	font-weight: bolder;
-}
+
 
 div#guardar{
 	display: flex;

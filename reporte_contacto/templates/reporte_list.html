@@ -16,7 +16,7 @@
             <a class="btn btn-secondary float-right" href="{% url 'reporte_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
     </div>
 </div>
-<h5 id="consultas">Consultas</h5>
+<div class="campo"><h5 class="campo">Consultas</h5></div>
 <div class="row">
 <div class="col-12">
     <form action="" method="get">
@@ -49,18 +49,18 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <td>N</td>
-            <td>Empresa</td>
-            <td>Acciones</td>
+            <th scope="col">N</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
 
         {% for reporte in filter.qs %}
         <tr>
-            <td>{{reporte.id}}</td>
-            <td>{{reporte.empresa}}</td>
-            <td>
+            <td scope="row">{{reporte.id}}</td>
+            <td scope="row">{{reporte.empresa}}</td>
+            <td scope="row">
                 <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte.id%}"><i class="fas fa-edit"></i></a>
                 <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.id%}"><i class="fas fa-trash"></i></a>
             </td>

@@ -27,57 +27,165 @@
 	<body>
 		<div class="container-fluid">
 			<div class ="row">
-		<header class="col-12 col-xl-12">
-			<div class="row">
-				<a class="col-xl-3 col-3" href="#">
-					<img class ="col-xl-12 col-12 img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
-				</a>
-				<div class="col-xl-5 col-5">
-				</div>
-				<p id="username" class="col-2 col-xl-2">user@mail.com</p>
-				<div class="col-2 col-xl-2">
-				<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
-			</div>
-			</div>
-		</header>
+				<header class="col-12 col-xl-12">
+					<div class="row">
+						<a class="col-xl-3 col-3" href="#">
+							<img class ="col-xl-12 col-12 img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
+						</a>
+						<div class="col-xl-5 col-5">
+						</div>
+						<p id="username" class="col-2 col-xl-2">user@mail.com</p>
+						<div class="col-2 col-xl-2">
+						<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
+					</div>
+					</div>
+				</header>
 			</div>
 		<div class="row">
 			<div class="col-3 col-xl-3">
-				<div class="row">
-					<div id="menu" class="col-12 col-xl-12">
-						<h3>Menú</h3>
-						<a href="{% url 'index' %}">Persona Natural</a>
-						<a href="{% url 'index_juridicas' %}">Persona Jurídica</a>
-						<a href=#>Consultas/Reportes</a>
-						<a href=#>Informe Ventas</a>
+				<div id="menu" class="row">
+					<div class="col-12">
+						<div id="titulo" class="row">
+							<h3>Menú</h3>
+						</div>
 					</div>
 				</div>
 				<div class="row">
-				<div id="extras" class="col-12 col-xl-12">
-					<div>
-						<i class="fas fa-map"></i>  Reporte de contacto <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div>
-						<i class="fas fa-file-contract"></i>  Propuestas <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div>
-						<i class="fas fa-map-marked-alt"></i>  Seguimientos <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div>
-						<i class="fas fa-file-contract"></i>  Proformas <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
-					</div>
-					<div>
-						<i class="fas fa-globe"></i>  Leads <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
+					<div class="col-12">
+						<a class="menu" href="{% url 'index' %}">
+							<div class="row">
+								<div class="col-12">
+										<span> Persona Natural</span>
+								</div>
+							</div>	
+						</a>
 					</div>
 				</div>
-			</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="menu" href="{% url 'index_juridicas' %}">
+							<div class="row">
+								<div class="col-12">
+										<span> Persona Jurídica</span>
+								</div>
+							</div>	
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="menu" href="#">
+							<div class="row">
+								<div class="col-12">
+										<span>Consultas/Reportes</span>
+								</div>
+							</div>	
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="menu" href="#">
+							<div class="row">
+								<div class="col-12">
+										<span> Informe Ventas</span>
+								</div>
+							</div>	
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-xl-12">
+						<a class='mlat' href="{% url 'reporte_contacto' %}">
+							<div class="row">
+								<div class="col-2">
+									<i class="fas fa-map"></i>
+								</div>
+								<div class="col-8">
+									<span> Reporte de contacto </span>
+								</div>
+								<div class="col-2">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-xl-12">
+						<a class="mlat" href="{% url 'propuesta_corporativa' %}">
+							<div class="row">
+								<div class="col-2">
+									<i class="fas fa-file-contract"></i>
+								</div>
+								<div class="col-8">
+									Propuestas
+								</div>
+								<div class="col-2">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="mlat" href="#">
+							<div class="row">
+								<div class="col-2">
+									<i class="fas fa-map-marked-alt"></i>
+								</div>
+								<div class="col-8">
+									Seguimientos
+								</div>
+								<div class="col-2">
+								   <i class="fas fa-angle-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="mlat" href="#">
+							<div class="row">
+								<div class="col-2">
+									<i class="fas fa-file-contract"></i>
+								</div>
+								<div class="col-8">
+									Proformas
+								</div>
+								<div class="col-2">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<a class="mlat" href="#">
+							<div class="row">
+								<div class="col-2">
+									<i class="fas fa-globe"></i>
+								</div>
+								<div class="col-8">
+									Leads
+								</div>
+								<div class="col-2">
+									<i class="fas fa-angle-right"></i>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
 			</div>
 			<div class="col-9 col-xl-9">
 				<div class="row">
 					<div class="col-12 col-xl-12">
-				{% block content %}
-				{% endblock %}
-			</div>
+						{% block content %}
+						{% endblock %}
+					</div>
 				</div>
 			</div>
 		</div>

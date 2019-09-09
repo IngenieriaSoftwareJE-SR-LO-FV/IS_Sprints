@@ -23,7 +23,7 @@
         {{ form.motivo_de_contacto|as_crispy_field }}
       </div>
     </div>
-    <h5>Datos generales del contacto</h5>
+    <div id="campo"><h5 id="campo">Datos generales del contacto</h5></div>
     <div class="form-row">
       <div class=" col-6 mb-0">
         {{ form.lugar|as_crispy_field }}
@@ -53,7 +53,7 @@
         {{ form.asistentes|as_crispy_field }}
       </div>
     </div>
-    <h5>Identificación de las necesidades de capacitación</h5>
+    <div id="campo"><h5 id="campo">Identificación de las necesidades de capacitación</h5></div>
     <div class="form-row">
       <div class=" col-12 mb-0">
         {{ form.situacion_actual|as_crispy_field }}
@@ -77,8 +77,8 @@
       
     <div class="row mt-3">
         <div class="col-12">
-            <button type="submit" class="btn btn-success">Siguiente</button>
-            <a class="btn btn-secondary" href="{% url 'reporte_contacto' %}"> Cancelar </a>
+            <button type="submit" class="btn btn-secondary">Siguiente</button>
+            <a class="btn btn-light" href="{% url 'reporte_contacto' %}"> Cancelar </a>
         </div>
     </div>
     {% endblock tablas %}

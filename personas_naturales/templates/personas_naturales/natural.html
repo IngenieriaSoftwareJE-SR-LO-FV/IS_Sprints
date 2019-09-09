@@ -4,14 +4,22 @@
 
 {% block title %}{{ "EC - Persona Natural" }}{% endblock title %}
 
-{% block content %}
+{% block extraheader %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
+  
+{% endblock extraheader %}
+
+{% block content %}
 <div class="row" id="title">
-	<h1 class="col-9 col-xl-9">Persona Natural</h1>
-	<a class="col-3 col-xl-3" href="nuevo" id="agregar">Agregar Persona Natural</a>
+	<div class="col-9">
+            <h2>Persona Natural</h2>
+    </div>
+    <div class="col-3 ">
+            <a class="btn btn-secondary float-right" href="nuevo"><i class="fas fa-plus"></i> Agregar nuevo</a>
+    </div>
 </div>
-<div class="row">
-	<h5 id="consultas" class="col-12 col-xl-12">Consultas</h5>
+<div class="campo">
+	<h5 class="consultas campo" class="col-12 col-xl-12">Consultas</h5>
 </div>
 <div class="row">
 	<div class = "col-12 col-xl-12">
@@ -83,8 +91,8 @@
 				</div>
 			</div>
 			<div>
-				<button  type="submit" class="btn btn-lg btn-primary float-right">
-					<span class="fas fa-search"></span> Buscar</button>
+				<button  type="submit" class="btn btn-secondary float-right">
+					<i class="fas fa-search"></i> Buscar</button>
 				</div>
 			</form>
 		</div>

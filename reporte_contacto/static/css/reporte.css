@@ -4,3 +4,13 @@ h5#consultas{
 	color: #FFFFFF;
 	text-align: center;
 }
+
+div#campo{
+	background-color: #A4A4A4;
+	text-align: left;
+}
+
+h5#campo{
+	color: #FFFFFF;
+	margin-left: 1%;
+}

@@ -4,21 +4,31 @@
 
 {% block title %}{{ "EC - Persona Natural Nuevo Ingreso" }}{% endblock title %}
 
-{% block content %}
+{% block extraheader %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/natural_nuevo.css' %}">
+{% endblock extraheader %}
+
+{% block content %}
 	<form method="POST">
 		{% csrf_token %}
-		<h2>Registro de persona natural:</h2>
-		<div id="campo"><h5 id="campo">Información básica</h5></div>
-		<!--{{ form.cedula.label_tag}}-->
-		{{ form.cedula|as_crispy_field }} 
-		<!--{{ form.apellidos.label_tag}}-->
-		{{ form.apellidos|as_crispy_field }} 
-		<!--{{ form.nombres.label_tag}}-->
-		{{ form.nombres|as_crispy_field }}
-		<!--{ form.fecha_nacimiento.label_tag }}-->
-		{{ form.fecha_nacimiento|as_crispy_field }}
-		<div id="campo"><h5 id="campo">Datos de contacto</h5></div>
+		<h2>Registro de persona natural</h2>
+		<div class="campo"><h5 class="campo">Información básica</h5></div>
+		<div class="form-row">
+			<div class="col-6">
+				{{ form.cedula|as_crispy_field }} 
+			</div>
+			<div class="col-6">
+				{{ form.apellidos|as_crispy_field }} 
+			</div>
+			<div class="col-6">
+				{{ form.nombres|as_crispy_field }}
+			</div>
+			<div class="col-6">
+				{{ form.fecha_nacimiento|as_crispy_field }}
+			</div>
+		</div>
+		
+		<div class="campo"><h5 class="campo">Datos de contacto</h5></div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.tel_domicilio.label_tag }}-->
@@ -45,7 +55,7 @@
 				{{ form.dir_domicilio|as_crispy_field }}
 			</div>
 		</div>
-		<div id="campo"><h5 id="campo">Datos de Estudio</h5></div>
+		<div class="campo"><h5 class="campo">Datos de Estudio</h5></div>
 		{{ form.nivel_estudio.label_tag }}
 		{% for opc in form.nivel_estudio %}
 			{{ opc }}
@@ -76,14 +86,12 @@
 				{{ form.profesion|as_crispy_field }}
 			</div>
 		</div>
-		<div id="campo"><h5 id="campo">Datos de Trabajo</h5></div>
+		<div class="campo"><h5 class="campo">Datos de Trabajo</h5></div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.forma_trabajo.label_tag }}-->
 				{{ form.forma_trabajo|as_crispy_field }}
 			</div>
-		</div>
-		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.empresa.label_tag }}-->
 				{{ form.empresa|as_crispy_field }}
@@ -92,8 +100,6 @@
 				<!--{{ form.cargo.label_tag }}-->
 				{{ form.cargo|as_crispy_field }}
 			</div>
-		</div>
-		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.ci_trabajo.label_tag }}-->
 				{{ form.ci_trabajo|as_crispy_field }}
@@ -102,8 +108,6 @@
 				<!--{{ form.area.label_tag }}-->
 				{{ form.area|as_crispy_field }}
 			</div>
-		</div>
-		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.dir_trabajo.label_tag }}-->
 				{{ form.dir_trabajo|as_crispy_field }}
@@ -112,13 +116,16 @@
 				<!--{{ form.tel_trabajo.label_tag }}-->
 				{{ form.tel_trabajo|as_crispy_field }}
 			</div>
+			<div class="col-6 col-xl-6">
+				{{ form.red_social|as_crispy_field }}	
+			</div>
 		</div>
 		<!--{{ form.red_social.label_tag }}-->
-		{{ form.red_social|as_crispy_field }}	
-		<div >
-			<button type="submit" class="btn-lg btn-primary float-right">Guardar</button>
-			<a href="{% url 'index' %} "class="btn-lg btn-outline-dark float-right mr-3">Cancelar</a>
-			
+		<div class="row mt-3">
+			<div class="col-12">
+				<button type="submit" class="btn btn-secondary">Guardar</button>
+				<a class="btn btn-light" href="{% url 'index' %}"> Cancelar </a>
+			</div>
 		</div>
 	</form>
 {% endblock %}
