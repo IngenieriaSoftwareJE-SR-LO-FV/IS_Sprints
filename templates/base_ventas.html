@@ -14,7 +14,9 @@
    		</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-		
+		{% block extraheader %}
+		  
+		{% endblock extraheader %}
 
 
 		{% bootstrap_css %}
@@ -71,5 +73,8 @@
 	</div>
 		
 		{% bootstrap_javascript jquery='full' %}
+		{% block extrafooter %}
+		  
+		{% endblock extrafooter %}
 	</body>
 </html>

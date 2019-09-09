@@ -39,7 +39,7 @@
         "model":"personas_juridicas.Ciudad",
         "pk": 5,
         "fields": {
-            "nombre":"Samborondó",
+            "nombre":"Samborondón",
             "provincia_id":1
         }
     },

@@ -1,10 +1,17 @@
 {% extends "base_ventas.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Reporte Contacto" }}{% endblock title %}
+
+{% block extraheader %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/reporte.css' %}">
+{% endblock extraheader %}
 
 {% block content %}
 <div class="row my-3">
 <h2 class="col-12">Reporte de Contacto</h2>
 </div>
+<h5 id="consultas">Consultas</h5>
 <div class="row">
 <div class="col-12">
     <form action="" method="get">
