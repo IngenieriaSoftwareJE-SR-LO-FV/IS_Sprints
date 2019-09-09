@@ -1,0 +1,51 @@
+header{
+	display: inline-block;
+}
+
+p#username{
+	align-self: center;
+}
+
+button#salir{
+	height: 40px;
+	width: 25%;
+	border-color: #A4A4A4;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+	align-self: center;
+	border-radius: 5px;
+}
+
+h4#op_principal{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+	text-align: center;	
+}
+
+h4>i{
+	font-size: large;
+	padding-right: 5px;
+}
+
+a#op_sec{
+	display: block; /*para que se muestren uno debajo de otro*/
+	padding: 12px;
+	color: #000000;
+	text-decoration: none;
+	text-align: center;
+	font-weight: normal;
+}
+
+a#op_sec:hover{
+	background-color: #D8D8D8
+}
+
+a#plus{
+	background-color: #FFFFFF;
+	align-items: right;
+	color: #A4A4A4;
+	padding-left: 3%;
+}
