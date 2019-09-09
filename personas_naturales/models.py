@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-
+from personas_juridicas.models import Ciudad
 # Create your models here.
 
 class Persona_Natural(models.Model):
@@ -16,7 +16,7 @@ class Persona_Natural(models.Model):
 	tel_domicilio = models.CharField(max_length=10, blank=True, null=True, verbose_name="Teléfono Domicilio")
 	celular = models.CharField(max_length=10,blank=True, null=True)
 	email = models.EmailField(max_length=254,blank=True, null=True)
-	ci_domicilio = models.CharField(choices=c, max_length=100, verbose_name="Ciudad Domicilio")
+	ci_domicilio = models.ForeignKey(Ciudad, on_delete=models.SET_NULL,blank=True, null=True,verbose_name="Ciudad Domicilio",related_name='ciudad_domicilio_set')
 	dir_domicilio = models.CharField(max_length=75, verbose_name="Dirección Domicilio")
 	nivel_estudio = models.CharField(choices=estudios, default="Primaria", max_length=50, verbose_name="Nivel de Estudio")
 	ti_tercernivel = models.CharField(max_length=100, blank=True, null=True, verbose_name="Título Tercer Nivel")
@@ -27,7 +27,7 @@ class Persona_Natural(models.Model):
 	forma_trabajo = models.CharField(choices=for_trabajo, blank=True, null=True, max_length=100, verbose_name="Forma de Trabajo")
 	empresa = models.CharField(max_length=75, blank=True, null=True)
 	cargo = models.CharField(max_length=50, blank=True, null=True)
-	ci_trabajo = models.CharField(choices=c, max_length=100, blank=True, null=True, verbose_name="Ciudad Trabajo")
+	ci_trabajo = models.ForeignKey(Ciudad, on_delete=models.SET_NULL,blank=True, null=True,verbose_name="Ciudad Trabajo",related_name='ciudad_trabajo_set')
 	area = models.CharField(max_length=50, blank=True, null=True, verbose_name="Área/Departamento")
 	dir_trabajo = models.CharField(max_length=75, blank=True, null=True, verbose_name="Dirección Trabajo")
 	tel_trabajo = models.CharField(max_length=10, blank=True, null=True, verbose_name="Teléfono Trabajo")
