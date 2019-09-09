@@ -127,8 +127,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% if naturales_filter %}
-					{% for persona in naturales_filter.qs %}
+					{% if naturales %}
+					{% for persona in naturales %}
 					<tr>
 						<td scope="row">{{ persona.cedula }}</td>
 						<td scope="row">{{ persona.apellidos }}</td>
@@ -162,6 +162,47 @@
 			</table>
 		</div>
 		</div>
+	</div>
+<ul class="pagination justify-content-center">
+		{% if naturales.has_previous %}
+		
+		<li class="page-item">
 
+			<a class="page-link" href="?page={{ naturales.previous_page_number }}">Anterior</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="?page={{ naturales.previous_page_number }}">{{ naturales.previous_page_number }}</a>
+		</li>
+
+		{% else %}
+			<li class="page-item disabled">
+			<a class="page-link" tabindex="-1" href="#">Anterior</a>
+		</li>
+		{% endif %}
+
+    
+    <li class="page-item active">
+    	<span class="page-link">
+        {{ naturales.number }}
+        <span class="sr-only">(current)</span>
+      </span>
+    </li>
+
+    {% if naturales.has_next %}
+    <li class="page-item">
+			<a class="page-link" href="?page={{ naturales.next_page_number }}">{{ naturales.next_page_number }}</a>
+		</li>
+    	<li class="page-item">
+			<a class="page-link" href="?page={{ naturales.next_page_number }}">Siguiente</a>
+		</li>
+		
+	
+	{% else %}
+		<li class="page-item disabled">
+			<a class="page-link" tabindex="-1" href="#">Siguiente</a>
+		</li>
+	{% endif %}
+
+  </ul>
 
 		{% endblock %}
