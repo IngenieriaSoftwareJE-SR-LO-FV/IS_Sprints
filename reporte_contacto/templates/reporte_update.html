@@ -1,65 +1,7 @@
-{% extends 'base_ventas.html' %}
+{% extends 'reporte_form.html' %}
 
-{% load crispy_forms_tags %}
 
-{% block content %}
-  <form method="post" novalidate>
-    {% csrf_token %}
-    <h3 class="my-3">Reporte de contacto</h3>
-    <div class="form-row">
-      <div class=" col-6 mb-0">
-        {{ form.empresa|as_crispy_field }}
-      </div>
-      <div class=" col-6 mb-0">
-        {{ form.canal_de_contacto|as_crispy_field }}
-      </div>
-    
-      <div class=" col-12 mb-0">
-        {{ form.motivo_de_contacto|as_crispy_field }}
-      </div>
-    </div>
-    <h5>Datos generales del contacto</h5>
-    <div class="form-row">
-      <div class=" col-6 mb-0">
-        {{ form.lugar|as_crispy_field }}
-      </div>
-      <div class=" col-6 mb-0">
-        {{ form.fecha|as_crispy_field }}
-      </div>
-      <div class=" col-md-3 col-6 mb-0">
-        {{ form.hora_inicio|as_crispy_field }}
-      </div>
-      <div class=" col-md-3 col-6 mb-0">
-        {{ form.hora_fin|as_crispy_field }}
-      </div>
-      <div class=" col-12 col-md-6 mb-0">
-        {{ form.nombre_contacto|as_crispy_field }}
-      </div>
-      <div class=" col-12 col-md-6 mb-0">
-        {{ form.telefono|as_crispy_field }}
-      </div>
-      <div class=" col-12 col-md-6 mb-0">
-        {{ form.cargo|as_crispy_field }}
-      </div>
-      <div class=" col-12 col-md-6 mb-0">
-        {{ form.correo_electronico|as_crispy_field }}
-      </div>
-      <div class=" col-12 col-md-6 mb-0">
-        {{ form.asistentes|as_crispy_field }}
-      </div>
-    </div>
-    <h5>Identificación de las necesidades de capacitación</h5>
-    <div class="form-row">
-      <div class=" col-12 mb-0">
-        {{ form.situacion_actual|as_crispy_field }}
-      </div>
-      <div class=" col-12 mb-0">
-        {{ form.situacion_deseada|as_crispy_field }}
-      </div>
-      <div class=" col-12 mb-0">
-        {{ form.servicios_requeridos|as_crispy_field }}
-      </div>
-    </div>
+{% block tablas %}
     
     <div class="row">
         <h4 class="col-12">Capacitaciones</h4>
@@ -179,5 +121,4 @@
         </div>
     </div>
     
-  </form>
-{% endblock content %}
+{% endblock tablas %}
