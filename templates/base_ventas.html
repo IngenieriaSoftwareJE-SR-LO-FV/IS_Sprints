@@ -28,11 +28,14 @@
 		<header class="col-12 col-xl-12">
 			<div class="row">
 				<a class="col-xl-3 col-3" href="#">
-					<img class ="col-xl-12 col-12 img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
+					<img class ="img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
 				</a>
 				<div class="col-xl-5 col-5">
 				</div>
-				<p id="username" class="col-2 col-xl-2">user@mail.com</p>
+				<div class="col-2 col-xl-2">
+					<p id="username" >user@mail.com</p>
+				</div>
+				
 				<div class="col-2 col-xl-2">
 				<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
 			</div>
@@ -43,7 +46,7 @@
 			<div class="col-3 col-xl-3">
 				<div class="row">
 					<div id="menu" class="col-12 col-xl-12">
-						<h3>Menú</h3>
+						<h3 class="bg-secondary text-white">Menú</h3>
 						<a href="{% url 'index' %}">Persona Natural</a>
 						<a href="{% url 'index_juridicas' %}">Persona Jurídica</a>
 						<a href=#>Consultas/Reportes</a>
@@ -52,19 +55,19 @@
 				</div>
 				<div class="row">
 				<div id="extras" class="col-12 col-xl-12">
-					<div>
+					<div class="bg-secondary text-white">
 						<i class="fas fa-map"></i>  Reporte de contacto <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
 					</div>
-					<div>
+					<div class="bg-secondary text-white">
 						<i class="fas fa-file-contract"></i>  Propuestas <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
 					</div>
-					<div>
+					<div class="bg-secondary text-white">
 						<i class="fas fa-map-marked-alt"></i>  Seguimientos <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
 					</div>
-					<div>
+					<div class="bg-secondary text-white">
 						<i class="fas fa-file-contract"></i>  Proformas <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
 					</div>
-					<div>
+					<div class="bg-secondary text-white">
 						<i class="fas fa-globe"></i>  Leads <a id="plus" href="#"><i class="fas fa-angle-right"></i></a>
 					</div>
 				</div>

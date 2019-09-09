@@ -8,8 +8,16 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/natural_nuevo.css' %}">
 	<form method="POST">
 		{% csrf_token %}
-		<h2>Registro de persona natural:</h2>
-		<div id="campo"><h5 id="campo">Información básica</h5></div>
+		<div class="row">
+		<div class="col-12 col-xl-12">
+			<h2>Registro Persona Natural</h2>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-12 col-xl-12">
+		<h4 class="bg-secondary text-white p-1">Información Básica</h4>
+	</div>
+</div>
 		<!--{{ form.cedula.label_tag}}-->
 		{{ form.cedula|as_crispy_field }} 
 		<!--{{ form.apellidos.label_tag}}-->
@@ -18,7 +26,11 @@
 		{{ form.nombres|as_crispy_field }}
 		<!--{ form.fecha_nacimiento.label_tag }}-->
 		{{ form.fecha_nacimiento|as_crispy_field }}
-		<div id="campo"><h5 id="campo">Datos de contacto</h5></div>
+		<div class="row">
+	<div class="col-12 col-xl-12">
+		<h4 class="bg-secondary text-white p-1">Datos de Contacto</h4>
+	</div>
+</div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.tel_domicilio.label_tag }}-->
@@ -45,7 +57,11 @@
 				{{ form.dir_domicilio|as_crispy_field }}
 			</div>
 		</div>
-		<div id="campo"><h5 id="campo">Datos de Estudio</h5></div>
+		<div class="row">
+	<div class="col-12 col-xl-12">
+		<h4 class="bg-secondary text-white p-1">Datos de Estudio</h4>
+	</div>
+</div>
 		{{ form.nivel_estudio.label_tag }}
 		{% for opc in form.nivel_estudio %}
 			{{ opc }}
@@ -76,7 +92,11 @@
 				{{ form.profesion|as_crispy_field }}
 			</div>
 		</div>
-		<div id="campo"><h5 id="campo">Datos de Trabajo</h5></div>
+		<div class="row">
+	<div class="col-12 col-xl-12">
+		<h4 class="bg-secondary text-white p-1">Datos de Trabajo</h4>
+	</div>
+</div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.forma_trabajo.label_tag }}-->
