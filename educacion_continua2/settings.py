@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'reporte_contacto.apps.ReporteContactoConfig',
     'personas_naturales.apps.PersonasNaturalesConfig',
     'propuesta_corp.apps.PropuestaCorpConfig',
+    'financiero.apps.FinancieroConfig',
     'crispy_forms',
     "fontawesome_5",
     "bootstrap4",
