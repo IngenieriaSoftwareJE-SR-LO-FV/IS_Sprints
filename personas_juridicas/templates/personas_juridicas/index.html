@@ -4,15 +4,21 @@
 {% block title %}{{ "EC - Persona Jurídica" }}{% endblock title %}
 {% block content %}
 <div class="row">
-		<h1 class="col-9 col-xl-9">Persona Jurídica</h1>
-
-		<a href="{% url 'juridicas_view' %}" class=" col-3 col-xl-3 text-center btn btn-secondary float-right">Agregar persona juridica</a><br>
+		<h2 class="col-9 col-xl-9">Persona Jurídica</h2>
+		<div class="col-3 col-xl-3">
+		<a href="{% url 'juridicas_view' %}" class="text-center btn btn-secondary btn-block float-right">Agregar Persona Jurídica</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<h4 class="bg-secondary text-white text-center">Consultas</h4>
+	</div>
 </div>
 <div class="row">
 	<div class="col-12 col-xl-12">
 		<form method="get" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
 			{% csrf_token %}
-			<h2>Información empresa</h2>
+			<h5>Información Empresa</h5>
 			<div class="row">
 				<div class="col-8 col-xl-8">
 					{{ filter.form.nombre|as_crispy_field }}
@@ -57,7 +63,7 @@
 					{{ filter.form.forma_pago|as_crispy_field }}
 				</div>
 			</div>
-			<h2>Contacto empresa</h2>
+			<h5>Contacto empresa</h5>
 
 			<div class="row">
 				<div class="col-4 col-xl-4">
@@ -87,7 +93,8 @@
 			<div class="row">
 				<div class="col-12 col-xl-12">
 					
-					<button type="submit" class="btn-lg btn-primary float-right">Buscar</button>
+					<button type="submit" class="btn-lg btn-primary float-right">
+						<span class="fas fa-search"></span> Buscar</button>
 				</div>
 			</div>
 
@@ -99,10 +106,9 @@
 <div class="row">
 	<div class="col-12 col-xl-12">
 		{# Each "contact" is a Contact model object. #}
-		<table class="table">
+		<table class="table table-bordered">
 			<thead class="thead-light">
 				<tr>
-					<th scope="col">N</th>
 					<th scope="col">RUC</th> 
 					<th scope="col">Ciudad</th>
 					<th scope="col">Provincia</th>
@@ -117,7 +123,6 @@
 			<tbody>
 				{% for j in juridicas %}
 				<tr>
-					<td scope="row">{{j.id}}</td> 
 					<td scope="row">{{j.ruc}}</td> 
 					<td scope="row">{{j.ciudad}}</td>
 					<td scope="row">{{j.provincia}}</td>
