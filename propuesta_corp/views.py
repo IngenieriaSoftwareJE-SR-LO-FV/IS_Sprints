@@ -4,6 +4,7 @@ from django.views.generic import CreateView,UpdateView,DeleteView
 from .models import PropuestaCorporativo
 from .forms import PropuestaCorporativoForm
 from django.urls import reverse_lazy
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 class PropuestaCorporativoCreate(CreateView):
@@ -15,7 +16,7 @@ class PropuestaCorporativoCreate(CreateView):
     def post(self, request,*args, **kwargs):
         self.object=self.get_object
         form=self.form_class(request.POST, request.FILES)
-        if form.is_valid():
+        if form.is_valid(): 
             form.save()
             return HttpResponseRedirect(self.get_success_url())
         else:

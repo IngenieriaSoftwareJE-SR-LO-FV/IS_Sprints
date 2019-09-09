@@ -37,7 +37,6 @@
                     <td>Código propuesta</td>
                     <td>Empresa</td>
                     <td>Estado</td>
-                    <td>Anexo</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -48,7 +47,6 @@
                     <td>{{propuesta.cod_propuesta}}</td>
                     <td>{{propuesta.empresa}}</td>
                     <td>{{propuesta.get_estado_display}}</td>
-                    <td>{{propuesta.anexo}}</td>
                     <td>
                         <a class="btn btn-secondary" href="{% url 'propuesta_editar' propuesta.cod_propuesta%}"><i class="fas fa-edit"></i></a>
                         <a class="btn btn-danger" href="{% url 'propuesta_eliminar' propuesta.cod_propuesta%}"><i class="fas fa-trash"></i></a>

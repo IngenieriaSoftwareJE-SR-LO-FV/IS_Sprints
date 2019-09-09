@@ -36,8 +36,8 @@ class PropuestaCorporativo(models.Model):
     estado=models.CharField(max_length=15,
                             choices=ESTADO_CHOICES,
                             default='SG')
-    empresa=models.ForeignKey(Juridica, on_delete=models.CASCADE)
-    #empresa=models.CharField(max_length=100)
+    #empresa=models.ForeignKey(Juridica, on_delete=models.CASCADE)
+    empresa=models.CharField(max_length=100)
     sector=models.CharField(max_length=25)
     fecha_solicitud=models.CharField(max_length=12)
     numero_participantes=models.PositiveIntegerField()
@@ -55,4 +55,8 @@ class PropuestaCorporativo(models.Model):
     observacion=models.CharField(max_length=250,blank=True,null=True)
     anexo=models.FileField(upload_to='uploads/',blank=True, null=True)
     nombre=models.CharField(max_length=50)
+
+    def delete(self, *arg, **kwargs):
+        self.anexo.delete()
+        super().delete(*arg,**kwargs)
 
