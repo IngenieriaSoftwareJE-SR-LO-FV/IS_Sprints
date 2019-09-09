@@ -1,11 +1,13 @@
 {% extends 'base_ventas.html' %}
 
 {% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Reporte Contacto" }}{% endblock title %}
 
 {% block content %}
   <form method="post" novalidate>
     {% csrf_token %}
-    <h3 class="my-3">Reporte de contacto</h3>
+    <h2>Reporte de contacto</h2>
     <div class="form-row">
       <div class=" col-4 mb-0">
           {{ form.id|as_crispy_field }}
