@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'personas_juridicas.apps.PersonasJuridicasConfig',
     'reporte_contacto.apps.ReporteContactoConfig',
     'personas_naturales.apps.PersonasNaturalesConfig',
+    'propuesta_corp.apps.PropuestaCorpConfig',
     'crispy_forms',
     "fontawesome_5",
     "bootstrap4",
+    'multiselectfield',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -131,6 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
 ]
+
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
+
