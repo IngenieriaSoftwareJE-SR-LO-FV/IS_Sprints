@@ -115,9 +115,10 @@
 		</div>
 		<!--{{ form.red_social.label_tag }}-->
 		{{ form.red_social|as_crispy_field }}	
-		<div id="guardar">
-			<a href="#" id="cancelar">Cancelar</a>
-			<button id="guardar" type="submit" class="save btn btn-default">Guardar</button>
+		<div >
+			<button type="submit" class="btn-lg btn-primary float-right">Guardar</button>
+			<a href="{% url 'index' %} "class="btn-lg btn-outline-dark float-right mr-3">Cancelar</a>
+			
 		</div>
 	</form>
 {% endblock %}

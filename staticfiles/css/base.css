@@ -36,6 +36,7 @@ div#menu a:hover{
 
 div#extras div{
 	height: 5%;
+	padding: 12px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
