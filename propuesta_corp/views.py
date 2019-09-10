@@ -29,6 +29,21 @@ class PropuestaCorporativoUpdate(UpdateView):
     template_name='propuesta_corp_form.html'
     success_url=reverse_lazy('propuesta_corporativa')
 
+    def get_context_data(self, **kwargs):
+        context =super(PropuestaCorporativoUpdate, self).get_context_data(**kwargs)
+        pk=self.kwargs.get('pk',0)
+        l=[]
+        vals=str(self.model.objects.get(cod_propuesta=pk).servicios_incluidos).split(',')
+        print(vals)
+        for s in self.model.SERVICIOS_CHOICES:
+            print(s)
+            if s[1] in vals or ' '+s[1] in vals:
+                print(s[1])
+                l.append(s[0])
+        print(l)
+        context['checked_servicios_incluidos']=l
+        return context
+
 
 class PropuestaCorporativoDelete(DeleteView):
     model=PropuestaCorporativo

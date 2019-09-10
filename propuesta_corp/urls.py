@@ -4,6 +4,7 @@ from . import views
 from .filters import PropuestaCorporativoFilter
 
 
+
 urlpatterns = [
     path('nuevo', views.PropuestaCorporativoCreate.as_view(), name='propuesta_nuevo'),
     path('', FilterView.as_view(filterset_class=PropuestaCorporativoFilter,template_name="propuesta_corp_list.html"), name='propuesta_corporativa'),

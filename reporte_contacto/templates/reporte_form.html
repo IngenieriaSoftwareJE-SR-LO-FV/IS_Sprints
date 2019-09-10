@@ -23,7 +23,7 @@
         {{ form.motivo_de_contacto|as_crispy_field }}
       </div>
     </div>
-    <div id="campo"><h5 id="campo">Datos generales del contacto</h5></div>
+    <div class="campo"><h5 class="campo">Datos generales del contacto</h5></div>
     <div class="form-row">
       <div class=" col-6 mb-0">
         {{ form.lugar|as_crispy_field }}
@@ -53,7 +53,7 @@
         {{ form.asistentes|as_crispy_field }}
       </div>
     </div>
-    <div id="campo"><h5 id="campo">Identificación de las necesidades de capacitación</h5></div>
+    <div class="campo"><h5 class="campo">Identificación de las necesidades de capacitación</h5></div>
     <div class="form-row">
       <div class=" col-12 mb-0">
         {{ form.situacion_actual|as_crispy_field }}
@@ -66,7 +66,7 @@
             <div class="form-group">
                 {% for value, text in form.servicios_requeridos.field.choices %}
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" id="id_servicios_requeridos_{{ forloop.counter0 }}" name="{{ form.servicios_requeridos.name }}" type="checkbox" value="{{ value }}"{% if value in checked_servicios_requeridos %} checked="checked"{% endif %}>
+                <input class="form-check-input" id="id_servicios_requeridos_{{ forloop.counter0 }}" name="{{ form.servicios_requeridos.name }}" type="checkbox" value="{{ value }}" {% if value in checked_servicios_requeridos %} checked {% endif %}>
                 <label class="form-check-label">{{ text }}</label>
                 </div>
                 {% endfor %}

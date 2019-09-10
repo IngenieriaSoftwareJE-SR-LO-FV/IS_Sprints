@@ -36,8 +36,8 @@
           {% for c in capacitaciones %}
           <tr>
               <td>
-                <a class="btn btn-secondary" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i class="fas fa-edit"></i></a>
-                <a class="btn btn-danger" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i class="fas fa-trash"></i></a>
+                <a class="btn btn-secondary btnact" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-danger btnact" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i class="fas fa-trash"></i></a>
               </td>
               <td>{{ c.tema }}</td>
               <td>{{ c.get_tipo_display }}</td>
@@ -65,7 +65,7 @@
         </div>
     </div>
     
-    <div class="row">
+    <div class="row mt-5">
         <h4 class="col-12">Asesorias</h4>
         <div id="tabla" class="table-container col-12">
                 <table class="table table-bordered table-responsive">
@@ -91,8 +91,8 @@
                     {% for a in asesorias %}
                     <tr>
                         <td>
-                            <a class="btn btn-secondary" href="{% url 'asesoria_editar' a.id reporte_id %}"><i class="fas fa-edit"></i></a>
-                            <a class="btn btn-danger" href="{% url 'asesoria_eliminar' a.id reporte_id %}"><i class="fas fa-trash"></i></a>
+                            <a class="btn btn-secondary btnact" href="{% url 'asesoria_editar' a.id reporte_id %}"><i class="fas fa-edit"></i></a>
+                            <a class="btn btn-danger btnact" href="{% url 'asesoria_eliminar' a.id reporte_id %}"><i class="fas fa-trash"></i></a>
                         </td>
                         <td>{{ a.tipo_servicio }}</td>
                         <td>{{ a.descripcion }}</td>
@@ -114,7 +114,7 @@
                 <a class="btn btn-secondary" href="{% url 'asesoria_nuevo' reporte_id%}">Agregar asesoría</a>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="row mt-5">
         <div class="col-12">
             <button type="submit" class="btn btn-secondary">Guardar</button>
             <a class="btn btn-light" href="{% url 'reporte_contacto' %}"> Cancelar </a>

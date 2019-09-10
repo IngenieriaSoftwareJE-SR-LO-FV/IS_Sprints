@@ -36,8 +36,7 @@ class PropuestaCorporativo(models.Model):
     estado=models.CharField(max_length=15,
                             choices=ESTADO_CHOICES,
                             default='SG')
-    #empresa=models.ForeignKey(Juridica, on_delete=models.CASCADE)
-    empresa=models.CharField(max_length=100)
+    empresa=models.ForeignKey(Juridica, on_delete=models.CASCADE)
     sector=models.CharField(max_length=25)
     fecha_solicitud=models.CharField(max_length=12)
     numero_participantes=models.PositiveIntegerField()

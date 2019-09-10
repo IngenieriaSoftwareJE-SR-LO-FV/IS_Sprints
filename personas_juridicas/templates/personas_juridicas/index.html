@@ -6,13 +6,11 @@
 <div class="row">
 		<h2 class="col-9 col-xl-9">Persona Jurídica</h2>
 		<div class="col-3 col-xl-3">
-		<a href="{% url 'juridicas_view' %}" class="text-center btn btn-secondary btn-block float-right">Agregar Persona Jurídica</a>
+			<a class="btn btn-secondary float-right" href="{% url 'juridicas_view' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
 	</div>
 </div>
-<div class="row">
-	<div class="col-12 col-xl-12">
-		<h4 class="bg-secondary text-white text-center">Consultas</h4>
-	</div>
+<div class="campo ">
+	<h5 class="campo consultas">Consultas</h5>
 </div>
 <div class="row">
 	<div class="col-12 col-xl-12">
@@ -90,15 +88,10 @@
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-12 col-xl-12">
-					
-					<button type="submit" class="btn-lg btn-primary float-right">
-						<span class="fas fa-search"></span> Buscar</button>
-				</div>
-			</div>
-
+			<button  type="submit" class="btn btn-secondary float-right">
+				<i class="fas fa-search"></i> Buscar</button>
 		</form>
+		
 	</div>
 </div>
 

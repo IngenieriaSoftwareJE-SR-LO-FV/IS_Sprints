@@ -100,3 +100,9 @@ h5.consultas{
 	color: #FFFFFF;
 	text-align: center;
 }
+
+.btnact{
+	width: 40px;
+	margin-bottom: 10px;
+	height: 32px;
+}

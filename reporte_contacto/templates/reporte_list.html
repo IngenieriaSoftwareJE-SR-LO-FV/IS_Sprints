@@ -10,7 +10,7 @@
 {% block content %}
 <div class="row">
     <div class="col-9">
-            <h2>Reporte de Contacto</h2>
+            <h2>Reporte de contacto</h2>
     </div>
     <div class="col-3 ">
             <a class="btn btn-secondary float-right" href="{% url 'reporte_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
@@ -32,11 +32,9 @@
             <div class="col-6">
                 {{ filter.form.canal_de_contacto|as_crispy_field }}
             </div>
-
-            <div class="col-6">
-                <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i> Buscar</button>
-            </div>
         </div>
+        <button  type="submit" class="btn btn-secondary float-right">
+                <i class="fas fa-search"></i> Buscar</button>
     </form>
             
 </div>
@@ -71,7 +69,7 @@
     </tbody>
 </table>
 {% else %}
-        <h4>No hay datos</h4>
+        <h4>No hay elementos que mostrar</h4>
         {% endif %}
 </div>
 </div>

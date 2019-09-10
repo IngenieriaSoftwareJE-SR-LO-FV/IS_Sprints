@@ -5,7 +5,7 @@
 {% block content %}
 <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
-    <h3 class="my-3">Propuesta Corporativa</h3>
+    <h2 >Propuesta Corporativa</h2>
     <div class="form-row">
         <div class="col-6 col-md-3 mb-0">{{ form.cod_propuesta|as_crispy_field }}</div>
         <div class="col-6 col-md-2 mb-0">{{ form.version|as_crispy_field }}</div>
@@ -37,10 +37,14 @@
             </div>
         </div>
         <div class="col-12 mb-0">{{ form.observacion|as_crispy_field }}</div>
-        <div class="col-4 mb-0">{{ form.anexo|as_crispy_field }}</div>
-        <div class="col-8 mb-0">{{ form.nombre|as_crispy_field }}</div>
+        <div class="col-12 mb-0">{{ form.anexo|as_crispy_field }}</div>
+        <div class="col-12 mb-0">{{ form.nombre|as_crispy_field }}</div>
     </div>
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a class="btn btn-secondary" href="{% url 'propuesta_corporativa' %}"> Cancelar </a>
+    <div class="row mt-3">
+        <div class="col-12">
+            <button type="submit" class="btn btn-secondary">Guardar</button>
+            <a class="btn btn-light" href="{% url 'propuesta_corporativa' %}"> Cancelar </a>
+        </div>
+    </div>
 </form>
 {% endblock content %}

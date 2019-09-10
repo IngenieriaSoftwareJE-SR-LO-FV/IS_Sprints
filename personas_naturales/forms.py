@@ -10,6 +10,7 @@ class Natural_NuevoForm(forms.ModelForm):
 		'dir_trabajo','tel_trabajo','red_social']
 		widgets = {
 			'nivel_estudio': forms.RadioSelect(attrs={'class':'required'}),
+			'fecha_nacimiento': forms.DateInput(attrs={'type':'date'}),
 		}
 		help_texts = {
             'fecha_nacimiento': ('AAAA-MM-DD'),

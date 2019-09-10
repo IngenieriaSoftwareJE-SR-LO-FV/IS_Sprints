@@ -12,7 +12,7 @@ class ReporteContactoCreate(CreateView):
     model=ReporteContacto
     template_name= 'reporte_form.html'
     form_class=ReporteContactoForm
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
     
     def post(self, request, *args, **kwargs):
         self.object =self.get_object
@@ -31,7 +31,8 @@ class ReporteContactoUpdate(UpdateView):
     template_name='reporte_update.html'
     form_class=ReporteContactoForm
     success_url=reverse_lazy('reporte_contacto')
-
+#CATEGORIES_D = {v: k for k, v in CATEGORY_CHOICES}
+#category = CATEGORIES_D[category]
     def get_context_data(self, **kwargs):
         context =super(ReporteContactoUpdate, self).get_context_data(**kwargs)
         pk=self.kwargs.get('pk',0)
@@ -40,6 +41,12 @@ class ReporteContactoUpdate(UpdateView):
         context['capacitaciones']=capacitaciones
         context['asesorias']=asesorias
         context['reporte_id']=pk
+        l=[]
+        vals=str(self.model.objects.get(id=pk).servicios_requeridos).split(',')
+        for s in self.model.SERVICIOS_CHOICES:
+            if s[1] in vals or ' '+s[1] in vals:
+                l.append(s[0])
+        context['checked_servicios_requeridos']=l
         return context
 
 class ReporteContactoDelete(DeleteView):
@@ -51,7 +58,7 @@ class CapacitacionCreate(CreateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url=reverse_lazy('reporte_contacto')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionCreate,self).get_context_data(**kwargs)
@@ -76,7 +83,7 @@ class CapacitacionUpdate(UpdateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionUpdate,self).get_context_data(**kwargs)
@@ -103,7 +110,7 @@ class CapacitacionDelete(DeleteView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_delete.html'
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionDelete,self).get_context_data(**kwargs)
@@ -122,7 +129,7 @@ class AsesoriaCreate(CreateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaCreate,self).get_context_data(**kwargs)
@@ -146,7 +153,7 @@ class AsesoriaUpdate(UpdateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaUpdate,self).get_context_data(**kwargs)
@@ -174,7 +181,7 @@ class AsesoriaDelete(DeleteView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_delete.html'
-    success_url=reverse_lazy('reporte_editar')
+    success_url='/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaDelete,self).get_context_data(**kwargs)

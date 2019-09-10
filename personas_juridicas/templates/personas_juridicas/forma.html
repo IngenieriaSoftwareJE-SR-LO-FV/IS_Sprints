@@ -9,18 +9,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/juridicas_forma.css' %}">
 <div class="row">
 <div class="col-12 col-xl-12">
-<form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" >
-	{% csrf_token %}
-	<div class="row">
-		<div class="col-12 col-xl-12">
-			<h2>Registro Persona Jurídica</h2>
-		</div>
-	</div>
-	<div class="row">
+<div class="row">
 	<div class="col-12 col-xl-12">
-		<h4 class="bg-secondary text-white p-1">Información Empresa</h4>
+		<h2>Registro Persona Jurídica</h2>
 	</div>
 </div>
+	<div class="campo">
+		<h5 class="campo">Información Empresa</h5>
+	</div>
+<form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" >
+	{% csrf_token %}
+
 	<div class="row">
 		<div class="col-8 col-xl-8">
 		    {{ form.nombre |as_crispy_field}}
@@ -76,10 +75,8 @@
 	    {{ form.forma_pago |as_crispy_field}}
 	</div>
 	</div>
-	<div class="row">
-	<div class="col-12 col-xl-12">
-		<h4 class="bg-secondary text-white p-1">Contacto empresa</h4>
-	</div>
+	<div class="campo">
+		<h5 class="campo">Contacto empresa</h5>
 </div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -115,14 +112,12 @@
 	    {{ form.contacto_celular|as_crispy_field}}
 	</div>
 	</div>
-
-	<div class="row">
-		<div class="col-12 col-xl-12">
-			<button type="submit" class="btn btn-lg btn-primary float-right">Guardar </button>
-			<a href="{% url 'index_juridicas' %} "class="btn-lg btn-outline-dark float-right mr-3">Cancelar</a>
-		
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary">Guardar</button>
+			<a class="btn btn-light" href="{% url 'index_juridicas' %}"> Cancelar </a>
+		</div>
 	</div>
-
 	</div>
 	
 </form>
