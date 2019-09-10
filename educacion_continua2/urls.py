@@ -25,7 +25,8 @@ urlpatterns = [
     path('propuesta_corp/', include("propuesta_corp.urls")),
     path('financiero/', include('financiero.urls')),
     path('admin/', admin.site.urls),
-    path('proformas/',include("proformas.urls"))
+    path('proformas/',include("proformas.urls")),
+
 ]
 
 

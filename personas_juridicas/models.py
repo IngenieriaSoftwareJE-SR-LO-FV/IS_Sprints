@@ -12,12 +12,21 @@ class Ciudad(models.Model):
 	nombre = models.CharField(max_length=50,verbose_name="Ciudad")
 	def __str__(self):
 		return self.nombre
+class TipoEmpresa(models.Model):
+	nombre = models.CharField(max_length=100,verbose_name="Tipo de Empresa")
+	def __str__(self):
+		return self.nombre
+
+class Sector(models.Model):
+	nombre = models.CharField(max_length=100,verbose_name="Sector")
+	def __str__(self):
+		return self.nombre
 
 class Juridica(models.Model):
 	nombre = models.CharField(max_length=200)
 	ruc = models.CharField(max_length=13)
-	tipo_empresa = models.CharField(max_length=200)
-	sector = models.CharField(max_length=200)
+	tipo_empresa = models.ForeignKey(TipoEmpresa,on_delete=models.SET_NULL, null=True)
+	sector = models.ForeignKey(Sector,on_delete=models.SET_NULL, null=True)
 	direccion = models.CharField(max_length=200)
 	ciudad = models.CharField(max_length=50)
 	provincia = models.ForeignKey(Provincia, on_delete=models.SET_NULL, null=True)
@@ -40,6 +49,8 @@ class Juridica(models.Model):
 
 	def __str__(self):
 		return self.nombre+" - "+self.ruc
+
+
 
 
 

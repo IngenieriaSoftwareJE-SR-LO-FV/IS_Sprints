@@ -1,5 +1,6 @@
 {% extends 'base_ventas.html' %}
-
+{% load static %}
+{% load staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{{ "EC - Persona Jurídica" }}{% endblock title %}
 {% block content %}
@@ -90,6 +91,7 @@
 			
 			<button  type="submit" class="btn btn-secondary float-right">
 				<i class="fas fa-search"></i> Buscar</button>
+			{{ filter.form.media }}
 		</form>
 		
 	</div>

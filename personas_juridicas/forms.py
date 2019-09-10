@@ -1,3 +1,5 @@
+from dal import autocomplete
+
 from . import models
 from django import forms
 import django_filters
@@ -5,6 +7,7 @@ import django_filters
 class DateInput(forms.DateInput):
     input_type = 'date'
 class JuridicaForm(forms.ModelForm):
+
 	class Meta:
 		model = models.Juridica
 		fields = [
@@ -56,8 +59,8 @@ class JuridicaForm(forms.ModelForm):
 		widgets = {
 				"nombre":forms.TextInput(attrs={"class":"form-control"}),
 				"ruc":forms.TextInput(attrs={"class":"form-control","type":"number"}),
-				"tipo_empresa":forms.TextInput(attrs={"class":"form-control"}),
-				"sector":forms.TextInput(attrs={"class":"form-control"}),
+				"tipo_empresa":autocomplete.ModelSelect2(url="tipo-autocomplete"),
+				"sector":autocomplete.ModelSelect2(url="sector-autocomplete"),
 				"direccion":forms.TextInput(attrs={"class":"form-control"}),
 				"ciudad":forms.Select(attrs={"class":"form-control"}),
 				"provincia":forms.Select(attrs={"class":"form-control"}),
@@ -90,6 +93,7 @@ class JuridicaForm(forms.ModelForm):
 		elif self.instance.pk:
 			self.fields['ciudad'].queryset = self.instance.provincia.city_set.order_by('nombre')
 class JuridicaFilter(django_filters.FilterSet):
+	
 	class Meta:
 		model = models.Juridica
 		fields = [
@@ -137,8 +141,8 @@ class JuridicaFilter(django_filters.FilterSet):
 		widgets = {
 				"nombre":forms.TextInput(attrs={"class":"form-control"}),
 				"ruc":forms.TextInput(attrs={"class":"form-control","type":"number"}),
-				"tipo_empresa":forms.TextInput(attrs={"class":"form-control"}),
-				"sector":forms.TextInput(attrs={"class":"form-control"}),
+				"tipo_empresa":autocomplete.ModelSelect2(url="tipo-autocomplete"),
+				"sector":autocomplete.ModelSelect2(url="sector-autocomplete"),
 				"direccion":forms.TextInput(attrs={"class":"form-control"}),
 				"ciudad":forms.Select(attrs={"class":"form-control"}),
 				"provincia":forms.Select(attrs={"class":"form-control"}),

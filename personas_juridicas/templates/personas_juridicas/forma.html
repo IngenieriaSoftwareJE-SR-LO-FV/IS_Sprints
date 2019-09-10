@@ -5,8 +5,14 @@
 
 
 {% load static %}
+{% load staticfiles %}
+
 {% block content %}
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/juridicas_forma.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
 <div class="row">
 <div class="col-12 col-xl-12">
 <div class="row">
@@ -19,7 +25,6 @@
 	</div>
 <form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" >
 	{% csrf_token %}
-
 	<div class="row">
 		<div class="col-8 col-xl-8">
 		    {{ form.nombre |as_crispy_field}}
@@ -119,11 +124,12 @@
 		</div>
 	</div>
 	</div>
-	
+	{{ form.media }}
 </form>
 </div>
 </div>
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ 
   <script>
     $("#id_provincia").change(function () {
       var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
