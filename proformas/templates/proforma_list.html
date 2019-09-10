@@ -1,0 +1,85 @@
+{% extends "base_ventas.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col-9">
+            <h2>Proformas</h2>
+    </div>
+    <div class="col-3 ">
+            <a class="btn btn-secondary float-right" href="{% url 'proforma_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+    </div>
+</div>
+<div class="campo"><h5 class="campo">Consultas</h5></div>
+<div class="row">
+    <div class="col-12">
+        <form action="" method="get">
+            {% csrf_token %}
+            <div class="form-row ">
+                <div class="col-4">
+                    {{ filter.form.codigo|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.nombreProforma|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.fechaSolicitud|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.fechaEnvio|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.estado|as_crispy_field }}
+                </div>
+            </div>
+                <div>
+                    <button  type="submit" class="btn btn-secondary float-right">
+                        <span class="fas fa-search"></span> Buscar</button>
+                </div>
+        </form>
+                
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+    {% if filter.qs %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Empresa</th>
+            <th>Fecha Solicitud</th>
+            <th>Fecha Envío</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        
+        {% for proforma in filter.qs %}
+        <tr>
+            <td>{{proforma.codigo}}</td>
+            <td>{{proforma.nombreProforma}}</td>
+            <td>{{proforma.empresa}}</td>
+            <td>{{proforma.fechaSolicitud}}</td>
+            <td>{{proforma.fechaEnvio}}</td>
+            <td>{{proforma.montoProforma}}</td>
+            <td>{{proforma.estado}}</td>
+            <td>
+                <a class="btn btn-secondary" href="{% url 'proforma_editar' proforma.id%}"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-danger" href="{% url 'proforma_eliminar' proforma.id%}"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+        <h4>No hay elementos que mostrar</h4>
+        {% endif %}
+</div>
+</div>
+{% endblock content %}

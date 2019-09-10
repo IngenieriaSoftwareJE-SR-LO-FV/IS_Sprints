@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "fontawesome_5",
     "bootstrap4",
     'multiselectfield',
+    "proformas",
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
