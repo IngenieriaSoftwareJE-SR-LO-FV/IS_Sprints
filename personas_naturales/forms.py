@@ -12,6 +12,4 @@ class Natural_NuevoForm(forms.ModelForm):
 			'nivel_estudio': forms.RadioSelect(attrs={'class':'required'}),
 			'fecha_nacimiento': forms.DateInput(attrs={'type':'date'}),
 		}
-		help_texts = {
-            'fecha_nacimiento': ('AAAA-MM-DD'),
-        }
+		

@@ -58,9 +58,13 @@
                     <td>{{propuesta.empresa}}</td>
                     <td>{{propuesta.get_estado_display}}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{{propuesta.anexo.url}}" target="_blank">
-                            Descargar
-                        </a>
+                        {% if propuesta.anexo %}
+                            <a class="btn btn-secondary" href="{{propuesta.anexo.url}}" target="_blank">
+                                Descargar
+                            </a>
+                        {% else %}
+                            No anexo
+                        {% endif %}
                     </td>
                     <td>
                         <a class="btn btn-secondary btnact" href="{% url 'propuesta_editar' propuesta.cod_propuesta%}"><i class="fas fa-edit"></i></a>

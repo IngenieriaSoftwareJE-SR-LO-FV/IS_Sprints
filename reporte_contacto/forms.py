@@ -94,7 +94,7 @@ class CapacitacionForm(forms.ModelForm):
             'horario_evento_fin':'Hora de fin',
             'observaciones':'Observaciones',
             'acuerdos':'Acuerdos',
-            'exclusivo_acad':'Para uso exclusivo del área acedémica',
+            'exclusivo_acad':'Para uso exclusivo del área académica',
         }
         widgets={
             'observaciones':forms.Textarea(attrs={'rows':2}),

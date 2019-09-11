@@ -12,7 +12,7 @@ class Persona_Natural(models.Model):
 	cedula = models.CharField(max_length=10, primary_key=True, verbose_name="Cédula")
 	apellidos = models.CharField(max_length=75)
 	nombres = models.CharField(max_length=75)
-	fecha_nacimiento = models.CharField(max_length=12,verbose_name="Fecha de Nacimiento", help_text="DD-MM-AAAA")
+	fecha_nacimiento = models.CharField(max_length=12,verbose_name="Fecha de Nacimiento")
 	tel_domicilio = models.CharField(max_length=10, blank=True, null=True, verbose_name="Teléfono Domicilio")
 	celular = models.CharField(max_length=10,blank=True, null=True)
 	email = models.EmailField(max_length=254,blank=True, null=True)
