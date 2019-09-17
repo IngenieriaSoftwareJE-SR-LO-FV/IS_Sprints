@@ -41,16 +41,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'personas_juridicas.apps.PersonasJuridicasConfig',
-    'reporte_contacto.apps.ReporteContactoConfig',
-    'personas_naturales.apps.PersonasNaturalesConfig',
-    'propuesta_corp.apps.PropuestaCorpConfig',
-    'financiero.apps.FinancieroConfig',
     'crispy_forms',
-    "fontawesome_5",
-    "bootstrap4",
+    'fontawesome_5',
+    'bootstrap4',
     'multiselectfield',
-    "proformas",
+    #VENTAS
+    'ventas.reporte_contacto',
+    'ventas.personas_juridicas',
+    'ventas.personas_naturales',
+    'ventas.propuesta_corp',
+    'ventas.proformas',
+    #FINANCIERO
+    'financiero.perfiles',
+    'financiero.orden_facturacion',
+
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

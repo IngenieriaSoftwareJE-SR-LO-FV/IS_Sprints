@@ -1,0 +1,76 @@
+{% extends "base_ventas.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Reporte Contacto" }}{% endblock title %}
+
+{% block extraheader %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reporte.css' %}">
+{% endblock extraheader %}
+
+{% block content %}
+<div class="row">
+    <div class="col-9">
+            <h2>Reporte de contacto</h2>
+    </div>
+    <div class="col-3 ">
+            <a class="btn btn-secondary float-right" href="{% url 'reporte_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+    </div>
+</div>
+<div class="campo"><h5 class="campo consultas">Consultas</h5></div>
+<div class="row">
+<div class="col-12">
+    <form action="" method="get">
+        <div class="form-row ">
+            <div class="col-6">
+                {{ filter.form.id|as_crispy_field }}
+            </div><div class="col-6">
+                {{ filter.form.fecha|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                    {{ filter.form.empresa|as_crispy_field }}
+                </div>
+            <div class="col-6">
+                {{ filter.form.canal_de_contacto|as_crispy_field }}
+            </div>
+        </div>
+        <button  type="submit" class="btn btn-secondary float-right">
+                <i class="fas fa-search"></i> Buscar</button>
+    </form>
+            
+</div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+            {% if filter.qs %}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">N</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for reporte in filter.qs %}
+        <tr>
+            <td scope="row">{{reporte.id}}</td>
+            <td scope="row">{{reporte.empresa}}</td>
+            <td scope="row">
+                <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte.id%}"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.id%}"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+
+    </tbody>
+</table>
+{% else %}
+        <h4>No hay elementos que mostrar</h4>
+        {% endif %}
+</div>
+</div>
+{% endblock content %}
