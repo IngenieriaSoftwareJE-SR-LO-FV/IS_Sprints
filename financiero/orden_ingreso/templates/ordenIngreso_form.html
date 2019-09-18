@@ -1,0 +1,71 @@
+{% extends 'base_ventas.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+  <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    <h2>Orden de Ingreso</h2>
+    <div class="campo">
+    	<h5 class="campo">Registro Orden de Ingreso</h5>
+	</div>
+	<div>
+		<div class="row">
+			<div class="col-xl-4">
+				{{form.fecha|as_crispy_field}}	
+			</div>
+			<div class="col-xl-4">
+				{{form.numeroTramite|as_crispy_field}}	
+			</div>
+			<div class="col-xl-4">
+				{{form.numeroFactura|as_crispy_field}}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-5">
+				{{form.identificacion|as_crispy_field}}	
+			</div>
+			<div class="col-xl-5">
+				{{form.razonSocial|as_crispy_field}}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				{{form.centroCosto|as_crispy_field}}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-8">
+				{{form.centroCosto|as_crispy_field}}	
+			</div>
+			<div class="col-xl-4">
+				{{form.valor|as_crispy_field}}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-8">
+				{{form.anexo|as_crispy_field}}	
+			</div>
+		</div>
+
+	</div>
+	<div class="row">
+			<div class="col-12">
+				<button type="submit" class="btn btn-secondary">Guardar</button>
+				<a class="btn btn-light" href="{% url 'proforma_lista' %}"> Cancelar </a>
+			</div>
+	</div>
+	
+    
+    
+  </form>
+  
+{% endblock %}
+
+
+		
+
+
+
+
