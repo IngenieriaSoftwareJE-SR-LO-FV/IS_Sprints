@@ -1,0 +1,25 @@
+[
+  {
+    "model":"personas_juridicas.FormaPago",
+    "pk": 1,
+    "fields": {
+      "nombre":"Transferencia"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.FormaPago",
+    "pk": 2,
+    "fields": {
+      "nombre":"Depósito"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.FormaPago",
+    "pk": 3,
+    "fields": {
+      "nombre":"Cheque"
+    }
+  }
+]

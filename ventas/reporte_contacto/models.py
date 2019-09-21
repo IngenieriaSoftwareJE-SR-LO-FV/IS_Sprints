@@ -24,7 +24,7 @@ class ReporteContacto(models.Model):
 	nombre_contacto=models.CharField(max_length=100)
 	telefono=models.CharField(max_length=10)
 	cargo=models.CharField(max_length=100)
-	correo_electronico=models.CharField(max_length=100)
+	correo_electronico=models.EmailField(max_length=100)
 	asistentes=models.CharField(max_length=100)
 	situacion_actual=models.CharField(max_length=500)
 	situacion_deseada=models.CharField(max_length=500)

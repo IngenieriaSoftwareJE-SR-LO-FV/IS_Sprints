@@ -1,5 +1,7 @@
 from django import forms
 from .models import PropuestaCorporativo
+from ventas.personas_juridicas.models import Sector
+from dal import autocomplete
 
 class PropuestaCorporativoForm(forms.ModelForm):
     class Meta:
@@ -56,6 +58,8 @@ class PropuestaCorporativoForm(forms.ModelForm):
         }
         
         widgets={
+            'reporte':autocomplete.ModelSelect2(url='reporte-autocomplete'),
+            'empresa':autocomplete.ModelSelect2(url='empresa-autocomplete'),
             'observacion':forms.Textarea(attrs={'rows':2}),
             'fecha_solicitud':forms.DateInput(attrs={'type':'date'}),
             'fecha_inicio_estimada':forms.DateInput(attrs={'type':'date'}),

@@ -5,14 +5,30 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 from .models import ReporteContacto, Capacitacion, Asesoria
 from .forms import ReporteContactoForm, CapacitacionForm, AsesoriaForm
+from ventas.personas_juridicas.models import Juridica
 from django.urls import reverse_lazy
+from django.db.models import Q
+from dal import autocomplete
 
+class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_queryset(self):
+        qs = Juridica.objects.all().order_by("nombre")
+        if self.q:
+            qs = qs.filter(Q(nombre__icontains=self.q) | Q(ruc__istartswith=self.q))
+            #qs = qs.filter(nombre__istartswith=self.q)
+        return qs
+
+    def has_add_permission(self, request):
+        return True
 
 class ReporteContactoCreate(CreateView):
     model=ReporteContacto
     template_name= 'reporte_form.html'
     form_class=ReporteContactoForm
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
     
     def post(self, request, *args, **kwargs):
         self.object =self.get_object
@@ -56,7 +72,7 @@ class CapacitacionCreate(CreateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionCreate,self).get_context_data(**kwargs)
@@ -81,7 +97,7 @@ class CapacitacionUpdate(UpdateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionUpdate,self).get_context_data(**kwargs)
@@ -108,7 +124,7 @@ class CapacitacionDelete(DeleteView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_delete.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionDelete,self).get_context_data(**kwargs)
@@ -127,7 +143,7 @@ class AsesoriaCreate(CreateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaCreate,self).get_context_data(**kwargs)
@@ -151,7 +167,7 @@ class AsesoriaUpdate(UpdateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaUpdate,self).get_context_data(**kwargs)
@@ -179,7 +195,7 @@ class AsesoriaDelete(DeleteView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_delete.html'
-    success_url='/reporte_contacto/editar'
+    success_url='editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaDelete,self).get_context_data(**kwargs)

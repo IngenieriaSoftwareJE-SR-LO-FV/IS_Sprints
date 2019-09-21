@@ -31,23 +31,18 @@
 		<div class="campo"><h5 class="campo">Datos de contacto</h5></div>
 		<div class="row">
 			<div class="col-6 col-md-3">
-				<!--{{ form.tel_domicilio.label_tag }}-->
 				{{ form.tel_domicilio|as_crispy_field }}
 			</div>
 			<div class="col-6 col-md-3">
-				<!--{{ form.celular.label_tag }}-->
 				{{ form.celular|as_crispy_field }}
 			</div>
 			<div class="col-6 col-xl-6">
-				<!--{ form.email.label_tag }}-->
 				{{ form.email|as_crispy_field }}
 			</div>
 			<div class="col-6 col-xl-6">
-				<!--{ form.ci_domicilio.label_tag }}-->
 				{{ form.ci_domicilio|as_crispy_field }}
 			</div>
 			<div class="col-6 col-xl-6">
-				<!--{ form.dir_domicilio.label_tag }}-->
 				{{ form.dir_domicilio|as_crispy_field }}
 			</div>
 		</div>
@@ -58,36 +53,32 @@
 		{% endfor %} <br>
 		<div class="row">
 			<div class="col-6 col-xl-6">
-				<!--{{ form.ti_tercernivel.label_tag }}-->
 				{{ form.ti_tercernivel|as_crispy_field }}
 			</div>
 			<div class="col-6 col-xl-6">
-				<!--{{ form.un_tercernivel.label_tag }}-->
 				{{ form.un_tercernivel|as_crispy_field }}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
-				<!--{{ form.ti_cuartonivel.label_tag }}-->
-				{{ form.ti_cuartonivel|as_crispy_field }}
+				{{ form.ti_postgrado|as_crispy_field }}
 			</div>
 			<div class="col-6 col-xl-6">
-				<!--{{ form.un_cuartonivel.label_tag }}-->
-				{{ form.un_cuartonivel|as_crispy_field }}
+				{{ form.un_postgrado|as_crispy_field }}
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
-				<!--{{ form.profesion.label_tag }}-->
 				{{ form.profesion|as_crispy_field }}
 			</div>
 		</div>
 		<div class="campo"><h5 class="campo">Datos de Trabajo</h5></div>
 		<div class="row">
 			<div class="col-6 col-xl-6">
-				<!--{{ form.forma_trabajo.label_tag }}-->
-				{{ form.forma_trabajo|as_crispy_field }}
+					{{ form.forma_trabajo|as_crispy_field }}
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.empresa.label_tag }}-->
 				{{ form.empresa|as_crispy_field }}
@@ -96,6 +87,8 @@
 				<!--{{ form.cargo.label_tag }}-->
 				{{ form.cargo|as_crispy_field }}
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.ci_trabajo.label_tag }}-->
 				{{ form.ci_trabajo|as_crispy_field }}
@@ -104,6 +97,8 @@
 				<!--{{ form.area.label_tag }}-->
 				{{ form.area|as_crispy_field }}
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-6 col-xl-6">
 				<!--{{ form.dir_trabajo.label_tag }}-->
 				{{ form.dir_trabajo|as_crispy_field }}
@@ -112,11 +107,15 @@
 				<!--{{ form.tel_trabajo.label_tag }}-->
 				{{ form.tel_trabajo|as_crispy_field }}
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-6 col-xl-6">
-				{{ form.red_social|as_crispy_field }}	
+				{{ form.medios|as_crispy_field }}	
+			</div>
+			<div class="col-12 col-xl-12">
+				{{ form.novedad_medios|as_crispy_field }}	
 			</div>
 		</div>
-		<!--{{ form.red_social.label_tag }}-->
 		<div class="row mt-3">
 			<div class="col-12">
 				<button type="submit" class="btn btn-secondary">Guardar</button>

@@ -57,7 +57,7 @@ def juridicas_view(request):
 		form = forms.JuridicaForm(request.POST)
 		if(form.is_valid()):
 			form.save()
-		return redirect("index_juridicas")
+			return redirect("index_juridicas")
 	else:
 		form = forms.JuridicaForm()
 	return render(request,"personas_juridicas/forma.html", {"form":form})

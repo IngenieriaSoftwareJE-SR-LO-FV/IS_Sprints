@@ -7,7 +7,6 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
-
     naturales_lista = Persona_Natural.objects.all()
     naturales_filter = NaturalBusquedaFilter(request.GET, queryset=naturales_lista)
     paginator = Paginator(naturales_filter.qs, 30) 
@@ -21,7 +20,7 @@ def natural_nuevo(request):
 		form = forms.Natural_NuevoForm(request.POST)
 		if(form.is_valid()):
 			form.save()
-		return redirect("index")
+			return redirect("index")
 	else:
 		form = forms.Natural_NuevoForm()
 	return render(request,"personas_naturales/natural_nuevo.html",{"form":form})
