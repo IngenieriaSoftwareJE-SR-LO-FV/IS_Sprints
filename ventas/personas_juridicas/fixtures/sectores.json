@@ -1,0 +1,73 @@
+[
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 1,
+    "fields": {
+      "nombre":"Agropecuario"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 2,
+    "fields": {
+      "nombre":"Construcción"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 3,
+    "fields": {
+      "nombre":"Manufactura"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 4,
+    "fields": {
+      "nombre":"Salud"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 5,
+    "fields": {
+      "nombre":"Transporte y Almacenamiento"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 6,
+    "fields": {
+      "nombre":"Servicio"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 7,
+    "fields": {
+      "nombre":"Financiero"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 8,
+    "fields": {
+      "nombre":"Comercio"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.Sector",
+    "pk": 9,
+    "fields": {
+      "nombre":"Mineroy Energético"
+    }
+  }
+]

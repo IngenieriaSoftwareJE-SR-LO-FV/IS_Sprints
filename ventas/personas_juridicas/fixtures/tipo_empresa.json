@@ -1,0 +1,17 @@
+[
+  {
+    "model":"personas_juridicas.TipoEmpresa",
+    "pk": 1,
+    "fields": {
+      "nombre":"Pública"
+    }
+  },
+
+  {
+    "model":"personas_juridicas.TipoEmpresa",
+    "pk": 2,
+    "fields": {
+      "nombre":"Privada"
+    }
+  }
+]

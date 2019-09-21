@@ -100,6 +100,7 @@
 	<br>
 	<div class="row">
 		<div class="col-12 col-xl-12">
+{% if naturales %}
 	<div class="table-container">
 		<table class="table table-bordered">
 			<thead class="thead-light">
@@ -116,8 +117,8 @@
 						<th scope="col">Nivel de Estudio</th>
 						<th scope="col">Titulo Tercer Nivel</th>
 						<th scope="col">Universidad Tercer Nivel</th>
-						<th scope="col">Titulo Cuarto Nivel</th>
-						<th scope="col">Universidad Cuarto Nivel</th>
+						<th scope="col">Titulo Postgrado</th>
+						<th scope="col">Universidad Postgrado</th>
 						<th scope="col">Profesión</th>
 						<th scope="col">Trabajo</th>
 						<th scope="col">Empresa</th>
@@ -130,7 +131,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% if naturales %}
 					{% for persona in naturales %}
 					<tr>
 						<td scope="row">{{ persona.cedula }}</td>
@@ -145,8 +145,8 @@
 						<td scope="row">{{ persona.nivel_estudio }}</td>
 						<td scope="row">{{ persona.ti_tercernivel }}</td>
 						<td scope="row">{{ persona.un_tercernivel }}</td>
-						<td scope="row">{{ persona.ti_cuartonivel }}</td>
-						<td scope="row">{{ persona.un_cuartonivel }}</td>
+						<td scope="row">{{ persona.ti_postgrado }}</td>
+						<td scope="row">{{ persona.un_postgrado }}</td>
 						<td scope="row">{{ persona.profesion }}</td>
 						<td scope="row">{{ persona.forma_trabajo }}</td>
 						<td scope="row">{{ persona.empresa }}</td>
@@ -155,15 +155,15 @@
 						<td scope="row">{{ persona.area }}</td>
 						<td scope="row">{{ persona.dir_trabajo }}</td>
 						<td scope="row">{{ persona.tel_trabajo }}</td>
-						<td scope="row">{{ persona.red_social }}</td>
+						<td scope="row">{{ persona.medios }}</td>
 					</tr>
 					{% endfor%}
-					{% else %}
-					<h2>No hay Registros</h2>
-					{% endif %}
 				</tbody>
 			</table>
 		</div>
+{% else %}
+	<h4>No hay elementos que mostrar</h4>
+{% endif %}
 		</div>
 	</div>
 <ul class="pagination justify-content-center">

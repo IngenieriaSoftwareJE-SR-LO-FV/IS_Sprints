@@ -1,5 +1,6 @@
 from django import forms
 from .models import ReporteContacto, Capacitacion,Asesoria
+from dal import autocomplete
 
 
 class ReporteContactoForm(forms.ModelForm):
@@ -44,6 +45,7 @@ class ReporteContactoForm(forms.ModelForm):
             'servicios_requeridos': 'Servicios requeridos',
         }
         widgets={
+            'empresa':autocomplete.ModelSelect2(url='empresa-autocomplete'),
             'acuerdos':forms.Textarea(attrs={'rows':2}),
             'motivo_de_contacto':forms.Textarea(attrs={'rows':2}),
             'situacion_actual':forms.Textarea(attrs={'rows':2}),

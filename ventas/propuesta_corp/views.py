@@ -5,8 +5,24 @@ from .models import PropuestaCorporativo
 from .forms import PropuestaCorporativoForm
 from django.urls import reverse_lazy
 from django.core.files.storage import FileSystemStorage
+from ventas.reporte_contacto.models import ReporteContacto
+from django.db.models import Q
+from dal import autocomplete
 
 # Create your views here.
+class ReporteAutocomplete(autocomplete.Select2QuerySetView):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_queryset(self):
+        qs = ReporteContacto.objects.all().order_by("empresa")
+        if self.q:
+            qs = qs.filter(Q(empresa__icontains=self.q) | Q(id__istartswith=self.q))
+        return qs
+
+    def has_add_permission(self, request):
+        return True
+
 class PropuestaCorporativoCreate(CreateView):
     model=PropuestaCorporativo
     form_class=PropuestaCorporativoForm
