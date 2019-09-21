@@ -32,3 +32,6 @@ class Persona_Natural(models.Model):
 	dir_trabajo = models.CharField(max_length=75, blank=True, null=True, verbose_name="Dirección Trabajo")
 	tel_trabajo = models.CharField(max_length=10, blank=True, null=True, verbose_name="Teléfono Trabajo")
 	red_social = models.CharField(max_length=50, verbose_name="Red Social por donde se enteró de este evento")
+
+	def __str__(self):
+		return self.nombres+" - "+self.cedula

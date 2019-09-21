@@ -24,8 +24,9 @@ urlpatterns = [
     path('ventas/personas_naturales/', include("ventas.personas_naturales.urls")),
     path('ventas/propuesta_corp/', include("ventas.propuesta_corp.urls")),
     path('ventas/proformas/',include("ventas.proformas.urls")),
-    path('financiero/perfiles', include('financiero.perfiles.urls')),
-    path('financiero/ordenIngreso',include('financiero.orden_ingreso.urls')),
+    path('financiero/perfiles/', include('financiero.perfiles.urls')),
+    path('financiero/ordenIngreso/',include('financiero.orden_ingreso.urls')),
+    path('financiero/orden_facturacion/',include('financiero.orden_facturacion.urls')),
     path('admin/', admin.site.urls),
 ]
 

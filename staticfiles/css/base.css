@@ -103,3 +103,19 @@ h5.consultas{
 .menulat h5{
 	margin: 0px;
 }
+
+.select2-container .select2-selection--single{
+	height:38px !important;
+}
+.select2-container--default .select2-selection--single{
+	border: 1px solid #ccc !important; 
+}
+
+input[type=date]{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.form-group{
+	margin-bottom: 10px !important;
+}

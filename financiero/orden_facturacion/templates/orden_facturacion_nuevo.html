@@ -1,0 +1,114 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Orden de facturación" }}{% endblock title %}
+
+{% block extraheader %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{% endblock extraheader %}
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data" novalidate id="form-fact", data-persona-url="{% url 'ajax_load_personas' %}">
+    {% csrf_token %}
+    <h2>Orden de Facturación</h2>
+    <div class="form-row">
+        <div class="col-6 col-md-3 mb-0">
+          <div class="form-group">
+            <label for="myselect" class="col-form-label">Cliente</label>
+            <div>
+              <select id="myselect" class="form-control">
+                <option value="" selected="selected">-------</option>
+                <option value="p_natural">Natural</option>
+                <option value="p_juridica">Jurídica</option>
+              </select>
+              <small class="form-text text-muted">Seleccione el tipo de cliente</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-0">
+          {{ form.fecha|as_crispy_field }}
+        </div>
+        <div class="col-6 col-md-3 mb-0 " id="field-ruc-ci">
+          <div id="div_id_ruc_ci" class="form-group">
+              <label for="{{ form.ruc_ci.id_for_label}}" class="col-form-label requiredField" id="ruc_ci">CI</label><span class="asteriskField">*</span>
+              <div>
+                  {{ form.ruc_ci}}
+                  {% if form.ruc_ci.errors %}
+                      {% for error in form.ruc_ci.errors %}
+                        <p class="invalid-feedback d-block">
+                          <strong>{{ error }}</strong>
+                        </p>
+                      {% endfor %}
+                  {% endif %}
+                  
+              </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-0 " id="field-razon">
+          <div id="div_id_razon_nombres" class="form-group">
+              <label for="{{ form.razon_nombres.id_for_label}}" class="col-form-label requiredField" id="ra_nom">Empresa</label><span class="asteriskField">*</span> 
+              <div>
+                  {{ form.razon_nombres}}
+                  {% if form.razon_nombres.errors %}
+                      {% for error in form.razon_nombres.errors %}
+                        <p class="invalid-feedback d-block">
+                          <strong>{{ error }}</strong>
+                        </p>
+                      {% endfor %}
+                  {% endif %}
+                  
+              </div>
+          </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+  {{ form.media }}
+
+  </form>
+{% endblock content %}
+
+{% block extrafooter %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+    $('.select2').select2();
+</script>
+<script>
+  $('#field-razon').hide();
+  $('#field-ruc-ci').hide();
+  $("#myselect").on("change", function() {
+    var persona=$(this).val();
+    if(persona!=""){
+      var url=$('#form-fact').attr("data-persona-url");
+      $.ajax({
+        url:url,
+        data:{
+          'persona':persona
+        },
+        success: function(data){
+          $("#id_ruc_ci").html(data)
+          $("#id_razon_nombres").html(data)
+        }
+      });
+      $('#field-razon').show();
+      $('#field-ruc-ci').show();
+      if(persona=="p_natural"){
+        $('#ruc_ci').text('CI');
+        $('#ra_nom').text('Nombre');
+      }
+      else if(persona=="p_juridica"){
+        $('#ruc_ci').text('RUC');
+        $('#ra_nom').text('Razón Social');
+      }
+
+
+    }
+    else{
+      $('#field-razon').hide();
+      $('#field-ruc-ci').hide();
+    }
+  })
+</script>
+{% endblock extrafooter %}
+
