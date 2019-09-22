@@ -4,6 +4,9 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{{ "EC - Persona Jurídica" }}{% endblock title %}
+{% block extraheader %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/juridicas_index.css' %}"> 
+{% endblock extraheader %}
 {% block content %}
 <div class="row">
 		<h2 class="col-9 col-xl-9">Persona Jurídica</h2>
@@ -100,12 +103,13 @@
 
 {% if juridicas %}
 <div class="row">
-	<div class="col-12 col-xl-12">
+	<div class="col-12 col-xl-12 table-container">
 		{# Each "contact" is a Contact model object. #}
 		<table class="table table-bordered">
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">RUC</th> 
+					<th scope="col">Razón Social</th>
 					<th scope="col">Ciudad</th>
 					<th scope="col">Provincia</th>
 					<th scope="col">Tipo</th>
@@ -114,12 +118,17 @@
 					<th scope="col">Teléfono</th>
 					<th scope="col">Celular</th>
 					<th scope="col">Representante legal</th>
+					<th scope="col">Contacto Empresa</th>
+					<th scope="col">Contacto Empresa Teléfono</th>
+					<th scope="col">Contacto Empresa Celular</th>
+					<th scope="col">Contacto Empresa Email</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for j in juridicas %}
 				<tr>
-					<td scope="row">{{j.ruc}}</td> 
+					<td scope="row">{{j.ruc}}</td>
+					 <td scope="row">{{j.nombre}}</td>
 					<td scope="row">{{j.ciudad}}</td>
 					<td scope="row">{{j.provincia}}</td>
 					<td scope="row">{{j.tipo_empresa}}</td>
@@ -128,6 +137,10 @@
 					<td scope="row">{{j.telefono}}</td>
 					<td scope="row">{{j.celular}}</td>
 					<td scope="row">{{j.representante}}</td>
+					<td scope="row">{{j.contacto_nombres}} {{j.contacto_apellidos}}</td>
+					<td scope="row">{{j.contacto_telefono}}</td>
+					<td scope="row">{{j.contacto_celular}}</td>
+					<td scope="row">{{j.contacto_correo}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
