@@ -1,0 +1,169 @@
+{% extends 'base_financiero.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}{{ "EC - Presupuestos Evento" }}{% endblock title %}
+{% block content %}
+<div class="row">
+		<h2 class="col-9 col-xl-9">Presupuestos Eventos</h2>
+		<div class="col-3 col-xl-3">
+			<a class="btn btn-secondary float-right" href="{% url 'nuevo_presupuestos' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+	</div>
+</div>
+<div class="campo ">
+	<h5 class="campo consultas">Consultas</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<form method="get">
+			{% csrf_token %}
+			<h5>Información Presupuesto</h5>
+			<div class="row">
+				<div class="col-4 col-xl-4">
+					{{ filter.form.codigo|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.nombre|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.aula|as_crispy_field }}
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-4 col-xl-4">
+					{{ filter.form.modalidad|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.empresa|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.nombre_instructor|as_crispy_field }}
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-4 col-xl-4">
+					{{ filter.form.fecha|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.horario|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.n_horas|as_crispy_field }}
+				</div>
+			</div>
+			<div class="row">
+
+
+				<div class="col-4 col-xl-4">
+					{{ filter.form.costo_hora_instructor|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.n_dias|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ filter.form.n_participantes|as_crispy_field }}
+				</div>
+			</div>
+			<div class="row">
+
+
+				
+				<div class="col-4 col-xl-4">
+					{{ filter.form.estado|as_crispy_field }}
+				</div>
+			</div>
+	
+			<button  type="submit" class="btn btn-secondary float-right">
+				<i class="fas fa-search"></i> Buscar</button>
+			{{ filter.form.media }}
+		</form>
+		
+	</div>
+</div>
+
+{% if presupuestos %}
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<table class="table table-bordered">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">Código</th> 
+					<th scope="col">Nombre</th>
+					<th scope="col">Fecha</th>
+					<th scope="col">Aula</th>
+					<th scope="col">Horas</th>
+					<th scope="col">No. Días</th>
+					<th scope="col">No. Participantes</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for p in presupuestos %}
+				<tr>
+					<td scope="row">{{p.codigo}}</td> 
+					<td scope="row">{{p.nombre}}</td>
+					<td scope="row">{{p.fecha}}</td>
+					<td scope="row">{{p.aula}}</td>
+					<td scope="row">{{p.n_horas}}</td>
+					<td scope="row">{{p.n_dias}}</td>
+					<td scope="row">{{p.n_participantes}}</td>
+					<td scope="row">{{p.estado}}</td>
+					<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-pencil"></i> Editar</a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+{% else %}
+<h2>No hay elementos que mostrar</h2>
+{% endif %}
+<ul class="pagination justify-content-center">
+		{% if presupuestos.has_previous %}
+		
+		<li class="page-item">
+
+			<a class="page-link" href="?page={{ presupuestos.previous_page_number }}">Anterior</a>
+		</li>
+		<li class="page-item">
+			<a class="page-link" href="?page={{ presupuestos.previous_page_number }}">{{ presupuestos.previous_page_number }}</a>
+		</li>
+
+		{% else %}
+			<li class="page-item disabled">
+			<a class="page-link" tabindex="-1" href="#">Anterior</a>
+		</li>
+		{% endif %}
+
+    
+    <li class="page-item active">
+    	<span class="page-link">
+        {{ presupuestos.number }}
+        <span class="sr-only">(current)</span>
+      </span>
+    </li>
+
+    {% if presupuestos.has_next %}
+    <li class="page-item">
+			<a class="page-link" href="?page={{ presupuestos.next_page_number }}">{{ presupuestos.next_page_number }}</a>
+		</li>
+    	<li class="page-item">
+			<a class="page-link" href="?page={{ presupuestos.next_page_number }}">Siguiente</a>
+		</li>
+		
+	
+	{% else %}
+		<li class="page-item disabled">
+			<a class="page-link" tabindex="-1" href="#">Siguiente</a>
+		</li>
+	{% endif %}
+
+  </ul>
+{% endblock %}
+
+

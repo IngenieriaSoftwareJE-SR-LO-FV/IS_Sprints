@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'fontawesome_5',
     'bootstrap4',
     'multiselectfield',
+    'djmoney',
     #VENTAS
     'ventas.reporte_contacto',
     'ventas.personas_juridicas',
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'financiero.perfiles',
     'financiero.orden_facturacion',
     'financiero.orden_ingreso',
+    "financiero.presupuestos",
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
