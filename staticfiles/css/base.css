@@ -6,6 +6,7 @@ div#menu #titulo{
 	background-color: #A4A4A4;
 	color: #FFFFFF;
 	justify-content: center;
+	border-width: 2px;
 }
 
 p#username{
@@ -22,13 +23,6 @@ button#salir{
 	border-radius: 5px;
 }
 
-div#menu a{
-	display: block; /*para que se muestren uno debajo de otro*/
-	padding: 12px;
-	color: #000000;
-	text-decoration: none;
-	text-align: center;
-}
 
 a.menu .row:hover{
 	background-color: #D8D8D8
@@ -55,17 +49,16 @@ a#plus{
 	margin-bottom: 0;
 }
 
-a.mlat:hover, a.menu:hover{
+.mlat:hover, .menu:hover{
 	text-decoration: none;
 }
 
-a.mlat .row:hover{
+.mlat .row:hover, .drp:hover{
 	background-color: lightgrey;
 	color: black;
 }
 
-a.menu .row, a.mlat .row{
-	height: 5%;
+.menu .row, .mlat .row{
 	padding: 12px 0px;
 	display: flex;
 	justify-content: center;
@@ -77,7 +70,7 @@ a.menu .row, a.mlat .row{
 	color:black;
 }
 
-a.mlat .row{
+.mlat .row{
 	background-color: #A4A4A4;
 	color: #FFFFFF;
 
@@ -105,4 +98,8 @@ h5.consultas{
 	width: 40px;
 	margin-bottom: 10px;
 	height: 32px;
+}
+
+.menulat h5{
+	margin: 0px;
 }

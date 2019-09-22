@@ -1,7 +1,8 @@
 from django.db import models
 from ventas.reporte_contacto.models import ReporteContacto
-from ventas.personas_juridicas.models import Juridica
+from ventas.personas_juridicas.models import Juridica, Sector
 from multiselectfield import MultiSelectField
+import ventas.validaciones
 
 # Create your models here.
 class PropuestaCorporativo(models.Model):
@@ -37,7 +38,7 @@ class PropuestaCorporativo(models.Model):
                             choices=ESTADO_CHOICES,
                             default='SG')
     empresa=models.ForeignKey(Juridica, on_delete=models.SET_NULL, null=True, blank=True)
-    sector=models.CharField(max_length=25)
+    sector=models.ForeignKey(Sector, on_delete=models.SET_NULL, null=True, blank=True)
     fecha_solicitud=models.CharField(max_length=12)
     numero_participantes=models.PositiveIntegerField()
     total_horas=models.TimeField()

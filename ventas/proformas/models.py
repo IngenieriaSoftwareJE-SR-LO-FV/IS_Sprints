@@ -1,14 +1,14 @@
 from django.db import models
-from ventas.personas_juridicas.models import Juridica
+from ventas.personas_juridicas.models import Juridica, TipoEmpresa, Sector
 
 # Create your models here.
 class Proforma(models.Model):
 	codigo=models.CharField(max_length=20)
 	version=models.PositiveIntegerField()
 	nombreProforma=models.CharField(max_length=100)
-	tipoEmpresa=models.CharField(max_length=20)
+	tipoEmpresa=models.ForeignKey(TipoEmpresa, on_delete=models.CASCADE)
 	empresa=models.ForeignKey(Juridica, on_delete=models.CASCADE)
-	sector=models.CharField(max_length=20)
+	sector=models.ForeignKey(Sector, on_delete=models.CASCADE)
 	fechaSolicitud=models.CharField(max_length=30)
 	fechaEnvio=models.CharField(max_length=30)
 	numeroParticipantes=models.PositiveIntegerField()

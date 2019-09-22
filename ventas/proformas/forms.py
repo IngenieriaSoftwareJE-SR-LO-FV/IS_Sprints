@@ -1,5 +1,6 @@
 from django import forms
 from .models import Proforma
+from dal import autocomplete
 
 class ProformaForm(forms.ModelForm):
 
@@ -63,9 +64,7 @@ class ProformaForm(forms.ModelForm):
 			'codigo': forms.TextInput(attrs={'class':'form-control'}),
 			'version': forms.NumberInput(attrs={'class':'form-control','min': 0}),
 			'nombreProforma': forms.TextInput(attrs={'class':'form-control'}),
-			'tipoEmpresa': forms.TextInput(attrs={'class':'form-control'}),
-			'empresa': forms.Select(attrs={'class':'form-control'}),
-			'sector': forms.TextInput(attrs={'class':'form-control'}),
+			'empresa': autocomplete.ModelSelect2(url='empresa-autocomplete'),
 			'fechaSolicitud': forms.DateInput(attrs={'class':'form-control',"type":"date"}),
 			'fechaEnvio':forms.DateInput(attrs={'class':'form-control',"type":"date"}),
 			'numeroParticipantes': forms.NumberInput(attrs={'class':'form-control'}),
