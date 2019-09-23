@@ -1,0 +1,54 @@
+{% extends 'base_coordinador.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}{{ "EC - Pendientes de Aprobación" }}{% endblock title %}
+
+{% block extraheader %}
+<link rel="stylesheet" type="text/css" href="#">
+{% endblock extraheader %}
+
+{% block content %}
+<div class="row" id="title">
+	<h2>Listado de Autorizaciones</h2>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class="campo col-12 col-xl-12">Ordenes de Facturación</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if ord_facturacion %}
+		{% else %}
+			<h4>No hay ordenes de facturación por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class=" campo col-12 col-xl-12">Ordenes de Ingreso</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if ord_ingreso %}
+		{% else %}
+			<h4>No hay órdenes de ingreso por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class="campo col-12 col-xl-12">Presupuestos de Eventos</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if presupuestos_ev %}
+		{% else %}
+			<h4>No hay presupuestos de eventos por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
