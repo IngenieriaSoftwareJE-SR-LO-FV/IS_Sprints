@@ -70,6 +70,7 @@ def presupuestos_editar(request,pk):
 		#form.fields["fecha"].value=None
 	return render(request, 'presupuestos/forma.html', {'form': form})
 
+
 def presupuestos_eliminar(request,pk=None):
 	if(request.method == "POST"):
 		p = get_object_or_404(PresupuestoEvento,pk=pk);
@@ -79,7 +80,20 @@ def presupuestos_eliminar(request,pk=None):
 
 	
 		pk= request.GET.get('pk')
-		print(pk,"asdasd")
 		p = get_object_or_404(PresupuestoEvento,pk=pk);
 
 		return render(request, 'presupuestos/eliminar.html', {'object': p})
+
+def presupuestos_aprobar(request,pk):
+	if(request.method == "POST"):
+		p = get_object_or_404(PresupuestoEvento, pk=pk)
+		form = forms.PresupuestoEventoForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect("pendiente_aprobacion")
+	else:
+		p = get_object_or_404(PresupuestoEvento, pk=pk)
+		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha});
+	return render(request, 'presupuestos/aprobar.html', {'form': form})
+
+

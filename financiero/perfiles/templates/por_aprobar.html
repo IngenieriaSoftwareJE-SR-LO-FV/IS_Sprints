@@ -1,0 +1,88 @@
+{% extends 'base_coordinador.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %}{{ "EC - Pendientes de Aprobación" }}{% endblock title %}
+
+{% block extraheader %}
+<link rel="stylesheet" type="text/css" href="css/por_aprobar.css">
+{% endblock extraheader %}
+
+{% block content %}
+<div class="row" id="title">
+	<h2>Listado de Autorizaciones</h2>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class="campo col-12 col-xl-12">Ordenes de Facturación</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if ord_facturacion %}
+		{% else %}
+			<h4>No hay ordenes de facturación por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class=" campo col-12 col-xl-12">Ordenes de Ingreso</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if ord_ingreso %}
+		{% else %}
+			<h4>No hay órdenes de ingreso por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+<br>
+
+<div class="campo">
+	<h5 class="campo col-12 col-xl-12">Presupuestos de Eventos</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if presupuestos_ev %}
+		<div class="row">
+			<div class="col-12 col-xl-12">
+				<table class="table table-bordered">
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">Aprobar</th>
+							<th scope="col">Código</th>
+							<th scope="col">Estado</th> 
+							<th scope="col">Nombre</th>
+							<th scope="col">Fecha</th>
+							<th scope="col">Aula</th>
+							<th scope="col">Horas</th>
+							<th scope="col">No. Días</th>
+							<th scope="col">No. Participantes</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for p in presupuestos_ev %}
+						<tr>
+							<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-check-square"></i></a></td>
+							<td scope="row">{{p.codigo}}</td> 
+							<td scope="row">{{p.estado}}</td>
+							<td scope="row">{{p.nombre}}</td>
+							<td scope="row">{{p.fecha}}</td>
+							<td scope="row">{{p.aula}}</td>
+							<td scope="row">{{p.n_horas}}</td>
+							<td scope="row">{{p.n_dias}}</td>
+							<td scope="row">{{p.n_participantes}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		{% else %}
+			<h4>No hay presupuestos de eventos por aprobar</h4>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

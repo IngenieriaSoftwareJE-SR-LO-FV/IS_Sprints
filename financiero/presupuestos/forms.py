@@ -16,6 +16,7 @@ class PresupuestoEventoForm(forms.ModelForm):
 	class Meta:
 		model = PresupuestoEvento
 		fields = "__all__"
+		labels = { 'estado':'Aprobado'}
 		
 		widgets={"fecha":forms.DateInput(format='%Y-%m-%d', attrs={'class': 'datepicker', "type":"date"})}
 	def __init__(self, *args, **kwargs):
