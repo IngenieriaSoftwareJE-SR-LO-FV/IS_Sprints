@@ -12,6 +12,7 @@ urlpatterns = [
  #   path('editar/<pk>', views.juridicas_view, name='editar_presupuestos'),
     path("aula-autocomplete/",views.AulaAutocomplete.as_view(model=Aula,create_field="nombre"),name="aula-autocomplete"),
     path("empresa-autocomplete/",views.EmpresaAutocomplete.as_view(model=Juridica),name="empresa-autocomplete"),
+    path('aprobar/<pk>', views.presupuestos_aprobar, name="aprobar_presupuestos"),
 ]
     
 

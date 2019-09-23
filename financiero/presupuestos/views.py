@@ -69,3 +69,16 @@ def presupuestos_editar(request,pk):
 		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha});
 		#form.fields["fecha"].value=None
 	return render(request, 'presupuestos/forma.html', {'form': form})
+
+def presupuestos_aprobar(request,pk):
+	if(request.method == "POST"):
+		p = get_object_or_404(PresupuestoEvento, pk=pk)
+		form = forms.PresupuestoEventoForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect("pendiente_aprobacion")
+	else:
+		p = get_object_or_404(PresupuestoEvento, pk=pk)
+		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha});
+	return render(request, 'presupuestos/aprobar.html', {'form': form})
+
