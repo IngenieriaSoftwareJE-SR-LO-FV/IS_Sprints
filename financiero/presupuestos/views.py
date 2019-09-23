@@ -69,3 +69,17 @@ def presupuestos_editar(request,pk):
 		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha});
 		#form.fields["fecha"].value=None
 	return render(request, 'presupuestos/forma.html', {'form': form})
+
+def presupuestos_eliminar(request,pk=None):
+	if(request.method == "POST"):
+		p = get_object_or_404(PresupuestoEvento,pk=pk);
+		p.delete()
+		return redirect("index_presupuestos")
+	else:
+
+	
+		pk= request.GET.get('pk')
+		print(pk,"asdasd")
+		p = get_object_or_404(PresupuestoEvento,pk=pk);
+
+		return render(request, 'presupuestos/eliminar.html', {'object': p})
