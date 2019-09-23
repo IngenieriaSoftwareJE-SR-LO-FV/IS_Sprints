@@ -1,4 +1,4 @@
 <option value="">---------</option>
 {% for persona in personas %}
-<option value="{{ persona.nombres persona.apellidos }}">{{ persona.nombres persona.apellidos }}</option>
+<option value="{{ persona.nombres }} {{ persona.apellidos }}" name="{{ persona.pk }}">{{ persona.nombres }} {{ persona.apellidos }}</option>
 {% endfor %}

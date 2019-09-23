@@ -106,9 +106,18 @@ h5.consultas{
 
 .select2-container .select2-selection--single{
 	height:38px !important;
+	width: 100% !important;
 }
 .select2-container--default .select2-selection--single{
 	border: 1px solid #ccc !important; 
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 35px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 35px !important;
 }
 
 input[type=date]{

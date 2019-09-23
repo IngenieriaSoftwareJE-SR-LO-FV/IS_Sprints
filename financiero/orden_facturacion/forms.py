@@ -12,6 +12,7 @@ class OrdenFacturacionForm(forms.ModelForm):
         model = OrdenFacturacion
 
         fields=[
+            'tipo_cliente',
             'n_tramite',
             'n_factura',
             'anexo_factura',
@@ -31,6 +32,7 @@ class OrdenFacturacionForm(forms.ModelForm):
         ]
 
         labels={
+            'tipo_cliente': 'Cliente',
             'n_tramite':'N° de trámite',
             'n_factura':'N° de factura',
             'anexo_factura':'Anexo de factura',
@@ -51,9 +53,12 @@ class OrdenFacturacionForm(forms.ModelForm):
 
         widgets={
             'observaciones':forms.Textarea(attrs={'rows':2}),
+            'concepto':forms.Textarea(attrs={'rows':2}),
+            'comentarios':forms.Textarea(attrs={'rows':2}),
             'n_tramite':forms.NumberInput(attrs={'min':0}),
             'n_factura':forms.NumberInput(attrs={'min':0}),
             'fecha':forms.DateInput(attrs={'type':'date','value':date.today}),
             'razon_nombres':forms.Select(attrs={'class':'form-control select2'}),
-            'ruc_ci':forms.Select(attrs={'class':'form-control select2'})
+            'ruc_ci':forms.Select(attrs={'class':'form-control select2'}),
+            'participantes':forms.CheckboxSelectMultiple(attrs={'class':'form-control'})
         }
