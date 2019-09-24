@@ -72,7 +72,7 @@ class CapacitacionCreate(CreateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url='editar'
+    success_url='/ventas/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionCreate,self).get_context_data(**kwargs)
@@ -97,7 +97,7 @@ class CapacitacionUpdate(UpdateView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_form.html'
-    success_url='editar'
+    success_url='/ventas/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionUpdate,self).get_context_data(**kwargs)
@@ -124,7 +124,7 @@ class CapacitacionDelete(DeleteView):
     model=Capacitacion
     form_class=CapacitacionForm
     template_name='capacitacion_delete.html'
-    success_url='editar'
+    success_url='/ventas/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(CapacitacionDelete,self).get_context_data(**kwargs)
@@ -143,7 +143,7 @@ class AsesoriaCreate(CreateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url='editar'
+    success_url='/ventas/reporte_contacto/editar'
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaCreate,self).get_context_data(**kwargs)
@@ -167,8 +167,8 @@ class AsesoriaUpdate(UpdateView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_form.html'
-    success_url='editar'
-
+    success_url='/ventas/reporte_contacto/editar'
+    
     def get_context_data(self, **kwargs):
         context=super(AsesoriaUpdate,self).get_context_data(**kwargs)
         fk=self.kwargs.get('fk',0)
@@ -195,7 +195,8 @@ class AsesoriaDelete(DeleteView):
     model=Asesoria
     form_class=AsesoriaForm
     template_name='asesoria_delete.html'
-    success_url='editar'
+    success_url='/ventas/reporte_contacto/editar'
+    
 
     def get_context_data(self, **kwargs):
         context=super(AsesoriaDelete,self).get_context_data(**kwargs)

@@ -8,11 +8,12 @@
 {% endblock extraheader %}
 
 {% block content %}
-  <form method="POST" enctype="multipart/form-data" novalidate id="form-fact", data-persona-url="{% url 'ajax_load_personas' %}">
+  <form method="POST" novalidate id="form-fact", data-persona-url="{% url 'ajax_load_personas' %}">
     {% csrf_token %}
-    <h2>Orden de Facturación</h2>
+    <h2>Registro de Orden de Facturación</h2>
     <div class="form-row">
-        <div class="col-6 col-md-3 mb-0 disabled">
+      
+        <div class="col-6 col-md-3 mb-0">
           
             {{form.tipo_cliente|as_crispy_field}}
               <small class="form-text text-muted">Seleccione el tipo de cliente</small>
@@ -68,6 +69,7 @@
       </div>
     
     <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
   {{ form.media }}
 
   </form>

@@ -18,11 +18,11 @@ function load_data(url, persona) {
     $('#field-razon').show();
     $('#field-ruc-ci').show();
 
-    if (persona == "p_natural") {
+    if (persona == "Natural") {
       $('#ruc_ci').text('CI');
       $('#ra_nom').text('Nombre');
     }
-    else if (persona == "p_juridica") {
+    else if (persona == "Jurídica") {
       $('#ruc_ci').text('RUC');
       $('#ra_nom').text('Razón Social');
     }

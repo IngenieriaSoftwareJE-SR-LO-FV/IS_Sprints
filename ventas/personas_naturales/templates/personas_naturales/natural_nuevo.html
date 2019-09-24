@@ -9,7 +9,7 @@
 {% endblock extraheader %}
 
 {% block content %}
-	<form method="POST">
+	<form method="POST" novalidate>
 		{% csrf_token %}
 		<h2>Registro de persona natural</h2>
 		<div class="campo"><h5 class="campo">Información básica</h5></div>

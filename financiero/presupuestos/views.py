@@ -66,6 +66,6 @@ def presupuestos_editar(request,pk):
 	else:
 
 		p = get_object_or_404(PresupuestoEvento, pk=pk)
-		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha});
+		form = forms.PresupuestoEventoForm(instance=p,initial={'fecha': p.fecha})
 		#form.fields["fecha"].value=None
 	return render(request, 'presupuestos/forma.html', {'form': form})

@@ -83,7 +83,7 @@ div.campo{
 
 h5.campo{
 	color: #FFFFFF;
-	margin-left: 1%;
+	margin-bottom: 8px !important;
 	padding: 5px 0px;
 }
 
@@ -127,4 +127,13 @@ input[type=date]{
 
 .form-group{
 	margin-bottom: 10px !important;
+}
+
+.table thead th{
+	vertical-align: top !important;
+	text-align: center;
+}
+
+.table {
+	font-size: 12px;
 }

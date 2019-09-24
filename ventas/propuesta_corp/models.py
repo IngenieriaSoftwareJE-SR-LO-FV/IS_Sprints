@@ -1,17 +1,11 @@
 from django.db import models
 from ventas.reporte_contacto.models import ReporteContacto
-from ventas.personas_juridicas.models import Juridica, Sector
+from ventas.personas_juridicas.models import Juridica, Sector, TipoEmpresa
 from multiselectfield import MultiSelectField
 import ventas.validaciones
 
 # Create your models here.
 class PropuestaCorporativo(models.Model):
-    TIPO_EMPRESA_CHOICES=   [
-                                ('PB','Pública'),
-                                ('IN','Industriales'),
-                                ('CO','Comerciales'),
-                                ('PR','Privadas'),
-                            ]
 
     ESTADO_CHOICES= [
                         ('SG','Seguimiento'),
@@ -30,9 +24,7 @@ class PropuestaCorporativo(models.Model):
     cod_propuesta=models.CharField(max_length=20, primary_key=True)
     version=models.PositiveIntegerField()
     nombre_propuesta=models.CharField(max_length=250)
-    tipo_empresa=models.CharField(max_length=50,
-                                    choices=TIPO_EMPRESA_CHOICES,
-                                    default='PR')
+    tipo_empresa=models.ForeignKey(TipoEmpresa, on_delete=models.SET_NULL, null=True, blank=True)
     reporte=models.ForeignKey(ReporteContacto, on_delete=models.SET_NULL, null=True, blank=True)
     estado=models.CharField(max_length=15,
                             choices=ESTADO_CHOICES,
