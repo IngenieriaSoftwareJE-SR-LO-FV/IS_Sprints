@@ -12,7 +12,8 @@ def validate_cedula(value):
 			pares = pares+res
 	total = impares+pares
 	dig_validador = (((total+10)//10)*10)-total
-
+	if(dig_validador==10):
+		dig_validador = 0
 	if (not value.isdigit() or not(int(value[0:2])>=1 and int(value[0:2])<=24 and int(value[-1])==dig_validador)):
 		raise ValidationError(
             _('%(value)s no es una cédula válida'),
@@ -31,6 +32,8 @@ def ruc_natural(value):
 			pares = pares+res
 	total = impares+pares
 	dig_validador = (((total+10)//10)*10)-total
+	if(dig_validador==10):
+		dig_validador = 0
 	return int(value[0:2])>=1 and int(value[0:2])<=24 and int(value[9])==dig_validador and int(value[10:13])>=1
 
 #Tercer dígito 9
