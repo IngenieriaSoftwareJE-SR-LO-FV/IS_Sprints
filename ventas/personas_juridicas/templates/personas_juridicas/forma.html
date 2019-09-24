@@ -23,7 +23,7 @@
 	<div class="campo">
 		<h5 class="campo">Información Empresa</h5>
 	</div>
-<form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" >
+<form method="post" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
 	{% csrf_token %}
 	<div class="row">
 		<div class="col-8 col-xl-8">

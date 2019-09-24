@@ -14,13 +14,14 @@
    		</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		
+		{% bootstrap_css %}
+		{% fontawesome_5_static %}
+		
 		{% block extraheader %}
 		  
 		{% endblock extraheader %}
 
-
-		{% bootstrap_css %}
-		{% fontawesome_5_static %}
 		
 	</head>
 
@@ -61,7 +62,7 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<a class="menu" href="{% url 'index' %}">
+						<a class="menu" href=#>
 							<div class="row">
 								<div class="col-12">
 										<span> Centro de costos</span>
@@ -85,7 +86,7 @@
 				</div>
 				<div class="row">
 					<div class="col-12">
-						<a class="menu" href="{% url 'index_juridicas' %}">
+						<a class="menu" href="{% url 'orden_facturacion' %}">
 							<div class="row border-bottom">
 								<div class="col-12">
 									<span>Orden de facturación</span>

@@ -41,8 +41,8 @@
             {{ form.exclusivo_acad|as_crispy_field }}
         </div>
     </div>
-    <button type="submit" class="btn btn-success">Guardar</button>
-    <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte_id%}"> Cancelar </a>
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-light" href="{% url 'reporte_editar' reporte_id%}"> Cancelar </a>
 </form>
 
 {% endblock content %}

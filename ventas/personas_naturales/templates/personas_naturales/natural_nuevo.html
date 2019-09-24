@@ -9,7 +9,7 @@
 {% endblock extraheader %}
 
 {% block content %}
-	<form method="POST">
+	<form method="POST" novalidate>
 		{% csrf_token %}
 		<h2>Registro de persona natural</h2>
 		<div class="campo"><h5 class="campo">Información básica</h5></div>
@@ -119,7 +119,7 @@
 		<div class="row mt-3">
 			<div class="col-12">
 				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'index' %}"> Cancelar </a>
+				<a class="btn btn-light" href="{% url 'natural_lista' %}"> Cancelar </a>
 			</div>
 		</div>
 	</form>

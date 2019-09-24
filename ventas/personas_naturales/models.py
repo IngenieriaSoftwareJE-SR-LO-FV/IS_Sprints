@@ -35,3 +35,6 @@ class Persona_Natural(models.Model):
 	tel_trabajo = models.CharField(max_length=10, blank=True, null=True, verbose_name="Teléfono Trabajo", validators=[ventas.validaciones.validate_fono_convencional])
 	medios = models.CharField(max_length=50, verbose_name="Medio de contacto", choices=MEDIOS_CHOICES, default='Correo Electrónico')
 	novedad_medios = models.CharField(max_length=500, verbose_name="Novedades sobre medio de contacto", blank=True, null=True)
+	
+	def __str__(self):
+		return self.nombres+" - "+self.cedula
