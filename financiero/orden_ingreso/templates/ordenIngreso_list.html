@@ -1,4 +1,4 @@
-{% extends "base_ventas.html" %}
+{% extends "base_financiero.html" %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -25,6 +25,9 @@
                 <div class="col-4">
                     {{ filter.form.numeroFactura|as_crispy_field }}
                 </div>
+                <div class="col-4">
+                    {{ filter.form.estado|as_crispy_field }}
+                </div>
             </div>
                 <div>
                     <button  type="submit" class="btn btn-secondary float-right">
@@ -35,7 +38,7 @@
     </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-5">
     <div class="col-12">
     {% if filter.qs %}
 <table class="table table-bordered">

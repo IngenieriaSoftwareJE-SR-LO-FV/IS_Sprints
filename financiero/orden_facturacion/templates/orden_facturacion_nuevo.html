@@ -1,0 +1,83 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Orden de facturación" }}{% endblock title %}
+
+{% block extraheader %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{% endblock extraheader %}
+
+{% block content %}
+  <form method="POST" novalidate id="form-fact", data-persona-url="{% url 'ajax_load_personas' %}">
+    {% csrf_token %}
+    <h2>Registro de Orden de Facturación</h2>
+    <div class="form-row">
+      
+        <div class="col-6 col-md-3 mb-0">
+          
+            {{form.tipo_cliente|as_crispy_field}}
+              <small class="form-text text-muted">Seleccione el tipo de cliente</small>
+            
+        </div>
+        <div class="col-6 col-md-3 mb-0">
+          {{ form.fecha|as_crispy_field }}
+        </div>
+        <div class="col-6 col-md-3 mb-0 " id="field-ruc-ci">
+          <div id="div_id_ruc_ci" class="form-group">
+              <label for="{{ form.ruc_ci.id_for_label}}" class="col-form-label requiredField" id="ruc_ci">RUC/CI</label><span class="asteriskField">*</span>
+              <div>
+                  {{ form.ruc_ci}}
+                  {% if form.ruc_ci.errors %}
+                      {% for error in form.ruc_ci.errors %}
+                        <p class="invalid-feedback d-block">
+                          <strong>{{ error }}</strong>
+                        </p>
+                      {% endfor %}
+                  {% endif %}
+                  
+              </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 mb-0 " id="field-razon">
+          <div id="div_id_razon_nombres" class="form-group">
+              <label for="{{ form.razon_nombres.id_for_label}}" class="col-form-label requiredField" id="ra_nom">Razón Social/Nombres</label><span class="asteriskField">*</span> 
+              <div>
+                  {{ form.razon_nombres}}
+                  {% if form.razon_nombres.errors %}
+                      {% for error in form.razon_nombres.errors %}
+                        <p class="invalid-feedback d-block">
+                          <strong>{{ error }}</strong>
+                        </p>
+                      {% endfor %}
+                  {% endif %}
+                  
+              </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          {{form.contacto|as_crispy_field}}
+        </div>
+        <div class="col-6 col-md-4">{{ form.direccion|as_crispy_field }}</div>
+        <div class="col-6 col-md-4">{{ form.telefono|as_crispy_field }}</div>
+        <div class="col-6 col-md-4">{{ form.centro_costo|as_crispy_field }}</div>
+        <div class="col-6 col-md-4">{{ form.n_participantes|as_crispy_field }}</div>
+        <div class="col-6 col-md-4">{{ form.valor_total|as_crispy_field }}</div>
+        <div class="col-12 col-md-6">{{ form.concepto|as_crispy_field }}</div>
+        <div class="col-12 col-md-6">{{ form.observaciones|as_crispy_field }}</div>
+        <div class="col-12 col-md-6">{{ form.comentarios|as_crispy_field }}</div>
+        <div class="col-12">{{ form.participantes|as_crispy_field }}</div>
+      </div>
+    
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+  {{ form.media }}
+
+  </form>
+{% endblock content %}
+
+{% block extrafooter %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="{% static 'js/orden_fact_form.js' %}"></script>
+{% endblock extrafooter %}
+

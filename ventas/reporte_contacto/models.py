@@ -13,8 +13,8 @@ class ReporteContacto(models.Model):
                         ]
 						
 	id=models.CharField(max_length=20, primary_key=True)
-	#empresa=models.ForeignKey(Juridica, on_delete=models.SET_NULL, null=True, blank=True)
-	empresa=models.CharField(max_length=100)
+	empresa=models.ForeignKey(Juridica, on_delete=models.SET_NULL, null=True, blank=True)
+	#empresa=models.CharField(max_length=100)
 	canal_de_contacto=models.CharField(max_length=100)
 	motivo_de_contacto=models.CharField(max_length=500)
 	lugar=models.CharField(max_length=100)

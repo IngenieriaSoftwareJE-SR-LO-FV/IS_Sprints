@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for persona in personas %}
+<option value="{{ persona.nombre }}" name="{{ persona.ruc }}" >{{ persona.nombre }}</option>
+{% endfor %}
