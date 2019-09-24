@@ -2,19 +2,21 @@
 
 {% block content %}
 <div class="row justify-content-md-center mt-5">
-    <form method="POST">
+    <form method="POST" action="{% url 'natural_nuevo_t' %}">
         {% csrf_token %}
         <h3>¿Está seguro que desea guardar los datos?</h3><br>
         <h5>Faltan los siguientes campos: </h5>
-        {% if lista %}
-	        {% for field in lista %}
-	        	<li>{{ field }}</li>
-	        {% endfor %}
-	    {% endif %}
+        {% for field in form %}
+            {% if not field.value %}
+                <li>{{ field.label }}</li>
+            {% endif %}
+            {{ field.as_hidden }}
+        {% endfor %}
+
         <div class="col">
             <div class="row justify-content-center">
                     <button class="btn btn-danger mr-3" type="submit"> Sí </button>
-                    <a class="btn btn-secondary" href="{% url 'proforma_lista' %}"> No </a>
+                    <a class="btn btn-secondary" href="javascript:history.back()"> No </a>
             </div>
         </div>
     </form>
