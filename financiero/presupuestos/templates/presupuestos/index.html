@@ -4,6 +4,7 @@
 {% load crispy_forms_tags %}
 {% block title %}{{ "EC - Presupuestos Evento" }}{% endblock title %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/presupuestos.css' %}">
 <div class="row">
 		<h2 class="col-9 col-xl-9">Presupuestos Eventos</h2>
 		<div class="col-3 col-xl-3">
@@ -111,7 +112,11 @@
 					<td scope="row">{{p.n_dias}}</td>
 					<td scope="row">{{p.n_participantes}}</td>
 					<td scope="row">{{p.estado}}</td>
-					<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-pencil"></i> Editar</a></td>
+					<td scope="row">
+						<a class="btn btn-secondary float-right" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-edit"></i></a>
+
+						<a href='javascript:;' onclick='eliminar({{ p.id }});' class="btn btn-danger" ><i class="fas fa-trash"></i></a>
+					</td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -164,6 +169,52 @@
 	{% endif %}
 
   </ul>
+
+  
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-form">
+    	
+    </div>
+  </div>
+</div>
+<script>
+  	function eliminar(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		  	}
+
+		  	$.ajax({
+		        url: "{% url 'eliminar_presupuestos' %}",  
+		        data:{"pk":id}, 
+		        success: function (data) {   
+		           $("#modal-form").html(data);  
+		      }
+		  });
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+
+	}
+</script>
 {% endblock %}
 
 

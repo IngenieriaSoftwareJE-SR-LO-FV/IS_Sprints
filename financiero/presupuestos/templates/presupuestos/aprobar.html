@@ -1,0 +1,117 @@
+
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/juridicas_forma.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
+<div class="row">
+<div class="col-12 col-xl-12">
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<h2>Aprobación de Presupuesto Evento</h2>
+	</div>
+</div>
+	<div class="campo">
+		<h5 class="campo">Información Presupuesto</h5>
+	</div>
+<form method="post" >
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.codigo |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.nombre|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.aula|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.modalidad |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.empresa|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.nombre_instructor|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.fecha |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.horario|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.n_horas|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.costo_hora_instructor |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.n_dias|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.n_participantes|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.ingresos |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.honorario_instructor|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.movilizacion_personal|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.lapiz |as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.pendrives|as_crispy_field}}
+		</div>
+		<div class="col-4 col-xl-4">
+		     {{ form.otros_materiales|as_crispy_field}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+		    {{ form.movilizacion_personal_ciudad |as_crispy_field}}
+		</div>
+	</div>
+	<div class="campo"><h5 class="campo">Aprobar Presupuesto</h5></div>
+	<div class="row">
+		<div class="col-4 col-xl-4">
+			{{ form.estado|as_crispy_field }}
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary">Guardar</button>
+			<a class="btn btn-light" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+		</div>
+	</div>
+	</div>
+	{{ form.media }}
+</form>
+</div>
+</div>
+
+{% endblock %}
