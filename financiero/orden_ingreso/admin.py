@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import OrdenIngreso
 
-# Register your models here.
+admin.site.register(OrdenIngreso)
+
