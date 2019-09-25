@@ -1,15 +1,8 @@
-{% extends "base_financiero.html" %}
-{% load crispy_forms_tags %}
-{% load static %}
-{% block title %}{{ "EC - Orden de facturación" }}{% endblock title %}
+{% extends "orden_facturacion_nuevo.html" %}
 
-{% block extraheader %}
-{% endblock extraheader %}
+{% block editar%}
+{% if form.estado.value == "SLCE" %}
 
-{% block content %}
-<form method="POST" enctype="multipart/form-data" novalidate id="form-fact">
-    {% csrf_token %}
-    <h2>Orden de Facturación</h2>
     <div class="form-row">
         <div class="col-6 mb-0">
             <div id="div_id_n_tramite" class="form-group">
@@ -44,52 +37,11 @@
         </div>
     </div>
     <hr>
-    <div class="form-row">
-        <div class="col-6 col-md-3 mb-0">
-            {{form.tipo_cliente|as_crispy_field}}
-        </div>
-        <div class="col-6 col-md-3 mb-0">
-            {{ form.fecha|as_crispy_field }}
-        </div>
-        <div class="col-6 col-md-3 mb-0">{{ form.ruc_ci|as_crispy_field}}</div>
-        <div class="col-6 col-md-3 mb-0">{{ form.razon_nombres|as_crispy_field}}</div>
-        <div class="col-6 col-md-4 mb-0">{{form.contacto|as_crispy_field}}</div>
-        <div class="col-6 col-md-4 mb-0">{{ form.direccion|as_crispy_field }}</div>
-        <div class="col-6 col-md-4 mb-0">{{ form.telefono|as_crispy_field }}</div>
-        <div class="col-6 col-md-4 mb-0">{{ form.centro_costo|as_crispy_field }}</div>
-        <div class="col-6 col-md-4 mb-0">{{ form.n_participantes|as_crispy_field }}</div>
-        <div class="col-6 col-md-4 mb-0">{{ form.valor_total|as_crispy_field }}</div>
-        <div class="col-12 col-md-6 mb-0">{{ form.concepto|as_crispy_field }}</div>
-        <div class="col-12 col-md-6 mb-0">{{ form.observaciones|as_crispy_field }}</div>
-        <div class="col-12 col-md-6 mb-0">{{ form.comentarios|as_crispy_field }}</div>
-        <div class="col-12">{{ form.participantes|as_crispy_field }}</div>
-        {{form.estado}}
-        {{form.cod_orden_fact}}
-    </div>
+{% endif %}
+<input type="hidden" id='rc' value="{{form.ruc_ci.value}}">
+<input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
+{% endblock editar%}
 
-    <button type="submit" class="btn btn-secondary">Guardar</button>
-    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
-
-    {{ form.media }}
-
-</form>
-{% endblock content %}
-
-{% block extrafooter %}
-<script>
-    var persona = $("#id_tipo_cliente").val();
-    console.log(persona);
-    if (persona == "p_natural") {
-        $('label[for=id_ruc_ci]').text("CI");
-        $('label[for=id_ruc_ci]').append("<span class='asteriskField'>*</span>");
-        $('label[for=id_razon_nombres]').text("Nombres");
-        $('label[for=id_razon_nombres]').append("<span class='asteriskField'>*</span>");
-    }
-    else if (persona == "p_juridica") {
-        $('label[for=id_ruc_ci]').text("RUC");
-        $('label[for=id_ruc_ci]').append("<span class='asteriskField'>*</span>");
-        $('label[for=id_razon_nombres]').text("Razón Social");
-        $('label[for=id_razon_nombres]').append("<span class='asteriskField'>*</span>");
-    }
-</script>
-{% endblock extrafooter %}
+{% block btn %}
+<a class="btn btn-success" href="{% url 'orden_facturacion' %}">Cancelar</a>
+{% endblock btn %}

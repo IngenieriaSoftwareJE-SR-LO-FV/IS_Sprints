@@ -134,6 +134,10 @@ input[type=date]{
 	text-align: center;
 }
 
+.table td{
+	vertical-align: middle !important;
+}
+
 .table {
 	font-size: 12px;
 }

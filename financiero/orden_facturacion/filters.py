@@ -1,6 +1,5 @@
 from .models import OrdenFacturacion
-from financiero.orden_facturacion.models import OrdenFacturacion
-from financiero.orden_facturacion.forms import TRUE_FALSE_CHOICES
+from financiero.orden_facturacion.models import OrdenFacturacion, ESTADO_CHOICES
 import django_filters
 from django import forms
 
@@ -11,9 +10,8 @@ class OrdenFacturacionFilter(django_filters.FilterSet):
     ruc_ci=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'RUC o CI del Cliente'}))
     razon_nombres=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'Nombre o Razón Social del Cliente'}))
     estado = django_filters.ChoiceFilter(
-		null_label="Pendiente",
-		empty_label="Todos",
-		choices=TRUE_FALSE_CHOICES,
+        empty_label='Estado',
+		choices=ESTADO_CHOICES,
         label=""
     )
     class Meta:

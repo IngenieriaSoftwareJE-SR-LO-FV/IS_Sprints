@@ -8,9 +8,12 @@
 {% endblock extraheader %}
 
 {% block content %}
-  <form method="POST" novalidate id="form-fact", data-persona-url="{% url 'ajax_load_personas' %}">
+  <form method="POST" novalidate id="form-fact" enctype="multipart/form-data", data-persona-url="{% url 'ajax_load_personas' %}">
     {% csrf_token %}
     <h2>Registro de Orden de Facturación</h2>
+    {% block editar %}
+    
+    {% endblock editar %}
     <div class="form-row">
       
         <div class="col-6 col-md-3 mb-0">
@@ -66,10 +69,14 @@
         <div class="col-12 col-md-6">{{ form.observaciones|as_crispy_field }}</div>
         <div class="col-12 col-md-6">{{ form.comentarios|as_crispy_field }}</div>
         <div class="col-12">{{ form.participantes|as_crispy_field }}</div>
+        {{form.cod_orden_fact}}
+        {{form.estado}}
       </div>
     
     <button type="submit" class="btn btn-secondary">Guardar</button>
     <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+    {% block btn %}
+    {% endblock btn %}
   {{ form.media }}
 
   </form>

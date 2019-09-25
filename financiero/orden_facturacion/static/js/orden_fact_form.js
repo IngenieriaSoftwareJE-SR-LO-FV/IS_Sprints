@@ -13,6 +13,10 @@ function load_data(url, persona) {
       success: function (data) {
         $("#id_ruc_ci").html(data.ruc_ci)
         $("#id_razon_nombres").html(data.razon_nombre)
+        $('#id_ruc_ci').val($('#rc').val());
+$('#id_razon_nombres').val($('#rn').val());
+$('#select2-id_ruc_ci-container').text($('#rc').val());
+$('#select2-id_razon_nombres-container').text($('#rn').val());
       }
     });
     $('#field-razon').show();
@@ -57,4 +61,5 @@ $('#id_razon_nombres').on('change',function(){
 $('#id_ruc_ci').on('change',function(){
   autocomplete($(this), 'id_razon_nombres');
 })
+
 
