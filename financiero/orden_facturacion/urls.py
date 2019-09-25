@@ -10,4 +10,5 @@ urlpatterns = [
     path('', FilterView.as_view(filterset_class=OrdenFacturacionFilter,template_name="orden_facturacion.html"), name='orden_facturacion'),
     path('editar/<pk>/', views.OrdenFacturacionUpdate.as_view(), name='orden_facturacion_editar'),    
     path('eliminar/<pk>/', views.OrdenFacturacionDelete.as_view(), name='orden_facturacion_eliminar'),
+    path('cambiar-estado/<pk>/', views.cambiar_estado, name='orden_facturacion_estado'),
 ]

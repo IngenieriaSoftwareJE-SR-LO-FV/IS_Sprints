@@ -52,7 +52,8 @@ class OrdenFacturacionDelete(DeleteView):
     template_name='orden_facturacion_eliminar.html'
     success_url=reverse_lazy('orden_facturacion')
 
-def change_estado(request):
+def cambiar_estado(request):
+    print(request.GET.get("pk"), "CAAAAACAAAAA")
     pass
 
 def load_personas(request):
