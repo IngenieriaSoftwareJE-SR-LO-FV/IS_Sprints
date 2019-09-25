@@ -2,24 +2,31 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 def validate_cedula(value):
-	impares = int(value[1]) + int(value[3]) + int(value[5]) + int(value[7])
-	pares = 0
-	for i in range(0,9):
-		if(i%2==0):
-			res = int(value[i])*2
-			if(res>=10):
-				res = res-9
-			pares = pares+res
-	total = impares+pares
-	dig_validador = (((total+10)//10)*10)-total
-	if(dig_validador==10):
-		dig_validador = 0
-	if (not value.isdigit() or not(int(value[0:2])>=1 and int(value[0:2])<=24 and int(value[-1])==dig_validador)):
+	if(len(value)!=10 or not value.isdigit()):
 		raise ValidationError(
             _('%(value)s no es una cédula válida'),
             code="invalid",
             params={'value': value},
         )
+	else:
+		impares = int(value[1]) + int(value[3]) + int(value[5]) + int(value[7])
+		pares = 0
+		for i in range(0,9):
+			if(i%2==0):
+				res = int(value[i])*2
+				if(res>=10):
+					res = res-9
+				pares = pares+res
+		total = impares+pares
+		dig_validador = (((total+10)//10)*10)-total
+		if(dig_validador==10):
+			dig_validador = 0
+		if (not(int(value[0:2])>=1 and int(value[0:2])<=24 and int(value[-1])==dig_validador)):
+			raise ValidationError(
+	            _('%(value)s no es una cédula válida'),
+	            code="invalid",
+	            params={'value': value},
+	        )
 
 def ruc_natural(value):
 	impares = int(value[1]) + int(value[3]) + int(value[5]) + int(value[7])
@@ -72,7 +79,7 @@ def ruc_publica(value):
 	return int(value[0:2])>=1 and int(value[0:2])<=24 and int(value[2])==6 and int(value[8])==dig_validador and int(value[9:13])>=1
 
 def validate_ruc(value):
-	if (not value.isdigit() or not(ruc_natural(value) or ruc_juridica(value) or ruc_publica(value))):
+	if (not value.isdigit() or not len(value)==13 or not(ruc_natural(value) or ruc_juridica(value) or ruc_publica(value))):
 		raise ValidationError(
             _('%(value)s no es un RUC válido'),
             code="invalid",
@@ -96,7 +103,7 @@ def validate_fono_convencional(value):
 		)
 
 def validate_celular(value):
-	if (not value.isdigit()):
+	if (not value.isdigit() or not len(value)>=10):
 		raise ValidationError(
 			_('%(value)s no es un celular correcto'),
             code="invalid",
