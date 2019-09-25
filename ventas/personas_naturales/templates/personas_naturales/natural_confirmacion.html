@@ -5,7 +5,7 @@
     <form method="POST" action="{% url 'natural_nuevo_t' %}">
         {% csrf_token %}
         <h3>¿Está seguro que desea guardar los datos?</h3><br>
-        <h5>Faltan los siguientes campos: </h5>
+        {% if vacios %}<h5>Faltan los siguientes campos: </h5>{% endif %}
         {% for field in form %}
             {% if not field.value %}
                 <li>{{ field.label }}</li>

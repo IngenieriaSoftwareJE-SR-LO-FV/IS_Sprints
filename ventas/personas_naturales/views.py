@@ -17,7 +17,6 @@ def index(request):
     return render(request, 'personas_naturales/natural.html', {'naturales_filter': naturales_filter,"naturales":naturales})
 
 def natural_nuevo_t(request):
-	print("??")
 	if(request.method == "POST"):
 		form = forms.Natural_NuevoForm(request.POST)
 		print(request.POST)
@@ -31,7 +30,11 @@ def natural_nuevo(request):
 	if(request.method == "POST"):
 		form = forms.Natural_NuevoForm(request.POST)
 		if(form.is_valid()):
-			return render(request, "personas_naturales/natural_confirmacion.html", {"form":form})
+			vacios = 0
+			for f in form.fields:
+				if(form[f].data==""):
+					vacios=vacios+1
+			return render(request, "personas_naturales/natural_confirmacion.html", {"form":form, "vacios":vacios})
 	else:
 		form = forms.Natural_NuevoForm()
 	return render(request,"personas_naturales/natural_nuevo.html", {"form":form})
