@@ -65,7 +65,7 @@
 					<tbody>
 						{% for p in presupuestos_ev %}
 						<tr>
-							<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-check-square"></i></a></td>
+							<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-check"></i></a></td>
 							<td scope="row">{{p.codigo}}</td> 
 							<td scope="row">{{p.estado}}</td>
 							<td scope="row">{{p.nombre}}</td>
