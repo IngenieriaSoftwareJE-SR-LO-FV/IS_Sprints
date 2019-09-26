@@ -1,0 +1,102 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Orden de facturación" }}{% endblock title %}
+
+{% block extraheader %}
+{% endblock extraheader %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" novalidate id="form-fact">
+    {% csrf_token %}
+    <h2>Orden de Facturación</h2>
+    <div class="form-row">
+        <div class="col-6 mb-0">
+            <div id="div_id_n_tramite" class="form-group">
+                <label for="id_n_tramite" class="col-form-label requiredField">
+                    N° de trámite<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    {{form.n_tramite}}
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mb-0">
+            <div id="div_id_n_factura" class="form-group">
+
+                <label for="id_n_factura" class="col-form-label requiredField">
+                    N° de factura<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    {{form.n_factura}}
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mb-0">
+            <div id="div_id_anexo_factura" class="form-group">
+                <label for="id_anexo_factura" class="col-form-label requiredField">
+                    Anexo de factura<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    {{form.anexo_factura}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="form-row">
+        <div class="col-6 col-md-3 mb-0">
+            {{form.tipo_cliente|as_crispy_field}}
+        </div>
+        <div class="col-6 col-md-3 mb-0">
+            {{ form.fecha|as_crispy_field }}
+        </div>
+        <div class="col-6 col-md-3 mb-0">{{ form.ruc_ci|as_crispy_field}}</div>
+        <div class="col-6 col-md-3 mb-0">{{ form.razon_nombres|as_crispy_field}}</div>
+        <div class="col-6 col-md-4 mb-0">{{form.contacto|as_crispy_field}}</div>
+        <div class="col-6 col-md-4 mb-0">{{ form.direccion|as_crispy_field }}</div>
+        <div class="col-6 col-md-4 mb-0">{{ form.telefono|as_crispy_field }}</div>
+        <div class="col-6 col-md-4 mb-0">{{ form.centro_costo|as_crispy_field }}</div>
+        <div class="col-6 col-md-4 mb-0">{{ form.n_participantes|as_crispy_field }}</div>
+        <div class="col-6 col-md-4 mb-0">{{ form.valor_total|as_crispy_field }}</div>
+        <div class="col-12 col-md-6 mb-0">{{ form.concepto|as_crispy_field }}</div>
+        <div class="col-12 col-md-6 mb-0">{{ form.observaciones|as_crispy_field }}</div>
+        <div class="col-12 col-md-6 mb-0">{{ form.comentarios|as_crispy_field }}</div>
+        <div class="col-12">{{ form.participantes|as_crispy_field }}</div>
+        {{form.estado}}
+        {{form.cod_orden_fact}}
+    </div>
+
+    <div class="campo"><h5 class="campo">Aprobar orden de facturación</h5></div>
+    <div class="row">
+        <div class="col-4 col-xl-4">
+            {{ form.estado }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+
+    {{ form.media }}
+
+</form>
+{% endblock content %}
+
+{% block extrafooter %}
+<script>
+    var persona = $("#id_tipo_cliente").val();
+    console.log(persona);
+    if (persona == "p_natural") {
+        $('label[for=id_ruc_ci]').text("CI");
+        $('label[for=id_ruc_ci]').append("<span class='asteriskField'>*</span>");
+        $('label[for=id_razon_nombres]').text("Nombres");
+        $('label[for=id_razon_nombres]').append("<span class='asteriskField'>*</span>");
+    }
+    else if (persona == "p_juridica") {
+        $('label[for=id_ruc_ci]').text("RUC");
+        $('label[for=id_ruc_ci]').append("<span class='asteriskField'>*</span>");
+        $('label[for=id_razon_nombres]').text("Razón Social");
+        $('label[for=id_razon_nombres]').append("<span class='asteriskField'>*</span>");
+    }
+</script>
+{% endblock extrafooter %}
