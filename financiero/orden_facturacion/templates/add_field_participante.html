@@ -1,0 +1,6 @@
+<select name="{{ form.participantes.name }}" id="id_participantes_2" class="select2">
+    <option value="">-----------</option>
+    {% for value, text in participantes%}
+    <option value='{{value}}'> {{text}}</option>
+    {% endfor %}
+</select>

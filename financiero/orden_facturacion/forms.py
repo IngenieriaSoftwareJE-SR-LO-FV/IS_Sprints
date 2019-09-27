@@ -33,11 +33,12 @@ class OrdenFacturacionForm(forms.ModelForm):
             'estado':forms.HiddenInput(),
             'observaciones':forms.Textarea(attrs={'rows':2}),
             'concepto':forms.Textarea(attrs={'rows':2}),
+            'n_participantes':forms.HiddenInput(),
             'comentarios':forms.Textarea(attrs={'rows':2}),
             'fecha':forms.DateInput(attrs={'type':'date','value':date.today}),
             'razon_nombres':forms.Select(attrs={'class':'form-control select2'}),
             'ruc_ci':forms.Select(attrs={'class':'form-control select2'}),
-            'participantes':forms.CheckboxSelectMultiple(attrs={'class':'form-control'}),
+            'participantes':forms.SelectMultiple(attrs={'class':'form-control'}),
             'n_tramite':forms.TextInput(attrs={'class':'form-control textinput textInput form-control'}),
             'n_factura':forms.TextInput(attrs={'class':'form-control textinput textInput form-control'}),
         }
@@ -86,5 +87,5 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'fecha':forms.DateInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
             'razon_nombres':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
             'ruc_ci':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
-            'participantes':forms.CheckboxSelectMultiple(attrs={'class':'form-control'}),
+            'participantes':forms.SelectMultiple(attrs={'class':'form-control'}),
         }

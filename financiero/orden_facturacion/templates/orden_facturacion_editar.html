@@ -1,47 +1,92 @@
 {% extends "orden_facturacion_nuevo.html" %}
 
 {% block editar%}
-{% if form.estado.value == "SLCE" %}
+{% load index %}
+<h2>Orden de Facturación</h2>
+{% if form.estado.value == "IMPE" %}
 
-    <div class="form-row">
-        <div class="col-6 mb-0">
-            <div id="div_id_n_tramite" class="form-group">
-                <label for="id_n_tramite" class="col-form-label requiredField">
-                    N° de trámite<span class="asteriskField">*</span>
-                </label>
-                <div class="">
-                    {{form.n_tramite}}
-                </div>
-            </div>
-        </div>
-        <div class="col-6 mb-0">
-            <div id="div_id_n_factura" class="form-group">
-
-                <label for="id_n_factura" class="col-form-label requiredField">
-                    N° de factura<span class="asteriskField">*</span>
-                </label>
-                <div class="">
-                    {{form.n_factura}}
-                </div>
-            </div>
-        </div>
-        <div class="col-12 mb-0">
-            <div id="div_id_anexo_factura" class="form-group">
-                <label for="id_anexo_factura" class="col-form-label requiredField">
-                    Anexo de factura<span class="asteriskField">*</span>
-                </label>
-                <div class="">
-                    {{form.anexo_factura}}
-                </div>
+<div class="form-row">
+    <div class="col-6 mb-0">
+        <div id="div_id_n_tramite" class="form-group">
+            <label for="id_n_tramite" class="col-form-label requiredField">
+                N° de trámite<span class="asteriskField">*</span>
+            </label>
+            <div class="">
+                {{form.n_tramite}}
             </div>
         </div>
     </div>
-    <hr>
+    <div class="col-6 mb-0">
+        <div id="div_id_n_factura" class="form-group">
+
+            <label for="id_n_factura" class="col-form-label requiredField">
+                N° de factura<span class="asteriskField">*</span>
+            </label>
+            <div class="">
+                {{form.n_factura}}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-0">
+        <div id="div_id_anexo_factura" class="form-group">
+            <label for="id_anexo_factura" class="col-form-label requiredField">
+                Anexo de factura<span class="asteriskField">*</span>
+            </label>
+            <div class="">
+                {{form.anexo_factura}}
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
 {% endif %}
+
+
 <input type="hidden" id='rc' value="{{form.ruc_ci.value}}">
 <input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
 {% endblock editar%}
 
 {% block btn %}
-<a class="btn btn-success" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar</a>
+{% if form.estado.value == "ACTV" %}
+<a class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar solicitud</a>
+{% endif %}
 {% endblock btn %}
+
+{% block participantes %}
+{% for n in num%}
+<div id="div_{{n}}" class="col-12 col-md-6">
+    <div class="row">
+        <div class="col-2">
+            <a class="btn btn-danger btn-sm remove" id="{{n}}" href="#">Eliminar</a>
+
+        </div>
+        <div class="col-10">
+            <select name="{{ form.participantes.name }}" id="id_participantes_{{n}}" class="select2 form-control">
+                <option value="None" selected>-----------</option>
+                {% for value, text in form.participantes.field.choices %}
+                <option value='{{value}}' {% if value == selected_participantes|index:n %} selected="selected"{% endif %}>{{text}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    {% if form.participantes.errors %}
+    {% for error in form.participantes.errors %}
+    <p class="invalid-feedback d-block">
+        <strong>{{ error }}</strong>
+    </p>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endfor %}
+{% endblock participantes%}
+
+{% block vars %}
+<script>  
+  var a = $('#id_n_participantes').val();
+  var cont = a;
+</script>
+{% endblock vars %}
+
+{% block fields %}
+{% endblock fields %}

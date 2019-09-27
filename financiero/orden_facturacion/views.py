@@ -45,6 +45,12 @@ class OrdenFacturacionUpdate(UpdateView):
             else:
                 context['form']=self.form_class(instance=orden)
         context['orden_id']=pk
+        selected_participantes=[]
+        for par in orden.participantes.all():
+            selected_participantes.append(par.pk)
+        print(selected_participantes)
+        context['selected_participantes']=selected_participantes
+        context['num']=list(range(0, orden.participantes.count()))
         return context
 
 class OrdenFacturacionDelete(DeleteView):
@@ -52,9 +58,25 @@ class OrdenFacturacionDelete(DeleteView):
     template_name='orden_facturacion_eliminar.html'
     success_url=reverse_lazy('orden_facturacion')
 
-def cambiar_estado(request):
-    print(request.GET.get("pk"), "CAAAAACAAAAA")
-    pass
+    def post(self, request, *args, **kwargs):
+        self.object=self.get_object()
+        self.object.estado="ANLD"
+        self.object.save()
+        return HttpResponseRedirect(reverse_lazy('orden_facturacion'))
+
+def orden_fact_conf_elim(request):
+    orden_id=request.GET.get('pk')
+    orden=OrdenFacturacion.objects.get(id=orden_id)
+    return render(request,"orden_facturacion_eliminar.html",{"orden":orden})
+
+
+
+def cambiar_estado(request, pk):
+    orden=OrdenFacturacion.objects.get(id=pk)
+    orden.estado='SLCE'
+    orden.save()
+    return HttpResponseRedirect(reverse_lazy('orden_facturacion'))
+
 
 def load_personas(request):
     persona = request.GET.get("persona")

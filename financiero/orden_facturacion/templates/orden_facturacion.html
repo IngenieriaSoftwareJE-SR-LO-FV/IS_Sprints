@@ -90,10 +90,13 @@
                         </td>
 
                         <td scope="row">
-                            <a class="btn btn-secondary btn-sm btn-block" href="{% url 'orden_facturacion_editar' orden.id %}"><i
-                                    class="fas fa-edit"></i></a>
-                            <a class="btn btn-danger btn-sm btn-block" href="{% url 'orden_facturacion_eliminar' orden.id %}"><i
+                            {% if orden.estado != 'ANLD' %}
+                            <a class="btn btn-secondary btn-sm btn-block"
+                                href="{% url 'orden_facturacion_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+                            <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm btn-block"
+                                data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                                     class="fas fa-trash"></i></a>
+                            {% endif%}
                         </td>
                     </tr>
                     {% endfor %}
@@ -107,4 +110,31 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
+
+{% block extrafooter %}
+<script>
+
+    function eliminar(id) {
+        console.log(id);
+        $.ajax({
+            url: "{% url 'orden_facturacion_confirmar_eliminar' %}",
+            data: {
+                'pk': id
+            },
+            success: function (data) {
+                $(".modal-content").html(data)
+            }
+        });
+    };
+</script>
+{% endblock extrafooter %}

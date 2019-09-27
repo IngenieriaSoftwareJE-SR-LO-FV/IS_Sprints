@@ -37,4 +37,4 @@ class Persona_Natural(models.Model):
 	novedad_medios = models.CharField(max_length=500, verbose_name="Novedades sobre medio de contacto", blank=True, null=True)
 	
 	def __str__(self):
-		return self.nombres+" - "+self.cedula
+		return self.nombres+" "+self.apellidos+" - "+self.cedula
