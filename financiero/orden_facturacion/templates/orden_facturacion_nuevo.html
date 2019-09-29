@@ -69,7 +69,9 @@
     <div class="col-12 col-md-8">{{ form.direccion|as_crispy_field }}</div>
     <div class="col-6 col-md-4">{{ form.telefono|as_crispy_field }}</div>
     <div class="col-6 col-md-4">{{ form.centro_costo|as_crispy_field }}</div>
-    {{ form.n_participantes|as_crispy_field }}
+    {% block n_par %}
+    {{ form.n_participantes}}
+    {% endblock n_par %}
     <div class="col-6 col-md-4">{{ form.valor_total|as_crispy_field }}</div>
   </div>
   <div class="form-row">
@@ -80,7 +82,9 @@
   <div class="form-row">
     <div class="col-12">
       <label class="col-form-label">{{ form.participantes.label }}</label>
+      {% if form.estado.value == "ACTV" %}
       <a id="add" class="btn btn-secondary btn-sm" href="#">Agregar</a>
+      {% endif %}
       <div class="row mt-3" id="gg">
         {% block participantes%}
         <div id="div_0" class="col-12 col-md-6">
@@ -90,7 +94,8 @@
 
             </div>
             <div class="col-10">
-              <select name="{{ form.participantes.name }}" id="id_participantes_0" class="select2 form-control">
+              <select name="{{ form.participantes.name }}" id="id_participantes_0"
+                class="select2 form-control select2-participantes">
                 <option value="None" selected>-----------</option>
                 {% for value, text in form.participantes.field.choices %}
                 <option value='{{value}}' {% if value == selected_participantes|index:n %} selected="selected"
@@ -131,13 +136,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="{% static 'js/orden_fact_form.js' %}"></script>
 {% block vars %}
-<script>  
+<script>
   var a = 1;
   var cont = a;
+  $("#id_n_participantes").val(cont)
 </script>
 {% endblock vars %}
 <script>
-
+  function rmoption(val) {
+    $('#' + val).remove
+  }
   function newfieldhtml(val) {
     return '<div id="div_' + val + '" class="col-12 col-md-6">\
         <div class="row">\
@@ -145,7 +153,7 @@
       <a class="btn btn-danger btn-sm remove" id="'+ val + '" href="#">Eliminar</a>\
       </div>\
       <div class="col-10">\
-      <select name="{{ form.participantes.name }}" id="id_participantes_' + val + '"' + 'class="select2 form-control">\
+      <select name="{{ form.participantes.name }}" id="id_participantes_' + val + '"' + 'class="select2 form-control select2-participantes">\
         <option value="None">-----------</option>\
         {% for value, text in form.participantes.field.choices %}\
         <option value="{{value}}""> {{text}}</option>\
@@ -167,7 +175,6 @@
     a += 1;
     cont += 1;
     $("#id_n_participantes").val(cont)
-    console.log(cont);
   });
 
   $(document).on('click', '.remove', function () {
@@ -176,7 +183,6 @@
       $("#div_" + $(this).attr('id')).remove();
       cont -= 1;
       $("#id_n_participantes").val(cont)
-      console.log(cont);
     }
   });
 </script>

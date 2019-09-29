@@ -1,5 +1,7 @@
 $('.select2').select2({
-  language: "es"
+  language: "es",
+  minimunInputLength: 2,
+  minimunResultsForSearch: -1
 });
 
 function load_data(url, persona) {
@@ -63,5 +65,17 @@ $('#id_razon_nombres').on('change', function () {
 $('#id_ruc_ci').on('change', function () {
   autocomplete($(this), 'id_razon_nombres');
 })
+
+$(document).on('change','.select2-participantes',function(){
+  var clickedselect=$(this).val();
+  var id=$(this).attr('id');
+  $('.select2-participantes').each(function(e){
+    if($(this).attr('id')!=id){
+      if($(this).val()==clickedselect){
+        $(this).val("None").trigger('change');
+      }
+    }
+  });
+});
 
 

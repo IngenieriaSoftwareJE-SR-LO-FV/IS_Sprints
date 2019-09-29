@@ -48,7 +48,6 @@ class OrdenFacturacionUpdate(UpdateView):
         selected_participantes=[]
         for par in orden.participantes.all():
             selected_participantes.append(par.pk)
-        print(selected_participantes)
         context['selected_participantes']=selected_participantes
         context['num']=list(range(0, orden.participantes.count()))
         return context
