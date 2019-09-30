@@ -120,13 +120,34 @@
     {{form.estado}}
   </div>
   <div class="mt-3">
-    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-secondary" data-toggle='modal' data-target="#ordenEliminarCenter" href='#'>Guardar</a>
     <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
     {% block btn %}
     {% endblock btn %}
   </div>
 
   {{ form.media }}
+
+  <div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ordenTitle">Confirmación de guardado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Está seguro/a que desea continuar? Verifíque los datos ingresados antes de continuar.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-light" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-secondary mr-3">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </form>
 {% endblock content %}
