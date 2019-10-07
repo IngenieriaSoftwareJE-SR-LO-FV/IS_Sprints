@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Natural_NuevoForm
 from .models import Persona_Natural 
 from . import forms
@@ -45,8 +45,18 @@ class NaturalUpdate(UpdateView):
 	template_name = 'personas_naturales/natural_nuevo.html'
 	success_url = reverse_lazy('natural_lista')
 
-class NaturalDelete(DeleteView):
-	model = Persona_Natural
+def natural_delete(request, pk=None):
+	"""model = Persona_Natural
 	template_name = 'personas_naturales/natural_eliminar.html'
 	form_class = Natural_NuevoForm
-	success_url = reverse_lazy('natural_lista')
+	success_url = reverse_lazy('natural_lista')"""
+	
+	if(request.method == "POST"):
+		p = get_object_or_404(Persona_Natural,pk=pk);
+		p.delete()
+		return redirect("natural_lista")
+	else:
+		pk = request.GET.get('cedula')
+		cedula_char="0"+str(pk)
+		p = get_object_or_404(Persona_Natural,pk=cedula_char);
+		return render(request, 'personas_naturales/natural_eliminar.html', {'object': p})
