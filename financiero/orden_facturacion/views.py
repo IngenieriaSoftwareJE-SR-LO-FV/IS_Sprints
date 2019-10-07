@@ -26,7 +26,7 @@ class OrdenFacturacionCreate(CreateView):
         return super().form_valid(form)
     
     def get_success_url(self, **kwargs):         
-            return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
+        return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
 
 class OrdenFacturacionUpdate(UpdateView):
     model=OrdenFacturacion
@@ -61,7 +61,7 @@ class OrdenFacturacionDelete(DeleteView):
         self.object=self.get_object()
         self.object.estado="ANLD"
         self.object.save()
-        return HttpResponseRedirect(reverse_lazy('orden_facturacion'))
+        return HttpResponseRedirect(self.get_success_url())
 
 def orden_fact_conf_elim(request):
     orden_id=request.GET.get('pk')
@@ -75,6 +75,10 @@ def cambiar_estado(request, pk):
     orden.estado='SLCE'
     orden.save()
     return HttpResponseRedirect(reverse_lazy('orden_facturacion'))
+
+def verificar_campos(request):
+    return render(request,"orden_facturacion_confirmar.html")
+
 
 
 def load_personas(request):
