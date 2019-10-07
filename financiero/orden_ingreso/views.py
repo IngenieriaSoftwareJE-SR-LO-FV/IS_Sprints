@@ -6,7 +6,7 @@ from .forms import OrdenIngresoForm
 from django.urls import reverse_lazy
 # Create your views here.
 
-class OrdenIngresoCreate(CreateView):
+"""class OrdenIngresoCreate(CreateView):
     model=OrdenIngreso
     form_class=OrdenIngresoForm
     template_name='ordenIngreso_form.html'
@@ -19,4 +19,23 @@ class OrdenIngresoCreate(CreateView):
             form.save()
             return HttpResponseRedirect(self.get_success_url())
         else:
-            return self.render_to_response(self.get_context_data(form=form))
+            return self.render_to_response(self.get_context_data(form=form))"""
+
+
+class OrdenIngresoCreate(CreateView):
+    model=OrdenIngreso
+    form_class=OrdenIngresoForm
+    template_name='ordenIngreso_form.html'
+    success_url=reverse_lazy('ordenIngreso')
+
+    def form_valid(self, form):
+        try:
+            pre=str(int(self.model.objects.latest('pk').pk+1))
+            sec='0'*(4-len(pre))+pre
+        except self.model.DoesNotExist:
+            sec='0001'
+        form.instance.cod_orden_ing=sec+'-'+str(date.today().year)
+        return super().form_valid(form)
+    
+    def get_success_url(self, **kwargs):         
+            return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
