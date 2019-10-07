@@ -4,7 +4,6 @@
 {% load index %}
 <h2>Orden de Facturación</h2>
 {% if form.estado.value == "IMPE" %}
-
 <div class="form-row">
     <div class="col-6 mb-0">
         <div id="div_id_n_tramite" class="form-group">
@@ -39,6 +38,44 @@
     </div>
 </div>
 <hr>
+
+{% block anexos%}
+<script>
+    var has_anexo = false;
+    var has_n_tra = false;
+    var has_n_fact = false;
+
+    function isInteger(str) {
+        return /^\d*$/.test(str);
+    }
+
+    function change_state_btn(){
+        if (has_anexo && has_n_tra && has_n_fact){
+            $('#confirmar_guardar').removeClass('disabled')
+        }
+        else{
+            $('#confirmar_guardar').addClass('disabled')
+        }
+    }
+
+    $('#confirmar_guardar').addClass('disabled')
+    $("#id_anexo_factura").change(function () {
+        has_anexo=$(this).get(0).files.length !== 0;
+        change_state_btn()
+    });
+
+    $("#id_n_factura").focusout(function () {
+        has_n_fact = isInteger($(this).val());
+        change_state_btn()
+    });
+
+    $("#id_n_tramite").focusout(function () {
+        has_n_tra = isInteger($(this).val());
+        change_state_btn()
+    });
+</script>
+{% endblock anexos%}
+
 {% endif %}
 
 
@@ -54,7 +91,7 @@
 
 {% block n_par %}
 {% if form.estado.value != "ACTV" %}
-    <div class="col-6 col-md-4">{{ form.n_participantes|as_crispy_field}}</div>
+<div class="col-6 col-md-4">{{ form.n_participantes|as_crispy_field}}</div>
 {%else%}
 {{block.super}}
 {% endif %}
@@ -80,10 +117,11 @@
         </div>
         {%else%}
         <div class="col-12">
-            <select name="{{ form.participantes.name }}" id="id_participantes_{{n}}" class="form-control select2-participantes" readonly>
+            <select name="{{ form.participantes.name }}" id="id_participantes_{{n}}"
+                class="form-control select2-participantes" readonly>
                 {% for value, text in form.participantes.field.choices %}
                 {% if value == selected_participantes|index:n %}
-                    <option value='{{value}}' selected >{{text}}</option>
+                <option value='{{value}}' selected>{{text}}</option>
                 {% endif %}
                 {% endfor %}
             </select>

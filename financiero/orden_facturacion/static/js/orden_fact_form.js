@@ -1,14 +1,13 @@
 $('.select2').select2({
   language: "es",
   minimunInputLength: 2,
-  minimunResultsForSearch: -1
+  minimunResultsForSearch: -1,
 });
 
-function load_data(url, persona) {
+function load_data() {
   var url = $('#form-fact').attr("data-persona-url");
   var persona = $("#id_tipo_cliente").val();
   if (persona != "") {
-    var url = url
     $.ajax({
       url: url,
       data: {
@@ -54,6 +53,7 @@ function autocomplete(from, to) {
 
 
 
+
 load_data();
 
 $("#id_tipo_cliente").on("change", load_data);
@@ -66,16 +66,26 @@ $('#id_ruc_ci').on('change', function () {
   autocomplete($(this), 'id_razon_nombres');
 })
 
-$(document).on('change','.select2-participantes',function(){
-  var clickedselect=$(this).val();
-  var id=$(this).attr('id');
-  $('.select2-participantes').each(function(e){
-    if($(this).attr('id')!=id){
-      if($(this).val()==clickedselect){
+$(document).on('change', '.select2-participantes', function () {
+  var clickedselect = $(this).val();
+  var id = $(this).attr('id');
+  $('.select2-participantes').each(function (e) {
+    if ($(this).attr('id') != id) {
+      if ($(this).val() == clickedselect) {
         $(this).val("None").trigger('change');
       }
     }
   });
 });
 
-
+/*var forma = $("#form-fact");
+forma.click(function (e) {
+  e.preventDefault();*/
+$("#confirmar_guardar").click(function (e) {
+  $.ajax({
+  url: $('#form-fact').attr("data-confirmacion-url"),
+    success: function (data) {
+      $('.modal-body').html(data);
+    },
+  });
+})
