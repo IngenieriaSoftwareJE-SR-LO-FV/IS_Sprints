@@ -5,11 +5,12 @@
 {% block title %}{{ "EC - Persona Natural" }}{% endblock title %}
 
 {% block extraheader %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
+
   
 {% endblock extraheader %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
 <div class="row" id="title">
 	<div class="col-9">
             <h2>Persona Natural</h2>
@@ -223,8 +224,6 @@
 
 <script>
   	function eliminar(id){
-  		console.log("Hola");
-  		console.log(id);
   		var modal = document.getElementById("myModal");
   		modal.style.display = "block";
 
