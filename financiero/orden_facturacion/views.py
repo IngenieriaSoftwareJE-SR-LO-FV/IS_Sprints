@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import OrdenFacturacion, Persona_Natural, Juridica
-from .forms import OrdenFacturacionForm, OrdenFacturacionUpdateForm
+from .forms import OrdenFacturacionForm, OrdenFacturacionUpdateForm, OrdenFacturacionFinalForm
 from django.template.loader import render_to_string
 from django.http import JsonResponse, HttpResponseRedirect
 from datetime import date
@@ -32,6 +32,7 @@ class OrdenFacturacionUpdate(UpdateView):
     model=OrdenFacturacion
     form_class=OrdenFacturacionUpdateForm
     second_form_class=OrdenFacturacionForm
+    third_form_class=OrdenFacturacionFinalForm
     template_name='orden_facturacion_editar.html'
     success_url=reverse_lazy('orden_facturacion')
 
@@ -42,6 +43,8 @@ class OrdenFacturacionUpdate(UpdateView):
         if 'form' in context:
             if orden.estado=='ACTV':
                 context['form']=self.second_form_class(instance=orden)
+            elif orden.estado=='FAES':
+                context['form']=self.third_form_class(instance=orden)
             else:
                 context['form']=self.form_class(instance=orden)
         context['orden_id']=pk

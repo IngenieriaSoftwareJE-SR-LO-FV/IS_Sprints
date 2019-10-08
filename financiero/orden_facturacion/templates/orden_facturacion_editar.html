@@ -1,9 +1,10 @@
 {% extends "orden_facturacion_nuevo.html" %}
 {% load crispy_forms_tags %}
+
 {% block editar%}
 {% load index %}
 <h2>Orden de Facturación</h2>
-{% if form.estado.value == "IMPE" %}
+{% if form.estado.value == "IMPE" or form.estado.value == "FAES" %}
 <div class="form-row">
     <div class="col-6 mb-0">
         <div id="div_id_n_tramite" class="form-group">
@@ -32,14 +33,47 @@
                 Anexo de factura<span class="asteriskField">*</span>
             </label>
             <div class="">
+                {% if form.anexo_factura.value %}
+                <a class="btn btn-secondary btn-sm" href="{{form.anexo_factura.value.url}}" target="_blank">
+                    Descargar
+                </a>
+                {% else %}
                 {{form.anexo_factura}}
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 <hr>
 
+{% endif %}
+
+<input type="hidden" id='rc' value="{{form.ruc_ci.value}}">
+<input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
+{% endblock editar%}
+
+{% block btn %}
+{% if form.estado.value == "ACTV" %}
+<a class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar solicitud</a>
+{% endif %}
+{% endblock btn %}
+
+{% block n_par %}
+{% if form.estado.value != "ACTV" %}
+<div class="col-6 col-md-4">{{ form.n_participantes|as_crispy_field}}</div>
+{%else%}
+{{block.super}}
+{% endif %}
+{% endblock n_par %}
+
 {% block anexos%}
+{% if form.estado.value == "FAES" %}
+<script>
+    $('#confirmar_guardar').removeClass('disabled')
+</script>
+{% endif%}
+
+{% if form.estado.value == "IMPE" %}
 <script>
     var has_anexo = false;
     var has_n_tra = false;
@@ -51,10 +85,12 @@
 
     function change_state_btn(){
         if (has_anexo && has_n_tra && has_n_fact){
-            $('#confirmar_guardar').removeClass('disabled')
+            $('#confirmar_guardar').removeClass('disabled');
+            $("#id_estado").val("FAES");
         }
         else{
-            $('#confirmar_guardar').addClass('disabled')
+            $('#confirmar_guardar').addClass('disabled');
+            $("#id_estado").val("IMPE");
         }
     }
 
@@ -74,28 +110,8 @@
         change_state_btn()
     });
 </script>
+{% endif %}
 {% endblock anexos%}
-
-{% endif %}
-
-
-<input type="hidden" id='rc' value="{{form.ruc_ci.value}}">
-<input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
-{% endblock editar%}
-
-{% block btn %}
-{% if form.estado.value == "ACTV" %}
-<a class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar solicitud</a>
-{% endif %}
-{% endblock btn %}
-
-{% block n_par %}
-{% if form.estado.value != "ACTV" %}
-<div class="col-6 col-md-4">{{ form.n_participantes|as_crispy_field}}</div>
-{%else%}
-{{block.super}}
-{% endif %}
-{% endblock n_par %}
 
 {% block participantes %}
 {% for n in num%}
