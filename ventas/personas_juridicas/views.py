@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Juridica
@@ -61,3 +61,32 @@ def juridicas_view(request):
 	else:
 		form = forms.JuridicaForm()
 	return render(request,"personas_juridicas/forma.html", {"form":form})
+
+
+def juridicas_editar(request,pk):
+	if(request.method == "POST"):
+		p = get_object_or_404(Juridica, pk=pk)
+		form = forms.JuridicaForm(request.POST,instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect("index_juridicas")
+	else:
+
+		p = get_object_or_404(Juridica, pk=pk)
+		form = forms.JuridicaForm(instance=p)
+		#form.fields["fecha"].value=None
+	return render(request, 'personas_juridicas/forma.html', {'form': form})
+
+
+def juridicas_eliminar(request,pk=None):
+	if(request.method == "POST"):
+		p = get_object_or_404(Juridica,pk=pk);
+		p.delete()
+		return redirect("index_juridicas")
+	else:
+
+	
+		pk= request.GET.get('pk')
+		p = get_object_or_404(Juridica,pk=pk);
+
+		return render(request, 'personas_juridicas/eliminar.html', {'object': p})

@@ -127,6 +127,11 @@
 			<tbody>
 				{% for j in juridicas %}
 				<tr>
+					<td scope="row">
+						<a class="btn btn-secondary float-right" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
+
+						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger" ><i class="fas fa-trash"></i></a>
+					</td>
 					<td scope="row">{{j.ruc}}</td>
 					 <td scope="row">{{j.nombre}}</td>
 					<td scope="row">{{j.ciudad}}</td>
@@ -210,5 +215,51 @@
   });
 
   });
+</script>
+
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="modal-form">
+    	
+    </div>
+  </div>
+</div>
+<script>
+  	function eliminar(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		  	}
+
+		  	$.ajax({
+		        url: "{% url 'eliminar_juridica' %}",  
+		        data:{"pk":id}, 
+		        success: function (data) {   
+		           $("#modal-form").html(data);  
+		      }
+		  });
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+
+	}
 </script>
 {% endblock %}
