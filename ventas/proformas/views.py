@@ -3,14 +3,27 @@ from django.http import HttpResponse
 from .forms import ProformaForm
 from .models import Proforma
 from django.urls import reverse_lazy
+from datetime import date
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 # Create your views here.
 
+"""try:
+            pre=str(int(self.model.objects.latest('pk').pk+1))
+            sec='0'*(4-len(pre))+pre
+        except self.model.DoesNotExist:
+            sec='0001'
+        form.instance.cod_orden_fact=sec+'-'+str(date.today().year)"""
 
 def proforma_view(request):
 	if request.method == "POST":
 		form=ProformaForm(request.POST,request.FILES)
 		if form.is_valid():
+			try:
+				pre = str(int(Proforma.objects.latest('pk').pk+1))
+				sec = '0'*(4-len(pre))+pre
+			except Proforma.DoesNotExist:
+				sec = '0001'
+			form.instance.codigo = 'PROF-CEC-'+sec+'-'+str(date.today().year)
 			form.save()
 		return redirect("proforma_lista")
 	else:

@@ -3,7 +3,7 @@ from ventas.personas_juridicas.models import Juridica, TipoEmpresa, Sector
 
 # Create your models here.
 class Proforma(models.Model):
-	codigo=models.CharField(max_length=20)
+	codigo=models.CharField(max_length=20, blank=True)
 	version=models.PositiveIntegerField()
 	nombreProforma=models.CharField(max_length=100)
 	tipoEmpresa=models.ForeignKey(TipoEmpresa, on_delete=models.CASCADE)

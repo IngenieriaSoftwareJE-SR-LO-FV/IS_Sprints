@@ -3,6 +3,7 @@ window.onload = function() {
     var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
 	console.log(text)
+	document.getElementById("id_codigo").disabled=true;
 
 	if (text!="Aceptada"){
 		document.getElementById("id_fechaRespuesta").disabled=true;
@@ -23,6 +24,7 @@ function run(){
 	var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
 	console.log(text)
+	document.getElementById("id_codigo").disabled=true;
 
 	if (text!="Aceptada"){
 		document.getElementById("id_fechaRespuesta").disabled=true;
@@ -35,6 +37,5 @@ function run(){
 		document.getElementById("id_montoAceptado").disabled=false;
 		document.getElementById("id_montoEjecutado").disabled=false;
 		document.getElementById("id_montoPorEjecutarse").disabled=false;
-
 	}
 }	
