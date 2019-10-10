@@ -68,7 +68,7 @@ class JuridicaForm(forms.ModelForm):
 				"celular":forms.TextInput(attrs={"class":"form-control","type":"tel"}),
 				"correo":forms.EmailInput(attrs={"class":"form-control"}),
 				"representante":forms.TextInput(attrs={"class":"form-control"}),
-				"maximo_facturas":forms.DateInput(attrs={"class":"form-control","type":"date"}),
+				"maximo_facturas":forms.DateInput(format='%Y-%m-%d', attrs={'class': 'datepicker', "type":"date"}),
 				"forma_pago":forms.Select(attrs={"class":"form-control"}),
 				"contacto_cedula":forms.TextInput(attrs={"class":"form-control"}),
 				"contacto_nombres":forms.TextInput(attrs={"class":"form-control"}),
@@ -83,7 +83,6 @@ class JuridicaForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		self.fields['ciudad'].queryset = models.Ciudad.objects.none()
-		#self.fields['ciudad'].choices = [("None","Select_")]
 		if 'provincia' in self.data:
 			try:
 				provincia_id = int(self.data.get('provincia'))
@@ -91,7 +90,7 @@ class JuridicaForm(forms.ModelForm):
 			except (ValueError, TypeError):
 				pass  # invalid input from the client; ignore and fallback to empty City queryset
 		elif self.instance.pk:
-			self.fields['ciudad'].queryset = self.instance.provincia.city_set.order_by('nombre')
+			self.fields['ciudad'].queryset = self.instance.provincia.ciudad_set.order_by('nombre')
 
 class JuridicaFilter(django_filters.FilterSet):
 	nombre = django_filters.CharFilter(label="", widget=forms.TextInput(attrs={"class":"form-control",'placeholder': 'Razón Social'}))
@@ -142,7 +141,7 @@ class JuridicaFilter(django_filters.FilterSet):
 					]
 
 		widgets = {
-				"maximo_facturas":forms.DateInput(attrs={"class":"form-control","type":"date"}),
+				"maximo_facturas":forms.DateInput(format='%Y-%m-%d', attrs={'class': 'datepicker', "type":"date"}),
 		}
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
