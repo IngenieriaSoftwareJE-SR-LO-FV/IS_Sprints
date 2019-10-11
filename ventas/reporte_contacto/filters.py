@@ -5,7 +5,7 @@ from django import forms
 
 
 class ReporteContactoFilter(django_filters.FilterSet):
-    id = django_filters.CharFilter(lookup_expr='icontains', label='', widget=forms.TextInput(attrs={'placeholder': 'Código de reporte'}))
+    cod_reporte = django_filters.CharFilter(lookup_expr='icontains', label='', widget=forms.TextInput(attrs={'placeholder': 'Código de reporte'}))
     """empresa_nombre=django_filters.CharFilter(lookup_expr='icontains',label='Empresa')"""
     empresa = django_filters.ModelChoiceFilter(label="", empty_label="Empresa", queryset=Juridica.objects.all())
     canal_de_contacto = django_filters.CharFilter(label='', widget=forms.TextInput(attrs={'placeholder': 'Canal de contacto'}))
@@ -15,7 +15,7 @@ class ReporteContactoFilter(django_filters.FilterSet):
         model = ReporteContacto
         
         fields=[
-            'id',
+            'cod_reporte',
             'empresa',
             'canal_de_contacto',
             'fecha',

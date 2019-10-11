@@ -9,6 +9,7 @@ from ventas.personas_juridicas.models import Juridica
 from django.urls import reverse_lazy
 from django.db.models import Q
 from dal import autocomplete
+from datetime import date
 
 class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
     def __init__(self, *args, **kwargs):
@@ -24,6 +25,7 @@ class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
     def has_add_permission(self, request):
         return True
 
+
 class ReporteContactoCreate(CreateView):
     model=ReporteContacto
     template_name= 'reporte_form.html'
@@ -34,8 +36,14 @@ class ReporteContactoCreate(CreateView):
         self.object =self.get_object
         form=self.form_class(request.POST)
         if form.is_valid():
+            try:
+                pre = str(int(self.model.objects.latest('pk').pk+1))
+                sec = '0'*(4-len(pre))+pre
+            except self.model.DoesNotExist:
+                sec = '0001'
+            form.instance.cod_reporte = 'RC-CEC-'+sec+'-'+str(date.today().year)
             reporte=form.save()
-            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte.id))
+            return HttpResponseRedirect(self.get_success_url()+'/'+str(reporte.pk))
         else:
             return self.render_to_response(self.get_context_data(form=form))
 
@@ -56,7 +64,7 @@ class ReporteContactoUpdate(UpdateView):
         context['asesorias']=asesorias
         context['reporte_id']=pk
         l=[]
-        vals=str(self.model.objects.get(id=pk).servicios_requeridos).split(',')
+        vals=str(self.model.objects.get(pk=pk).servicios_requeridos).split(',')
         for s in self.model.SERVICIOS_CHOICES:
             if s[1] in vals or ' '+s[1] in vals:
                 l.append(s[0])

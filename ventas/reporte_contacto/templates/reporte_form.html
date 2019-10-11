@@ -10,7 +10,7 @@
     <h2>Reporte de contacto</h2>
     <div class="form-row">
       <div class=" col-4 mb-0">
-          {{ form.id|as_crispy_field }}
+          {{ form.cod_reporte|as_crispy_field }}
       </div>
       <div class=" col-4 mb-0">
         {{ form.empresa|as_crispy_field }}
@@ -84,4 +84,12 @@
     {% endblock tablas %}
     {{ form.media }}
   </form>
+
+{% block extrafooter %}
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("id_cod_reporte").readOnly=true;
+        };
+    </script>
+{% endblock extrafooter %}
 {% endblock content %}

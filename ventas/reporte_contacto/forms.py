@@ -8,7 +8,7 @@ class ReporteContactoForm(forms.ModelForm):
         model = ReporteContacto
 
         fields=[
-            'id',
+            'cod_reporte',
             'empresa',
             'canal_de_contacto',
             'motivo_de_contacto',
@@ -27,7 +27,7 @@ class ReporteContactoForm(forms.ModelForm):
         ]
 
         labels={
-            'id':'Código del reporte',
+            'cod_reporte':'Código del reporte',
             'empresa': 'Empresa',
             'canal_de_contacto': 'Canal de contacto',
             'motivo_de_contacto': 'Motivo de Contacto',

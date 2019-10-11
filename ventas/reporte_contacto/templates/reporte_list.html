@@ -22,7 +22,7 @@
     <form action="" method="get">
         <div class="form-row ">
             <div class="col-6">
-                {{ filter.form.id|as_crispy_field }}
+                {{ filter.form.cod_reporte|as_crispy_field }}
             </div><div class="col-6">
                 {{ filter.form.fecha|as_crispy_field }}
             </div>
@@ -56,11 +56,11 @@
 
         {% for reporte in filter.qs %}
         <tr>
-            <td scope="row">{{reporte.id}}</td>
+            <td scope="row">{{reporte.cod_reporte}}</td>
             <td scope="row">{{reporte.empresa}}</td>
             <td scope="row">
-                <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte.id%}"><i class="fas fa-edit"></i></a>
-                <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.id%}"><i class="fas fa-trash"></i></a>
+                <a class="btn btn-secondary" href="{% url 'reporte_editar' reporte.pk %}"><i class="fas fa-edit"></i></a>
+                <a class="btn btn-danger" href="{% url 'reporte_eliminar' reporte.pk %}"><i class="fas fa-trash"></i></a>
             </td>
         </tr>
         {% endfor %}
