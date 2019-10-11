@@ -21,7 +21,7 @@ class PropuestaCorporativo(models.Model):
                             ('MDG','Material digital'),
                         ]
 
-    cod_propuesta=models.CharField(max_length=20, primary_key=True)
+    cod_propuesta=models.CharField(max_length=20, blank=True)
     version=models.PositiveIntegerField()
     nombre_propuesta=models.CharField(max_length=250)
     tipo_empresa=models.ForeignKey(TipoEmpresa, on_delete=models.SET_NULL, null=True, blank=True)

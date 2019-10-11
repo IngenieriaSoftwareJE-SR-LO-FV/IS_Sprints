@@ -8,6 +8,7 @@ from django.core.files.storage import FileSystemStorage
 from ventas.reporte_contacto.models import ReporteContacto
 from django.db.models import Q
 from dal import autocomplete
+from datetime import date
 
 # Create your views here.
 class ReporteAutocomplete(autocomplete.Select2QuerySetView):
@@ -32,7 +33,13 @@ class PropuestaCorporativoCreate(CreateView):
     def post(self, request,*args, **kwargs):
         self.object=self.get_object
         form=self.form_class(request.POST, request.FILES)
-        if form.is_valid(): 
+        if form.is_valid():
+            try:
+                pre = str(int(self.model.objects.latest('pk').pk+1))
+                sec = '0'*(4-len(pre))+pre
+            except self.model.DoesNotExist:
+                sec = '0001'
+            form.instance.cod_propuesta = 'PRO-CEC-'+sec+'-'+str(date.today().year)
             form.save()
             return HttpResponseRedirect(self.get_success_url())
         else:
@@ -49,7 +56,7 @@ class PropuestaCorporativoUpdate(UpdateView):
         context =super(PropuestaCorporativoUpdate, self).get_context_data(**kwargs)
         pk=self.kwargs.get('pk',0)
         l=[]
-        vals=str(self.model.objects.get(cod_propuesta=pk).servicios_incluidos).split(',')
+        vals=str(self.model.objects.get(pk=pk).servicios_incluidos).split(',')
         print(vals)
         for s in self.model.SERVICIOS_CHOICES:
             print(s)

@@ -48,4 +48,12 @@
     </div>
     {{ form.media }}
 </form>
+
+{% block extrafooter %}
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("id_cod_propuesta").readOnly=true;
+        };
+    </script>
+{% endblock extrafooter %}
 {% endblock content %}

@@ -3,7 +3,7 @@ window.onload = function() {
     var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
 	console.log(text)
-	document.getElementById("id_codigo").disabled=true;
+	document.getElementById("id_codigo").readOnly=true;
 
 	if (text!="Aceptada"){
 		document.getElementById("id_fechaRespuesta").disabled=true;
@@ -24,7 +24,7 @@ function run(){
 	var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
 	console.log(text)
-	document.getElementById("id_codigo").disabled=true;
+	document.getElementById("id_codigo").readOnly=true;
 
 	if (text!="Aceptada"){
 		document.getElementById("id_fechaRespuesta").disabled=true;
