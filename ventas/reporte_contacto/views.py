@@ -11,20 +11,20 @@ from django.db.models import Q
 from dal import autocomplete
 from datetime import date
 
-class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
+
+# Create your views here.
+class ReporteAutocomplete(autocomplete.Select2QuerySetView):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def get_queryset(self):
-        qs = Juridica.objects.all().order_by("nombre")
+        qs = ReporteContacto.objects.all().order_by("empresa")
         if self.q:
-            qs = qs.filter(Q(nombre__icontains=self.q) | Q(ruc__istartswith=self.q))
-            #qs = qs.filter(nombre__istartswith=self.q)
+            qs = qs.filter(Q(empresa__nombre__icontains=self.q) | Q(cod_reporte__istartswith=self.q))
         return qs
 
     def has_add_permission(self, request):
         return True
-
 
 class ReporteContactoCreate(CreateView):
     model=ReporteContacto

@@ -11,6 +11,5 @@ urlpatterns = [
     path('', FilterView.as_view(filterset_class=PropuestaCorporativoFilter,template_name="propuesta_corp_list.html"), name='propuesta_corporativa'),
     path('editar/<pk>/', views.PropuestaCorporativoUpdate.as_view(), name='propuesta_editar'),    
     path('eliminar/<pk>/', views.PropuestaCorporativoDelete.as_view(), name='propuesta_eliminar'),
-    path('reporte-autocomplete/',views.ReporteAutocomplete.as_view(),name='reporte-autocomplete'),
-    path('empresa-autocomplete/', ventas.reporte_contacto.views.EmpresaAutocomplete.as_view(),name='empresa-autocomplete'),
+    
 ]

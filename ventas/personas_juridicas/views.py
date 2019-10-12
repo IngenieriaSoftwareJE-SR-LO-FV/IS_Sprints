@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
-
+from django.db.models import Q
 from .models import Juridica
 from .models import Ciudad
 from .models import Sector
@@ -9,6 +9,21 @@ from . import forms
 from dal import autocomplete
 
 from django.core.paginator import Paginator
+
+
+class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_queryset(self):
+        qs = Juridica.objects.all().order_by("nombre")
+        if self.q:
+            qs = qs.filter(Q(nombre__icontains=self.q) | Q(ruc__istartswith=self.q))
+            #qs = qs.filter(nombre__istartswith=self.q)
+        return qs
+
+    def has_add_permission(self, request):
+        return True
 
 class TipoAutocomplete(autocomplete.Select2QuerySetView):
 	def __init__(self, *args, **kwargs):

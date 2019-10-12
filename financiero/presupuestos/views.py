@@ -22,17 +22,6 @@ class AulaAutocomplete(autocomplete.Select2QuerySetView):
 		
 	def has_add_permission(self, request):
 		return True
-class EmpresaAutocomplete(autocomplete.Select2QuerySetView):
-	def get_queryset(self):
-		qs = Juridica.objects.all().order_by("nombre")
-
-		if self.q:
-			qs = qs.filter(nombre__istartswith=self.q)
-
-		return qs
-	def has_add_permission(self, request):
-		return True
-
 
 def index_presupuestos(request):
 	presupuestos_list = PresupuestoEvento.objects.all().order_by("id")

@@ -15,5 +15,5 @@ urlpatterns = [
     path('asesoria/nuevo/<pk>/',views.AsesoriaCreate.as_view(),name='asesoria_nuevo'),
     path('asesoria/editar/<pk>/<fk>/',views.AsesoriaUpdate.as_view(),name='asesoria_editar'),
     path('asesoria/eliminar/<pk>/<fk>/',views.AsesoriaDelete.as_view(),name='asesoria_eliminar'),
-    path('empresa-autocomplete/',views.EmpresaAutocomplete.as_view(),name='empresa-autocomplete'),
+    path('reporte-autocomplete/',views.ReporteAutocomplete.as_view(),name='reporte-autocomplete'),
 ]

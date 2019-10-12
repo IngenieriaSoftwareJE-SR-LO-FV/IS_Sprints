@@ -9,5 +9,4 @@ urlpatterns = [
     path('', FilterView.as_view(filterset_class=ProformaFilter,template_name="proforma_list.html"), name='proforma_lista'),
     path('editar/<pk>/', views.ProformaUpdate.as_view(), name='proforma_editar'),    
     path('eliminar/<pk>/', views.ProformaDelete.as_view(), name='proforma_eliminar'),
-    path('empresa-autocomplete/', ventas.reporte_contacto.views.EmpresaAutocomplete.as_view(),name='empresa-autocomplete'),
 ]
