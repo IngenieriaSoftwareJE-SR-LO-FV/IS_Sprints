@@ -20,11 +20,21 @@ class OrdenIngreso(models.Model):
 	]
 	TIPO_CHOICES=[('Natural','Natural'),('Jurídica','Jurídica'),]
 
+	ESTADO_CHOICES = [  
+        ('ACTV','Activo'),
+        ('SLCE','Solicitud Enviada'),
+	    ('ACPF', 'Autorizada por Financiero'),
+        ('IMPE','Impreso Emitido'),
+        ('RGAC','Registrado Académico'),
+        ('FAES','Con factura ESPOLTECH'),
+        ('ANLD','Anulada'),
+	]
+
 	tipo_cliente=models.CharField(max_length=15, choices=TIPO_CHOICES)
 	fecha=models.CharField(max_length=12)
 	cod_orden_ing=models.CharField(max_length=15, blank=True)
-	numeroTramite=models.PositiveIntegerField()
-	numeroFactura=models.PositiveIntegerField()
+	n_tramite=models.CharField(max_length=15,blank=True, null=True, default='No asignado')
+	n_factura=models.CharField(max_length=15,blank=True, null=True, default='No asignado')
 	ruc_ci=models.CharField(max_length=13)
 	razon_nombres=models.CharField(max_length=50)
 	centroCosto=models.CharField(max_length=50)
@@ -36,7 +46,7 @@ class OrdenIngreso(models.Model):
 	numeroDocumento=models.PositiveIntegerField()
 	banco=models.CharField(max_length=30)
 	emisoraTarjeta=models.CharField(max_length=20,choices=TARJETAS, blank=True,help_text="Obligatorio con Tarjeta Crédito.")
-	estado=models.BooleanField(default=None,null=True,blank=True)
+	estado = models.CharField(max_length=5,default='ACTV',choices=ESTADO_CHOICES, blank=True, null=True)
 
 	def delete(self, *arg, **kwargs):
 		self.anexo_factura.delete()

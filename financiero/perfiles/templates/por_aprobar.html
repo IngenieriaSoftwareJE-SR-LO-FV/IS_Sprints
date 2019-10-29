@@ -51,8 +51,7 @@
 				<table class="table table-bordered">
 					<thead class="thead-light">
 						<tr>
-							<th scope="col">Aprobar</th>
-							<th scope="col">Código</th>
+							<th scope="col">Ver Detalles</th>
 							<th scope="col">Estado</th> 
 							<th scope="col">Nombre</th>
 							<th scope="col">Fecha</th>
@@ -65,7 +64,7 @@
 					<tbody>
 						{% for p in presupuestos_ev %}
 						<tr>
-							<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-check"></i></a></td>
+							<td scope="row"><a class="btn btn-secondary float-right" href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{p.codigo}}</td> 
 							<td scope="row">{{p.estado}}</td>
 							<td scope="row">{{p.nombre}}</td>

@@ -45,8 +45,7 @@
     <thead>
         <tr>
             <th>Fecha</th>
-            <th>Número de Trámite</th>
-            <th>Número de Factura</th>
+            <th>Anexo</th>
             
         </tr>
     </thead>
@@ -56,8 +55,16 @@
         {% for ordenIngreso in filter.qs %}
         <tr>
             <td>{{ordenIngreso.fecha}}</td>
-            <td>{{ordenIngreso.numeroTramite}}</td>
-            <td>{{ordenIngreso.numeroFactura}}</td>
+            <td>
+                {% if ordenIngreso.anexo %}
+                    <a class="btn btn-secondary" href="{{ordenIngreso.anexo.url}}" target="_blank">
+                        Descargar
+                    </a>
+                {% else %}
+                    No anexo
+                {% endif %}
+            </td>
+            
           
             
         </tr>

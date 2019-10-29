@@ -4,6 +4,7 @@ from django.views.generic import CreateView,UpdateView,DeleteView
 from .models import OrdenIngreso
 from .forms import OrdenIngresoForm
 from django.urls import reverse_lazy
+from datetime import date
 # Create your views here.
 
 """class OrdenIngresoCreate(CreateView):
@@ -38,4 +39,5 @@ class OrdenIngresoCreate(CreateView):
         return super().form_valid(form)
     
     def get_success_url(self, **kwargs):         
-            return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
+            #return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
+            return reverse_lazy('ordenIngreso')
