@@ -1,0 +1,1921 @@
+[
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 1,
+		"fields": {
+			"codigo":"28.01.01",
+			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes del Gobierno Central",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 2,
+		"fields": {
+			"codigo":"28.01.02",
+			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Entidades Descentralizadas y Autónomas",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 3,
+		"fields": {
+			"codigo":"28.01.03",
+			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Empresas Públicas",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 4,
+		"fields": {
+			"codigo":"28.01.04",
+			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Gobiernos Autónomos Descentralizados",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 5,
+		"fields": {
+			"codigo":"28.02.11",
+			"nombre":"Transferencias y Donaciones de Capital e Inversión del Sector Privado Interno Provenientes del Sector Privado No Financiero",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 6,
+		"fields": {
+			"codigo":"28.03.02",
+			"nombre":"Donaciones Capital del Sector Externo Provenientes de Gobiernos y Organismos Gubernamentales",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 7,
+		"fields": {
+			"codigo":"28.03.04",
+			"nombre":"Donaciones Capital del Sector Externo Provenientes del Sector Privado no Financiero",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 8,
+		"fields": {
+			"codigo":"37.01.02",
+			"nombre":"Saldos de Fondos de Autogestión (Saldos de los centros de costos. Cabe indicar que estos valores deberán ser modificados una vez cerrado el ejercicio fiscal)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 9,
+		"fields": {
+			"codigo":"38.01.01",
+			"nombre":"Cuentas por Cobrar de Años Anteriores",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 10,
+		"fields": {
+			"codigo":"51.01.05",
+			"nombre":"Remuneraciones Unificadas (RMU)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 11,
+		"fields": {
+			"codigo":"51.05.09",
+			"nombre":"Horas Extraordinarias y Suplementarias",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 12,
+		"fields": {
+			"codigo":"51.05.13",
+			"nombre":"Encargos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 13,
+		"fields": {
+			"codigo":"51.02.03",
+			"nombre":"Decimotercer Sueldo (RMU/12)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 14,
+		"fields": {
+			"codigo":"51.02.04",
+			"nombre":"Decimocuarto Sueldo ($386/12)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 15,
+		"fields": {
+			"codigo":"51.06.01",
+			"nombre":"Aporte Patronal (RMU*9,65%)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 16,
+		"fields": {
+			"codigo":"51.06.02",
+			"nombre":"Fondo De Reserva (RMU*8,33%). Aplica para el personal que haya cumplido 12 meses de aportación contínua al IESS",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 17,
+		"fields": {
+			"codigo":"51.07.04",
+			"nombre":"Compensacion por Desahucio",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 18,
+		"fields": {
+			"codigo":"51.07.07",
+			"nombre":"Compensación por Vacaciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 19,
+		"fields": {
+			"codigo":"51.05.07",
+			"nombre":"Honorarios Profesionales",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 20,
+		"fields": {
+			"codigo":"51.07.11",
+			"nombre":"Indemnizaciones Labores",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 21,
+		"fields": {
+			"codigo":"53.01.01",
+			"nombre":"Agua Potable",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 22,
+		"fields": {
+			"codigo":"53.01.04",
+			"nombre":"Energía Eléctrica",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 23,
+		"fields": {
+			"codigo":"53.01.05",
+			"nombre":"Telecomunicaciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 24,
+		"fields": {
+			"codigo":"53.01.06",
+			"nombre":"Servicio de Correo",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 25,
+		"fields": {
+			"codigo":"53.02.01",
+			"nombre":"Transporte De Personal",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 26,
+		"fields": {
+			"codigo":"53.02.02",
+			"nombre":"Fletes Y Maniobras",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 27,
+		"fields": {
+			"codigo":"53.02.04",
+			"nombre":"Edición, Impresión, Reproducción Y Publicaciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 28,
+		"fields": {
+			"codigo":"53.02.07",
+			"nombre":"Difusión, Información Y Publicidad",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 29,
+		"fields": {
+			"codigo":"53.02.08",
+			"nombre":"Servicio Seguridad y Vigilancia",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 30,
+		"fields": {
+			"codigo":"53.02.09",
+			"nombre":"Servicios De Aseo",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 31,
+		"fields": {
+			"codigo":"53.02.99",
+			"nombre":"Otros Servicios Generales (Servicios de Análisis y Pruebas Químicas y otros)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 32,
+		"fields": {
+			"codigo":"53.03.01",
+			"nombre":"Pasajes al Interior",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 33,
+		"fields": {
+			"codigo":"53.03.02",
+			"nombre":"Pasajes al Exterior",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 34,
+		"fields": {
+			"codigo":"53.03.03",
+			"nombre":"Viáticos Y Subsistencias al Interior",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 35,
+		"fields": {
+			"codigo":"53.03.04",
+			"nombre":"Viáticos Y Subsistencias al Exterior",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 36,
+		"fields": {
+			"codigo":"53.04.02",
+			"nombre":"Edificios, Locales, residencias y Cableado Estructurado (Instalación, Mantenimiento y Reparaciones)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 37,
+		"fields": {
+			"codigo":"53.04.03",
+			"nombre":"Gastos de Mantenimiento de Mobiliarios",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 38,
+		"fields": {
+			"codigo":"53.04.04",
+			"nombre":"Gastos de Mantenimiento de Maquinarias Y Equipos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 39,
+		"fields": {
+			"codigo":"53.04.05",
+			"nombre":"Gastos de Mantenimiento de Vehículos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 40,
+		"fields": {
+			"codigo":"53.04.09",
+			"nombre":"Gastos en Libros y Colecciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 41,
+		"fields": {
+			"codigo":"53.04.99",
+			"nombre":"Otros Gastos en Instalaciones, Mantenimiento y Reparaciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 42,
+		"fields": {
+			"codigo":"53.05.02",
+			"nombre":"Arrendamientos De Edificios, Locales Y Residencias",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 43,
+		"fields": {
+			"codigo":"53.05.03",
+			"nombre":"Arrendamiento de Mobiliarios",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 44,
+		"fields": {
+			"codigo":"53.05.04",
+			"nombre":"Arrendamientos De Maquinarias Y Equipos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 45,
+		"fields": {
+			"codigo":"53.06.01",
+			"nombre":"Consultoría, Asesoría e Investigación Especializada",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 46,
+		"fields": {
+			"codigo":"53.06.02",
+			"nombre":"Contratación de Estudios e Investigaciones (Subcontrataciones)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 47,
+		"fields": {
+			"codigo":"53.06.03",
+			"nombre":"Servicio de Capacitación",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 48,
+		"fields": {
+			"codigo":"53.06.04",
+			"nombre":"Fiscalización E Inspecciones Técnicas (Subcontrataciones)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 49,
+		"fields": {
+			"codigo":"53.07.01",
+			"nombre":"Desarrollo, Actualización, Asistencia Técnica y Soporte de Sistemas Informáticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 50,
+		"fields": {
+			"codigo":"53.07.03",
+			"nombre":"Arrendamiento de Equipos Informaticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 51,
+		"fields": {
+			"codigo":"53.07.04",
+			"nombre":"Mantenimiento y Reparación de Equipos y Sistemas Informaticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 52,
+		"fields": {
+			"codigo":"53.08.01",
+			"nombre":"Servicios de Alimentación*",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 53,
+		"fields": {
+			"codigo":"53.08.02",
+			"nombre":"Gastos en Vestimenta, Uniformes, Prendas de Protección",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 54,
+		"fields": {
+			"codigo":"53.08.03",
+			"nombre":"Combustibles Y Lubricantes",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 55,
+		"fields": {
+			"codigo":"53.08.04",
+			"nombre":"Materiales De Oficina",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 56,
+		"fields": {
+			"codigo":"53.08.05",
+			"nombre":"Materiales De Aseo",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 57,
+		"fields": {
+			"codigo":"53.08.06",
+			"nombre":"Herramientas",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 58,
+		"fields": {
+			"codigo":"53.08.07",
+			"nombre":"Materiales De Impresión, Fotografía, Reproducción",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 59,
+		"fields": {
+			"codigo":"53.08.09",
+			"nombre":"Medicinas y Productos Farmacéuticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 60,
+		"fields": {
+			"codigo":"53.08.10",
+			"nombre":"Materiales Para Laboratorio Y Uso Médico",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 61,
+		"fields": {
+			"codigo":"53.08.11",
+			"nombre":"Materiales De Construcción, Eléctricos, Plomería",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 62,
+		"fields": {
+			"codigo":"53.08.12",
+			"nombre":"Materiales Didacticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 63,
+		"fields": {
+			"codigo":"53.08.13",
+			"nombre":"Repuestos y Accesorios",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 64,
+		"fields": {
+			"codigo":"53.08.14",
+			"nombre":"Suministros para Actividades Agropecuaria, Pesca y Caza",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 65,
+		"fields": {
+			"codigo":"53.08.29",
+			"nombre":"Insumos, Bienes, Materiales y Suministros para Investigación",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 66,
+		"fields": {
+			"codigo":"53.08.99",
+			"nombre":"Otros Bienes de Uso y Consumo Corriente",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 67,
+		"fields": {
+			"codigo":"53.14.03",
+			"nombre":"Mobiliarios (Bienes Muebles no Depreciables)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 68,
+		"fields": {
+			"codigo":"53.14.04",
+			"nombre":"Maquinarias y Equipos (Bienes Muebles no Dereciables)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 69,
+		"fields": {
+			"codigo":"53.14.07",
+			"nombre":"Equipos, Sistemas y Paquetes Informaticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 70,
+		"fields": {
+			"codigo":"53.14.09",
+			"nombre":"Libros y Colecciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 71,
+		"fields": {
+			"codigo":"53.14.11",
+			"nombre":"Partes y Respuestos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 72,
+		"fields": {
+			"codigo":"57.01.01",
+			"nombre":"Impuesto al Valor Agregado (debe hacerse el cálculo estimadodel IVA de todos los gastos contemplados en el presente presupuesto, excepto los que gravan tarifa 0%)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 73,
+		"fields": {
+			"codigo":"57.01.02",
+			"nombre":"Tasas Generales, Impuestos. Contribuciones, Permisos, Licencias y Patentes (incluye aporte 5*1000)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 74,
+		"fields": {
+			"codigo":"57.01.02.01",
+			"nombre":"Tasas Generales, Impuestos, Contribuciones, Permisos, Licencias y Patentes (Peajes).",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 75,
+		"fields": {
+			"codigo":"57.01.99",
+			"nombre":"Otros Impuestos, Tasas y Contribuyentes",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 76,
+		"fields": {
+			"codigo":"57.02.01",
+			"nombre":"Seguros",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 77,
+		"fields": {
+			"codigo":"57.02.03",
+			"nombre":"Comisiones Bancarias (El costo es de $0,05 por transferencia bancaria a nivel nacional)",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 78,
+		"fields": {
+			"codigo":"57.02.19",
+			"nombre":"Devoluciones de Multas y Otros",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 79,
+		"fields": {
+			"codigo":"57.02.99",
+			"nombre":"Otros Gastos Financieros",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 80,
+		"fields": {
+			"codigo":"58.01.03.01",
+			"nombre":"ESPOL-TECH E.P. 5% en base a los ingresos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 81,
+		"fields": {
+			"codigo":"58.01.03.02",
+			"nombre":"PARTICIPACIÓN ESPOL 8% o 28.13%en base a los ingresos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 82,
+		"fields": {
+			"codigo":"58.01.03.03",
+			"nombre":"PARTICIPACIÓN UNIDAD 12% o 9.38% en base a los ingresos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 83,
+		"fields": {
+			"codigo":"58.02.08",
+			"nombre":"Becas y Ayudas Económicas",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 84,
+		"fields": {
+			"codigo":"84.01.03",
+			"nombre":"Mobiliarios",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 85,
+		"fields": {
+			"codigo":"84.01.04",
+			"nombre":"Maquinarias Y Equipos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 86,
+		"fields": {
+			"codigo":"84.01.05",
+			"nombre":"Vehículos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 87,
+		"fields": {
+			"codigo":"84.01.06",
+			"nombre":"Herramientas",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 88,
+		"fields": {
+			"codigo":"84.01.07",
+			"nombre":"Equipos, Sistemas Y Paquetes Informáticos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 89,
+		"fields": {
+			"codigo":"84.01.08",
+			"nombre":"Bienes artísticos y culturales",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 90,
+		"fields": {
+			"codigo":"84.01.09",
+			"nombre":"Libros Y Colecciones",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 91,
+		"fields": {
+			"codigo":"84.01.11",
+			"nombre":"Partes y Repuestos",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 92,
+		"fields": {
+			"codigo":"97.01.01",
+			"nombre":"Cuentas por Pagar de Años Anteriores",
+			"centroc_id": 1
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 93,
+		"fields": {
+			"codigo":"5102010102",
+			"nombre":"Honorarios Profesionales ",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 94,
+		"fields": {
+			"codigo":"51020101023201    ",
+			"nombre":"Honorarios Profesionales (docentes)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 95,
+		"fields": {
+			"codigo":"5107010102",
+			"nombre":"Convenios Institucionales",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 96,
+		"fields": {
+			"codigo":"5102020102",
+			"nombre":"Ayudantía (Material de apoyo)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 97,
+		"fields": {
+			"codigo":"5103010102",
+			"nombre":"Suministros de Oficina",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 98,
+		"fields": {
+			"codigo":"5103020102",
+			"nombre":"Otros Suministros",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 99,
+		"fields": {
+			"codigo":"5103030102",
+			"nombre":"Material Didáctico",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 100,
+		"fields": {
+			"codigo":"5103030102",
+			"nombre":"Otros suministros para estudiantes",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 101,
+		"fields": {
+			"codigo":"5103040102",
+			"nombre":"Materiales de Limpieza",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 102,
+		"fields": {
+			"codigo":"5104010102",
+			"nombre":"Capacitación a Empleados",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 103,
+		"fields": {
+			"codigo":"5104010102",
+			"nombre":"Capacitación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 104,
+		"fields": {
+			"codigo":"5105020102",
+			"nombre":"Pasajes en el Exterior",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 105,
+		"fields": {
+			"codigo":"5106010102",
+			"nombre":"Gastos por comisión tarjetas de crédito ",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 106,
+		"fields": {
+			"codigo":"5108010102",
+			"nombre":"Seguros",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 107,
+		"fields": {
+			"codigo":"5201010202",
+			"nombre":"Horas Extras (Contrato a Plazo Fijo)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 108,
+		"fields": {
+			"codigo":"5201020502",
+			"nombre":"Bonificación Por Responsabilidad",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 109,
+		"fields": {
+			"codigo":"5201010402",
+			"nombre":"Unificación Salarial",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 110,
+		"fields": {
+			"codigo":"5201010402",
+			"nombre":"Otros Ingresos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 111,
+		"fields": {
+			"codigo":"5201030102",
+			"nombre":"Décimo Tercer Sueldo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 112,
+		"fields": {
+			"codigo":"5201030202",
+			"nombre":"Décimo Cuarto Sueldo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 113,
+		"fields": {
+			"codigo":"5201030402",
+			"nombre":"Vacaciones",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 114,
+		"fields": {
+			"codigo":"5201030602",
+			"nombre":"Dècimo Tercer Sueldo Mensualizado",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 115,
+		"fields": {
+			"codigo":"5201030702",
+			"nombre":"Dècimo Cuarto Sueldo Mensualizado",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 116,
+		"fields": {
+			"codigo":"5201040102",
+			"nombre":"Aporte Patronal (11.15%)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 117,
+		"fields": {
+			"codigo":"5201040202",
+			"nombre":"I.E.C.E. (0.5%)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 118,
+		"fields": {
+			"codigo":"5201040302",
+			"nombre":"S.E.C.A.P. (0.5%)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 119,
+		"fields": {
+			"codigo":"5201040402",
+			"nombre":"Fondo de Reserva",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 120,
+		"fields": {
+			"codigo":"5201040602",
+			"nombre":"Seguro Salud Tiempo Parcial",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 121,
+		"fields": {
+			"codigo":"5201050102",
+			"nombre":"Uniformes",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 122,
+		"fields": {
+			"codigo":"5201060102",
+			"nombre":"Bonificación por Años de Servicios",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 123,
+		"fields": {
+			"codigo":"5201060102",
+			"nombre":"Indemnizaciones",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 124,
+		"fields": {
+			"codigo":"5201020502",
+			"nombre":"Despido Intempestivo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 125,
+		"fields": {
+			"codigo":"5201070102",
+			"nombre":"Sueldo Personal con Nombramiento",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 126,
+		"fields": {
+			"codigo":"5201090102",
+			"nombre":"Bonificaciones por Desahucio(Art.185)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 127,
+		"fields": {
+			"codigo":"5201090102",
+			"nombre":"Indemnización por Despido Intempestivo(Art.188)",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 128,
+		"fields": {
+			"codigo":"5202010102",
+			"nombre":"Agua",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 129,
+		"fields": {
+			"codigo":"5202010202",
+			"nombre":"Energía Eléctrica",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 130,
+		"fields": {
+			"codigo":"5202010302",
+			"nombre":"Servicio Teléfonico",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 131,
+		"fields": {
+			"codigo":"5202010402",
+			"nombre":"Movilización",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 132,
+		"fields": {
+			"codigo":"5202010602",
+			"nombre":"Servicio de Alimentación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 133,
+		"fields": {
+			"codigo":"5202021202",
+			"nombre":"Servicios Prestados",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 134,
+		"fields": {
+			"codigo":"5202010602",
+			"nombre":"Comisiòn servc. alimentaciòn",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 135,
+		"fields": {
+			"codigo":"5202010702",
+			"nombre":"Hospedaje",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 136,
+		"fields": {
+			"codigo":"5202010702",
+			"nombre":"Comisión por Servicio de Hospedaje",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 137,
+		"fields": {
+			"codigo":"5202010702",
+			"nombre":"Tasa de Pernoctación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 138,
+		"fields": {
+			"codigo":"5202020102",
+			"nombre":"Correo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 139,
+		"fields": {
+			"codigo":"5202020202",
+			"nombre":"Internet",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 140,
+		"fields": {
+			"codigo":"5202020602",
+			"nombre":"Vigilancia",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 141,
+		"fields": {
+			"codigo":"5202020802",
+			"nombre":"Arreglos Florales",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 142,
+		"fields": {
+			"codigo":"5202020902",
+			"nombre":"Fotografía",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 143,
+		"fields": {
+			"codigo":"5202021002",
+			"nombre":"Compra de Materiales de Construcción",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 144,
+		"fields": {
+			"codigo":"5202021102",
+			"nombre":"Material de Ferretería",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 145,
+		"fields": {
+			"codigo":"5202021202",
+			"nombre":"Servicios Ocasionales",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 146,
+		"fields": {
+			"codigo":"5202021202",
+			"nombre":"Parqueo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 147,
+		"fields": {
+			"codigo":"5202021202",
+			"nombre":"Varios",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 148,
+		"fields": {
+			"codigo":"5202021202",
+			"nombre":"Licencias Renovables",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 149,
+		"fields": {
+			"codigo":"5202021402",
+			"nombre":"Compra de materiales eléctricos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 150,
+		"fields": {
+			"codigo":"5202021602",
+			"nombre":"Gastos por Impuesto",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 151,
+		"fields": {
+			"codigo":"5202021602",
+			"nombre":"Gasto Impuesto a los Consumos Especiales ICE",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 152,
+		"fields": {
+			"codigo":"5202021902",
+			"nombre":"Alimentación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 153,
+		"fields": {
+			"codigo":"5202021902",
+			"nombre":"Atención medica y medicinas",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 154,
+		"fields": {
+			"codigo":"5202022002",
+			"nombre":"Jardinería",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 155,
+		"fields": {
+			"codigo":"5202022002",
+			"nombre":"Materiales de Jardinería",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 156,
+		"fields": {
+			"codigo":"5202022502",
+			"nombre":"Bien sujeto a control administrativo",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 157,
+		"fields": {
+			"codigo":"5203010102",
+			"nombre":"Alquiler del Local",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 158,
+		"fields": {
+			"codigo":"5203020102",
+			"nombre":"Alquiler de Equipos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 159,
+		"fields": {
+			"codigo":"5204010102",
+			"nombre":"Mantenimiento y Conservación de Equipos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 160,
+		"fields": {
+			"codigo":"5204020102",
+			"nombre":"Mantenimiento  y Conservación de Inmuebles",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 161,
+		"fields": {
+			"codigo":"5204030102",
+			"nombre":"Mantenimiento y Conservación de mobiliario",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 162,
+		"fields": {
+			"codigo":"5204040102",
+			"nombre":"Mantenimiento y Conservación de Teléfono",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 163,
+		"fields": {
+			"codigo":"5204050102",
+			"nombre":"Mantenimiento y Reparaciones",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 164,
+		"fields": {
+			"codigo":"5205010102",
+			"nombre":"Pasajes en el Exterior",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 165,
+		"fields": {
+			"codigo":"5205010102",
+			"nombre":"Servicio Emisión boletos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 166,
+		"fields": {
+			"codigo":"5205010102",
+			"nombre":"Seguro de Viaje",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 167,
+		"fields": {
+			"codigo":"5205010202",
+			"nombre":"Viaticos en el Exterior",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 168,
+		"fields": {
+			"codigo":"5205020102",
+			"nombre":"Pasaje en el País",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 169,
+		"fields": {
+			"codigo":"5205020102",
+			"nombre":"Servicio Emisión boletos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 170,
+		"fields": {
+			"codigo":"5205020202",
+			"nombre":"Viaticos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 171,
+		"fields": {
+			"codigo":"5209010602",
+			"nombre":"Aporte ESPOL 10%",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 172,
+		"fields": {
+			"codigo":"5209010702",
+			"nombre":"Aporte FUNDESPOL 4.5%",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 173,
+		"fields": {
+			"codigo":"5210010102",
+			"nombre":"Difusión, Información y Publicidad",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 174,
+		"fields": {
+			"codigo":"5210010102",
+			"nombre":"Aplicaciones para Redes Sociales",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 175,
+		"fields": {
+			"codigo":"5210020102",
+			"nombre":"Impresión y Reproducción y Publicación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 176,
+		"fields": {
+			"codigo":"5210030102",
+			"nombre":"Audio y videos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 177,
+		"fields": {
+			"codigo":"5210040102",
+			"nombre":"Suscripciones y membresias",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 178,
+		"fields": {
+			"codigo":"5210050102",
+			"nombre":"Seguro de Personal",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 179,
+		"fields": {
+			"codigo":"5211020102",
+			"nombre":"Comisiones Bancarias",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 180,
+		"fields": {
+			"codigo":"5211040102",
+			"nombre":"Servicios bancarios",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 181,
+		"fields": {
+			"codigo":"5211040102",
+			"nombre":"Otros Gastos Bancarios por Transferencia",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 182,
+		"fields": {
+			"codigo":"5211050102",
+			"nombre":"Impuesto Salida Capital",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 183,
+		"fields": {
+			"codigo":"5212010102",
+			"nombre":"Devolución de Estudiantes",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 184,
+		"fields": {
+			"codigo":"5304010102",
+			"nombre":"Capacitación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 185,
+		"fields": {
+			"codigo":"5212010102",
+			"nombre":"Gastos  Servicios Incobrables",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 186,
+		"fields": {
+			"codigo":"5212010102",
+			"nombre":"Reembolos de Gastos",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 187,
+		"fields": {
+			"codigo":"5213010102",
+			"nombre":"Comisiones",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 188,
+		"fields": {
+			"codigo":"5215010102",
+			"nombre":"Gasto Temporal Tarjeta Corporativa",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 189,
+		"fields": {
+			"codigo":"5303020102",
+			"nombre":"Otros Servicios ",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 190,
+		"fields": {
+			"codigo":"5410010102",
+			"nombre":"Difusión, Información y Publicidad",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 191,
+		"fields": {
+			"codigo":"5410020102",
+			"nombre":"Impresión y Reproducción y Publicación",
+			"centroc_id": 2
+		}
+	},
+
+	{
+		"model":"orden_pago.Egresos",
+		"pk": 192,
+		"fields": {
+			"codigo":"5410040102",
+			"nombre":"Suscripción",
+			"centroc_id": 2
+		}
+	}
+]

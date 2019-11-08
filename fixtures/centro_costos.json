@@ -1,0 +1,17 @@
+[
+	{
+		"model":"orden_pago.Centro_Costos",
+		"pk":1,
+		"fields": {
+			"nombre":"ESPOLTECH"
+		}
+	},
+	
+	{
+		"model":"orden_pago.Centro_Costos",
+		"pk":2,
+		"fields": {
+			"nombre":"FUNDESPOL"
+		}
+	}
+]

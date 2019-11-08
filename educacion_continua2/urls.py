@@ -28,6 +28,7 @@ urlpatterns = [
     path('financiero/ordenIngreso/',include('financiero.orden_ingreso.urls')),
     path('financiero/orden_facturacion/',include('financiero.orden_facturacion.urls')),
     path("financiero/presupuestos/",include("financiero.presupuestos.urls")),
+    path("financiero/orden_pago/",include("financiero.orden_pago.urls")),
     path('admin/', admin.site.urls),
 ]
 

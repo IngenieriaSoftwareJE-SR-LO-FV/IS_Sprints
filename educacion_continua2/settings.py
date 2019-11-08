@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'financiero.orden_facturacion',
     'financiero.orden_ingreso',
     "financiero.presupuestos",
+    "financiero.orden_pago",
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
