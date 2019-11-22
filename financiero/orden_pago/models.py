@@ -26,7 +26,7 @@ class Egresos(models.Model):
 class OrdenPago(models.Model):
 	ESTADO_CHOICES = [("ACTV","Activo"),("PDPR","Pendiente de procesar"),("PCSD","Procesado"),("ANLD","Anulado"),]
 	FORMAPAGO_CHOICES = [("TR","Transferencia"),("DB","Débito Bancario"),("TC","Tarjeta Crédito"),("CH","Cheque"),]
-	PROVEEDORES_CHOICES = [("Natural", "Persona Natural"),("Jurídica", "Persona Jurídica"),]
+	PROVEEDORES_CHOICES = [("Natural", "Natural"),("Jurídica", "Jurídica"),]
 	COMPROBANTE_CHOICES = [("FC","Factura"),("NV","Nota de venta"),("LC","Liquidación de compra"),("CP","Comprobantes de pago"),]
 
 	cod_ord_pago = models.CharField(max_length=15, blank=True, null=True)
@@ -42,7 +42,7 @@ class OrdenPago(models.Model):
 	concepto = models.CharField(max_length=500)
 	forma_pago = models.CharField(max_length=5, choices=FORMAPAGO_CHOICES, blank=True, null=True)
 	observacion = models.CharField(max_length=500, blank=True, null=True)
-	anexo = models.FileField(upload_to='uploads/orden_pago/')
+	anexo = models.FileField(upload_to='uploads/orden_pago/', blank=True, null=True)
 
 	def __str__(self):
 		return self.cod_ord_pago+" - "+self.tipo_egreso

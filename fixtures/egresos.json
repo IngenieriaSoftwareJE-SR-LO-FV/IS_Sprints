@@ -4,7 +4,7 @@
 		"pk": 1,
 		"fields": {
 			"codigo":"28.01.01",
-			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes del Gobierno Central",
+			"nombre":"Transferencia y Donaciones Capital e InversiÃ³n Sector PÃºblico Provenientes del Gobierno Central",
 			"centroc_id": 1
 		}
 	},
@@ -14,7 +14,7 @@
 		"pk": 2,
 		"fields": {
 			"codigo":"28.01.02",
-			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Entidades Descentralizadas y Autónomas",
+			"nombre":"Transferencia y Donaciones Capital e InversiÃ³n Sector PÃºblico Provenientes de Entidades Descentralizadas y AutÃ³nomas",
 			"centroc_id": 1
 		}
 	},
@@ -24,7 +24,7 @@
 		"pk": 3,
 		"fields": {
 			"codigo":"28.01.03",
-			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Empresas Públicas",
+			"nombre":"Transferencia y Donaciones Capital e InversiÃ³n Sector PÃºblico Provenientes de Empresas PÃºblicas",
 			"centroc_id": 1
 		}
 	},
@@ -34,7 +34,7 @@
 		"pk": 4,
 		"fields": {
 			"codigo":"28.01.04",
-			"nombre":"Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Gobiernos Autónomos Descentralizados",
+			"nombre":"Transferencia y Donaciones Capital e InversiÃ³n Sector PÃºblico Provenientes de Gobiernos AutÃ³nomos Descentralizados",
 			"centroc_id": 1
 		}
 	},
@@ -44,7 +44,7 @@
 		"pk": 5,
 		"fields": {
 			"codigo":"28.02.11",
-			"nombre":"Transferencias y Donaciones de Capital e Inversión del Sector Privado Interno Provenientes del Sector Privado No Financiero",
+			"nombre":"Transferencias y Donaciones de Capital e InversiÃ³n del Sector Privado Interno Provenientes del Sector Privado No Financiero",
 			"centroc_id": 1
 		}
 	},
@@ -74,7 +74,7 @@
 		"pk": 8,
 		"fields": {
 			"codigo":"37.01.02",
-			"nombre":"Saldos de Fondos de Autogestión (Saldos de los centros de costos. Cabe indicar que estos valores deberán ser modificados una vez cerrado el ejercicio fiscal)",
+			"nombre":"Saldos de Fondos de AutogestiÃ³n (Saldos de los centros de costos. Cabe indicar que estos valores deberÃ¡n ser modificados una vez cerrado el ejercicio fiscal)",
 			"centroc_id": 1
 		}
 	},
@@ -84,7 +84,7 @@
 		"pk": 9,
 		"fields": {
 			"codigo":"38.01.01",
-			"nombre":"Cuentas por Cobrar de Años Anteriores",
+			"nombre":"Cuentas por Cobrar de AÃ±os Anteriores",
 			"centroc_id": 1
 		}
 	},
@@ -154,7 +154,7 @@
 		"pk": 16,
 		"fields": {
 			"codigo":"51.06.02",
-			"nombre":"Fondo De Reserva (RMU*8,33%). Aplica para el personal que haya cumplido 12 meses de aportación contínua al IESS",
+			"nombre":"Fondo De Reserva (RMU*8,33%). Aplica para el personal que haya cumplido 12 meses de aportaciÃ³n contÃ­nua al IESS",
 			"centroc_id": 1
 		}
 	},
@@ -174,7 +174,7 @@
 		"pk": 18,
 		"fields": {
 			"codigo":"51.07.07",
-			"nombre":"Compensación por Vacaciones",
+			"nombre":"CompensaciÃ³n por Vacaciones",
 			"centroc_id": 1
 		}
 	},
@@ -214,7 +214,7 @@
 		"pk": 22,
 		"fields": {
 			"codigo":"53.01.04",
-			"nombre":"Energía Eléctrica",
+			"nombre":"EnergÃ­a ElÃ©ctrica",
 			"centroc_id": 1
 		}
 	},
@@ -264,7 +264,7 @@
 		"pk": 27,
 		"fields": {
 			"codigo":"53.02.04",
-			"nombre":"Edición, Impresión, Reproducción Y Publicaciones",
+			"nombre":"EdiciÃ³n, ImpresiÃ³n, ReproducciÃ³n Y Publicaciones",
 			"centroc_id": 1
 		}
 	},
@@ -274,7 +274,7 @@
 		"pk": 28,
 		"fields": {
 			"codigo":"53.02.07",
-			"nombre":"Difusión, Información Y Publicidad",
+			"nombre":"DifusiÃ³n, InformaciÃ³n Y Publicidad",
 			"centroc_id": 1
 		}
 	},
@@ -304,7 +304,7 @@
 		"pk": 31,
 		"fields": {
 			"codigo":"53.02.99",
-			"nombre":"Otros Servicios Generales (Servicios de Análisis y Pruebas Químicas y otros)",
+			"nombre":"Otros Servicios Generales (Servicios de AnÃ¡lisis y Pruebas QuÃ­micas y otros)",
 			"centroc_id": 1
 		}
 	},
@@ -334,7 +334,7 @@
 		"pk": 34,
 		"fields": {
 			"codigo":"53.03.03",
-			"nombre":"Viáticos Y Subsistencias al Interior",
+			"nombre":"ViÃ¡ticos Y Subsistencias al Interior",
 			"centroc_id": 1
 		}
 	},
@@ -344,7 +344,7 @@
 		"pk": 35,
 		"fields": {
 			"codigo":"53.03.04",
-			"nombre":"Viáticos Y Subsistencias al Exterior",
+			"nombre":"ViÃ¡ticos Y Subsistencias al Exterior",
 			"centroc_id": 1
 		}
 	},
@@ -354,7 +354,7 @@
 		"pk": 36,
 		"fields": {
 			"codigo":"53.04.02",
-			"nombre":"Edificios, Locales, residencias y Cableado Estructurado (Instalación, Mantenimiento y Reparaciones)",
+			"nombre":"Edificios, Locales, residencias y Cableado Estructurado (InstalaciÃ³n, Mantenimiento y Reparaciones)",
 			"centroc_id": 1
 		}
 	},
@@ -384,7 +384,7 @@
 		"pk": 39,
 		"fields": {
 			"codigo":"53.04.05",
-			"nombre":"Gastos de Mantenimiento de Vehículos",
+			"nombre":"Gastos de Mantenimiento de VehÃ­culos",
 			"centroc_id": 1
 		}
 	},
@@ -444,7 +444,7 @@
 		"pk": 45,
 		"fields": {
 			"codigo":"53.06.01",
-			"nombre":"Consultoría, Asesoría e Investigación Especializada",
+			"nombre":"ConsultorÃ­a, AsesorÃ­a e InvestigaciÃ³n Especializada",
 			"centroc_id": 1
 		}
 	},
@@ -454,7 +454,7 @@
 		"pk": 46,
 		"fields": {
 			"codigo":"53.06.02",
-			"nombre":"Contratación de Estudios e Investigaciones (Subcontrataciones)",
+			"nombre":"ContrataciÃ³n de Estudios e Investigaciones (Subcontrataciones)",
 			"centroc_id": 1
 		}
 	},
@@ -464,7 +464,7 @@
 		"pk": 47,
 		"fields": {
 			"codigo":"53.06.03",
-			"nombre":"Servicio de Capacitación",
+			"nombre":"Servicio de CapacitaciÃ³n",
 			"centroc_id": 1
 		}
 	},
@@ -474,7 +474,7 @@
 		"pk": 48,
 		"fields": {
 			"codigo":"53.06.04",
-			"nombre":"Fiscalización E Inspecciones Técnicas (Subcontrataciones)",
+			"nombre":"FiscalizaciÃ³n E Inspecciones TÃ©cnicas (Subcontrataciones)",
 			"centroc_id": 1
 		}
 	},
@@ -484,7 +484,7 @@
 		"pk": 49,
 		"fields": {
 			"codigo":"53.07.01",
-			"nombre":"Desarrollo, Actualización, Asistencia Técnica y Soporte de Sistemas Informáticos",
+			"nombre":"Desarrollo, ActualizaciÃ³n, Asistencia TÃ©cnica y Soporte de Sistemas InformÃ¡ticos",
 			"centroc_id": 1
 		}
 	},
@@ -504,7 +504,7 @@
 		"pk": 51,
 		"fields": {
 			"codigo":"53.07.04",
-			"nombre":"Mantenimiento y Reparación de Equipos y Sistemas Informaticos",
+			"nombre":"Mantenimiento y ReparaciÃ³n de Equipos y Sistemas Informaticos",
 			"centroc_id": 1
 		}
 	},
@@ -514,7 +514,7 @@
 		"pk": 52,
 		"fields": {
 			"codigo":"53.08.01",
-			"nombre":"Servicios de Alimentación*",
+			"nombre":"Servicios de AlimentaciÃ³n*",
 			"centroc_id": 1
 		}
 	},
@@ -524,7 +524,7 @@
 		"pk": 53,
 		"fields": {
 			"codigo":"53.08.02",
-			"nombre":"Gastos en Vestimenta, Uniformes, Prendas de Protección",
+			"nombre":"Gastos en Vestimenta, Uniformes, Prendas de ProtecciÃ³n",
 			"centroc_id": 1
 		}
 	},
@@ -574,7 +574,7 @@
 		"pk": 58,
 		"fields": {
 			"codigo":"53.08.07",
-			"nombre":"Materiales De Impresión, Fotografía, Reproducción",
+			"nombre":"Materiales De ImpresiÃ³n, FotografÃ­a, ReproducciÃ³n",
 			"centroc_id": 1
 		}
 	},
@@ -584,7 +584,7 @@
 		"pk": 59,
 		"fields": {
 			"codigo":"53.08.09",
-			"nombre":"Medicinas y Productos Farmacéuticos",
+			"nombre":"Medicinas y Productos FarmacÃ©uticos",
 			"centroc_id": 1
 		}
 	},
@@ -594,7 +594,7 @@
 		"pk": 60,
 		"fields": {
 			"codigo":"53.08.10",
-			"nombre":"Materiales Para Laboratorio Y Uso Médico",
+			"nombre":"Materiales Para Laboratorio Y Uso MÃ©dico",
 			"centroc_id": 1
 		}
 	},
@@ -604,7 +604,7 @@
 		"pk": 61,
 		"fields": {
 			"codigo":"53.08.11",
-			"nombre":"Materiales De Construcción, Eléctricos, Plomería",
+			"nombre":"Materiales De ConstrucciÃ³n, ElÃ©ctricos, PlomerÃ­a",
 			"centroc_id": 1
 		}
 	},
@@ -644,7 +644,7 @@
 		"pk": 65,
 		"fields": {
 			"codigo":"53.08.29",
-			"nombre":"Insumos, Bienes, Materiales y Suministros para Investigación",
+			"nombre":"Insumos, Bienes, Materiales y Suministros para InvestigaciÃ³n",
 			"centroc_id": 1
 		}
 	},
@@ -714,7 +714,7 @@
 		"pk": 72,
 		"fields": {
 			"codigo":"57.01.01",
-			"nombre":"Impuesto al Valor Agregado (debe hacerse el cálculo estimadodel IVA de todos los gastos contemplados en el presente presupuesto, excepto los que gravan tarifa 0%)",
+			"nombre":"Impuesto al Valor Agregado (debe hacerse el cÃ¡lculo estimadodel IVA de todos los gastos contemplados en el presente presupuesto, excepto los que gravan tarifa 0%)",
 			"centroc_id": 1
 		}
 	},
@@ -804,7 +804,7 @@
 		"pk": 81,
 		"fields": {
 			"codigo":"58.01.03.02",
-			"nombre":"PARTICIPACIÓN ESPOL 8% o 28.13%en base a los ingresos",
+			"nombre":"PARTICIPACIÃ“N ESPOL 8% o 28.13%en base a los ingresos",
 			"centroc_id": 1
 		}
 	},
@@ -814,7 +814,7 @@
 		"pk": 82,
 		"fields": {
 			"codigo":"58.01.03.03",
-			"nombre":"PARTICIPACIÓN UNIDAD 12% o 9.38% en base a los ingresos",
+			"nombre":"PARTICIPACIÃ“N UNIDAD 12% o 9.38% en base a los ingresos",
 			"centroc_id": 1
 		}
 	},
@@ -824,7 +824,7 @@
 		"pk": 83,
 		"fields": {
 			"codigo":"58.02.08",
-			"nombre":"Becas y Ayudas Económicas",
+			"nombre":"Becas y Ayudas EconÃ³micas",
 			"centroc_id": 1
 		}
 	},
@@ -854,7 +854,7 @@
 		"pk": 86,
 		"fields": {
 			"codigo":"84.01.05",
-			"nombre":"Vehículos",
+			"nombre":"VehÃ­culos",
 			"centroc_id": 1
 		}
 	},
@@ -874,7 +874,7 @@
 		"pk": 88,
 		"fields": {
 			"codigo":"84.01.07",
-			"nombre":"Equipos, Sistemas Y Paquetes Informáticos",
+			"nombre":"Equipos, Sistemas Y Paquetes InformÃ¡ticos",
 			"centroc_id": 1
 		}
 	},
@@ -884,7 +884,7 @@
 		"pk": 89,
 		"fields": {
 			"codigo":"84.01.08",
-			"nombre":"Bienes artísticos y culturales",
+			"nombre":"Bienes artÃ­sticos y culturales",
 			"centroc_id": 1
 		}
 	},
@@ -914,7 +914,7 @@
 		"pk": 92,
 		"fields": {
 			"codigo":"97.01.01",
-			"nombre":"Cuentas por Pagar de Años Anteriores",
+			"nombre":"Cuentas por Pagar de AÃ±os Anteriores",
 			"centroc_id": 1
 		}
 	},
@@ -954,7 +954,7 @@
 		"pk": 96,
 		"fields": {
 			"codigo":"5102020102",
-			"nombre":"Ayudantía (Material de apoyo)",
+			"nombre":"AyudantÃ­a (Material de apoyo)",
 			"centroc_id": 2
 		}
 	},
@@ -984,7 +984,7 @@
 		"pk": 99,
 		"fields": {
 			"codigo":"5103030102",
-			"nombre":"Material Didáctico",
+			"nombre":"Material DidÃ¡ctico",
 			"centroc_id": 2
 		}
 	},
@@ -1014,7 +1014,7 @@
 		"pk": 102,
 		"fields": {
 			"codigo":"5104010102",
-			"nombre":"Capacitación a Empleados",
+			"nombre":"CapacitaciÃ³n a Empleados",
 			"centroc_id": 2
 		}
 	},
@@ -1024,7 +1024,7 @@
 		"pk": 103,
 		"fields": {
 			"codigo":"5104010102",
-			"nombre":"Capacitación",
+			"nombre":"CapacitaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1044,7 +1044,7 @@
 		"pk": 105,
 		"fields": {
 			"codigo":"5106010102",
-			"nombre":"Gastos por comisión tarjetas de crédito ",
+			"nombre":"Gastos por comisiÃ³n tarjetas de crÃ©dito ",
 			"centroc_id": 2
 		}
 	},
@@ -1074,7 +1074,7 @@
 		"pk": 108,
 		"fields": {
 			"codigo":"5201020502",
-			"nombre":"Bonificación Por Responsabilidad",
+			"nombre":"BonificaciÃ³n Por Responsabilidad",
 			"centroc_id": 2
 		}
 	},
@@ -1084,7 +1084,7 @@
 		"pk": 109,
 		"fields": {
 			"codigo":"5201010402",
-			"nombre":"Unificación Salarial",
+			"nombre":"UnificaciÃ³n Salarial",
 			"centroc_id": 2
 		}
 	},
@@ -1104,7 +1104,7 @@
 		"pk": 111,
 		"fields": {
 			"codigo":"5201030102",
-			"nombre":"Décimo Tercer Sueldo",
+			"nombre":"DÃ©cimo Tercer Sueldo",
 			"centroc_id": 2
 		}
 	},
@@ -1114,7 +1114,7 @@
 		"pk": 112,
 		"fields": {
 			"codigo":"5201030202",
-			"nombre":"Décimo Cuarto Sueldo",
+			"nombre":"DÃ©cimo Cuarto Sueldo",
 			"centroc_id": 2
 		}
 	},
@@ -1134,7 +1134,7 @@
 		"pk": 114,
 		"fields": {
 			"codigo":"5201030602",
-			"nombre":"Dècimo Tercer Sueldo Mensualizado",
+			"nombre":"DÃ¨cimo Tercer Sueldo Mensualizado",
 			"centroc_id": 2
 		}
 	},
@@ -1144,7 +1144,7 @@
 		"pk": 115,
 		"fields": {
 			"codigo":"5201030702",
-			"nombre":"Dècimo Cuarto Sueldo Mensualizado",
+			"nombre":"DÃ¨cimo Cuarto Sueldo Mensualizado",
 			"centroc_id": 2
 		}
 	},
@@ -1214,7 +1214,7 @@
 		"pk": 122,
 		"fields": {
 			"codigo":"5201060102",
-			"nombre":"Bonificación por Años de Servicios",
+			"nombre":"BonificaciÃ³n por AÃ±os de Servicios",
 			"centroc_id": 2
 		}
 	},
@@ -1264,7 +1264,7 @@
 		"pk": 127,
 		"fields": {
 			"codigo":"5201090102",
-			"nombre":"Indemnización por Despido Intempestivo(Art.188)",
+			"nombre":"IndemnizaciÃ³n por Despido Intempestivo(Art.188)",
 			"centroc_id": 2
 		}
 	},
@@ -1284,7 +1284,7 @@
 		"pk": 129,
 		"fields": {
 			"codigo":"5202010202",
-			"nombre":"Energía Eléctrica",
+			"nombre":"EnergÃ­a ElÃ©ctrica",
 			"centroc_id": 2
 		}
 	},
@@ -1294,7 +1294,7 @@
 		"pk": 130,
 		"fields": {
 			"codigo":"5202010302",
-			"nombre":"Servicio Teléfonico",
+			"nombre":"Servicio TelÃ©fonico",
 			"centroc_id": 2
 		}
 	},
@@ -1304,7 +1304,7 @@
 		"pk": 131,
 		"fields": {
 			"codigo":"5202010402",
-			"nombre":"Movilización",
+			"nombre":"MovilizaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1314,7 +1314,7 @@
 		"pk": 132,
 		"fields": {
 			"codigo":"5202010602",
-			"nombre":"Servicio de Alimentación",
+			"nombre":"Servicio de AlimentaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1334,7 +1334,7 @@
 		"pk": 134,
 		"fields": {
 			"codigo":"5202010602",
-			"nombre":"Comisiòn servc. alimentaciòn",
+			"nombre":"ComisiÃ²n servc. alimentaciÃ²n",
 			"centroc_id": 2
 		}
 	},
@@ -1354,7 +1354,7 @@
 		"pk": 136,
 		"fields": {
 			"codigo":"5202010702",
-			"nombre":"Comisión por Servicio de Hospedaje",
+			"nombre":"ComisiÃ³n por Servicio de Hospedaje",
 			"centroc_id": 2
 		}
 	},
@@ -1364,7 +1364,7 @@
 		"pk": 137,
 		"fields": {
 			"codigo":"5202010702",
-			"nombre":"Tasa de Pernoctación",
+			"nombre":"Tasa de PernoctaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1414,7 +1414,7 @@
 		"pk": 142,
 		"fields": {
 			"codigo":"5202020902",
-			"nombre":"Fotografía",
+			"nombre":"FotografÃ­a",
 			"centroc_id": 2
 		}
 	},
@@ -1424,7 +1424,7 @@
 		"pk": 143,
 		"fields": {
 			"codigo":"5202021002",
-			"nombre":"Compra de Materiales de Construcción",
+			"nombre":"Compra de Materiales de ConstrucciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1434,7 +1434,7 @@
 		"pk": 144,
 		"fields": {
 			"codigo":"5202021102",
-			"nombre":"Material de Ferretería",
+			"nombre":"Material de FerreterÃ­a",
 			"centroc_id": 2
 		}
 	},
@@ -1484,7 +1484,7 @@
 		"pk": 149,
 		"fields": {
 			"codigo":"5202021402",
-			"nombre":"Compra de materiales eléctricos",
+			"nombre":"Compra de materiales elÃ©ctricos",
 			"centroc_id": 2
 		}
 	},
@@ -1514,7 +1514,7 @@
 		"pk": 152,
 		"fields": {
 			"codigo":"5202021902",
-			"nombre":"Alimentación",
+			"nombre":"AlimentaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1524,7 +1524,7 @@
 		"pk": 153,
 		"fields": {
 			"codigo":"5202021902",
-			"nombre":"Atención medica y medicinas",
+			"nombre":"AtenciÃ³n medica y medicinas",
 			"centroc_id": 2
 		}
 	},
@@ -1534,7 +1534,7 @@
 		"pk": 154,
 		"fields": {
 			"codigo":"5202022002",
-			"nombre":"Jardinería",
+			"nombre":"JardinerÃ­a",
 			"centroc_id": 2
 		}
 	},
@@ -1544,7 +1544,7 @@
 		"pk": 155,
 		"fields": {
 			"codigo":"5202022002",
-			"nombre":"Materiales de Jardinería",
+			"nombre":"Materiales de JardinerÃ­a",
 			"centroc_id": 2
 		}
 	},
@@ -1584,7 +1584,7 @@
 		"pk": 159,
 		"fields": {
 			"codigo":"5204010102",
-			"nombre":"Mantenimiento y Conservación de Equipos",
+			"nombre":"Mantenimiento y ConservaciÃ³n de Equipos",
 			"centroc_id": 2
 		}
 	},
@@ -1594,7 +1594,7 @@
 		"pk": 160,
 		"fields": {
 			"codigo":"5204020102",
-			"nombre":"Mantenimiento  y Conservación de Inmuebles",
+			"nombre":"MantenimientoÂ  y ConservaciÃ³n de Inmuebles",
 			"centroc_id": 2
 		}
 	},
@@ -1604,7 +1604,7 @@
 		"pk": 161,
 		"fields": {
 			"codigo":"5204030102",
-			"nombre":"Mantenimiento y Conservación de mobiliario",
+			"nombre":"Mantenimiento y ConservaciÃ³n de mobiliario",
 			"centroc_id": 2
 		}
 	},
@@ -1614,7 +1614,7 @@
 		"pk": 162,
 		"fields": {
 			"codigo":"5204040102",
-			"nombre":"Mantenimiento y Conservación de Teléfono",
+			"nombre":"Mantenimiento y ConservaciÃ³n de TelÃ©fono",
 			"centroc_id": 2
 		}
 	},
@@ -1644,7 +1644,7 @@
 		"pk": 165,
 		"fields": {
 			"codigo":"5205010102",
-			"nombre":"Servicio Emisión boletos",
+			"nombre":"Servicio EmisiÃ³n boletos",
 			"centroc_id": 2
 		}
 	},
@@ -1674,7 +1674,7 @@
 		"pk": 168,
 		"fields": {
 			"codigo":"5205020102",
-			"nombre":"Pasaje en el País",
+			"nombre":"Pasaje en el PaÃ­s",
 			"centroc_id": 2
 		}
 	},
@@ -1684,7 +1684,7 @@
 		"pk": 169,
 		"fields": {
 			"codigo":"5205020102",
-			"nombre":"Servicio Emisión boletos",
+			"nombre":"Servicio EmisiÃ³n boletos",
 			"centroc_id": 2
 		}
 	},
@@ -1724,7 +1724,7 @@
 		"pk": 173,
 		"fields": {
 			"codigo":"5210010102",
-			"nombre":"Difusión, Información y Publicidad",
+			"nombre":"DifusiÃ³n, InformaciÃ³n y Publicidad",
 			"centroc_id": 2
 		}
 	},
@@ -1744,7 +1744,7 @@
 		"pk": 175,
 		"fields": {
 			"codigo":"5210020102",
-			"nombre":"Impresión y Reproducción y Publicación",
+			"nombre":"ImpresiÃ³n y ReproducciÃ³n y PublicaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1824,7 +1824,7 @@
 		"pk": 183,
 		"fields": {
 			"codigo":"5212010102",
-			"nombre":"Devolución de Estudiantes",
+			"nombre":"DevoluciÃ³n de Estudiantes",
 			"centroc_id": 2
 		}
 	},
@@ -1834,7 +1834,7 @@
 		"pk": 184,
 		"fields": {
 			"codigo":"5304010102",
-			"nombre":"Capacitación",
+			"nombre":"CapacitaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1844,7 +1844,7 @@
 		"pk": 185,
 		"fields": {
 			"codigo":"5212010102",
-			"nombre":"Gastos  Servicios Incobrables",
+			"nombre":"GastosÂ  Servicios Incobrables",
 			"centroc_id": 2
 		}
 	},
@@ -1894,7 +1894,7 @@
 		"pk": 190,
 		"fields": {
 			"codigo":"5410010102",
-			"nombre":"Difusión, Información y Publicidad",
+			"nombre":"DifusiÃ³n, InformaciÃ³n y Publicidad",
 			"centroc_id": 2
 		}
 	},
@@ -1904,7 +1904,7 @@
 		"pk": 191,
 		"fields": {
 			"codigo":"5410020102",
-			"nombre":"Impresión y Reproducción y Publicación",
+			"nombre":"ImpresiÃ³n y ReproducciÃ³n y PublicaciÃ³n",
 			"centroc_id": 2
 		}
 	},
@@ -1914,8 +1914,9 @@
 		"pk": 192,
 		"fields": {
 			"codigo":"5410040102",
-			"nombre":"Suscripción",
+			"nombre":"SuscripciÃ³n",
 			"centroc_id": 2
 		}
 	}
+
 ]

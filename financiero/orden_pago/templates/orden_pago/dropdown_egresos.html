@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for egr in egresos %}
+<option value="{{ egr.pk }}">{{ egr.nombre }}</option>
+{% endfor %}

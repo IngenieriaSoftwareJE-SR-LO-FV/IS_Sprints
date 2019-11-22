@@ -1,0 +1,116 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Orden de pago" }}{% endblock %}
+
+{% block content %}
+
+<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
+	{% csrf_token %}
+	<h2>Regisgro Orden de Pago</h2>
+	<div class="form-row">
+		<div class="col-5"></div>
+		<div class="col-5"></div>
+		<div class="col-2">
+			{{ form.estado|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-4 col-xl-4">
+			{{ form.cod_ord_pago|as_crispy_field }}
+		</div>
+		<div class="col-4 col-xl-4">
+			{{ form.n_tramite|as_crispy_field }}
+		</div>
+		<div class="col-4 col-xl-4">
+			{{ form.fecha|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-3 col-xl-3">
+			{{ form.tipo_proveedor|as_crispy_field }}
+		</div>
+		<div class="col-9 col-xl-9">
+			{{ form.proveedor|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-3 col-xl-3">
+			{{ form.centro_costos|as_crispy_field }}
+		</div>
+		<div class="col-9 col-xl-9">
+			{{ form.egreso|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-4 col-xl-4">
+			{{ form.tipo_comprobante|as_crispy_field }}
+		</div>
+		<div class="col-4 col-xl-4">
+			{{ form.n_comprobante|as_crispy_field }}
+		</div>
+		<div class="col-4 col-xl-4">
+			{{ form.forma_pago|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-12 col-xl-12">
+			{{ form.concepto|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-12 col-xl-12">
+			{{ form.observacion|as_crispy_field }}
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-12 col-xl-12">
+			{{ form.anexo|as_crispy_field }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary">Guardar</button>
+			<a class="btn btn-light" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
+		</div>
+	</div>
+	{{ form.media }}
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	window.onload = function() {
+       	document.getElementById("id_cod_ord_pago").readOnly=true;
+       	document.getElementById("id_estado").disabled=true;
+    };
+
+    $("id_tipo_proveedor").change(function () {
+    	var url = $("#ordenPagoForm").attr("data-proveedor-url");
+    	var tipo = $(this).val();
+    	$.ajax({
+    		url: url,
+    		data: {
+    			'tipo': tipo
+    		},
+    		success: function (data) {
+    			$("#id_proveedor").html(data.pro);
+    		}
+    	});
+    });
+
+    $("#id_centro_costos").change(function () {
+      	var url = $("#ordenPagoForm").attr("data-egresos-url");
+      	var ccId = $(this).val();
+      	$.ajax({                       
+        	url: url,
+        	data: {
+          		'centroc': ccId
+        	},
+	        success: function (data) {
+	          	$("#id_egreso").html(data);
+	        }
+      	});
+    });
+</script>
+{% endblock %}
