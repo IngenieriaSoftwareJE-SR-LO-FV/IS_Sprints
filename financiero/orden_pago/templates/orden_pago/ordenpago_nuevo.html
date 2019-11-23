@@ -8,7 +8,7 @@
 
 <form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2>Regisgro Orden de Pago</h2>
+	<h2>Registro Orden de Pago</h2>
 	<div class="form-row">
 		<div class="col-5"></div>
 		<div class="col-5"></div>
@@ -31,8 +31,22 @@
 		<div class="col-3 col-xl-3">
 			{{ form.tipo_proveedor|as_crispy_field }}
 		</div>
-		<div class="col-9 col-xl-9">
-			{{ form.proveedor|as_crispy_field }}
+		<div class="col-9 col-xl-9" id="field-proveedor">
+			<div id="div_id_ruc_ci" class="form-group">
+		        <label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField" id="ruc_ci">Razón social/Nombre</label><span
+		          class="asteriskField">*</span>
+		        <div>
+		          {{ form.proveedor}}
+		          {% if form.proveedor.errors %}
+		          {% for error in form.proveedor.errors %}
+		          <p class="invalid-feedback d-block">
+		            <strong>{{ error }}</strong>
+		          </p>
+		          {% endfor %}
+		          {% endif %}
+
+		        </div>
+      		</div>
 		</div>
 	</div>
 	<div class="form-row">
@@ -79,13 +93,17 @@
 </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="{% static 'js/orden_pago.js' %}"></script>
+
 <script type="text/javascript">
 	window.onload = function() {
        	document.getElementById("id_cod_ord_pago").readOnly=true;
        	document.getElementById("id_estado").disabled=true;
     };
 
-    $("id_tipo_proveedor").change(function () {
+    /*$("id_tipo_proveedor").change(function () {
     	var url = $("#ordenPagoForm").attr("data-proveedor-url");
     	var tipo = $(this).val();
     	$.ajax({
@@ -97,7 +115,7 @@
     			$("#id_proveedor").html(data.pro);
     		}
     	});
-    });
+    });*/
 
     $("#id_centro_costos").change(function () {
       	var url = $("#ordenPagoForm").attr("data-egresos-url");

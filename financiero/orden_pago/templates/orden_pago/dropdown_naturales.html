@@ -1,4 +1,4 @@
 <option value="">---------</option>
 {% for persona in proveedor %}
-<option value="{{ persona.cedula }}">{{ persona.nombres }}</option>
+<option value="{{ persona.cedula }}">{{ persona.cedula }} - {{ persona.nombres }} {{ persona.apellidos }}</option>
 {% endfor %}

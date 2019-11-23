@@ -1,4 +1,4 @@
 <option value="">---------</option>
 {% for empresa in proveedor %}
-<option value="{{ empresa.pk }}">{{ empresa.nombre }}</option>
+<option value="{{ empresa.pk }}">{{ empresa.ruc }} - {{ empresa.nombre }}</option>
 {% endfor %}

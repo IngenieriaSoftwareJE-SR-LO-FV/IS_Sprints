@@ -28,10 +28,10 @@ def load_proveedor(request):
 	tipo = request.GET.get("tipo")
 	proveedor = []
 	if(tipo == "Natural"):
-		naturales = Persona_Natural.objects.all()
+		naturales = Persona_Natural.objects.all().order_by("apellidos")
 		proveedor = render_to_string("orden_pago/dropdown_naturales.html", {"proveedor":naturales})
 	elif(tipo == "Jurídica"):
-		juridicas = Juridica.objects.all()
+		juridicas = Juridica.objects.all().order_by("nombre")
 		proveedor = render_to_string("orden_pago/dropdown_juridica.html", {"proveedor":juridicas})
 	return JsonResponse({"pro":proveedor})
 
