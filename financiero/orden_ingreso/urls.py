@@ -8,6 +8,7 @@ from .filters import OrdenIngresoFilter
 urlpatterns = [
     path('nuevo', views.OrdenIngresoCreate.as_view(), name='ordenIngreso_nuevo'),
     path('', FilterView.as_view(filterset_class=OrdenIngresoFilter,template_name="ordenIngreso_list.html"), name='ordenIngreso'),
-    #path('editar/<pk>/', views.PropuestaCorporativoUpdate.as_view(), name='propuesta_editar'),    
-    #path('eliminar/<pk>/', views.PropuestaCorporativoDelete.as_view(), name='propuesta_eliminar'),
+    path('editar/<pk>/', views.OrdenIngresoUpdate.as_view(), name='ordenIngreso_editar'),    
+    path('eliminar/<pk>/', views.OrdenIngresoDelete.as_view(), name='ordenIngreso_eliminar'),
+    path('ajax/load-modal-orden-ing',views.orden_ing_conf_elim,name='orden_ingreso_confirmar_eliminar'),
 ]
