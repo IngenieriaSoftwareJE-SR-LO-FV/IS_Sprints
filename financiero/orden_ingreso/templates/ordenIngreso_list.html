@@ -1,4 +1,5 @@
 {% extends "base_financiero.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -25,9 +26,6 @@
                 <div class="col-4">
                     {{ filter.form.numeroFactura|as_crispy_field }}
                 </div>
-                <div class="col-4">
-                    {{ filter.form.estado|as_crispy_field }}
-                </div>
             </div>
                 <div>
                     <button  type="submit" class="btn btn-secondary float-right">
@@ -41,42 +39,75 @@
 <div class="row mt-5">
     <div class="col-12">
     {% if filter.qs %}
-<table id="dtBasicExample" class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Anexo</th>
-            
-        </tr>
-    </thead>
-    <tbody>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Anexo</th>
+                    <th>Cliente</th>
+                    <th>Forma de Pago</th>
+                    <th>Valor</th>
+                    <th>Acciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
 
-        
-        {% for ordenIngreso in filter.qs %}
-        <tr>
-            <td>{{ordenIngreso.fecha}}</td>
-            <td>
-                {% if ordenIngreso.anexo %}
-                    <a class="btn btn-secondary" href="{{ordenIngreso.anexo.url}}" target="_blank">
-                        Descargar
-                    </a>
-                {% else %}
-                    No anexo
-                {% endif %}
-            </td>
-            
-          
-            
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
+                
+                {% for ordenIngreso in filter.qs %}
+                <tr>
+                    <td>{{ordenIngreso.fecha}}</td>
+                    <td>
+                        {% if ordenIngreso.anexo %}
+                            <a class="btn btn-secondary" href="{{ordenIngreso.anexo.url}}" target="_blank">
+                                Descargar
+                            </a>
+                        {% else %}
+                            No anexo
+                        {% endif %}
+                    </td>
+                    <td>{{ordenIngreso.razon_nombres}}</td>
+                    <td>{{ordenIngreso.formaPago}}</td>
+                    <td>{{ordenIngreso.valor}}</td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm btn-block"
+                        href="{% url 'ordenIngreso_editar' ordenIngreso.id %}"><i class="fas fa-edit"></i></a>
+                        <a onclick='eliminar({{ ordenIngreso.id }});' class="btn btn-danger btn-sm btn-block"
+                        data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
+                        class="fas fa-trash"></i></a>
+                    </td>    
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    {% else %}
         <h4>No hay elementos que mostrar</h4>
-        {% endif %}
+    {% endif %}
+    </div>
 </div>
+<div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
 </div>
 {% endblock content %}
+
 {% block extrafooter%}
 <script src="{% static 'js/table.js' %}"></script>
+<script>
+    function eliminar(id) {
+    $.ajax({
+        url: "{% url 'orden_ingreso_confirmar_eliminar' %}",
+        data: {
+            'pk': id
+        },
+        success: function (data) {
+            $(".modal-content").html(data)
+        }
+    });
+};
+</script>
 {% endblock extrafooter %}

@@ -3,20 +3,6 @@ from .models import OrdenIngreso
 from datetime import date
 
 class OrdenIngresoForm(forms.ModelForm):
-	
-	def clean(self):
-	    forma = self.cleaned_data.get('formaPago')
-
-	    if forma=="tarjeta":
-	        msg = forms.ValidationError("Este campo es requerido.")
-	        self.add_error('emisoraTarjeta', msg)
-	    else:
-	        # Keep the database consistent. The user may have
-	        # submitted a shipping_destination even if shipping
-	        # was not selected
-	        self.cleaned_data['emisoraTarjeta'] = ''
-
-	    return self.cleaned_data
 
 	class Meta:
 		model=OrdenIngreso
@@ -25,11 +11,8 @@ class OrdenIngresoForm(forms.ModelForm):
 		labels={
 			'tipo_cliente':'Cliente',
 			'fecha':'Fecha',
-			'numeroTramite':'N° de Trámite',
-			'numeroFactura':'No. Factura',
 			'ruc_ci':'RUC',
 			'razon_nombres':'Razón Social',
-			'centroCosto':'Centro Costo',
 			'descripcion':'Descripción',
 			'formaPago':'Forma de Pago',
 			'valor':'Valor',
@@ -41,20 +24,56 @@ class OrdenIngresoForm(forms.ModelForm):
 		}
 
 		widgets={
-			'cod_orden_fact':forms.HiddenInput(),
-            'estado':forms.HiddenInput(),
 			'fecha':forms.DateInput(attrs={'class':'form-control','type':'date','value':date.today}),
 			'fechaPago':forms.DateInput(attrs={'class':'form-control','type':'date','value':date.today}),
-			'numeroTramite':forms.NumberInput(attrs={'class':'form-control'}),
-			'numeroFactura':forms.NumberInput(attrs={'class':'form-control'}),
 			'razon_nombres':forms.Select(attrs={'class':'form-control select2'}),
             'ruc_ci':forms.Select(attrs={'class':'form-control select2'}),
-			'centroCosto':forms.TextInput(attrs={'class':'form-control'}),
 			'descripcion':forms.Textarea(attrs={'rows':2}),
 			'valor':forms.NumberInput(attrs={'class':'form-control'}),
 			'anexo':forms.ClearableFileInput(attrs={'class':'form-control'}),
 			'numeroDocumento':forms.NumberInput(attrs={'class':'form-control'}),
 			'banco':forms.TextInput(attrs={'class':'form-control'}),
 			'emisoraTarjeta':forms.Select(attrs={'class':'form-control'}),
-			'formaPago':forms.Select(attrs={'class':'form-control'})
+			'formaPago':forms.Select(attrs={'id':'seleccion',"onchange":"run()"})
 		}
+
+class OrdenIngresoUpdateForm(forms.ModelForm):
+
+	class Meta:
+		model=OrdenIngreso
+		fields='__all__'
+
+		labels={
+			'cod_orden_ing': 'Código Orden Ingreso',
+			'tipo_cliente':'Cliente',
+			'fecha':'Fecha',
+			'n_tramite':'N° de Trámite',
+			'ruc_ci':'RUC',
+			'razon_nombres':'Razón Social',
+			'descripcion':'Descripción',
+			'formaPago':'Forma de Pago',
+			'valor':'Valor',
+			'anexo':'Anexo Comprobante de Pago',
+			'fechaPago':'Fecha Pago',
+			'numeroDocumento':'N° Documento',
+			'banco':"Banco",
+			'emisoraTarjeta':"Emisora TC",
+		}
+
+		widgets={
+			'cod_orden_ing':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'fecha':forms.DateInput(attrs={'readonly':True,'class':'form-control-plaintext','type':'date','value':date.today}),
+			'fechaPago':forms.DateInput(attrs={'readonly':True,'class':'form-control-plaintext','type':'date','value':date.today}),
+			'n_tramite':forms.TextInput(attrs={'class':'form-control'}),
+			'tipo_cliente':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'razon_nombres':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+            'ruc_ci':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+			'descripcion':forms.Textarea(attrs={'readonly':True,'rows':2,'class':'form-control-plaintext'}),
+			'valor':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'anexo':forms.ClearableFileInput(attrs={'class':'form-control'}),
+			'numeroDocumento':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+			'banco':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext textinput textInput form-control'}),
+			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'})
+		}
+

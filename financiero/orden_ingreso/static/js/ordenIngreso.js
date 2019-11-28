@@ -1,14 +1,17 @@
 
 window.onload = function() {
-    var e = document.getElementById("seleccion");
+
+  var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
-	console.log(text);
 
 	if (text!="Tarjeta de Crédito"){
-		document.getElementById("id_emisoraTarjeta").required=false;
+    document.getElementById("asterisco").style.display='none';
+    document.getElementById("id_emisoraTarjeta").classList.remove("requiredField");
+
 	}
 	else{
-		document.getElementById("id_emisoraTarjeta").required=true;
+    document.getElementById("asterisco").style.display='inline';
+    document.getElementById("id_emisoraTarjeta").classList.add("requiredField");
 
 	}
 };
@@ -16,16 +19,16 @@ window.onload = function() {
 function run(){
 	var e = document.getElementById("seleccion");
 	var text = e.options[e.selectedIndex].text;	
-	console.log(text);
 
 	if (text!="Tarjeta de Crédito"){
-		document.getElementById("id_emisoraTarjeta").required=false;
-		console.log("owo");
-	}
-	else{
-		document.getElementById("id_emisoraTarjeta").required=true;
-		console.log("uwu");
-	}
+    document.getElementById("asterisco").style.display='none';
+    document.getElementById("id_emisoraTarjeta").classList.remove("requiredField");
+  }
+  else{
+    document.getElementById("asterisco").style.display='inline';
+    document.getElementById("id_emisoraTarjeta").classList.add("requiredField");
+
+  }
 }	
 
 $('.select2').select2({
