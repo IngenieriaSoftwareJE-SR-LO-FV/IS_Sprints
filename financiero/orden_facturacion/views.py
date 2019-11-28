@@ -28,6 +28,14 @@ class OrdenFacturacionCreate(CreateView):
     def get_success_url(self, **kwargs):         
         return reverse_lazy('orden_facturacion_editar', args = (self.object.id,))
 
+    """def get_context_data(self, **kwargs):
+        context=super(OrdenFacturacionCreate,self).get_context_data(**kwargs)
+        context['form']=self.form_class()
+        context['formn']=self.pn_form_class()
+        context['formj']=self.pj_form_class()
+
+        return context"""
+
 class OrdenFacturacionUpdate(UpdateView):
     model=OrdenFacturacion
     form_class=OrdenFacturacionUpdateForm

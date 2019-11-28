@@ -41,7 +41,7 @@
 <div class="row mt-5">
     <div class="col-12">
     {% if filter.qs %}
-<table class="table table-bordered">
+<table id="dtBasicExample" class="table table-bordered">
     <thead>
         <tr>
             <th>Fecha</th>
@@ -77,3 +77,6 @@
 </div>
 </div>
 {% endblock content %}
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock extrafooter %}

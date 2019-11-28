@@ -52,11 +52,11 @@ def natural_delete(request, pk=None):
 	success_url = reverse_lazy('natural_lista')"""
 	
 	if(request.method == "POST"):
-		p = get_object_or_404(Persona_Natural,pk=pk);
+		p = get_object_or_404(Persona_Natural,pk=pk)
 		p.delete()
 		return redirect("natural_lista")
 	else:
 		pk = request.GET.get('cedula')
 		cedula_char="0"+str(pk)
-		p = get_object_or_404(Persona_Natural,pk=cedula_char);
+		p = get_object_or_404(Persona_Natural,pk=cedula_char)
 		return render(request, 'personas_naturales/natural_eliminar.html', {'object': p})

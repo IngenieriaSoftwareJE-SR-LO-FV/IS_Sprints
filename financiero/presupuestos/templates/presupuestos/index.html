@@ -87,7 +87,7 @@
 {% if presupuestos %}
 <div class="row">
 	<div class="col-12 col-xl-12">
-		<table class="table table-bordered">
+		<table id="dtBasicExample" class="table table-bordered">
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">Código</th> 
@@ -180,6 +180,10 @@
     </div>
   </div>
 </div>
+{% endblock %}
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
+
 <script>
   	function eliminar(id){
   		var modal = document.getElementById("myModal");
@@ -215,6 +219,4 @@
 
 	}
 </script>
-{% endblock %}
-
-
+{% endblock extrafooter %}

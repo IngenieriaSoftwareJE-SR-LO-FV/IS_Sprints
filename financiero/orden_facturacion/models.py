@@ -1,6 +1,7 @@
 from django.db import models
 from ventas.personas_juridicas.models import Juridica
 from ventas.personas_naturales.models import Persona_Natural
+from financiero.orden_pago.models import Centro_Costos;
 import ventas.validaciones as val
 
 
@@ -35,7 +36,7 @@ class OrdenFacturacion(models.Model):
     direccion=models.CharField(max_length=200)
     telefono=models.CharField(max_length=15)
     concepto=models.CharField(max_length=300)
-    centro_costo=models.CharField(max_length=100)
+    centro_costos = models.ForeignKey(Centro_Costos, on_delete=models.SET_NULL, blank=True, null=True)
     n_participantes=models.PositiveIntegerField()
     valor_total=models.FloatField(max_length=12)
     observaciones=models.CharField(max_length=500)

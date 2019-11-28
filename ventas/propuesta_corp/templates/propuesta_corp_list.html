@@ -41,7 +41,7 @@
             <div class="col-12">
                     {% if filter.qs %}
 
-        <table class="table table-bordered">
+        <table id="dtBasicExample" class="table table-bordered">
             <thead>
                 <tr>
                     <td>Código propuesta</td>
@@ -82,3 +82,6 @@
         </div>
         </div>
 {% endblock content %}
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock extrafooter %}

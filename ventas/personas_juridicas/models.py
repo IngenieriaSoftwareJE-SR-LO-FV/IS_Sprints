@@ -30,27 +30,27 @@ class FormaPago(models.Model):
 
 class Juridica(models.Model):
 	nombre = models.CharField(max_length=200)
-	ruc = models.CharField(max_length=13, validators=[ventas.validaciones.validate_ruc])
+	ruc = models.CharField(max_length=13)#, validators=[ventas.validaciones.validate_ruc])
 	tipo_empresa = models.ForeignKey(TipoEmpresa,on_delete=models.SET_NULL, null=True)
 	sector = models.ForeignKey(Sector,on_delete=models.SET_NULL, null=True)
 	direccion = models.CharField(max_length=200)
 	ciudad = models.CharField(max_length=50)
 	provincia = models.ForeignKey(Provincia, on_delete=models.SET_NULL, null=True)
 	ciudad = models.ForeignKey(Ciudad, on_delete=models.SET_NULL, null=True)
-	telefono = models.CharField(max_length=20, validators=[ventas.validaciones.validate_fono_convencional])
-	celular = models.CharField(max_length=20, validators=[ventas.validaciones.validate_celular])
+	telefono = models.CharField(max_length=20)#, validators=[ventas.validaciones.validate_fono_convencional])
+	celular = models.CharField(max_length=20)#, validators=[ventas.validaciones.validate_celular])
 	correo = models.CharField(max_length=100)
 	representante = models.CharField(max_length=250)
 	maximo_facturas = models.DateField()
 	forma_pago = models.ForeignKey(FormaPago, on_delete=models.SET_NULL, null=True)
 
 
-	contacto_cedula = models.CharField(max_length=13, validators=[ventas.validaciones.validate_cedula])
-	contacto_nombres = models.CharField(max_length=75, validators=[ventas.validaciones.validate_letras])
-	contacto_apellidos = models.CharField(max_length=75, validators=[ventas.validaciones.validate_letras])
+	contacto_cedula = models.CharField(max_length=13)#, validators=[ventas.validaciones.validate_cedula])
+	contacto_nombres = models.CharField(max_length=75)#, validators=[ventas.validaciones.validate_letras])
+	contacto_apellidos = models.CharField(max_length=75)#, validators=[ventas.validaciones.validate_letras])
 	contacto_cargo = models.CharField(max_length=150)
-	contacto_telefono = models.CharField(max_length=20, validators=[ventas.validaciones.validate_fono_convencional])
-	contacto_celular = models.CharField(max_length=20, validators=[ventas.validaciones.validate_celular])
+	contacto_telefono = models.CharField(max_length=20)#, validators=[ventas.validaciones.validate_fono_convencional])
+	contacto_celular = models.CharField(max_length=20)#, validators=[ventas.validaciones.validate_celular])
 	contacto_correo = models.CharField(max_length=100)
 
 	def __str__(self):

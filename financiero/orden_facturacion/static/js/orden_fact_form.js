@@ -1,7 +1,32 @@
+var p_url="";
+
 $('.select2').select2({
-  language: "es",
-  minimunInputLength: 2,
-  minimunResultsForSearch: -1,
+  language: {
+
+    noResults: function () {
+      $(".select2-results__options").append("<a id='pnuevo' class='btn btn-secondary btn-block btn-sm' href='"+p_url+"' target='_blank'>Agregar Nuevo</a>");
+      return "No hay resultados";
+    },
+    searching: function () {
+
+      return "Buscando..";
+    }
+  }
+});
+
+
+$('[id^=id_participantes]').select2({
+  language: {
+
+    noResults: function () {
+      $(".select2-results__options").append("<a id='pnuevo' class='btn btn-secondary btn-block btn-sm' href='"+$('#form-fact').attr("data-natural-url")+"' target='_blank'>Agregar Nuevo</a>");
+      return "No hay resultados";
+    },
+    searching: function () {
+
+      return "Buscando..";
+    }
+  }
 });
 
 function load_data() {
@@ -28,10 +53,12 @@ function load_data() {
     if (persona == "Natural") {
       $('#ruc_ci').text('CI');
       $('#ra_nom').text('Nombre');
+      p_url=$('#form-fact').attr("data-natural-url");
     }
     else if (persona == "Jurídica") {
       $('#ruc_ci').text('RUC');
       $('#ra_nom').text('Razón Social');
+      p_url=$('#form-fact').attr("data-juridica-url");
     }
   }
   else {
@@ -83,9 +110,19 @@ forma.click(function (e) {
   e.preventDefault();*/
 $("#confirmar_guardar").click(function (e) {
   $.ajax({
-  url: $('#form-fact').attr("data-confirmacion-url"),
+    url: $('#form-fact').attr("data-confirmacion-url"),
     success: function (data) {
       $('.modal-body').html(data);
     },
   });
+})
+
+$(document).on('click',"#pnuevo",function () {
+  $('#id_ruc_ci').select2('close');
+  $('#id_razon_nombres').select2('close');
+  $('[id^=id_participantes]').select2('close');
+})
+
+$(document).on('focus',"span.selection",function () {
+  load_data();
 })
