@@ -6,45 +6,46 @@
 
 
 <html>
-	<head>
-		
-		<meta charset="utf-8">
-		<title>
-			{% block title %}{{ page_title|default:"Educación Continua Financiero" }}{% endblock title %}
-   		</title>
-		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-		<link href="{% static 'css/addons/datatables.min.css' %}" rel="stylesheet">
-		{% bootstrap_css %}
-		{% fontawesome_5_static %}
-		
-		{% block extraheader %}
-		  
-		{% endblock extraheader %}
 
-		
-	</head>
+<head>
 
-	<body>
-		<div class="container-fluid">
-			<div class ="row">
-		<header class="col-12 col-xl-12">
-			<div class="row">
-				<a class="col-xl-3 col-6" href="#">
-					<img class ="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
-				</a>
-				<div class="col-xl-5 col-">
+	<meta charset="utf-8">
+	<title>
+		{% block title %}{{ page_title|default:"Educación Continua Financiero" }}{% endblock title %}
+	</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link href="{% static 'css/addons/datatables.min.css' %}" rel="stylesheet">
+	{% bootstrap_css %}
+	{% fontawesome_5_static %}
+
+	{% block extraheader %}
+
+	{% endblock extraheader %}
+
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<header class="col-12 col-xl-12">
+				<div class="row">
+					<a class="col-xl-3 col-6" href="#">
+						<img class="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
+					</a>
+					<div class="col-xl-5 col-">
+					</div>
+					<div class="col-6 col-xl-2">
+						<p id="username">user@mail.com</p>
+					</div>
+
+					<div class="col-6 col-xl-2">
+						<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
+					</div>
 				</div>
-				<div class="col-6 col-xl-2">
-					<p id="username" >user@mail.com</p>
-				</div>
-				
-				<div class="col-6 col-xl-2">
-				<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
-			</div>
-			</div>
-		</header>
-			</div>
+			</header>
+		</div>
 		<div class="row menulat">
 			<div class="col-3 col-xl-3">
 				<div id="menu" class="row">
@@ -65,9 +66,9 @@
 						<a class="menu" href=#>
 							<div class="row">
 								<div class="col-12">
-										<span> Centro de costos</span>
+									<span> Centro de costos</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -91,7 +92,7 @@
 								<div class="col-12">
 									<span>Orden de facturación</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -100,9 +101,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Cobros</span>
+									<span>Cobros</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -115,7 +116,7 @@
 									<i class="float-right fas fa-angle-right"></i>
 
 								</div>
-							</div>	
+							</div>
 						</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" id="op_sec" href="#">Por Criterio</a>
@@ -142,9 +143,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Autorización</span>
+									<span>Autorización</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -153,9 +154,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Solicitud de pago</span>
+									<span>Solicitud de pago</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -164,9 +165,9 @@
 						<a class="menu" href="#">
 							<div class="row">
 								<div class="col-12">
-										<span>Registro de facturas</span>
+									<span>Registro de facturas</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -174,7 +175,7 @@
 					<div class="col-12 mlat">
 						<div id="titulo" class="row">
 							<div class="col-2">
-									<i class="fas fa-chart-bar"></i>
+								<i class="fas fa-chart-bar"></i>
 							</div>
 							<div class="col-8">
 								<h5>Reportes</h5>
@@ -188,9 +189,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Conciliación de ingresos</span>
+									<span>Conciliación de ingresos</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -199,9 +200,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Resultado de eventos</span>
+									<span>Resultado de eventos</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -210,9 +211,9 @@
 						<a class="menu" href="#">
 							<div class="row border-bottom">
 								<div class="col-12">
-										<span>Consolidado por evento</span>
+									<span>Consolidado por evento</span>
 								</div>
-							</div>	
+							</div>
 						</a>
 					</div>
 				</div>
@@ -228,13 +229,19 @@
 		</div>
 		<footer class="col-12 col-xl-12"></footer>
 	</div>
-		
-		{% bootstrap_javascript jquery='full' %}
-		<script src="{% static 'js/mdb.min.js' %}"></script>
-		<!-- MDBootstrap Datatables  -->
-		<script type="text/javascript" src="{% static 'js/addons/datatables.min.js' %}"></script>
-		{% block extrafooter %}
-		  
-		{% endblock extrafooter %}
-	</body>
+
+	{% bootstrap_javascript jquery='full' %}
+	<script src="{% static 'js/mdb.min.js' %}"></script>
+	<!-- MDBootstrap Datatables  -->
+	<script type="text/javascript" src="{% static 'js/addons/datatables.min.js' %}"></script>
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	</script>
+	{% block extrafooter %}
+
+	{% endblock extrafooter %}
+</body>
+
 </html>

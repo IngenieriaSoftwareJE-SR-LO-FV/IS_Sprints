@@ -53,7 +53,7 @@ class OrdenFacturacionUpdate(UpdateView):
         if 'form' in context:
             if orden.estado=='ACTV':
                 context['form']=self.second_form_class(instance=orden)
-            elif orden.estado=='FAES':
+            elif orden.estado=='PNDP':
                 context['form']=self.third_form_class(instance=orden)
             else:
                 context['form']=self.form_class(instance=orden)

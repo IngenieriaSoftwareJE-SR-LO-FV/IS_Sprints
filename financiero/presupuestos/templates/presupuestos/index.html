@@ -113,9 +113,9 @@
 					<td scope="row">{{p.n_participantes}}</td>
 					<td scope="row">{{p.estado}}</td>
 					<td scope="row">
-						<a class="btn btn-secondary float-right" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-secondary btn-sm" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-edit"></i></a>
 
-						<a href='javascript:;' onclick='eliminar({{ p.id }});' class="btn btn-danger" ><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='eliminar({{ p.id }});' class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i></a>
 					</td>
 				</tr>
 				{% endfor %}
@@ -128,6 +128,7 @@
 {% else %}
 <h2>No hay elementos que mostrar</h2>
 {% endif %}
+<!--
 <ul class="pagination justify-content-center">
 		{% if presupuestos.has_previous %}
 		
@@ -169,7 +170,7 @@
 	{% endif %}
 
   </ul>
-
+-->
   
 <div id="myModal" class="modal">
 

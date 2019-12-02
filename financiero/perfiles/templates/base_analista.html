@@ -1,25 +1,29 @@
+{% load static %}
 {% load fontawesome_5 %}
 {% load bootstrap4 %}
-{% load static %}
 
-<!DOCTYPE>
+<!doctype "html5">
+
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>
-			{% block title %}{{ page_title|default:"Educación Continua" }}{% endblock title %}
-   		</title>
-		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" type="text/css" href="{% static 'css/base_financiero.css' %}">
-		{% bootstrap_css %}
-		{% fontawesome_5_static %}
-	</head>
-	<body>
-		<div class="container-fluid">
+
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block title %}{{ page_title|default:"Educación Continua" }}{% endblock title %}
+	</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+	{% bootstrap_css %}
+	{% fontawesome_5_static %}
+</head>
+
+<body>
+	<div class="container-fluid">
 		<header class="col-12 col-xl-12">
 			<div class="row">
 				<a class="col-xl-3 col-3" href="#">
-					<img class ="img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
+					<img class="img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
 				</a>
 				<div class="col-xl-5 col-5"></div>
 				<p id="username" class="col-2 col-xl-2">user@mail.com</p>
@@ -38,7 +42,8 @@
 				<a id="op_sec" class="border-bottom" href="#">Orden de Facturación</a>
 				<a id="op_sec" class="border-bottom" href="#">Cobros</a>
 				<div class="dropright">
-					<a id="op_sec" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orden de pago</i></a>
+					<a id="op_sec" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Orden de pago</i></a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" id="op_sec" href="#">Por Criterio</a>
 						<a class="dropdown-item" id="op_sec" href="#">Pendientes de Procesos</a>
@@ -61,6 +66,7 @@
 		</div>
 
 		{% bootstrap_javascript jquery='full' %}
-		</div>
-	</body>
+	</div>
+</body>
+
 </html>

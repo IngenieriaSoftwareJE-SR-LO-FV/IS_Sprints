@@ -7,14 +7,17 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-9 col-xl-9">
-            <h2>Orden de Pago</h2>
-    </div>
-    <div class="col-3 col-xl-3">
-            <a class="btn btn-secondary float-right" href="{% url 'orden_pago_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
-    </div>
+	<div class="col-9 col-xl-9">
+		<h2>Orden de Pago</h2>
+	</div>
+	<div class="col-3 col-xl-3">
+		<a class="btn btn-secondary float-right" href="{% url 'orden_pago_nuevo' %}"><i class="fas fa-plus"></i> Agregar
+			nuevo</a>
+	</div>
 </div>
-<div class="campo"><h5 class="campo">Consultas</h5></div>
+<div class="campo">
+	<h5 class="campo">Consultas</h5>
+</div>
 <div class="row">
 	<div class="col-12 col-xl-12">
 		<form method="GET">
@@ -36,17 +39,21 @@
 				</div>
 			</div>
 			<div>
-            	<button  type="submit" class="btn btn-secondary float-right">
-                <span class="fas fa-search"></span> Buscar</button>
-            </div>
+				<button type="submit" class="btn btn-secondary float-right">
+					<span class="fas fa-search"></span> Buscar</button>
+			</div>
 		</form>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-12 col-xl-12">
-	{% if ordenes_pago %}
+		{% if ordenes_pago %}
 		<div class="table-container">
+			<a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip"
+					data-placement="top" title="Exportar a pdf"></i></a>
+			<a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
+					data-placement="top" title="Exportar a excel"></i></a>
 			<table id="dtBasicExample" class="table table-bordered">
 				<thead class="thead-light">
 					<tr>
@@ -58,7 +65,7 @@
 						<th scope="col">Egreso</th>
 						<th scope="col">N° comprobante</th>
 						<th scope="col">Forma de pago</th>
-						<th scope="col">Anexos</th>
+						<!--<th scope="col">Anexos</th>-->
 						<th scope="col"></th>
 					</tr>
 				</thead>
@@ -66,9 +73,9 @@
 					{% for orden in filter.qs %}
 					<tr>
 						<td scope="row">
-							<a class="btn btn-secondary btn-sm" href="#"><i class="fas fa-edit"></i></a>
-                			<a href='#' class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                		</td>
+							<a class="btn btn-secondary" href="#"><i class="fas fa-edit"></i></a>
+							<a href='#' class="btn btn-danger"><i class="fas fa-trash"></i></a>
+						</td>
 						<td scope="row">{{ orden.cod_ord_pago }}</td>
 						<td scope="row">{{ orden.fecha }}</td>
 						<td scope="row">{{ orden.estado }}</td>
@@ -77,24 +84,25 @@
 						<td scope="row">{{ orden.egreso }}</td>
 						<td scope="row">{{ orden.n_comprobante }}</td>
 						<td scope="row">{{ orden.forma_pago }}</td>
-						<td scope="row">
+						<!--<td scope="row">
 							{% if ordenIngreso.anexo %}
 			                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
 			                {% else %}
 			                    No anexo
 			                {% endif %}
-						</td>
+						</td>-->
 						<td>
-							<a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+							<a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
+								<i class="fas fa-print"></i></a>
 						</td>
 					</tr>
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
-	{% else %}
+		{% else %}
 		<h4>No hay elementos que mostrar</h4>
-	{% endif %}
+		{% endif %}
 	</div>
 </div>
 
