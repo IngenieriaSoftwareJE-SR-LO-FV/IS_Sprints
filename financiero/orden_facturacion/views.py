@@ -17,12 +17,14 @@ class OrdenFacturacionCreate(CreateView):
     success_url=reverse_lazy('orden_facturacion')
 
     def form_valid(self, form):
+        
         try:
             pre=str(int(self.model.objects.latest('pk').pk+1))
             sec='0'*(4-len(pre))+pre
         except self.model.DoesNotExist:
-            sec='0001'
+            sec='0001'      
         form.instance.cod_orden_fact=sec+'-'+str(date.today().year)
+        form.instance.valor_pendiente = form.instance.valor_total
         return super().form_valid(form)
     
     def get_success_url(self, **kwargs):         

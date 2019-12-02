@@ -1,0 +1,16 @@
+{% load crispy_forms_tags %}
+
+<div class="row justify-content-md-center mt-5">
+    <form method="POST" action="{% url 'orden_pago_anular' object.id %}">
+        {% csrf_token %}
+        <h4>¿Está seguro que desea anular la siguiente orden de pago?</h4>
+        <h4>Código: {{ object.cod_ord_pago }}</h4>
+        {{ form.motivo_anular|as_crispy_field }}
+        <div class="col">
+            <div class="row justify-content-center">
+                    <button class="btn btn-danger mr-3" type="submit" onclick="close_form(event)"> Sí </button>
+                    <a href='javascript:;' onclick='cerrar(event);' class="btn btn-secondary"> No </a>
+            </div>
+        </div>
+    </form>
+</div>

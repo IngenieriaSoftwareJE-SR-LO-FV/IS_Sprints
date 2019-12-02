@@ -1,0 +1,102 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Pago Eventos" }}{% endblock title %}
+
+{% block extraheader %}
+
+{% endblock extraheader %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>Pago Eventos</h2>
+    </div>
+
+</div>
+<div class="campo">
+    <h5 class="campo consultas">Consultas</h5>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form action="" method="get">
+            <div class="form-row ">
+                <div class="col-6 col-md-4">
+                    {{ filter.form.cod_orden_fact|as_crispy_field }}
+                </div>
+                <div class="col-6 col-md-4">
+                    {{ filter.form.fecha|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ filter.form.ruc_ci|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ filter.form.razon_nombres|as_crispy_field }}
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-secondary float-right">
+                <i class="fas fa-search"></i> Buscar</button>
+        </form>
+
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class=" table-responsive-md">
+            {% if filter.qs %}
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Código Orden</th>
+                        <th scope="col">N° trámite</th>
+                        <th scope="col">N° factura</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">N° participantes</th>
+                        <th scope="col">Costo</th>
+                        <th scope="col">Pendiente</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for orden in filter.qs %}
+                    <tr>
+                        <td scope="row">{{orden.cod_orden_fact}}</td>
+                        <td scope="row">{{orden.n_tramite}}</td>
+                        <td scope="row">{{orden.n_factura}}</td>
+                        <td scope="row">{{orden.razon_nombres}}</td>
+                        <td scope="row">{{orden.fecha}}</td>
+                        <td scope="row">{{orden.n_participantes}}</td>
+                        <td scope="row">{{orden.valor_total}}</td>
+                        <td scope="row">{{orden.valor_pendiente}}</td>
+
+                        <td scope="row">
+                            <!--{% if orden.estado != 'ANLD' %} -->
+                            <a class="btn btn-secondary btn-sm btn-block"
+                                href="{% url 'ordenIngreso_nuevo' orden.id %}"><i class="fas fa-edit"></i></a>
+                           <!-- <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm btn-block"
+                                data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
+                                    class="fas fa-trash"></i></a> -->
+                            <!--{% endif%}-->
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+            {% else %}
+            <h4>No hay elementos que mostrar</h4>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block extrafooter %}
+
+{% endblock extrafooter %}
