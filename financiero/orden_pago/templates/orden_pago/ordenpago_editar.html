@@ -8,7 +8,7 @@
 
 <form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2>Registro Orden de Pago</h2>
+	<h2>Procesar Orden de Pago</h2>
 	<div class="form-row">
 		<div class="col-5"></div>
 		<div class="col-5"></div>
@@ -48,6 +48,7 @@
 		        </div>
       		</div>
 		</div>
+		<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
 	</div>
 	<div class="form-row">
 		<div class="col-3 col-xl-3">
@@ -87,6 +88,9 @@
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary">Guardar</button>
 			<a class="btn btn-light" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
+			{% if form.estado.value != 'AUTR' %}	
+				<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
+			{% endif %}
 		</div>
 	</div>
 	{{ form.media }}
@@ -109,12 +113,13 @@
       	$.ajax({                       
         	url: url,
         	data: {
-          		'centroc': ccId
+          		'centro_costos': ccId
         	},
 	        success: function (data) {
 	          	$("#id_egreso").html(data);
 	        }
       	});
     });
+
 </script>
 {% endblock %}

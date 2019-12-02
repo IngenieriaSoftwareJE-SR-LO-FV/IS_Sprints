@@ -5,7 +5,7 @@
 {% block title %}{{ "EC - Orden de pago" }}{% endblock title %}
 
 {% block content %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/odenpago.css' %}">
 <div class="row">
     <div class="col-9 col-xl-9">
             <h2>Orden de Pago</h2>
@@ -42,7 +42,7 @@
 		</form>
 	</div>
 </div>
-
+<br>
 <div class="row">
 	<div class="col-12 col-xl-12">
 	{% if ordenes_pago %}
@@ -50,6 +50,7 @@
 			<table class="table table-bordered">
 				<thead class="thead-light">
 					<tr>
+						<th scope="col">Acciones</th>
 						<th scope="col">Código</th>
 						<th scope="col">Fecha</th>
 						<th scope="col">Estado</th>
@@ -65,17 +66,17 @@
 					{% for orden in filter.qs %}
 					<tr>
 						<td scope="row">
-							<a class="btn btn-secondary btn-sm" href="#"><i class="fas fa-edit"></i></a>
-                			<a href='#' class="btn btn-danger"><i class="fas fa-trash"></i></a>
+							<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+							<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                 		</td>
 						<td scope="row">{{ orden.cod_ord_pago }}</td>
 						<td scope="row">{{ orden.fecha }}</td>
-						<td scope="row">{{ orden.estado }}</td>
+						<td scope="row">{{ orden.get_estado_display }}</td>
 						<td scope="row">{{ orden.proveedor }}</td>
 						<td scope="row">{{ orden.centro_costos }}</td>
 						<td scope="row">{{ orden.egreso }}</td>
 						<td scope="row">{{ orden.n_comprobante }}</td>
-						<td scope="row">{{ orden.forma_pago }}</td>
+						<td scope="row">{{ orden.get_forma_pago_display }}</td>
 						<td scope="row">
 							{% if ordenIngreso.anexo %}
 			                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
@@ -94,4 +95,52 @@
 	</div>
 </div>
 
+<div id="myModal" class="modal">
+  	<div class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="modal-form">
+	    </div>
+  	</div>
+</div>
+
+{% endblock %}
+
+{% block extrafooter %}
+<script>
+  	function anular(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		$.ajax({
+			url: "{% url 'orden_pago_anular' %}",  
+			data:{
+				"pk": id
+			}, 
+			success: function (data) {   
+				$("#modal-form").html(data);  
+			}
+		});
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+	}
+
+</script>
 {% endblock %}

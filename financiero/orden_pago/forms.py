@@ -23,6 +23,7 @@ class OrdenPagoForm(forms.ModelForm):
 			"forma_pago":"Forma de pago",
 			"observacion":"Observación",
 			"anexo":"Anexos",
+			"motivo_anular":"Motivo de Anulación",
 		}
 
 		widgets = {
@@ -40,10 +41,13 @@ class OrdenPagoForm(forms.ModelForm):
 			"forma_pago":forms.Select(attrs={"class":"form-control"}),
 			"observacion":forms.Textarea(attrs={"class":"form-control", "rows":2}),
 			"anexo":forms.ClearableFileInput(attrs={"class":"form-control"}),
+			"motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
 		}
 
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
+		self.fields["centro_costos"].required = True
+		self.fields["egreso"].required = True
 		
 		self.fields["egreso"].queryset = Egresos.objects.none()
 		if "centro_costos" in self.data:
@@ -53,7 +57,7 @@ class OrdenPagoForm(forms.ModelForm):
 			except (ValueError, TypeError):
 				pass
 		elif self.instance.pk:
-			self.fields["egreso"].queryset = self.instance.centro_costos.egreso_set.order_by("nombre") 
+			self.fields["egreso"].queryset = self.instance.centro_costos.egresos_set.order_by("nombre") 
 
 
 class OrdenPagoFinalForm(forms.ModelForm):
@@ -77,12 +81,13 @@ class OrdenPagoFinalForm(forms.ModelForm):
 			"forma_pago":"Forma de pago",
 			"observacion":"Observación",
 			"anexo":"Anexos",
+			"motivo_anular":"Motivo de Anulación",
 		}
 
 		widgets = {
 			"cod_ord_pago":forms.TextInput(attrs={"readonly":True, "class":"form-control"}),
 			"n_tramite":forms.TextInput(attrs={"class":"form-control"}),
-			"fecha":forms.DateInput(attrs={"readonly":True, "class":"form-control","type":"date", "value":date.today}),
+			"fecha":forms.DateInput(attrs={"class":"form-control","type":"date", "value":date.today}),
 			"estado":forms.Select(attrs={"readonly":True, "class":"form-control"}),
 			"tipo_proveedor":forms.Select(attrs={"readonly":True, "class":"form-control"}),
 			"proveedor":forms.Select(attrs={"readonly":True, "class":"form-control"}),
@@ -92,6 +97,7 @@ class OrdenPagoFinalForm(forms.ModelForm):
 			"n_comprobante":forms.TextInput(attrs={"readonly":True, "class":"form-control"}),
 			"concepto":forms.Textarea(attrs={"readonly":True, "class":"form-control", "rows":2}),
 			"forma_pago":forms.Select(attrs={"readonly":True, "class":"form-control"}),
-			"observacion":forms.Textarea(attrs={"readonly":True, "class":"form-control", "rows":2}),
+			"observacion":forms.Textarea(attrs={"class":"form-control", "rows":2}),
 			"anexo":forms.ClearableFileInput(attrs={"readonly":True, "class":"form-control"}),
+			"motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
 		}

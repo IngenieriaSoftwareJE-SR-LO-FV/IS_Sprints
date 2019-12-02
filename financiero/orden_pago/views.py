@@ -13,7 +13,7 @@ from django.http import JsonResponse
 # Create your views here.
 
 def index(request):
-	ordPago_lista = OrdenPago.objects.all()
+	ordPago_lista = OrdenPago.objects.all().exclude(estado='ANLD')
 	ordPago_filter = OrdenPagoFilter(request.GET, queryset=ordPago_lista)
 	return render(request, "orden_pago/ordenpago_list.html", {"ordenes_pago":ordPago_lista, "filter":ordPago_filter})
 
@@ -51,3 +51,46 @@ def orden_pago_nuevo(request):
 	else:
 		form = OrdenPagoForm()
 	return render(request, "orden_pago/ordenpago_nuevo.html", {"form":form})
+
+
+def orden_pago_editar(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect('orden_pago_lista')
+	else:
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})
+
+
+"""def orden_pago_vistaFinal(request, pk):
+	p = get_object_or_404(OrdenPago, pk=pk)
+	form = OrdenPagoFinalForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})"""
+
+
+def orden_pago_autorizar(request, pk):
+	p = get_object_or_404(OrdenPago, cod_ord_pago=pk)
+	p.estado = 'AUTR'
+	p.save()
+	return redirect('orden_pago_lista')
+
+
+def orden_pago_anular(request, pk=None):
+	if(request.method == "POST"):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		p.estado = 'ANLD'
+		p.save()
+		form = OrdenPagoForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+		return redirect('orden_pago_lista')
+	else:
+		pk = request.GET.get('pk')
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoForm(instance=p)
+		return render(request, 'orden_pago/ordenpago_anular.html', {'object':p, 'form':form})
+

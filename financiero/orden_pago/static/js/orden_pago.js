@@ -56,14 +56,3 @@ $('#id_razon_nombres').on('change', function () {
 })
 
 
-/*var forma = $("#form-fact");
-forma.click(function (e) {
-  e.preventDefault();
-$("#confirmar_guardar").click(function (e) {
-  $.ajax({
-  url: $('#form-fact').attr("data-confirmacion-url"),
-    success: function (data) {
-      $('.modal-body').html(data);
-    },
-  });
-})*/

@@ -20,11 +20,11 @@ class Egresos(models.Model):
 	centroc = models.ForeignKey(Centro_Costos, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.codigo+" - "+self.nombre
+		return self.nombre
 
 
 class OrdenPago(models.Model):
-	ESTADO_CHOICES = [("ACTV","Activo"),("PDPR","Pendiente de procesar"),("PCSD","Procesado"),("ANLD","Anulado"),]
+	ESTADO_CHOICES = [("GRBD","Grabado"),("AUTR","Autorizado"),("ANLD","Anulado"),]
 	FORMAPAGO_CHOICES = [("TR","Transferencia"),("DB","Débito Bancario"),("TC","Tarjeta Crédito"),("CH","Cheque"),]
 	PROVEEDORES_CHOICES = [("Natural", "Natural"),("Jurídica", "Jurídica"),]
 	COMPROBANTE_CHOICES = [("FC","Factura"),("NV","Nota de venta"),("LC","Liquidación de compra"),("CP","Comprobantes de pago"),]
@@ -32,7 +32,7 @@ class OrdenPago(models.Model):
 	cod_ord_pago = models.CharField(max_length=15, blank=True, null=True)
 	n_tramite = models.CharField(max_length=15, blank=True, null=True)
 	fecha = models.CharField(max_length=30)
-	estado = models.CharField(max_length=5, default="ACTV",choices=ESTADO_CHOICES)
+	estado = models.CharField(max_length=5, default="GRBD",choices=ESTADO_CHOICES, blank=True, null=True)
 	tipo_proveedor = models.CharField(max_length=10, choices=PROVEEDORES_CHOICES)
 	proveedor = models.CharField(max_length=200)
 	centro_costos = models.ForeignKey(Centro_Costos, on_delete=models.SET_NULL, blank=True, null=True)
@@ -43,9 +43,14 @@ class OrdenPago(models.Model):
 	forma_pago = models.CharField(max_length=5, choices=FORMAPAGO_CHOICES, blank=True, null=True)
 	observacion = models.CharField(max_length=500, blank=True, null=True)
 	anexo = models.FileField(upload_to='uploads/orden_pago/', blank=True, null=True)
+	motivo_anular = models.CharField(max_length=500, blank=True, null=True)
 
 	def __str__(self):
-		return self.cod_ord_pago+" - "+self.tipo_egreso
+		return self.cod_ord_pago
+
+	def delete(self, *arg, **kwargs):
+		self.anexo.delete()
+		super().delete(*arg,**kwargs)
 
 
 """class Rubro(models.Model):
