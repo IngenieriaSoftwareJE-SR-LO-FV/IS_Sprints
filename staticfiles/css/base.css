@@ -163,3 +163,8 @@ input[type=date]{
 .table {
 	font-size: 12px;
 }
+
+.col-form-label {
+	font-size: small !important;
+	padding-bottom: 0px !important;
+}

@@ -1,9 +1,5 @@
 $(document).ready(function () {
     $('#dtBasicExample').DataTable({
-        columnDefs: [{
-            orderable: false,
-            targets: 0
-        }],
         "searching": false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ por página",

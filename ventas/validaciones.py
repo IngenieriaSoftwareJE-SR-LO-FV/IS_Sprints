@@ -113,3 +113,12 @@ def validate_celular(value):
 def validate_fecha(value):
 	"""ToDo"""
 
+def validate_positive(value):
+	print(value)
+	if(value<0):
+		raise ValidationError(
+			_('%(values)s no es un numero positivo'),
+			code="invalid",
+            params={'value': value},
+		)
+	

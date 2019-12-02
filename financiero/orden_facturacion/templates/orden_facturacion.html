@@ -17,7 +17,7 @@
             Agregar nuevo</a>
     </div>
 </div>
-<!--<div class="campo">
+<div class="campo">
     <h5 class="campo consultas">Consultas</h5>
 </div>
 <div class="row">
@@ -39,6 +39,12 @@
                 <div class="col-6">
                     {{ filter.form.razon_nombres|as_crispy_field }}
                 </div>
+                <div class="col-6">
+                    {{ filter.form.n_tramite|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ filter.form.n_factura|as_crispy_field }}
+                </div>
 
             </div>
             <button type="submit" class="btn btn-secondary float-right">
@@ -46,13 +52,15 @@
         </form>
 
     </div>
-</div>-->
+</div>
 
 <div class="row mt-4">
     <div class="col-12">
-        <div class=" table-responsive">
+        <div class=" table-responsive-md">
+            {% if filter.qs %}
             <table id="dtBasicExample" class="table table-sm">
                 <thead class="thead-light">
+                    <!--
                     <tr>
                         <form action="" method="get">
                             <th scope="col">{{ filter.form.cod_orden_fact|as_crispy_field }}</th>
@@ -70,7 +78,7 @@
                             </th>
                         </form>
 
-                    </tr>
+                    </tr>-->
                     <tr>
                         <th scope="col">Código Orden</th>
                         <th scope="col">Cliente</th>
@@ -84,7 +92,7 @@
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
-                {% if filter.qs %}
+
                 <tbody>
 
                     {% for orden in filter.qs %}
@@ -108,6 +116,7 @@
                                 data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                                     class="fas fa-trash"></i></a>
                             {% endif%}
+                            <a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
                             {% if orden.anexo_factura %}
                             <a class="btn btn-secondary btn-sm" href="{{orden.anexo_factura.url}}" target="_blank">
                                 <i class="fas fa-download"></i>
@@ -119,8 +128,9 @@
 
 
                 </tbody>
-                {% else %}
+
             </table>
+            {% else %}
             <h4>No hay elementos que mostrar</h4>
             {% endif %}
         </div>
