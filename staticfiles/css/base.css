@@ -136,7 +136,19 @@ input[type=date]{
 }
 
 .form-group{
-	margin-bottom: 10px !important;
+	margin-bottom: 5px !important;
+}
+
+.table .form-group{
+	margin-bottom: 2px !important;
+}
+
+.table .form-control{
+	font-size: inherit !important;
+}
+
+.table .select{
+	height: inherit !important;
 }
 
 .table thead th{
@@ -150,4 +162,9 @@ input[type=date]{
 
 .table {
 	font-size: 12px;
+}
+
+.col-form-label {
+	font-size: small !important;
+	padding-bottom: 0px !important;
 }

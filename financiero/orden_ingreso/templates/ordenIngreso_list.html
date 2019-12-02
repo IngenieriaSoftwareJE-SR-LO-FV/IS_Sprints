@@ -75,6 +75,8 @@
                         <a onclick='eliminar({{ ordenIngreso.id }});' class="btn btn-danger btn-sm btn-block"
                         data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                         class="fas fa-trash"></i></a>
+                        <a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+
                     </td>    
                 </tr>
                 {% endfor %}
@@ -95,7 +97,8 @@
 </div>
 {% endblock content %}
 
-{% block extrafooter %}
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
 <script>
     function eliminar(id) {
     $.ajax({

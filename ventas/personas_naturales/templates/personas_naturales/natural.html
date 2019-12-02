@@ -4,115 +4,111 @@
 {% load staticfiles %}
 {% block title %}{{ "EC - Persona Natural" }}{% endblock title %}
 
-{% block extraheader %}
-
-  
-{% endblock extraheader %}
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
 <div class="row" id="title">
 	<div class="col-9">
-            <h2>Persona Natural</h2>
-    </div>
-    <div class="col-3 ">
-            <a class="btn btn-secondary float-right" href="nuevo"><i class="fas fa-plus"></i> Agregar nuevo</a>
-    </div>
+		<h2>Persona Natural</h2>
+	</div>
+	<div class="col-3 ">
+		<a class="btn btn-secondary float-right" href="nuevo"><i class="fas fa-plus"></i> Agregar nuevo</a>
+	</div>
 </div>
 <div class="campo">
 	<h5 class="consultas campo" class="col-12 col-xl-12">Consultas</h5>
 </div>
 <div class="row">
-	<div class = "col-12 col-xl-12">
+	<div class="col-12 col-xl-12">
 		<form method="GET">
 			{% csrf_token %}
 			<div class="row">
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.cedula.label_tag }}
+					<!--{{ naturales_filter.form.cedula.label_tag }}
 					{{ naturales_filter.form.cedula }}-->
 					{{ naturales_filter.form.cedula|as_crispy_field }}
 				</div>
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.nombres.label_tag }}
+					<!--{{ naturales_filter.form.nombres.label_tag }}
 					{{ naturales_filter.form.nombres }}-->
 					{{ naturales_filter.form.nombres|as_crispy_field }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.apellidos.label_tag }}
+					<!--{{ naturales_filter.form.apellidos.label_tag }}
 					{{ naturales_filter.form.apellidos }}-->
 					{{ naturales_filter.form.apellidos|as_crispy_field }}
 				</div>
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.empresa.label_tag }}
+					<!--{{ naturales_filter.form.empresa.label_tag }}
 					{{ naturales_filter.form.empresa }}-->
 					{{ naturales_filter.form.empresa|as_crispy_field }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.un_tercernivel.label_tag }}
+					<!--{{ naturales_filter.form.un_tercernivel.label_tag }}
 					{{ naturales_filter.form.un_tercernivel }}-->
 					{{ naturales_filter.form.un_tercernivel|as_crispy_field }}
 				</div>
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.cargo.label_tag }}
+					<!--{{ naturales_filter.form.cargo.label_tag }}
 					{{ naturales_filter.form.cargo }}-->
 					{{ naturales_filter.form.cargo|as_crispy_field }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.profesion.label_tag }}
+					<!--{{ naturales_filter.form.profesion.label_tag }}
 					{{ naturales_filter.form.profesion }}-->
 					{{ naturales_filter.form.profesion|as_crispy_field }}
 				</div>
 				<div class="col-6 col-xl-6">
-				<!--{{ naturales_filter.form.ci_domicilio.label_tag }}
+					<!--{{ naturales_filter.form.ci_domicilio.label_tag }}
 					{{ naturales_filter.form.ci_domicilio }}-->
 					{{ naturales_filter.form.ci_domicilio|as_crispy_field }}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-4 col-xl-4">
-				<!--{{ naturales_filter.form.tel_domicilio.label_tag }}
+					<!--{{ naturales_filter.form.tel_domicilio.label_tag }}
 					{{ naturales_filter.form.tel_domicilio }}-->
 					{{ naturales_filter.form.tel_domicilio|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
-				<!--{{ naturales_filter.form.celular.label_tag }}
+					<!--{{ naturales_filter.form.celular.label_tag }}
 					{{ naturales_filter.form.celular }}-->
 					{{ naturales_filter.form.celular|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
-				<!--{{ naturales_filter.form.email.label_tag }}
+					<!--{{ naturales_filter.form.email.label_tag }}
 					{{ naturales_filter.form.email }}-->
 					{{ naturales_filter.form.email|as_crispy_field }}
 				</div>
 			</div>
 			<div>
-				<button  type="submit" class="btn btn-secondary float-right">
+				<button type="submit" class="btn btn-secondary float-right">
 					<i class="fas fa-search"></i> Buscar</button>
-				</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
-	<br>
-	<div class="row">
-		<div class="col-12 col-xl-12">
-{% if naturales %}
-	<div class="table-container">
-		<table class="table table-bordered">
-			<thead class="thead-light">
-				<tr>
-					<th scope="col">Acciones</th>
-					<th scope="col">Cédula</th>
-					<th scope="col">Apellidos</th>
-					<th scope="col">Nombres</th>
-					<th scope="col">Fecha de Nacimiento</th>
-					<th scope="col">Telefono</th>
-					<th scope="col">Celular</th>
+</div>
+<br>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		{% if naturales %}
+		<div class="table-container">
+			<table id="dtBasicExample" class="table table-bordered">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">Acciones</th>
+						<th scope="col">Cédula</th>
+						<th scope="col">Apellidos</th>
+						<th scope="col">Nombres</th>
+						<th scope="col">Fecha de Nacimiento</th>
+						<th scope="col">Telefono</th>
+						<th scope="col">Celular</th>
 						<th scope="col">Email</th>
 						<th scope="col">Ciudad</th>
 						<th scope="col">Dirección</th>
@@ -136,9 +132,11 @@
 					{% for persona in naturales %}
 					<tr>
 						<td scope="row">
-							<a class="btn btn-secondary btn-sm" href="{% url 'natural_editar' persona.cedula %}"><i class="fas fa-edit"></i></a>
-                			<a href='javascript:;' onclick='eliminar({{ persona.cedula }});' class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                		</td>
+							<a class="btn btn-secondary btn-sm btn-block"
+								href="{% url 'natural_editar' persona.cedula %}"><i class="fas fa-edit"></i></a>
+							<a href='javascript:;' onclick='eliminar({{ persona.cedula }});'
+								class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"></i></a>
+						</td>
 						<td scope="row">{{ persona.cedula }}</td>
 						<td scope="row">{{ persona.apellidos }}</td>
 						<td scope="row">{{ persona.nombres }}</td>
@@ -167,95 +165,101 @@
 				</tbody>
 			</table>
 		</div>
-{% else %}
-	<h4>No hay elementos que mostrar</h4>
-{% endif %}
-		</div>
-	</div>
-<ul class="pagination justify-content-center">
-		{% if naturales.has_previous %}
-		
-		<li class="page-item">
-
-			<a class="page-link" href="?page={{ naturales.previous_page_number }}">Anterior</a>
-		</li>
-		<li class="page-item">
-			<a class="page-link" href="?page={{ naturales.previous_page_number }}">{{ naturales.previous_page_number }}</a>
-		</li>
-
 		{% else %}
-			<li class="page-item disabled">
-			<a class="page-link" tabindex="-1" href="#">Anterior</a>
-		</li>
+		<h4>No hay elementos que mostrar</h4>
 		{% endif %}
+	</div>
+</div>
+<!--
+<ul class="pagination justify-content-center">
+	{% if naturales.has_previous %}
 
-    
-    <li class="page-item active">
-    	<span class="page-link">
-        {{ naturales.number }}
-        <span class="sr-only">(current)</span>
-      </span>
-    </li>
+	<li class="page-item">
 
-    {% if naturales.has_next %}
-    <li class="page-item">
-			<a class="page-link" href="?page={{ naturales.next_page_number }}">{{ naturales.next_page_number }}</a>
-		</li>
-    	<li class="page-item">
-			<a class="page-link" href="?page={{ naturales.next_page_number }}">Siguiente</a>
-		</li>
-		
-	
+		<a class="page-link" href="?page={{ naturales.previous_page_number }}">Anterior</a>
+	</li>
+	<li class="page-item">
+		<a class="page-link" href="?page={{ naturales.previous_page_number }}">{{ naturales.previous_page_number }}</a>
+	</li>
+
 	{% else %}
-		<li class="page-item disabled">
-			<a class="page-link" tabindex="-1" href="#">Siguiente</a>
-		</li>
+	<li class="page-item disabled">
+		<a class="page-link" tabindex="-1" href="#">Anterior</a>
+	</li>
 	{% endif %}
 
-  </ul>
 
+	<li class="page-item active">
+		<span class="page-link">
+			{{ naturales.number }}
+			<span class="sr-only">(current)</span>
+		</span>
+	</li>
+
+	{% if naturales.has_next %}
+	<li class="page-item">
+		<a class="page-link" href="?page={{ naturales.next_page_number }}">{{ naturales.next_page_number }}</a>
+	</li>
+	<li class="page-item">
+		<a class="page-link" href="?page={{ naturales.next_page_number }}">Siguiente</a>
+	</li>
+
+
+	{% else %}
+	<li class="page-item disabled">
+		<a class="page-link" tabindex="-1" href="#">Siguiente</a>
+	</li>
+	{% endif %}
+
+</ul>
+-->
 <div id="myModal" class="modal">
-  	<div class="modal-content">
-	    <span class="close">&times;</span>
-	    <div id="modal-form">	    	
-	    </div>
-  	</div>
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div id="modal-form">
+		</div>
+	</div>
 </div>
 
+
+{% endblock %}
+
+{% block extrafooter %}
+<script src="{% static 'js/table.js' %}"></script>
 <script>
-  	function eliminar(id){
-  		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
+
+	function eliminar(id) {
+		var modal = document.getElementById("myModal");
+		modal.style.display = "block";
 
 		var span = document.getElementsByClassName("close")[0];
 
 
-		span.onclick = function() {
-		  modal.style.display = "none";
+		span.onclick = function () {
+			modal.style.display = "none";
 		}
 
 		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  	if (event.target == modal) {
-		    	modal.style.display = "none";
-		  	}
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
 		}
 
-		  	$.ajax({
-		        url: "{% url 'natural_eliminar' %}",  
-		        data:{"cedula":id}, 
-		        success: function (data) {   
-		           $("#modal-form").html(data);  
-		      	}
-		  	});
+		$.ajax({
+			url: "{% url 'natural_eliminar' %}",
+			data: { "cedula": id },
+			success: function (data) {
+				$("#modal-form").html(data);
+			}
+		});
 	}
 
-	function cerrar(e){
+	function cerrar(e) {
 		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
+		modal.style.display = "block";
 		modal.style.display = "none";
 
 	}
 </script>
-
-{% endblock %}
+{% endblock extrafooter %}

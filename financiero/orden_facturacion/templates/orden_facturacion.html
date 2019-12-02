@@ -10,7 +10,7 @@
 {% block content %}
 <div class="row">
     <div class="col-9">
-        <h2>Orden de Facturación</h2>
+        <h2>Consulta Orden de Facturación</h2>
     </div>
     <div class="col-3 ">
         <a class="btn btn-secondary float-right" href="{% url 'orden_facturacion_nuevo' %}"><i class="fas fa-plus"></i>
@@ -39,6 +39,12 @@
                 <div class="col-6">
                     {{ filter.form.razon_nombres|as_crispy_field }}
                 </div>
+                <div class="col-6">
+                    {{ filter.form.n_tramite|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ filter.form.n_factura|as_crispy_field }}
+                </div>
 
             </div>
             <button type="submit" class="btn btn-secondary float-right">
@@ -52,44 +58,57 @@
     <div class="col-12">
         <div class=" table-responsive-md">
             {% if filter.qs %}
-            <table class="table table-bordered">
+            <table id="dtBasicExample" class="table table-sm">
                 <thead class="thead-light">
+                    <!--
+                    <tr>
+                        <form action="" method="get">
+                            <th scope="col">{{ filter.form.cod_orden_fact|as_crispy_field }}</th>
+                            <th scope="col">{{ filter.form.razon_nombres|as_crispy_field }}</th>
+                            <th scope="col">{{ filter.form.ruc_ci|as_crispy_field }}</th>
+                            <th scope="col">{{ filter.form.fecha|as_crispy_field }}</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">{{ filter.form.estado|as_crispy_field }}</th>
+                            <th scope="col">{{ filter.form.n_tramite|as_crispy_field }}</th>
+                            <th scope="col">{{ filter.form.n_factura|as_crispy_field }}</th>
+                            <th scope="col">
+                                <button type="submit" class="btn btn-secondary  btn-block">
+                                    <i class="fas fa-search"></i> </button>
+                            </th>
+                        </form>
+
+                    </tr>-->
                     <tr>
                         <th scope="col">Código Orden</th>
-                        <th scope="col">N° trámite</th>
-                        <th scope="col">N° factura</th>
                         <th scope="col">Cliente</th>
+                        <th scope="col">Identificación</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">N° participantes</th>
                         <th scope="col">Costo</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Anexo</th>
+                        <th scope="col">N° trámite</th>
+                        <th scope="col">N° factura</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
+
                 <tbody>
 
                     {% for orden in filter.qs %}
                     <tr>
                         <td scope="row">{{orden.cod_orden_fact}}</td>
-                        <td scope="row">{{orden.n_tramite}}</td>
-                        <td scope="row">{{orden.n_factura}}</td>
                         <td scope="row">{{orden.razon_nombres}}</td>
+                        <td scope="row">{{orden.ruc_ci}}</td>
                         <td scope="row">{{orden.fecha}}</td>
                         <td scope="row">{{orden.n_participantes}}</td>
                         <td scope="row">{{orden.valor_total}}</td>
                         <td scope="row">{{orden.get_estado_display}}</td>
-                        <td>
-                            {% if orden.anexo_factura %}
-                            <a class="btn btn-secondary btn-sm" href="{{orden.anexo_factura.url}}" target="_blank">
-                                Descargar
-                            </a>
-                            {% else %}
-                            Sin anexo
-                            {% endif %}
-                        </td>
+                        <td scope="row">{{orden.n_tramite}}</td>
+                        <td scope="row">{{orden.n_factura}}</td>
 
                         <td scope="row">
+
                             {% if orden.estado != 'ANLD' %}
                             <a class="btn btn-secondary btn-sm btn-block"
                                 href="{% url 'orden_facturacion_editar' orden.id %}"><i class="fas fa-edit"></i></a>
@@ -97,12 +116,19 @@
                                 data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                                     class="fas fa-trash"></i></a>
                             {% endif%}
+                            <a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+                            {% if orden.anexo_factura %}
+                            <a class="btn btn-secondary btn-sm" href="{{orden.anexo_factura.url}}" target="_blank">
+                                <i class="fas fa-download"></i>
+                            </a>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
 
 
                 </tbody>
+
             </table>
             {% else %}
             <h4>No hay elementos que mostrar</h4>
@@ -121,10 +147,11 @@
 {% endblock content %}
 
 {% block extrafooter %}
+
+<script src="{% static 'js/table.js' %}"></script>
 <script>
 
     function eliminar(id) {
-        console.log(id);
         $.ajax({
             url: "{% url 'orden_facturacion_confirmar_eliminar' %}",
             data: {
