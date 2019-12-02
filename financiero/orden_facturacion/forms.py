@@ -88,6 +88,7 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'razon_nombres':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
             'ruc_ci':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
             'participantes':forms.SelectMultiple(attrs={'class':'form-control'}),
+            "valor_pendiente":forms.HiddenInput(),
         }
 
 class OrdenFacturacionFinalForm(forms.ModelForm):

@@ -2,7 +2,7 @@ from django.db import models
 from ventas.personas_juridicas.models import Juridica
 from ventas.personas_naturales.models import Persona_Natural
 import ventas.validaciones as val
-
+import financiero.validaciones as val_fin
 
 
 # Create your models here.
@@ -37,7 +37,8 @@ class OrdenFacturacion(models.Model):
     concepto=models.CharField(max_length=300)
     centro_costo=models.CharField(max_length=100)
     n_participantes=models.PositiveIntegerField()
-    valor_total=models.FloatField(max_length=12)
+    valor_total=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo])
+    valor_pendiente=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo],blank=True,default=0)
     observaciones=models.CharField(max_length=500)
     comentarios=models.CharField(max_length=500, blank=True, null=True)
     estado = models.CharField(max_length=5,default='ACTV',choices=ESTADO_CHOICES, blank=True, null=True)
