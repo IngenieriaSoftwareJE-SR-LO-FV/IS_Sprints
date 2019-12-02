@@ -1,9 +1,14 @@
 from django.db import models
 from ventas.personas_juridicas.models import Juridica
 from ventas.personas_naturales.models import Persona_Natural
+<<<<<<< HEAD
+import ventas.validaciones as val
+import financiero.validaciones as val_fin
+=======
 from financiero.orden_pago.models import Centro_Costos
 import ventas.validaciones
 
+>>>>>>> 1390645d180d6272bcfda77d08ceca889e52c724
 
 
 # Create your models here.
@@ -36,8 +41,15 @@ class OrdenFacturacion(models.Model):
     #direccion=models.CharField(max_length=200)
     #telefono=models.CharField(max_length=15)
     concepto=models.CharField(max_length=300)
+<<<<<<< HEAD
+    centro_costo=models.CharField(max_length=100)
+    n_participantes=models.PositiveIntegerField()
+    valor_total=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo])
+    valor_pendiente=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo],blank=True,default=0)
+=======
     centro_costos = models.ForeignKey(Centro_Costos, on_delete=models.SET_NULL, blank=False, null=True)
     n_participantes=models.PositiveIntegerField(blank=True, default=0, null=True)
+>>>>>>> 1390645d180d6272bcfda77d08ceca889e52c724
     observaciones=models.CharField(max_length=500)
     comentarios=models.CharField(max_length=500, blank=True, null=True)
     estado = models.CharField(max_length=5,default='ACTV',choices=ESTADO_CHOICES, blank=True, null=True)

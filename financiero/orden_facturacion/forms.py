@@ -74,6 +74,8 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'descuento_total': '$ Descuento total',
             'valor_total': '$ Valor total',
         }
+
+
         widgets = {
             'cod_orden_fact': forms.HiddenInput(),
             'estado': forms.HiddenInput(),
@@ -94,6 +96,8 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            "valor_pendiente":forms.HiddenInput(),
+
         }
 
 

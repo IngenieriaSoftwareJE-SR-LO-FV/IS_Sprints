@@ -5,6 +5,7 @@ from .models import OrdenIngreso
 from .forms import OrdenIngresoForm, OrdenIngresoUpdateForm
 from django.urls import reverse_lazy
 from datetime import date
+from financiero.orden_facturacion.models import OrdenFacturacion
 # Create your views here.
 
 
@@ -14,7 +15,11 @@ class OrdenIngresoCreate(CreateView):
     form_class=OrdenIngresoForm
     template_name='ordenIngreso_form.html'
     success_url=reverse_lazy('ordenIngreso')
-
+    #def get_initial(self):
+    #    datos = get_object_or_404(OrdenFacturacion, slug=self.kwargs.get('pk'))
+     #   return {
+      #      'recipe':recipe,
+       # }
     def form_valid(self, form):
         try:
             pre=str(int(self.model.objects.latest('pk').pk+1))
