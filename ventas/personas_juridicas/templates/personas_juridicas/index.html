@@ -105,9 +105,10 @@
 <div class="row">
 	<div class="col-12 col-xl-12 table-container">
 		{# Each "contact" is a Contact model object. #}
-		<table class="table table-bordered">
+		<table id="dtBasicExample" class="table table-bordered">
 			<thead class="thead-light">
 				<tr>
+					<th scope="col">Acciones</th> 
 					<th scope="col">RUC</th> 
 					<th scope="col">Razón Social</th>
 					<th scope="col">Ciudad</th>
@@ -128,9 +129,9 @@
 				{% for j in juridicas %}
 				<tr>
 					<td scope="row">
-						<a class="btn btn-secondary float-right" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-secondary btn-sm btn-block" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
 
-						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger" ><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger btn-sm btn-block" ><i class="fas fa-trash"></i></a>
 					</td>
 					<td scope="row">{{j.ruc}}</td>
 					 <td scope="row">{{j.nombre}}</td>
@@ -157,6 +158,7 @@
 {% else %}
 <h2>No hay elementos que mostrar</h2>
 {% endif %}
+<!--
 <ul class="pagination justify-content-center">
 		{% if juridicas.has_previous %}
 		
@@ -198,7 +200,12 @@
 	{% endif %}
 
   </ul>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+-->
+{% endblock %}
+
+{% block extrafooter %}  
+<script src="{% static 'js/table.js' %}"></script>
+
 <script>
 	$("#id_provincia").change(function () {
       var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view

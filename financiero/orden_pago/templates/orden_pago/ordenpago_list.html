@@ -47,7 +47,7 @@
 	<div class="col-12 col-xl-12">
 	{% if ordenes_pago %}
 		<div class="table-container">
-			<table class="table table-bordered">
+			<table id="dtBasicExample" class="table table-bordered">
 				<thead class="thead-light">
 					<tr>
 						<th scope="col">Código</th>
@@ -59,6 +59,7 @@
 						<th scope="col">N° comprobante</th>
 						<th scope="col">Forma de pago</th>
 						<th scope="col">Anexos</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -83,6 +84,9 @@
 			                    No anexo
 			                {% endif %}
 						</td>
+						<td>
+							<a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+						</td>
 					</tr>
 					{% endfor %}
 				</tbody>
@@ -95,3 +99,6 @@
 </div>
 
 {% endblock %}
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock extrafooter %}

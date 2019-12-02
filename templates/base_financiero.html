@@ -14,7 +14,7 @@
    		</title>
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-		
+		<link href="{% static 'css/addons/datatables.min.css' %}" rel="stylesheet">
 		{% bootstrap_css %}
 		{% fontawesome_5_static %}
 		
@@ -31,7 +31,7 @@
 		<header class="col-12 col-xl-12">
 			<div class="row">
 				<a class="col-xl-3 col-6" href="#">
-					<img class ="img-fluid" src="{% static 'images/logo_EC.png' %}" alt="logo">
+					<img class ="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
 				</a>
 				<div class="col-xl-5 col-">
 				</div>
@@ -230,6 +230,9 @@
 	</div>
 		
 		{% bootstrap_javascript jquery='full' %}
+		<script src="{% static 'js/mdb.min.js' %}"></script>
+		<!-- MDBootstrap Datatables  -->
+		<script type="text/javascript" src="{% static 'js/addons/datatables.min.js' %}"></script>
 		{% block extrafooter %}
 		  
 		{% endblock extrafooter %}

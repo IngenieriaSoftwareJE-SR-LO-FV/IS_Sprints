@@ -1,0 +1,95 @@
+{% extends "base_financiero.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}{{ "EC - Orden Facturación Participante" }}{% endblock title %}
+
+
+{% block content %}
+<form method="POST" novalidate id="form-participante">
+    {% csrf_token %}
+    <h2>Agregar Participante a la orden {{orden_cod}}</h2>
+    <div class="form-row">
+        <div class="col-12 mb-0">
+            {{ form.participante|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row mb-2">
+        <div class="col-6 mb-0">
+            {{ form.cod_evento|as_crispy_field }}
+        </div>
+        <div class="col-6 mb-0">
+            {{ form.nombre_evento|as_crispy_field }}
+        </div>
+        <div class="col-6 mb-0">
+            {{ form.valor_evento|as_crispy_field }}
+        </div>
+        <div class="col-6 mb-0">
+            {{ form.descuento|as_crispy_field }}
+            <small class="form-text text-muted">Expresado en porcentaje</small>
+        </div>
+
+        <div class="col-6 mb-0">
+            {{ form.valor|as_crispy_field }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+    <a class="btn btn-light" href="{% url 'orden_facturacion_editar' orden_id %}"> Cancelar </a>
+</form>
+{% endblock content %}
+
+{% block extrafooter %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+<script>
+    var p_url = "";
+
+    $('#id_participante').select2({
+        minimumInputLength: 2,
+        language: {
+            noResults: function () {
+                $(".select2-results__options").append("<a id='pnuevo' class='btn btn-secondary btn-block btn-sm' href='" + $('#form-fact').attr("data-natural-url") + "' target='_blank'>Agregar Nuevo</a>");
+                return "No hay resultados";
+            },
+            searching: function () {
+
+                return "Buscando...";
+            },
+            inputTooShort: function (e) {
+                var t = e.minimum - e.input.length;
+                return "Ingresa " + t + " caractéres para buscar";
+            }
+        }
+    });
+
+    calcular();
+
+    $('#id_valor_evento').change(function (e) {
+        calcular();
+    });
+
+    $('#id_descuento').change(function (e) {
+        calcular();
+    });
+
+    function roundToTwo(num) {
+        return +(Math.round(num + "e+2") + "e-2");
+    }
+    function calcular() {
+        var v_evento = $('#id_valor_evento').val();
+        var desc = $("#id_descuento").val();
+
+        if (v_evento == null || v_evento <= 0) {
+            $("#id_valor").val(0.0);
+            v_evento = 0;
+        }
+        if (desc == null || desc <= 0) {
+            desc = 0;
+        }
+        desc = 1 - (desc / 100);
+        v_evento *= desc;
+        $("#id_valor").val(roundToTwo(v_evento));
+    }
+</script>
+
+{% endblock extrafooter %}

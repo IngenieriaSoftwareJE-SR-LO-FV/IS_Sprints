@@ -1,9 +1,10 @@
 {% extends "orden_facturacion_nuevo.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block editar%}
 {% load index %}
-<h2>Orden de Facturación</h2>
+<h2>Orden de Facturación {{form.cod_orden_fact.value}} </h2>
 {% if form.estado.value == "IMPE" or form.estado.value == "FAES" %}
 <div class="form-row">
     <div class="col-6 mb-0">
@@ -52,11 +53,107 @@
 <input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
 {% endblock editar%}
 
-{% block btn %}
-{% if form.estado.value == "ACTV" %}
-<a class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar solicitud</a>
-{% endif %}
-{% endblock btn %}
+{% block tablas %}
+
+<div class="row">
+    <h4 class="col-12">Participantes</h4>
+    {% if form.estado.value == "ACTV" %}
+    <div class="col-12 mb-2">
+        <a id="add" class="btn btn-secondary btn-sm" href="{% url 'participante_nuevo' orden_id %}">Agregar</a>
+    </div>
+    {% endif %}
+    <div id="tabla" class="table-container col-12">
+        <table id="participantes-table" class="table table-bordered table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Participante</th>
+                    <th>Nombre del evento</th>
+                    <th>Código del evento</th>
+                    <th>Valor Evento</th>
+                    <th>Descuento (%)</th>
+                    <th>Valor total ($)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% if participantes %}
+
+            <tbody>
+
+                {% for p in participantes %}
+                <tr>
+                    <td>{{ p.participante }}</td>
+                    <td>{{ p.nombre_evento }}</td>
+                    <td>{{ p.cod_evento }}</td>
+                    <td class="sum">{{ p.valor_evento }}</td>
+                    <td>{{ p.descuento }}</td>
+                    <td class="sum">{{ p.valor }}</td>
+                    <td>
+                        {% if form.estado.value == "ACTV" %}
+
+                        <a class="btn btn-secondary btnact" href="{% url 'participante_editar' p.id orden_id %}"><i
+                                class="fas fa-edit"></i></a>
+                        <a onclick='eliminar({{ p.id }});' class="btn btn-danger btnact" data-toggle='modal'
+                            data-target="#ordenEliminarCenter" href='#'><i class="fas fa-trash"></i></a>
+                        {% endif %}
+
+                    </td>
+                </tr>
+                {% endfor%}
+            </tbody>
+            {% endif %}
+        </table>
+
+    </div>
+</div>
+<div id="summary" class="form-row">
+    <div class="col-6 col-md-3">{{ form.subtotal|as_crispy_field }}</div>
+    <div class="col-6 col-md-3">{{ form.descuento_fact|as_crispy_field }}</div>
+    <div class="col-6 col-md-3">{{ form.descuento_total|as_crispy_field }}</div>
+    <div class="col-6 col-md-3">{{ form.valor_total|as_crispy_field }}</div>
+</div>
+<div class="mt-3">
+    <a class="btn btn-secondary " data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
+        id="confirmar_guardar">Guardar</a>
+    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+    {% if form.estado.value == "ACTV" %}
+    <a id="env-sol" class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar
+        solicitud</a>
+    {% endif %}
+</div>
+
+
+<div class="modal fade" id="ordenAgregarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ordenTitle">Confirmación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-confirmacion">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-light" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-secondary mr-3">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock tablas %}
+
+{% block confirmar%}
+
+<div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" id="participante-confirmacion">
+        </div>
+    </div>
+</div>
+{% endblock confirmar%}
 
 {% block n_par %}
 {% if form.estado.value != "ACTV" %}
@@ -66,12 +163,93 @@
 {% endif %}
 {% endblock n_par %}
 
-{% block anexos%}
+{% block anexos %}
+<script>
+
+    function eliminar(id) {
+        $.ajax({
+            url: "{% url 'participante_confirmar_eliminar' %}",
+            data: {
+                'pk': id,
+                'fk': "{{orden_id}}"
+            },
+            success: function (data) {
+                $("#participante-confirmacion").html(data)
+            }
+        });
+    };
+
+
+    function roundToTwo(num) {
+        return +(Math.round(num + "e+2") + "e-2");
+    }
+
+    /**
+     * Funcion para sumar columnas de tablas basados en los td de clase sum
+     * table_id El identificador de la tabla (id o clase)
+     * return Un arreglo de igual tamaño que la cantidad de columnas con los valores sumados en la posicion correspondiente
+     */
+    function sumtr(table_id) {
+        var s = [];
+        var r = 0;
+        $(table_id + " tbody tr").each(function (index) {
+            var col = 0;
+            $(this).children("td").each(function () {
+                if ($(this).is(".sum")) {
+                    if (s.length < col + 1) s[col] = 0;
+                    var val = parseFloat($(this).html().replace(',', '.'));
+
+                    s[col] = s[col] + val;
+                } else {
+                    s[col] = "noCount"; // a flag which tells us we're not counting that column
+                }
+                col++;
+            });
+            r++;
+        });
+        $("#id_n_participantes").val(r);
+        return s;
+    }
+
+    $('.select2').trigger('change.select2')
+
+    if ($('#participantes-table tbody tr').length > 0) {
+        $('#env-solr').removeClass('disabled');
+
+        s = sumtr("#participantes-table");
+
+        $("#id_subtotal").val(s[3]);
+        $("#id_valor_total").val(s[5]);
+        $("#id_descuento_total").val(roundToTwo(s[3] - s[5]));
+        $("#id_descuento_fact").val(roundToTwo(((s[3] - s[5]) / s[3]) * 100));
+    }
+    else {
+        $('#env-sol').addClass('disabled');
+        $("#id_subtotal").val(0);
+        $("#id_valor_total").val(0);
+        $("#id_descuento_total").val(0);
+        $("#id_descuento_fact").val(0);
+    }
+
+
+</script>
+
 {% if form.estado.value == "FAES" %}
 <script>
     $('#confirmar_guardar').removeClass('disabled')
 </script>
 {% endif%}
+<script>
+
+    $("#confirmar_guardar").click(function (e) {
+        $.ajax({
+            url: $('#form-fact').attr("data-confirmacion-url"),
+            success: function (data) {
+                $("#modal-confirmacion").html(data);
+            }
+        })
+    });
+</script>
 
 {% if form.estado.value == "IMPE" %}
 <script>
@@ -83,12 +261,12 @@
         return /^\d*$/.test(str);
     }
 
-    function change_state_btn(){
-        if (has_anexo && has_n_tra && has_n_fact){
+    function change_state_btn() {
+        if (has_anexo && has_n_tra && has_n_fact) {
             $('#confirmar_guardar').removeClass('disabled');
             $("#id_estado").val("FAES");
         }
-        else{
+        else {
             $('#confirmar_guardar').addClass('disabled');
             $("#id_estado").val("IMPE");
         }
@@ -96,7 +274,7 @@
 
     $('#confirmar_guardar').addClass('disabled')
     $("#id_anexo_factura").change(function () {
-        has_anexo=$(this).get(0).files.length !== 0;
+        has_anexo = $(this).get(0).files.length !== 0;
         change_state_btn()
     });
 
@@ -112,57 +290,3 @@
 </script>
 {% endif %}
 {% endblock anexos%}
-
-{% block participantes %}
-{% for n in num%}
-<div id="div_{{n}}" class="col-12 col-md-6">
-    <div class="row">
-        {% if form.estado.value == "ACTV" %}
-        <div class="col-2">
-            <a class="btn btn-danger btn-sm remove" id="{{n}}" href="#">Eliminar</a>
-        </div>
-        <div class="col-10">
-            <select name="{{ form.participantes.name }}" id="id_participantes_{{n}}"
-                class="select2 form-control select2-participantes">
-                <option value="None" selected>-----------</option>
-                {% for value, text in form.participantes.field.choices %}
-                <option value='{{value}}' {% if value == selected_participantes|index:n %} selected="selected"
-                    {% endif %}>{{text}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        {%else%}
-        <div class="col-12">
-            <select name="{{ form.participantes.name }}" id="id_participantes_{{n}}"
-                class="form-control select2-participantes" readonly>
-                {% for value, text in form.participantes.field.choices %}
-                {% if value == selected_participantes|index:n %}
-                <option value='{{value}}' selected>{{text}}</option>
-                {% endif %}
-                {% endfor %}
-            </select>
-        </div>
-        {%endif%}
-
-    </div>
-
-    {% if form.participantes.errors %}
-    {% for error in form.participantes.errors %}
-    <p class="invalid-feedback d-block">
-        <strong>{{ error }}</strong>
-    </p>
-    {% endfor %}
-    {% endif %}
-</div>
-{% endfor %}
-{% endblock participantes%}
-
-{% block vars %}
-<script>
-    var a = $('#id_n_participantes').val();
-    var cont = a;
-</script>
-{% endblock vars %}
-
-{% block fields %}
-{% endblock fields %}

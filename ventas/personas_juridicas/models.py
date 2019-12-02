@@ -30,7 +30,7 @@ class FormaPago(models.Model):
 
 class Juridica(models.Model):
 	nombre = models.CharField(max_length=200)
-	ruc = models.CharField(max_length=13, validators=[ventas.validaciones.validate_ruc])
+	ruc = models.CharField(max_length=13, primary_key=True, validators=[ventas.validaciones.validate_ruc])
 	tipo_empresa = models.ForeignKey(TipoEmpresa,on_delete=models.SET_NULL, null=True)
 	sector = models.ForeignKey(Sector,on_delete=models.SET_NULL, null=True)
 	direccion = models.CharField(max_length=200)
