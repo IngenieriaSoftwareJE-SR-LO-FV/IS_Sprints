@@ -129,9 +129,9 @@
 				{% for j in juridicas %}
 				<tr>
 					<td scope="row">
-						<a class="btn btn-secondary btn-sm btn-block" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-secondary btn-sm" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
 
-						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger btn-sm btn-block" ><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i></a>
 					</td>
 					<td scope="row">{{j.ruc}}</td>
 					 <td scope="row">{{j.nombre}}</td>

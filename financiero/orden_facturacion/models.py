@@ -13,18 +13,17 @@ import ventas.validaciones
 
 # Create your models here.
 ESTADO_CHOICES = [  
-        ('ACTV','Activo'),
+        ('ACTV','Grabado'),
         ('SLCE','Solicitud Enviada'),
 	    ('ACPF', 'Autorizada por Financiero'),
-        ('IMPE','Impreso Emitido'),
-        ('RGAC','Registrado Académico'),
-        ('FAES','Con factura ESPOLTECH'),
+        ('PNDP','Pendiente de Cobro'),
+        ('CNCL','Cancelada'),
         ('ANLD','Anulada'),
 	]
 
 class OrdenFacturacion(models.Model):
     class Meta:
-        ordering = ['-cod_orden_fact']
+        ordering = ['cod_orden_fact']
 
     TIPO_CHOICES=[('Natural','Natural'),('Jurídica','Jurídica'),]
     

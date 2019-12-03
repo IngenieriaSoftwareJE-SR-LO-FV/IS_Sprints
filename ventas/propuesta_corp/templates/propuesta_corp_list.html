@@ -67,8 +67,8 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a class="btn btn-secondary btnact" href="{% url 'propuesta_editar' propuesta.pk %}"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn-danger btnact" href="{% url 'propuesta_eliminar' propuesta.pk %}"><i class="fas fa-trash"></i></a>
+                        <a class="btn btn-secondary btn-sm" href="{% url 'propuesta_editar' propuesta.pk %}"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'propuesta_eliminar' propuesta.pk %}"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

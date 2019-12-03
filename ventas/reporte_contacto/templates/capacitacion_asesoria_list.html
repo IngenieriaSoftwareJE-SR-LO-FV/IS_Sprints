@@ -34,8 +34,8 @@
             {% for c in capacitaciones %}
             <tr>
                 <td>
-                    <a class="btn btn-secondary" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i class="fas fa-trash"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i class="fas fa-trash"></i></a>
                 </td>
                 <td>{{ c.tema }}</td>
                 <td>{{ c.get_tipo_display }}</td>
@@ -91,8 +91,8 @@
             {% for a in asesorias %}
             <tr>
                 <td>
-                    <a class="btn btn-secondary" href="{% url 'asesoria_editar' a.id reporte_id%}"><i class="fas fa-edit"></i></a>
-                    <a class="btn btn-danger" href="{% url 'asesoria_eliminar' a.id reporte_id%}"><i class="fas fa-trash"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="{% url 'asesoria_editar' a.id reporte_id%}"><i class="fas fa-edit"></i></a>
+                    <a class="btn btn-danger btn-sm" href="{% url 'asesoria_eliminar' a.id reporte_id%}"><i class="fas fa-trash"></i></a>
                 </td>
                 <td>{{ a.tipo_servicio }}</td>
                 <td>{{ a.descripcion }}</td>

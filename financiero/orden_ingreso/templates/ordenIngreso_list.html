@@ -5,13 +5,16 @@
 {% block content %}
 <div class="row">
     <div class="col-9">
-            <h2>Orden de Ingreso</h2>
+        <h2>Orden de Ingreso</h2>
     </div>
     <div class="col-3 ">
-            <a class="btn btn-secondary float-right" href="{% url 'ordenIngreso_nuevo' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+        <a class="btn btn-secondary float-right" href="{% url 'ordenIngreso_nuevo' %}"><i class="fas fa-plus"></i>
+            Agregar nuevo</a>
     </div>
 </div>
-<div class="campo"><h5 class="campo">Consultas</h5></div>
+<div class="campo">
+    <h5 class="campo">Consultas</h5>
+</div>
 <div class="row">
     <div class="col-12">
         <form action="" method="get">
@@ -27,36 +30,41 @@
                     {{ filter.form.numeroFactura|as_crispy_field }}
                 </div>
             </div>
-                <div>
-                    <button  type="submit" class="btn btn-secondary float-right">
-                        <span class="fas fa-search"></span> Buscar</button>
-                </div>
+            <div>
+                <button type="submit" class="btn btn-secondary float-right">
+                    <span class="fas fa-search"></span> Buscar</button>
+            </div>
         </form>
-                
+
     </div>
 </div>
 
 <div class="row mt-5">
     <div class="col-12">
-    {% if filter.qs %}
+        {% if filter.qs %}
+        <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip"
+                data-placement="top" title="Exportar a pdf"></i></a>
+        <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
+                data-placement="top" title="Exportar a excel"></i></a>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Anexo</th>
+                    <!--<th>Anexo</th>-->
                     <th>Cliente</th>
                     <th>Forma de Pago</th>
                     <th>Valor</th>
                     <th>Acciones</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
 
-                
+
                 {% for ordenIngreso in filter.qs %}
                 <tr>
                     <td>{{ordenIngreso.fecha}}</td>
+                    <!--
                     <td>
                         {% if ordenIngreso.anexo %}
                             <a class="btn btn-secondary" href="{{ordenIngreso.anexo.url}}" target="_blank">
@@ -66,26 +74,28 @@
                             No anexo
                         {% endif %}
                     </td>
+                    -->
                     <td>{{ordenIngreso.razon_nombres}}</td>
                     <td>{{ordenIngreso.formaPago}}</td>
                     <td>{{ordenIngreso.valor}}</td>
                     <td>
-                        <a class="btn btn-secondary btn-sm btn-block"
-                        href="{% url 'ordenIngreso_editar' ordenIngreso.id %}"><i class="fas fa-edit"></i></a>
-                        <a onclick='eliminar({{ ordenIngreso.id }});' class="btn btn-danger btn-sm btn-block"
-                        data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
-                        class="fas fa-trash"></i></a>
-                        <a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+                        <a class="btn btn-secondary btn-sm"
+                            href="{% url 'ordenIngreso_editar' ordenIngreso.id %}"><i class="fas fa-edit"></i></a>
+                        <a onclick='eliminar({{ ordenIngreso.id }});' class="btn btn-danger btn-sm"
+                            data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
+                                class="fas fa-trash"></i></a>
+                        <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top"title="Imprimir">
+                            <i class="fas fa-print"></i></a>
 
-                    </td>    
+                    </td>
                 </tr>
                 {% endfor %}
 
             </tbody>
         </table>
-    {% else %}
+        {% else %}
         <h4>No hay elementos que mostrar</h4>
-    {% endif %}
+        {% endif %}
     </div>
 </div>
 <div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
@@ -101,15 +111,15 @@
 <script src="{% static 'js/table.js' %}"></script>
 <script>
     function eliminar(id) {
-    $.ajax({
-        url: "{% url 'orden_ingreso_confirmar_eliminar' %}",
-        data: {
-            'pk': id
-        },
-        success: function (data) {
-            $(".modal-content").html(data)
-        }
-    });
-};
+        $.ajax({
+            url: "{% url 'orden_ingreso_confirmar_eliminar' %}",
+            data: {
+                'pk': id
+            },
+            success: function (data) {
+                $(".modal-content").html(data)
+            }
+        });
+    };
 </script>
 {% endblock extrafooter %}

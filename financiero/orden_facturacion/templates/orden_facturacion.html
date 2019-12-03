@@ -58,6 +58,8 @@
     <div class="col-12">
         <div class=" table-responsive-md">
             {% if filter.qs %}
+            <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip" data-placement="top" title="Exportar a pdf"></i></a>
+            <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip" data-placement="top" title="Exportar a excel"></i></a>
             <table id="dtBasicExample" class="table table-sm">
                 <thead class="thead-light">
                     <!--
@@ -110,18 +112,22 @@
                         <td scope="row">
 
                             {% if orden.estado != 'ANLD' %}
-                            <a class="btn btn-secondary btn-sm btn-block"
-                                href="{% url 'orden_facturacion_editar' orden.id %}"><i class="fas fa-edit"></i></a>
-                            <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm btn-block"
-                                data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
-                                    class="fas fa-trash"></i></a>
+                            <a class="btn btn-secondary btn-sm"
+                                href="{% url 'orden_facturacion_editar' orden.id %}">
+                                <i class="fas fa-edit"></i></a>
+                            <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm"
+                                data-toggle='modal' data-target="#ordenEliminarCenter" href='#'>
+                                <i class="fas fa-trash"></i></a>
                             {% endif%}
-                            <a class="btn btn-secondary btn-sm btn-block" href="#"><i class="fas fa-print"></i></a>
+                            <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
+                                <i class="fas fa-print"></i></a>
+                            <!--
                             {% if orden.anexo_factura %}
                             <a class="btn btn-secondary btn-sm" href="{{orden.anexo_factura.url}}" target="_blank">
                                 <i class="fas fa-download"></i>
                             </a>
                             {% endif %}
+                            -->
                         </td>
                     </tr>
                     {% endfor %}

@@ -132,10 +132,10 @@
 					{% for persona in naturales %}
 					<tr>
 						<td scope="row">
-							<a class="btn btn-secondary btn-sm btn-block"
+							<a class="btn btn-secondary btn-sm"
 								href="{% url 'natural_editar' persona.cedula %}"><i class="fas fa-edit"></i></a>
 							<a href='javascript:;' onclick='eliminar({{ persona.cedula }});'
-								class="btn btn-danger btn-sm btn-block"><i class="fas fa-trash"></i></a>
+								class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
 						</td>
 						<td scope="row">{{ persona.cedula }}</td>
 						<td scope="row">{{ persona.apellidos }}</td>
