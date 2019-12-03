@@ -116,8 +116,8 @@
         id="confirmar_guardar">Guardar</a>
     <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
     {% if form.estado.value == "ACTV" %}
-    <a id="env-sol" class="btn btn-success float-right" href="{% url 'orden_facturacion_estado' orden_id%}">Enviar
-        solicitud</a>
+    <button id="env-sol" class="btn btn-success float-right">Enviar
+        solicitud</button>
     {% endif %}
 </div>
 
@@ -213,8 +213,14 @@
 
     $('.select2').trigger('change.select2')
 
+    $('#env-sol').click(function(e){
+        e.preventDefault();
+        $("#id_estado").val("SLCE");
+        $("#form-fact").trigger("submit");
+    });
+
     if ($('#participantes-table tbody tr').length > 0) {
-        $('#env-solr').removeClass('disabled');
+        $('#env-sol').removeClass('disabled');
 
         s = sumtr("#participantes-table");
 
@@ -271,9 +277,6 @@
         has_n_fact = isInteger($("#id_n_factura").val());
 
         has_n_tra = isInteger($("#id_n_tramite").val());
-        console.log(has_anexo);
-        console.log(has_n_fact);
-        console.log(has_n_tra);
 
         change_state_btn()
     }
