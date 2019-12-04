@@ -32,7 +32,7 @@ class OrdenIngreso(models.Model):
 	razon_nombres=models.CharField(max_length=50)
 	descripcion=models.CharField(max_length=150)
 	formaPago=models.CharField(max_length=30, choices=FORMAS_PAGO,default='cheque')
-	valor=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo], blank=True, null=True)
+	valor=models.DecimalField(max_digits=15,decimal_places=3,validators=[val_fin.validate_positivo])
 	anexo=models.FileField(upload_to='uploads/', blank=True)
 	fechaPago=models.CharField(max_length=12)
 	numeroDocumento=models.PositiveIntegerField()

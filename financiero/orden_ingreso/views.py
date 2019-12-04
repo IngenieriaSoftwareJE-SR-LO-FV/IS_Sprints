@@ -43,8 +43,8 @@ class OrdenIngresoCreate(CreateView):
         if form.is_valid():
             obj=(form.instance.orden_facturacion)
             obj.valor_pendiente-=form.instance.valor;
-            if(obj.valor_pendiente<0):
-                obj.valor_pendiente=0
+            if(obj.valor_pendiente==0):
+                obj.estado='CNCL'
             obj.save()
             form.save()
            

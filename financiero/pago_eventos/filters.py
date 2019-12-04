@@ -13,7 +13,7 @@ class PagoEventosFilter(django_filters.FilterSet):
     fecha=django_filters.DateFilter(field_name='fecha', label='',widget=forms.DateInput(attrs={'placeholder':'Fecha','type':'date'}))
     ruc_ci=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'RUC o CI'}))
     razon_nombres=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'Nombre Cliente'}))
-
+    estado = django_filters.CharFilter(lookup_expr="iexact")
     valor_pendiente = django_filters.NumberFilter(lookup_expr="gt")
 
     class Meta:
@@ -23,6 +23,7 @@ class PagoEventosFilter(django_filters.FilterSet):
             'fecha',
             'ruc_ci',
             'razon_nombres',
+            'estado'
         ]
     def __init__(self, data=None, *args, **kwargs):
         # if filterset is bound, use initial values as defaults
@@ -30,9 +31,11 @@ class PagoEventosFilter(django_filters.FilterSet):
             # get a mutable copy of the QueryDict
             data = data.copy()
             data["valor_pendiente"] = 0
+            data["estado"]="PNDP"
         else:
             data = QueryDict('cod_orden_fact=&fecha=&ruc_ci=&razon_nombres=').copy()
             data["valor_pendiente"] = 0
+            data["estado"]="PNDP"
         super().__init__(data, *args, **kwargs)
         #print(self.form.fields['valor_pendiente'])
     #def __init__(self, *args, **kwargs):
