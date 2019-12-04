@@ -24,7 +24,7 @@ class Egresos(models.Model):
 
 
 class OrdenPago(models.Model):
-	ESTADO_CHOICES = [("GRBD","Grabado"),("AUTR","Autorizado"),("ANLD","Anulado"),]
+	ESTADO_CHOICES = [("GRBD","Grabado"),("ENVD","Enviado"),("AUTR","Autorizado"),("ANLD","Anulado"),]
 	FORMAPAGO_CHOICES = [("TR","Transferencia"),("DB","Débito Bancario"),("TC","Tarjeta Crédito"),("CH","Cheque"),]
 	PROVEEDORES_CHOICES = [("Natural", "Natural"),("Jurídica", "Jurídica"),]
 	COMPROBANTE_CHOICES = [("FC","Factura"),("NV","Nota de venta"),("LC","Liquidación de compra"),("CP","Comprobantes de pago"),]

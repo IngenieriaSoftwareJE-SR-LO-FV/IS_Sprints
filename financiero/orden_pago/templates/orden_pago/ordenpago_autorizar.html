@@ -86,17 +86,10 @@
 	</div>
 	<div class="row">
 		<div class="col-12">
-			{% if form.estado.value == 'ENVD' %}
-				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
-			{% elif form.estado.value == 'AUTR' %}
-				<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Atrás </a>
-			{% else %}
-				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
-				{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}	
-					<a class="btn btn-success float-right" href="{% url 'orden_pago_enviar' form.cod_ord_pago.value %}">Enviar Solicitud</a>
-				{% endif %}
+			<button type="submit" class="btn btn-secondary">Guardar</button>
+			<a class="btn btn-light" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}	
+				<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
 			{% endif %}
 		</div>
 	</div>

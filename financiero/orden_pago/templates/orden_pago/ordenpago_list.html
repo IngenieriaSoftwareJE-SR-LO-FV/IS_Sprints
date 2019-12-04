@@ -66,37 +66,41 @@
 						<th scope="col">Egreso</th>
 						<th scope="col">N° comprobante</th>
 						<th scope="col">Forma de pago</th>
-						<!--<th scope="col">Anexos</th>-->
+						<th scope="col">Anexos</th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for orden in filter.qs %}
-					<tr>
-						<td scope="row">
-							<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
-							<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                		</td>
-						<td scope="row">{{ orden.cod_ord_pago }}</td>
-						<td scope="row">{{ orden.fecha }}</td>
-						<td scope="row">{{ orden.get_estado_display }}</td>
-						<td scope="row">{{ orden.proveedor }}</td>
-						<td scope="row">{{ orden.centro_costos }}</td>
-						<td scope="row">{{ orden.egreso }}</td>
-						<td scope="row">{{ orden.n_comprobante }}</td>
-						<td scope="row">{{ orden.get_forma_pago_display }}</td>
-						<td scope="row">
-							{% if ordenIngreso.anexo %}
-			                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
-			                {% else %}
-			                    No anexo
-			                {% endif %}
-						</td>-->
-						<td>
-							<a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
-								<i class="fas fa-print"></i></a>
-						</td>
-					</tr>
+						<tr>
+							<td scope="row">
+								{% if orden.estado == 'ENVD' %}
+									<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editarAUTR_analista' orden.id %}"><i class="fas fa-edit"></i></a>
+								{% else %}
+									<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+								{% endif %}
+								<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+	                		</td>
+							<td scope="row">{{ orden.cod_ord_pago }}</td>
+							<td scope="row">{{ orden.fecha }}</td>
+							<td scope="row">{{ orden.get_estado_display }}</td>
+							<td scope="row">{{ orden.proveedor }}</td>
+							<td scope="row">{{ orden.centro_costos }}</td>
+							<td scope="row">{{ orden.egreso }}</td>
+							<td scope="row">{{ orden.n_comprobante }}</td>
+							<td scope="row">{{ orden.get_forma_pago_display }}</td>
+							<td scope="row">
+								{% if ordenIngreso.anexo %}
+				                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
+				                {% else %}
+				                    No anexo
+				                {% endif %}
+							</td>
+							<td>
+								<a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
+									<i class="fas fa-print"></i></a>
+							</td>
+						</tr>
 					{% endfor %}
 				</tbody>
 			</table>
