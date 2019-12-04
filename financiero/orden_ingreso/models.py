@@ -1,5 +1,6 @@
 from django.db import models
-
+from financiero.orden_facturacion.models import OrdenFacturacion
+import financiero.validaciones as val_fin
 # Create your models here.
 class OrdenIngreso(models.Model):
 	class Meta:
@@ -27,10 +28,11 @@ class OrdenIngreso(models.Model):
 	n_tramite=models.CharField(max_length=15,blank=True, null=True, default='No asignado')
 	n_factura=models.CharField(max_length=15,blank=True, null=True, default='No asignado')
 	ruc_ci=models.CharField(max_length=13)
+	orden_facturacion = models.ForeignKey(OrdenFacturacion, on_delete=models.SET_NULL, blank=False, null=True)
 	razon_nombres=models.CharField(max_length=50)
 	descripcion=models.CharField(max_length=150)
 	formaPago=models.CharField(max_length=30, choices=FORMAS_PAGO,default='cheque')
-	valor=models.FloatField()
+	valor=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo], blank=True, null=True)
 	anexo=models.FileField(upload_to='uploads/', blank=True)
 	fechaPago=models.CharField(max_length=12)
 	numeroDocumento=models.PositiveIntegerField()

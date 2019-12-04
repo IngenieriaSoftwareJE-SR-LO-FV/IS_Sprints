@@ -67,6 +67,9 @@ class OrdenFacturacionUpdate(UpdateView):
         #context['num']=list(range(0, orden.participantes.count()))
         context['participantes'] = participantes
         return context
+    def form_valid(self, form):
+        form.instance.valor_pendiente = form.instance.valor_total
+        return super().form_valid(form)
 
 class OrdenFacturacionDelete(DeleteView):
     model=OrdenFacturacion
@@ -127,7 +130,12 @@ def load_info(request):
             telefono= cliente.telefono
             contacto=cliente.contacto_nombres
     return JsonResponse({'direccion': direccion, 'telefono': telefono, 'contacto': contacto})
-
+def load_info_ci(request):
+    pk = request.GET.get("pk")
+    ci=""
+    if id!="":
+        ci=OrdenFacturacion.objects.get(id=pk).ruc_ci
+    return JsonResponse({'ci': ci})
 
 
 class ParticipanteCreate(CreateView):

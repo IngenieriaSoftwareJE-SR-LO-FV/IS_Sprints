@@ -11,7 +11,7 @@
 
 {% block content %}
   <form method="POST" novalidate id="form-fact" enctype="multipart/form-data" ,
-  data-persona-url="{% url 'ajax_load_personas' %}">
+  data-persona-url="{% url 'ajax_load_personas' %}", data-orden-url="{% url 'ajax_orden_ci' %}">
     {% csrf_token %}
     <h2>Orden de Ingreso</h2>
     <div class="campo">
@@ -64,6 +64,11 @@
 		<div class="row">
 			<div class="col-12">
 				{{form.descripcion|as_crispy_field}}	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				{{form.orden_facturacion|as_crispy_field}}	
 			</div>
 		</div>
 		<div class="campo">

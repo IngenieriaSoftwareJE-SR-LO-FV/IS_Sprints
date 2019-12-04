@@ -10,6 +10,7 @@ urlpatterns = [
     path('ajax/load-modal-orden-fact',views.orden_fact_conf_elim,name='orden_facturacion_confirmar_eliminar'),
     path('ajax/verificar-campos',views.verificar_campos,name='ajax_verificar_campos'),
     path('ajax/info-cliente',views.load_info,name='ajax_info_id'),
+    path('ajax/orden-ci',views.load_info_ci,name="ajax_orden_ci"),
     path('', FilterView.as_view(filterset_class=OrdenFacturacionFilter,template_name="orden_facturacion.html"), name='orden_facturacion'),
     path('editar/<pk>/', views.OrdenFacturacionUpdate.as_view(), name='orden_facturacion_editar'),    
     path('eliminar/<pk>/', views.OrdenFacturacionDelete.as_view(), name='orden_facturacion_eliminar'),
