@@ -50,9 +50,9 @@
 							<td scope="row">{{orden.n_tramite}}</td>
 							<td scope="row">{{orden.n_factura}}</td>
 							<td scope="row">
-								<a class="btn btn-secondary btn-sm" href="{% url 'anular_orden_fact' orden.id %}"><i
-										class="fas fa-check"></i></a>
 								<a class="btn btn-secondary btn-sm" href="{% url 'aprobar_orden_fact' orden.id %}"><i
+										class="fas fa-check"></i></a>
+								<a class="btn btn-secondary btn-sm" href="{% url 'anular_orden_fact' orden.id %}"><i
 										class="fas fa-times"></i></a>
 							</td>
 						</tr>

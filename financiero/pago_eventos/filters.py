@@ -9,10 +9,10 @@ TRUE_FALSE_CHOICES = [
 ]
 
 class PagoEventosFilter(django_filters.FilterSet):
-    cod_orden_fact = django_filters.CharFilter(lookup_expr='icontains', label="", widget=forms.TextInput(attrs={'placeholder':'Código de Orden de Facturación'}))
+    cod_orden_fact = django_filters.CharFilter(lookup_expr='icontains', label="", widget=forms.TextInput(attrs={'placeholder':'Código orden'}))
     fecha=django_filters.DateFilter(field_name='fecha', label='',widget=forms.DateInput(attrs={'placeholder':'Fecha','type':'date'}))
-    ruc_ci=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'RUC o CI del Cliente'}))
-    razon_nombres=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'Nombre o Razón Social del Cliente'}))
+    ruc_ci=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'RUC o CI'}))
+    razon_nombres=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'Nombre Cliente'}))
 
     valor_pendiente = django_filters.NumberFilter(lookup_expr="gt")
 
@@ -27,7 +27,6 @@ class PagoEventosFilter(django_filters.FilterSet):
     def __init__(self, data=None, *args, **kwargs):
         # if filterset is bound, use initial values as defaults
         if data is not None:
-            print(data)
             # get a mutable copy of the QueryDict
             data = data.copy()
             data["valor_pendiente"] = 0
