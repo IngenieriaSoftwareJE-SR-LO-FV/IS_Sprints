@@ -109,10 +109,8 @@ def orden_pago_autorizar(request, pk):
 def orden_pago_anular(request, pk=None):
 	if(request.method == "POST"):
 		p = get_object_or_404(OrdenPago, pk=pk)
-		form = OrdenPagoForm(request.POST, instance=p)
-		print("antes form_valid")
+		form = OrdenPagoForm(request.POST,instance=p)
 		if(form.is_valid()):
-			print("forma valida")
 			form.instance.estado = 'ANLD'
 			form.save()
 		return redirect('orden_pago_lista')
