@@ -5,7 +5,8 @@
 <!doctype "html5">
 
 
-<html>
+<html lang="en" class="full-height">
+
 
 <head>
 
@@ -14,6 +15,7 @@
 		{% block title %}{{ page_title|default:"Educación Continua Financiero" }}{% endblock title %}
 	</title>
 	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 	<link href="{% static 'css/addons/datatables.min.css' %}" rel="stylesheet">
 	{% bootstrap_css %}
@@ -28,208 +30,237 @@
 
 <body>
 	<div class="container-fluid">
-		<div class="row">
-			<header class="col-12 col-xl-12">
+		<div id="main" class="row">
+			<div class="col-2" id="mainmenu">
+				<div class="row p-3" id="userinfo">
+					<div class="col-12 px-5 d-flex justify-content-center">
+						<img src="{% static 'img/user.png' %}" class="rounded-circle" alt="userimg">
+					</div>
+					<div class="col-12 mt-2">
+						<div class=" d-flex row justify-content-center">
+							<span>user@mail.com</span>
+						</div>
+						<div class="d-flex row justify-content-center">
+							<small>Nombre del Usuario</small>
+						</div>
+					</div>
+				</div>
 				<div class="row">
-					<a class="col-xl-3 col-6" href="#">
-						<img class="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
-					</a>
-					<div class="col-xl-5 col-">
+					<div class="col-12 py-2">
+						MENÚ
 					</div>
-					<div class="col-6 col-xl-2">
-						<p id="username">user@mail.com</p>
-					</div>
+				</div>
+				<div class="row" id="accordion">
+					<div class="col-12">
+						{% block coordinador%}
+						{% endblock coordinador%}
+						<div id="menu" class="row" data-toggle="collapse" data-target="#collapseOne"
+							aria-expanded="true" aria-controls="collapseOne">
+							<div class="col-12 mlat">
+								<div id="titulo" class="row">
+									<div class="col-10">
+										<span/span class="px-2">MANTENIMIENTO</span>
+									</div>
+									<div class="col-2">
+										<i class="fas fa-angle-down"></i>
+									</div>
+									<div class="col-2"></div>
+								</div>
+							</div>
+						</div>
+						<div id="collapseOne" class="collapse row">
+							<div class="col-12">
+								<a class="menu" href=#>
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4"> Centro de costos</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div id="menu" class="row" data-toggle="collapse" data-target="#collapseTwo"
+							aria-expanded="true" aria-controls="collapseTwo">
+							<div class="col-12 mlat">
+								<div id="titulo" class="row">
+									<div class="col-10">
+										<span/span class="px-2">CONSULTAS</span>
+									</div>
+									<div class="col-2">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="collapseTwo" class="collapse row">
+							<div class="col-12">
+								<a class="menu" href="{% url 'orden_facturacion' %}">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Orden de facturación</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Cobros</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-12" id="ordencita" data-toggle="collapse" data-target="#collapseFive"
+							aria-expanded="true" aria-controls="collapseFive">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Orden de pago</span>
+											<i class="float-right fas fa-angle-down"></i>
 
-					<div class="col-6 col-xl-2">
-						<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
-					</div>
-				</div>
-			</header>
-		</div>
-		<div class="row menulat">
-			<div class="col-3 col-xl-3">
-					{% block coordinador%}
-					{% endblock coordinador%}
-				<div id="menu" class="row">
-					<div class="col-12 mlat">
-						<div id="titulo" class="row">
-							<div class="col-2">
-								<i class="fas fa-file-invoice-dollar"></i>
+										</div>
+									</div>
+								</a>
+								<div id="collapseFive" class="collapse" data-parent="#ordencita">
+									<a class="menu" href="#">
+										<div class="row">
+											<div class="col-12">
+												<span class="pl-5">Por Criterio</span>
+											</div>
+										</div>
+									</a>
+									<a class="menu" href="#">
+										<div class="row">
+											<div class="col-12">
+												<span class="pl-5">Pendientes de Procesos</span>
+											</div>
+										</div>
+									</a>
+								</div>
 							</div>
-							<div class="col-8">
-								<h5>Mantenimiento</h5>
-							</div>
-							<div class="col-2"></div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href=#>
-							<div class="row">
-								<div class="col-12">
-									<span> Centro de costos</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div id="menu" class="row">
-					<div class="col-12 mlat">
-						<div id="titulo" class="row">
-							<div class="col-2">
-								<i class="fas fa-file-contract"></i>
-							</div>
-							<div class="col-8">
-								<h5>Consultas</h5>
-							</div>
-							<div class="col-2"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="{% url 'orden_facturacion' %}">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Orden de facturación</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Cobros</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 dropright">
-						<a class="menu" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<div class="row">
-								<div class="col-12">
-									<span>Orden de pago</span>
-									<i class="float-right fas fa-angle-right"></i>
 
+						<div id="menu" class="row" data-toggle="collapse" data-target="#collapseThree"
+							aria-expanded="true" aria-controls="collapseThree">
+							<div class="col-12 mlat">
+								<div id="titulo" class="row">
+									<div class="col-10">
+										<span class="px-2">PROCESOS</span>
+									</div>
+									<div class="col-2">
+										<i class="fas fa-angle-down"></i>
+									</div>
 								</div>
 							</div>
-						</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" id="op_sec" href="#">Por Criterio</a>
-							<a class="dropdown-item" id="op_sec" href="#">Pendientes de Procesos</a>
 						</div>
-					</div>
-				</div>
+						<div id="collapseThree" class="collapse row">
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Autorización</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Solicitud de pago</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Registro de facturas</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div id="menu" class="row" data-toggle="collapse" data-target="#collapseFour"
+							aria-expanded="true" aria-controls="collapseFour">
+							<div class="col-12 mlat">
+								<div id="titulo" class="row">
 
-				<div id="menu" class="row">
-					<div class="col-12 mlat">
-						<div id="titulo" class="row">
-							<div class="col-2">
-								<i class="fas fa-file-invoice-dollar"></i>
+									<div class="col-10">
+										<span class="px-2">REPORTES</span>
+									</div>
+									<div class="col-2">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</div>
 							</div>
-							<div class="col-8">
-								<h5>Procesos</h5>
-							</div>
-							<div class="col-2"></div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Autorización</span>
-								</div>
+						<div class="row collapse" id="collapseFour">
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Conciliación de ingresos</span>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Solicitud de pago</span>
-								</div>
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Resultado de eventos</span>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row">
-								<div class="col-12">
-									<span>Registro de facturas</span>
-								</div>
+							<div class="col-12">
+								<a class="menu" href="#">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Consolidado por evento</span>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div id="menu" class="row">
-					<div class="col-12 mlat">
-						<div id="titulo" class="row">
-							<div class="col-2">
-								<i class="fas fa-chart-bar"></i>
-							</div>
-							<div class="col-8">
-								<h5>Reportes</h5>
-							</div>
-							<div class="col-2"></div>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Conciliación de ingresos</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Resultado de eventos</span>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Consolidado por evento</span>
-								</div>
-							</div>
-						</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-9 col-xl-9">
-				<div class="row">
+			<div class="col-10 col-xl-10">
+				<div class="row mb-3">
+					<header class="col-12 col-xl-12 darkwhite-bg">
+						<div class="row">
+							<div class="col-xl-3" href="#">
+								<img class="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
+							</div>
+
+							<div class="col-xl-7 d-flex justify-content-center">
+								<span id ="fenix" class="v-align">FÉNIX 4.0</span>
+							</div>
+							<div class="col-xl-2 d-flex justify-content-center">
+								<a href=# class="v-align align-middle btn btn-light">Cerrar Sesion <i class="fas fa-sign-out-alt"></i></a>
+							</div>
+						</a>
+					</header>
+				</div>
+				<div class="row menulat">
+
 					<div class="col-12 col-xl-12">
-						{% block content %}
-						{% endblock %}
+						<div class="row">
+							<div class="col-12 col-xl-12">
+								{% block content %}
+								{% endblock %}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+
+
 		</div>
-		<footer class="col-12 col-xl-12"></footer>
 	</div>
 
 	{% bootstrap_javascript jquery='full' %}

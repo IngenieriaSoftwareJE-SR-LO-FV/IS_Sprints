@@ -9,7 +9,7 @@
 {% block content %}
 <form method="POST" enctype="multipart/form-data" novalidate id="form-fact">
     {% csrf_token %}
-    <h2>Orden de Facturación</h2>
+    <h2 class="text-uppercase">Aprobar <span class="darkgreen-text">Orden de Facturación</span></h2>
     <div class="form-row">
         <div class="col-6 mb-0">
             <div id="div_id_n_tramite" class="form-group">
@@ -74,8 +74,8 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-secondary">Guardar</button>
-    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+    <button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
 
     {{ form.media }}
 

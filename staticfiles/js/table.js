@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#dtBasicExample').DataTable({
         "searching": false,
+        "ordering": false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ por página",
             //"zeroRecords": "Nothing found - sorry",

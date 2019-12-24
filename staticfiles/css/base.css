@@ -1,16 +1,53 @@
-header{
-	display: inline-block;
+html, #main{
+	height: 100%;
+	font-family: 'Montserrat', sans-serif !important;
 }
+
+.btn {
+	font-size: small !important;
+}
+body{
+	min-height: 100%;
+}
+
+.container-fluid{
+	font-size: small !important;
+}
+
+
+h2{
+	font-size: large !important;
+	font-weight: 700 !important;
+}
+
+h5{
+	font-size: medium !important;
+}
+
+
 
 div#menu #titulo{
-	background-color: #A4A4A4;
-	color: #FFFFFF;
-	justify-content: center;
-	border-width: 2px;
+	color: white;
+	padding: 8px;
 }
 
-p#username{
-	align-self: center;
+div#menu #titulo h5{
+	margin: 0px;
+}
+
+#menu .row{
+	cursor: pointer;
+}
+
+
+.v-align{
+	display: inline-block !important;
+	align-self: center !important;
+}
+
+#fenix{
+	font-weight: 700;
+	font-size: medium !important;
 }
 
 button#salir{
@@ -25,7 +62,7 @@ button#salir{
 
 
 a.menu .row:hover{
-	background-color: #D8D8D8
+	background-color: #292929;
 }
 
 
@@ -41,7 +78,7 @@ a#plus{
 }
 
 .asteriskField{
-	color: red;
+	color: #53AF57;
 	font-weight: bolder;
 }
 
@@ -53,31 +90,36 @@ a#plus{
 	text-decoration: none;
 }
 
-.mlat .row:hover, .drp:hover{
-	background-color: lightgrey;
-	color: black;
+#mainmenu{
+	background-color: #333834;
+	color:white;
+	font-size: smaller;
 }
+
+#userinfo{
+	background-color: #292929;
+}
+
+#userinfo img{
+	height: 70px;
+}
+
+#accordion{
+	background-color: #30322F;
+	border-left: 5px #699B69 solid;
+
+}
+
+
 
 .menu .row, .mlat .row{
 	padding: 12px 0px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #FFFFFF;
-	color:black;
+	color:lightgrey;
 }
 
-.mlat .row{
-	background-color: #A4A4A4;
-	color: #FFFFFF;
-
-}
 
 div.campo{
-	background-color: #A4A4A4;
+	background-color: #D8D9DD;
 	text-align: left;
 }
 
@@ -104,13 +146,17 @@ h5.consultas{
 	margin: 0px;
 }
 
+.menu .row{
+	padding: 6px;
+}
+
 .select2-container .select2-selection--single{
-	height:38px !important;
+	height:33px !important;
 	width: 100% !important;
 }
 
 .select2-container .select2-selection--multiple{
-	height:38px !important;
+	height:33px !important;
 	width: 100% !important;
 }
 
@@ -119,11 +165,16 @@ h5.consultas{
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 35px !important;
+    height: 30px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 35px !important;
+	line-height: 30px !important;
+	
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected]{
+	background-color: #53AF57 !important;
 }
 
 .select2-selection__choice{
@@ -143,8 +194,12 @@ input[type=date]{
 	margin-bottom: 2px !important;
 }
 
-.table .form-control{
-	font-size: inherit !important;
+.form-control{
+	font-size: small !important;
+}
+
+.select.form-control{
+	height: 33px !important;
 }
 
 .table .select{
@@ -161,10 +216,58 @@ input[type=date]{
 }
 
 .table {
-	font-size: 12px;
+	font-size: small !important;
 }
 
 .col-form-label {
 	font-size: small !important;
 	padding-bottom: 0px !important;
+}
+
+/*Color for text and bg*/
+
+.darkgreen-bg{
+	background-color: #49714B !important;
+	border-color: #49714B !important;
+}
+
+.darkgreen-text{
+	color: #49714B !important;
+}
+
+.green-bg{
+	background-color: #53AF57 !important;
+	border-color: #53AF57 !important;
+}
+
+.green-text{
+	color: #53AF57 !important;
+}
+
+
+.black-bg{
+	background-color: black !important;
+	border-color: black !important;
+}
+
+.black-text{
+	color: black !important;
+}
+
+.darkwhite-bg{
+	background-color: #F7F7F8;
+}
+
+.white-bg{
+	background-color:white !important;
+	border-color:white !important;
+}
+
+.white-text{
+	color:white !important;
+}
+
+.page-item.active .page-link{
+	background-color: #53AF57 !important;
+	border-color: #53AF57 !important;
 }

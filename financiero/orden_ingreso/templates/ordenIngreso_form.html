@@ -13,10 +13,7 @@
   <form method="POST" novalidate id="form-fact" enctype="multipart/form-data" ,
   data-persona-url="{% url 'ajax_load_personas' %}">
     {% csrf_token %}
-    <h2>Orden de Ingreso</h2>
-    <div class="campo">
-    	<h5 class="campo">Registro Orden de Ingreso</h5>
-	</div>
+    <h2 class="text-uppercase darkgreen-text">registro Orden de Ingreso</h2>
 	<div>
 		<div class="form-row">
 		    <div class="col-6 col-md-3 mb-0">
@@ -61,23 +58,23 @@
 			    </div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-12">
 				{{form.descripcion|as_crispy_field}}	
 			</div>
 		</div>
-		<div class="campo">
-    		<h5 class="campo">Detalle del Pago</h5>
+		<div class="mt-2 campo p-2">
+    		<h2 class="black-text text-uppercase">Detalle del Pago</h2>
 		</div>
-		<div class="row">
-			<div class="col-4">
+		<div class="form-row">
+			<div class="col-3">
 				{{form.formaPago|as_crispy_field}}	
 			</div>
-			<div class="col-4">
+			<div class="col-3">
 				{{form.fechaPago|as_crispy_field}}	
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-3">
 				{{form.numeroDocumento|as_crispy_field}}	
 			</div>
@@ -105,8 +102,8 @@
 	</div>
 	<div class="row mt-4">
 			<div class="col-12">
-				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'ordenIngreso' %}"> Cancelar </a>
+				<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+				<a class="btn btn-secondary" href="{% url 'ordenIngreso' %}"> Cancelar </a>
 			</div>
 	</div>
     

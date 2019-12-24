@@ -6,40 +6,35 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/odenpago.css' %}">
-<div class="row">
-	<div class="col-9 col-xl-9">
-		<h2>Orden de Pago</h2>
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 col-xl-9 v-align">
+		<h2 class="text-uppercase">consultas <span class="darkgreen-text">Orden de Pago</span></h2>
 	</div>
-	<div class="col-3 col-xl-3">
-		<a class="btn btn-secondary float-right" href="{% url 'orden_pago_nuevo' %}"><i class="fas fa-plus"></i> Agregar
+	<div class="col-3 col-xl-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="{% url 'orden_pago_nuevo' %}"><i class="fas fa-plus"></i> Agregar
 			nuevo</a>
 	</div>
 </div>
-<div class="campo">
-	<h5 class="campo">Consultas</h5>
-</div>
-<div class="row">
+<div class="row darkwhite-bg py-2">
 	<div class="col-12 col-xl-12">
 		<form method="GET">
 			{% csrf_token %}
-			<div class="row">
-				<div class="col-6 col-xl-6">
+			<div class="form-row">
+				<div class="col-3">
 					{{ filter.form.cod_ord_pago|as_crispy_field }}
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-4 col-xl-4">
+				<div class="col-3">
 					{{ filter.form.estado|as_crispy_field }}
 				</div>
-				<div class="col-4 col-xl-4">
+				<div class="col-3">
 					{{ filter.form.proveedor|as_crispy_field }}
 				</div>
-				<div class="col-4 col-xl-4">
+				<div class="col-3">
 					{{ filter.form.fecha|as_crispy_field }}
 				</div>
 			</div>
 			<div>
-				<button type="submit" class="btn btn-secondary float-right">
+				<button type="submit" class="btn btn-secondary green-bg float-right">
 					<span class="fas fa-search"></span> Buscar</button>
 			</div>
 		</form>
@@ -54,8 +49,8 @@
 					data-placement="top" title="Exportar a pdf"></i></a>
 			<a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
 					data-placement="top" title="Exportar a excel"></i></a>
-			<table id="dtBasicExample" class="table table-bordered">
-				<thead class="thead-light">
+			<table id="dtBasicExample" class="table table-responsive-md">
+				<thead class="white-text darkgreen-bg">
 					<tr>
 						<th scope="col">Acciones</th>
 						<th scope="col">Código</th>
@@ -72,7 +67,7 @@
 				</thead>
 				<tbody>
 					{% for orden in filter.qs %}
-					<tr>
+					<tr class="text-center">
 						<td scope="row">
 							<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
 							<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>

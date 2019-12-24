@@ -10,7 +10,7 @@ class OrdenFacturacionFilter(django_filters.FilterSet):
     ruc_ci=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'RUC o CI'}))
     razon_nombres=django_filters.CharFilter(lookup_expr='icontains',label="", widget=forms.TextInput(attrs={'placeholder':'Nombre Cliente'}))
     estado = django_filters.ChoiceFilter(
-        empty_label='Todos',
+        empty_label='Estado',
 		choices=ESTADO_CHOICES,
         label=""
     )

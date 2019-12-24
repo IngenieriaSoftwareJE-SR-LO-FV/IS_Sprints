@@ -3,19 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="row">
-    <div class="col-9">
-        <h2>Orden de Ingreso</h2>
+<div class="row mb-2 d-flex white-bg">
+    <div class="col-9 v-align">
+        <h2 class="text-uppercase">Consultas <span class="darkgreen-text">Orden de Ingreso</span></h2>
     </div>
-    <div class="col-3 ">
-        <a class="btn btn-secondary float-right" href="{% url 'ordenIngreso_nuevo' %}"><i class="fas fa-plus"></i>
-            Agregar nuevo</a>
+    <div class="col-3 v-align">
+        <a class="btn btn-secondary green-bg float-right" href="{% url 'ordenIngreso_nuevo' %}"><i class="fas fa-plus"></i>
+            Nueva Orden</a>
     </div>
 </div>
-<div class="campo">
-    <h5 class="campo">Consultas</h5>
-</div>
-<div class="row">
+<div class="row darkwhite-bg py-2">
     <div class="col-12">
         <form action="" method="get">
             {% csrf_token %}
@@ -31,7 +28,7 @@
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-secondary float-right">
+                <button type="submit" class="btn btn-secondary green-bg float-right">
                     <span class="fas fa-search"></span> Buscar</button>
             </div>
         </form>
@@ -46,8 +43,8 @@
                 data-placement="top" title="Exportar a pdf"></i></a>
         <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
                 data-placement="top" title="Exportar a excel"></i></a>
-        <table class="table table-bordered">
-            <thead>
+        <table id="dtBasicExample" class="table table-responsive-md">
+            <thead class="darkgreen-bg white-text">
                 <tr>
                     <th>Fecha</th>
                     <!--<th>Anexo</th>-->
@@ -62,7 +59,7 @@
 
 
                 {% for ordenIngreso in filter.qs %}
-                <tr>
+                <tr class="text-center">
                     <td>{{ordenIngreso.fecha}}</td>
                     <!--
                     <td>

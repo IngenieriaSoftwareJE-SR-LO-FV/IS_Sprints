@@ -7,33 +7,31 @@
 {% block content %}
 <form method="POST" novalidate id="form-participante">
     {% csrf_token %}
-    <h2>Agregar Participante a la orden {{orden_cod}}</h2>
+    <h2 class="darkgreen-text text-uppercase">Agregar Participante a la orden {{orden_cod}}</h2>
     <div class="form-row">
-        <div class="col-12 mb-0">
+        <div class="col-6 mb-0">
             {{ form.participante|as_crispy_field }}
         </div>
-    </div>
-    <div class="form-row mb-2">
-        <div class="col-6 mb-0">
+        <div class="col-3 mb-0">
             {{ form.cod_evento|as_crispy_field }}
         </div>
-        <div class="col-6 mb-0">
+        <div class="col-3 mb-0">
             {{ form.nombre_evento|as_crispy_field }}
         </div>
-        <div class="col-6 mb-0">
+        <div class="col-3 mb-0">
             {{ form.valor_evento|as_crispy_field }}
         </div>
-        <div class="col-6 mb-0">
+        <div class="col-3 mb-0">
             {{ form.descuento|as_crispy_field }}
             <small class="form-text text-muted">Expresado en porcentaje</small>
         </div>
 
-        <div class="col-6 mb-0">
+        <div class="col-3 mb-0">
             {{ form.valor|as_crispy_field }}
         </div>
     </div>
-    <button type="submit" class="btn btn-secondary">Guardar</button>
-    <a class="btn btn-light" href="{% url 'orden_facturacion_editar' orden_id %}"> Cancelar </a>
+    <button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'orden_facturacion_editar' orden_id %}"> Cancelar </a>
 </form>
 {% endblock content %}
 

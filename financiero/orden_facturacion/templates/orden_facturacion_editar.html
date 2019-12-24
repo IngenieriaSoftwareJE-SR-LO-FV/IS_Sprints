@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block editar%}
-{% load index %}
-<h2>Orden de Facturación {{form.cod_orden_fact.value}} </h2>
+{% load my_tags %}
+<h2 class="darkgreen-text text-uppercase">Orden de Facturación {{form.cod_orden_fact.value}} </h2>
 {% if form.estado.value == "ACPF" or form.estado.value == "PNDP" %}
 <div class="form-row">
     <div class="col-6 mb-0">
@@ -55,23 +55,24 @@
 
 {% block tablas %}
 
-<div class="row">
-    <h4 class="col-12">Participantes</h4>
+<div class="row white-bg">
+    <h2 class="col-12">Participantes</h2>
     {% if form.estado.value == "ACTV" %}
     <div class="col-12 mb-2">
-        <a id="add" class="btn btn-secondary btn-sm" href="{% url 'participante_nuevo' orden_id %}">Agregar</a>
+        <a id="add" class="btn btn-secondary green-bg btn-sm" href="{% url 'participante_nuevo' orden_id %}"><i
+            class="fas fa-plus"></i>Agregar Participante</a>
     </div>
     {% endif %}
     <div id="tabla" class="table-container col-12">
-        <table id="participantes-table" class="table table-bordered table-responsive-md">
-            <thead class="thead-light">
+        <table id="participantes-table" class="table table-responsive-md border-bottom">
+            <thead class="darkgreen-bg white-text">
                 <tr>
                     <th>Participante</th>
                     <th>Nombre del evento</th>
                     <th>Código del evento</th>
                     <th>Valor Evento</th>
-                    <th>Descuento (%)</th>
-                    <th>Valor total ($)</th>
+                    <th>Descuento</th>
+                    <th>Valor total</th>
                     <th></th>
                 </tr>
             </thead>
@@ -80,13 +81,13 @@
             <tbody>
 
                 {% for p in participantes %}
-                <tr>
+                <tr class="text-center">
                     <td>{{ p.participante }}</td>
                     <td>{{ p.nombre_evento }}</td>
                     <td>{{ p.cod_evento }}</td>
-                    <td class="sum">{{ p.valor_evento }}</td>
-                    <td>{{ p.descuento }}</td>
-                    <td class="sum">{{ p.valor }}</td>
+                    <td class="sum">{{ p.valor_evento|currency}}</td>
+                    <td>{{ p.descuento|porcentaje }}</td>
+                    <td class="sum">{{ p.valor|currency }}</td>
                     <td>
                         {% if form.estado.value == "ACTV" %}
 
@@ -112,11 +113,11 @@
     <div class="col-6 col-md-3">{{ form.valor_total|as_crispy_field }}</div>
 </div>
 <div class="mt-3">
-    <a class="btn btn-secondary " data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
+    <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
         id="confirmar_guardar">Guardar</a>
-    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+    <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
     {% if form.estado.value == "ACTV" %}
-    <button id="env-sol" class="btn btn-success float-right">Enviar
+    <button id="env-sol" class="btn btn-success darkgreen-bg float-right">Enviar
         solicitud</button>
     {% endif %}
 </div>
@@ -136,8 +137,8 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-light" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-secondary mr-3">Confirmar</button>
+                <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-secondary green-bg mr-3">Confirmar</button>
             </div>
         </div>
     </div>
@@ -197,7 +198,7 @@
             $(this).children("td").each(function () {
                 if ($(this).is(".sum")) {
                     if (s.length < col + 1) s[col] = 0;
-                    var val = parseFloat($(this).html().replace(',', '.'));
+                    var val = parseFloat($(this).html().replace(',', '.').replace('$','').replace('%',''));
 
                     s[col] = s[col] + val;
                 } else {

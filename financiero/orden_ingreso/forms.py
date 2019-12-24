@@ -33,7 +33,7 @@ class OrdenIngresoForm(forms.ModelForm):
 			'anexo':forms.ClearableFileInput(attrs={'class':'form-control'}),
 			'numeroDocumento':forms.NumberInput(attrs={'class':'form-control'}),
 			'banco':forms.TextInput(attrs={'class':'form-control'}),
-			'emisoraTarjeta':forms.Select(attrs={'class':'form-control'}),
+			'emisoraTarjeta':forms.Select(attrs={'class':'select form-control'}),
 			'formaPago':forms.Select(attrs={'id':'seleccion',"onchange":"run()"})
 		}
 
@@ -73,7 +73,7 @@ class OrdenIngresoUpdateForm(forms.ModelForm):
 			'anexo':forms.ClearableFileInput(attrs={'class':'form-control'}),
 			'numeroDocumento':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
 			'banco':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
-			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext textinput textInput form-control'}),
+			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'select form-control-plaintext textinput textInput form-control'}),
 			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'})
 		}
 

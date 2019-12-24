@@ -14,9 +14,7 @@
   data-persona-url="{% url 'ajax_load_personas' %}">
     {% csrf_token %}
     <h2>Orden de Ingreso</h2>
-    <div class="campo">
-    	<h5 class="campo">Registro Orden de Ingreso</h5>
-	</div>
+	<h2 class="text-uppercase darkgreen-text">editar Orden de Ingreso</h2>
 	<div>
 		<div class="row">
 			<div class="col-3">
@@ -80,8 +78,8 @@
 				{{form.descripcion|as_crispy_field}}	
 			</div>
 		</div>
-		<div class="campo">
-    		<h5 class="campo">Detalle del Pago</h5>
+		<div class="mt-2 campo p-2">
+    		<h2 class="black-text text-uppercase">Detalle del Pago</h2>
 		</div>
 		<div class="row">
 			<div class="col-4">
@@ -119,8 +117,8 @@
 	</div>
 	<div class="row mt-4">
 			<div class="col-12">
-				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'ordenIngreso' %}"> Cancelar </a>
+				<button type="submit" class="btn btn-secondary green-text">Guardar</button>
+				<a class="btn btn-secondary" href="{% url 'ordenIngreso' %}"> Cancelar </a>
 			</div>
 	</div>
     

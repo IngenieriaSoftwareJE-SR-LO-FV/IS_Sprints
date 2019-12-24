@@ -12,7 +12,7 @@
   data-natural-url="{% url 'natural_nuevo'%}" data-juridica-url="{% url 'juridicas_view' %}" data-info-url="{% url 'ajax_info_id' %}">
   {% csrf_token %}
   {% block editar %}
-  <h2>Registro de Orden de Facturación</h2>
+  <h2 class="darkgreen-text text-uppercase">Registro de Orden de Facturación</h2>
   {% endblock editar %}
   {{form.cod_orden_fact}}
   {{form.estado}}
@@ -90,11 +90,11 @@
   {% block tablas %}
 
   <div class="mt-3">
-    <button type="submit" class="btn btn-secondary">Siguiente</button>
+    <button type="submit" class="btn btn-secondary green-bg">Siguiente</button>
 
     <!--<a class="btn btn-secondary " data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
       id="confirmar_guardar">Guardar</a>-->
-    <a class="btn btn-light" href="{% url 'orden_facturacion' %}">Cancelar</a>
+    <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
   </div>
   {% endblock tablas %}
 

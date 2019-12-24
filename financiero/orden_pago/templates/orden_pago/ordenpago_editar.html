@@ -8,22 +8,18 @@
 
 <form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2>Procesar Orden de Pago</h2>
+	<h2 class="text-uppercase darkgreen-text">Orden de Pago</h2>
 	<div class="form-row">
-		<div class="col-5"></div>
-		<div class="col-5"></div>
-		<div class="col-2">
+		<div class="col-3">
 			{{ form.estado|as_crispy_field }}
 		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-4 col-xl-4">
+		<div class="col-4 col-xl-3">
 			{{ form.cod_ord_pago|as_crispy_field }}
 		</div>
-		<div class="col-4 col-xl-4">
+		<div class="col-4 col-xl-3">
 			{{ form.n_tramite|as_crispy_field }}
 		</div>
-		<div class="col-4 col-xl-4">
+		<div class="col-4 col-xl-3">
 			{{ form.fecha|as_crispy_field }}
 		</div>
 	</div>
@@ -31,7 +27,7 @@
 		<div class="col-3 col-xl-3">
 			{{ form.tipo_proveedor|as_crispy_field }}
 		</div>
-		<div class="col-9 col-xl-9" id="field-proveedor">
+		<div class="col-9 col-xl-6" id="field-proveedor">
 			<div id="div_id_ruc_ci" class="form-group">
 		        <label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField" id="ruc_ci">Razón social/Nombre</label><span
 		          class="asteriskField">*</span>
@@ -54,7 +50,7 @@
 		<div class="col-3 col-xl-3">
 			{{ form.centro_costos|as_crispy_field }}
 		</div>
-		<div class="col-9 col-xl-9">
+		<div class="col-9 col-xl-6">
 			{{ form.egreso|as_crispy_field }}
 		</div>
 	</div>
@@ -70,28 +66,24 @@
 		</div>
 	</div>
 	<div class="form-row">
-		<div class="col-12 col-xl-12">
+		<div class="col-12 col-xl-6">
 			{{ form.concepto|as_crispy_field }}
 		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-12">
+		<div class="col-12 col-xl-6">
 			{{ form.observacion|as_crispy_field }}
 		</div>
 	</div>
 	<div class="form-row">
-		<div class="col-12 col-xl-12">
+		<div class="col-12 col-xl-6">
 			{{ form.anexo|as_crispy_field }}
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12">
-			<button type="submit" class="btn btn-secondary">Guardar</button>
-			<a class="btn btn-light" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
-			{% if form.estado.value != 'AUTR' %}	
-				<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
-			{% endif %}
-		</div>
+	<div class="mt-3">
+		<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+		<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
+		{% if form.estado.value != 'AUTR' %}	
+			<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
+		{% endif %}
 	</div>
 	{{ form.media }}
 </form>
