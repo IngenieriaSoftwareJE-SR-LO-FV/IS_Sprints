@@ -9,27 +9,24 @@
 {% endblock extraheader %}
 
 {% block content %}
-<div class="row" id="title">
-	<h2>Listado de Autorizaciones</h2>
-</div>
-<br>
+<h2 class="text-uppercase darkgreen-text">Listado de Autorizaciones</h2>
 
-<div class="campo">
-	<h5 class="campo col-12 col-xl-12">Ordenes de Facturación</h5>
+<div class="campo mt-2 p-2">
+	<h5 class="text-uppercase black-text mb-0">Órdenes de Facturación</h5>
 </div>
 <div class="row">
 	<div class="col-12 col-xl-12">
-		{% if orden_fact %}
 		<div class="row">
 			<div class="col-12 col-xl-12">
-				<table class="table table-bordered">
-					<thead class="thead-light">
+				<table class="table table-responsive-md border-bottom">
+					<thead class="white-text darkgreen-bg">
 						<tr>
-							<th scope="col">Código Orden</th>
+							<th scope="col">Ver Detalles</th>
+							<th scope="col">Código</th>
 							<th scope="col">Cliente</th>
-							<th scope="col">Identificación</th>
+							<th scope="col">ID</th>
 							<th scope="col">Fecha</th>
-							<th scope="col">N° participantes</th>
+							<th scope="col">Cant. Partic.</th>
 							<th scope="col">Costo</th>
 							<th scope="col">Estado</th>
 							<th scope="col">N° trámite</th>
@@ -37,9 +34,12 @@
 							<th scope="col">Acciones</th>
 						</tr>
 					</thead>
+					{% if orden_fact %}
 					<tbody>
 						{% for orden in orden_fact %}
-						<tr>
+						<tr class="text-center">
+							<td scope="row"><a class="btn btn-light btn-sm darkgreen-text"
+								href="{% url 'orden_facturacion_aprobar' orden.pk %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{orden.cod_orden_fact}}</td>
 							<td scope="row">{{orden.razon_nombres}}</td>
 							<td scope="row">{{orden.ruc_ci}}</td>
@@ -50,34 +50,34 @@
 							<td scope="row">{{orden.n_tramite}}</td>
 							<td scope="row">{{orden.n_factura}}</td>
 							<td scope="row">
-								<a class="btn btn-secondary btn-sm" href="{% url 'aprobar_orden_fact' orden.id %}"><i
+								<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'aprobar_orden_fact' orden.id %}" data-toggle="tooltip" data-placement="top"title="Aprobar"><i
 										class="fas fa-check"></i></a>
-								<a class="btn btn-secondary btn-sm" href="{% url 'anular_orden_fact' orden.id %}"><i
+								<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'anular_orden_fact' orden.id %}" data-toggle="tooltip" data-placement="top"title="Anular"><i
 										class="fas fa-times"></i></a>
 							</td>
 						</tr>
 						{% endfor %}
 					</tbody>
+					{% else %}
+					<h2>No hay órdenes de facturación por aprobar</h2>
+					{% endif %}
 				</table>
 			</div>
 		</div>
-		{% else %}
-		<h4>No hay ordenes de facturación por aprobar</h4>
-		{% endif %}
+
 	</div>
 </div>
 <br>
 
-<div class="campo">
-	<h5 class=" campo col-12 col-xl-12">Ordenes de Pago</h5>
+<div class="campo mt-2 p-2">
+	<h5 class="black-text text-uppercase mb-0">Órdenes de Pago</h5>
 </div>
 <div class="row">
 	<div class="col-12 col-xl-12">
-		{% if orden_pago %}
-			<div class="row">
+		<div class="row">
 			<div class="col-12 col-xl-12">
-				<table class="table table-bordered">
-					<thead class="thead-light">
+				<table class="table table-responsive-md">
+					<thead class="white-text darkgreen-bg">
 						<tr>
 							<th scope="col">Ver Detalles</th>
 							<th scope="col">Código</th>
@@ -88,9 +88,11 @@
 							<th scope="col">Anexo</th>
 						</tr>
 					</thead>
+					{% if orden_pago %}
+
 					<tbody>
 						{% for ord in orden_pago %}
-						<tr>
+						<tr class="text-center">
 							<td scope="row"><a class="btn btn-secondary float-right"
 									href="{% url 'orden_pago_editarAUTR' ord.id %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{ ord.cod_ord_pago }}</td>
@@ -100,34 +102,34 @@
 							<td scope="row">{{ ord.egreso }}</td>
 							<td scope="row">
 								{% if ord.anexo %}
-				                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
-				                {% else %}
-				                    No anexo
-				                {% endif %}
+								<a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
+								{% else %}
+								No anexo
+								{% endif %}
 							</td>
 						</tr>
 						{% endfor %}
 					</tbody>
+					{% else %}
+					<h2>No hay órdenes de pago por aprobar</h2>
+					{% endif %}
 				</table>
 			</div>
 		</div>
-		{% else %}
-		<h4>No hay órdenes de pago por aprobar</h4>
-		{% endif %}
+
 	</div>
 </div>
 <br>
 
-<div class="campo">
-	<h5 class="campo col-12 col-xl-12">Presupuestos de Eventos</h5>
+<div class="campo mt-2 p-2">
+	<h5 class="black-text text-uppercase mb-0">Presupuestos de Eventos</h5>
 </div>
 <div class="row">
 	<div class="col-12 col-xl-12">
-		{% if presupuestos_ev %}
 		<div class="row">
 			<div class="col-12 col-xl-12">
-				<table class="table table-bordered">
-					<thead class="thead-light">
+				<table class="table table-responsive-md border-bottom">
+					<thead class="white-text darkgreen-bg">
 						<tr>
 							<th scope="col">Ver Detalles</th>
 							<th scope="col">Estado</th>
@@ -139,9 +141,11 @@
 							<th scope="col">No. Participantes</th>
 						</tr>
 					</thead>
+					{% if presupuestos_ev %}
+
 					<tbody>
 						{% for p in presupuestos_ev %}
-						<tr>
+						<tr class="text-center">
 							<td scope="row"><a class="btn btn-secondary float-right"
 									href="{% url 'aprobar_presupuestos' pk=p.id %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{p.codigo}}</td>
@@ -155,12 +159,13 @@
 						</tr>
 						{% endfor %}
 					</tbody>
+					{% else %}
+					<h2>No hay presupuestos de eventos por aprobar</h2>
+					{% endif %}
 				</table>
 			</div>
 		</div>
-		{% else %}
-		<h4>No hay presupuestos de eventos por aprobar</h4>
-		{% endif %}
+
 	</div>
 </div>
 {% endblock %}

@@ -1,15 +1,19 @@
 {% extends 'reporte_form.html' %}
 
-
+{% block regedit %}
+Edición Reporte de contacto
+{% endblock regedit %}
 {% block tablas %}
-
 <div class="row">
-  <h4 class="col-12">Capacitaciones</h4>
+  <div class=" campo p-2 pl-3 col-12">
+    <h5 class="black-text text-uppercase mb-0">Capacitación</h5>
+  </div>
+</div>
+<div class="row my-3">
   <div id="tabla" class="table-container col-12">
-    <table class="table table-bordered table-responsive">
-      <thead>
+    <table class="table border-bottom table-responsive table-sm">
+      <thead class="white-text darkgreen-bg">
         <tr>
-          <th>Acciones</th>
           <th>Tema de capacitación sugerido</th>
           <th>Tipo de capacitación sugerido</th>
           <th>Modalidad</th>
@@ -27,6 +31,8 @@
           <th>Observaciones</th>
           <th>Acuerdos</th>
           <th>Para uso exclusivo del área acedémica</th>
+          <th></th>
+
         </tr>
       </thead>
       {% if capacitaciones %}
@@ -34,13 +40,8 @@
       <tbody>
 
         {% for c in capacitaciones %}
-        <tr>
-          <td>
-            <a class="btn btn-secondary btnact" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i
-                class="fas fa-edit"></i></a>
-            <a class="btn btn-danger btnact" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i
-                class="fas fa-trash"></i></a>
-          </td>
+        <tr class="text-center">
+
           <td>{{ c.tema }}</td>
           <td>{{ c.get_tipo_display }}</td>
           <td>{{ c.get_modalidad_display }}</td>
@@ -58,22 +59,31 @@
           <td>{{ c.observaciones }}</td>
           <td>{{ c.acuerdos }}</td>
           <td>{{ c.exclusivo_acad }}</td>
+          <td>
+            <a class="btn btn-light btn-block btn-sm" href="{% url 'capacitacion_editar' c.id reporte_id %}"><i
+                class="fas fa-edit darkgreen-text"></i></a>
+            <a class="btn btn-light btn-block btn-sm" href="{% url 'capacitacion_eliminar' c.id reporte_id%}"><i
+                class="fas fa-trash darkgreen-text"></i></a>
+          </td>
         </tr>
         {% endfor%}
       </tbody>
       {% endif %}
     </table>
-    <a class="btn btn-secondary" href="{% url 'capacitacion_nuevo' reporte_id%}">Agregar capacitación</a>
+    <a class="btn btn-secondary green-bg" href="{% url 'capacitacion_nuevo' reporte_id%}">Agregar capacitación</a>
   </div>
 </div>
 
-<div class="row mt-5">
-  <h4 class="col-12">Asesorias</h4>
+<div class="row">
+  <div class="mt-2 campo p-2 pl-3 col-12">
+    <h5 class="black-text text-uppercase mb-0">Asesorias/Consultoría/Otros</h5>
+  </div>
+</div>
+<div class="row my-3">
   <div id="tabla" class="table-container col-12">
-    <table class="table table-bordered table-responsive">
-      <thead>
+    <table class="table border-bottom table-responsive table-sm">
+      <thead class="white-text darkgreen-bg">
         <tr>
-          <th>Acciones</th>
           <th>Tipo de servicio</th>
           <th>Descripción</th>
           <th>Alcance</th>
@@ -85,19 +95,16 @@
           <th>Observaciones</th>
           <th>Acuerdos</th>
           <th>Para uso exclusivo del área acedémica</th>
+          <th></th>
+
         </tr>
       </thead>
       {% if asesorias %}
 
       <tbody>
         {% for a in asesorias %}
-        <tr>
-          <td>
-            <a class="btn btn-secondary btnact" href="{% url 'asesoria_editar' a.id reporte_id %}"><i
-                class="fas fa-edit"></i></a>
-            <a class="btn btn-danger btnact" href="{% url 'asesoria_eliminar' a.id reporte_id %}"><i
-                class="fas fa-trash"></i></a>
-          </td>
+        <tr class="text-center">
+
           <td>{{ a.tipo_servicio }}</td>
           <td>{{ a.descripcion }}</td>
           <td>{{ a.alcance }}</td>
@@ -109,19 +116,25 @@
           <td>{{ a.observaciones }}</td>
           <td>{{ a.acuerdos }}</td>
           <td>{{ a.exclusivo_acad }}</td>
+          <td>
+            <a class="btn btn-light btn-sm btn-block" href="{% url 'asesoria_editar' a.id reporte_id %}"><i
+                class="fas fa-edit darkgreen-text"></i></a>
+            <a class="btn btn-light btn-sm btn-block" href="{% url 'asesoria_eliminar' a.id reporte_id %}"><i
+                class="fas fa-trash darkgreen-text"></i></a>
+          </td>
         </tr>
         {% endfor%}
       </tbody>
       {% endif %}
 
     </table>
-    <a class="btn btn-secondary" href="{% url 'asesoria_nuevo' reporte_id%}">Agregar asesoría</a>
+    <a class="btn btn-secondary green-bg" href="{% url 'asesoria_nuevo' reporte_id%}">Agregar asesoría</a>
   </div>
 </div>
 <div class="row mt-5">
   <div class="col-12">
-    <button type="submit" class="btn btn-secondary">Guardar</button>
-    <a class="btn btn-light" href="{% url 'reporte_contacto' %}"> Cancelar </a>
+    <button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+    <a class="btn btn-secondary" href="{% url 'reporte_contacto' %}"> Cancelar </a>
   </div>
 </div>
 

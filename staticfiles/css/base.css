@@ -17,11 +17,17 @@ body{
 
 h2{
 	font-size: large !important;
-	font-weight: 700 !important;
+	font-weight: bold !important;
 }
 
 h5{
+	font-size: small !important;
+	font-weight: bold !important;
+}
+
+h4{
 	font-size: medium !important;
+	font-weight: bold !important;
 }
 
 

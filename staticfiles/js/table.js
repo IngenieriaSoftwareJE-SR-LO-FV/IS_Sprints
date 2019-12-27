@@ -4,9 +4,9 @@ $(document).ready(function () {
         "ordering": false,
         "language": {
             "lengthMenu": "Mostrar _MENU_ por página",
-            //"zeroRecords": "Nothing found - sorry",
+            "zeroRecords": "Sin datos",
             "info": "Mostrando página _PAGE_ de _PAGES_",
-            //"infoEmpty": "No records available",
+            "infoEmpty": "",
             "search": "Buscar:",
             "paginate": {
                 "first": "Primero",

@@ -1,25 +1,25 @@
 {% extends "base_financiero.html" %}
 
 {% block coordinador%}
-<div id="menu" class="row">
+<div id="menu" class="row" data-toggle="collapse" data-target="#collapseCoor"
+aria-expanded="true" aria-controls="collapseCoor">
 	<div class="col-12 mlat">
 		<div id="titulo" class="row">
+			<div class="col-10">
+				<span class="pl-2">TAREAS COORDINADOR</span>
+			</div>
 			<div class="col-2">
-				<i class="fas fa-tasks"></i>
+				<i class="fas fa-angle-down"></i>
 			</div>
-			<div class="col-8">
-				<h5>Tareas Coordinador</h5>
-			</div>
-			<div class="col-2"></div>
 		</div>
 	</div>
 </div>
-<div class="row">
+<div id="collapseCoor" class="row collapse">
 	<div class="col-12">
 		<a class="menu" href="{% url 'pendiente_aprobacion' %}">
 			<div class="row">
 				<div class="col-12">
-					<span>Pendientes de aprobación</span>
+					<span class="pl-4">Pendientes de aprobación</span>
 				</div>
 			</div>
 		</a>

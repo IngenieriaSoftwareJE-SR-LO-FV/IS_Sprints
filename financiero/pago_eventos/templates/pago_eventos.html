@@ -8,34 +8,31 @@
 {% endblock extraheader %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h2>Pago Eventos</h2>
+<div class="row d-flex mb-2">
+    <div class="col-12 v-align">
+        <h2 class="darkgreen-text text-uppercase">Pago Eventos</h2>
     </div>
 
 </div>
-<div class="campo">
-    <h5 class="campo consultas">Consultas</h5>
-</div>
-<div class="row">
+<div class="row darkwhite-bg py-2">
     <div class="col-12">
         <form action="" method="get">
             <div class="form-row ">
-                <div class="col-6 col-md-4">
+                <div class="col-6 col-md-3">
                     {{ filter.form.cod_orden_fact|as_crispy_field }}
                 </div>
-                <div class="col-6 col-md-4">
+                <div class="col-6 col-md-3">
                     {{ filter.form.fecha|as_crispy_field }}
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     {{ filter.form.ruc_ci|as_crispy_field }}
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     {{ filter.form.razon_nombres|as_crispy_field }}
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-secondary float-right">
+            <button type="submit" class="btn btn-secondary green-bg float-right">
                 <i class="fas fa-search"></i> Buscar</button>
         </form>
 
@@ -44,59 +41,58 @@
 
 <div class="row mt-4">
     <div class="col-12">
-        <div class=" table-responsive-md">
+        <table id="dtBasicExample" class="table table-responsive-md border-bottom">
+            <thead class="darkgreen-bg white-text">
+                <tr>
+                    <th scope="col">Código Orden</th>
+                    <th scope="col">N° trámite</th>
+                    <th scope="col">N° factura</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">N° participantes</th>
+                    <th scope="col">Costo</th>
+                    <th scope="col">Pendiente</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
             {% if filter.qs %}
-            <table class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Código Orden</th>
-                        <th scope="col">N° trámite</th>
-                        <th scope="col">N° factura</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">N° participantes</th>
-                        <th scope="col">Costo</th>
-                        <th scope="col">Pendiente</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <tbody>
 
-                    {% for orden in filter.qs %}
-                    <tr>
-                        <td scope="row">{{orden.cod_orden_fact}}</td>
-                        <td scope="row">{{orden.n_tramite}}</td>
-                        <td scope="row">{{orden.n_factura}}</td>
-                        <td scope="row">{{orden.razon_nombres}}</td>
-                        <td scope="row">{{orden.fecha}}</td>
-                        <td scope="row">{{orden.n_participantes}}</td>
-                        <td scope="row">{{orden.valor_total}}</td>
-                        <td scope="row">{{orden.valor_pendiente}}</td>
+                {% for orden in filter.qs %}
+                <tr class="text-center">
+                    <td scope="row">{{orden.cod_orden_fact}}</td>
+                    <td scope="row">{{orden.n_tramite}}</td>
+                    <td scope="row">{{orden.n_factura}}</td>
+                    <td scope="row">{{orden.razon_nombres}}</td>
+                    <td scope="row">{{orden.fecha}}</td>
+                    <td scope="row">{{orden.n_participantes}}</td>
+                    <td scope="row">{{orden.valor_total}}</td>
+                    <td scope="row">{{orden.valor_pendiente}}</td>
 
-                        <td scope="row">
-                            <!--{% if orden.estado != 'ANLD' %} -->
-                            <a class="btn btn-secondary btn-sm btn-block"
-                                href="{% url 'ordenIngreso_nuevo' orden.id %}"><i class="fas fa-edit"></i></a>
-                           <!-- <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm btn-block"
+                    <td scope="row">
+                        <!--{% if orden.estado != 'ANLD' %} -->
+                        <a class="btn btn-secondary btn-sm btn-block" href="{% url 'ordenIngreso_nuevo' orden.id %}"><i
+                                class="fas fa-edit"></i></a>
+                        <!-- <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm btn-block"
                                 data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                                     class="fas fa-trash"></i></a> -->
-                            <!--{% endif%}-->
-                        </td>
-                    </tr>
-                    {% endfor %}
+                        <!--{% endif%}-->
+                    </td>
+                </tr>
+                {% endfor %}
 
 
-                </tbody>
-            </table>
+            </tbody>
             {% else %}
-            <h4>No hay elementos que mostrar</h4>
+            <h2>No hay elementos que mostrar</h2>
             {% endif %}
-        </div>
+        </table>
+     
     </div>
 </div>
 
 {% endblock content %}
 
 {% block extrafooter %}
-
+<script src="{% static 'js/table.js' %}"></script>
 {% endblock extrafooter %}

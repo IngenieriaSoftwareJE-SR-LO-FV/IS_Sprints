@@ -4,9 +4,13 @@
 
 {% block editar%}
 {% load my_tags %}
-<h2 class="darkgreen-text text-uppercase">Orden de Facturación {{form.cod_orden_fact.value}} </h2>
+<div class="row mb-2">
+    <div class="col-12">
+        <h2 class="darkgreen-text text-uppercase">edición Orden de Facturación {{form.cod_orden_fact.value}} </h2>
+    </div>
+</div>
 {% if form.estado.value == "ACPF" or form.estado.value == "PNDP" %}
-<div class="form-row">
+<div class="row darkwhite-bg py-2">
     <div class="col-6 mb-0">
         <div id="div_id_n_tramite" class="form-group">
             <label for="id_n_tramite" class="col-form-label requiredField">
@@ -55,71 +59,85 @@
 
 {% block tablas %}
 
-<div class="row white-bg">
-    <h2 class="col-12">Participantes</h2>
-    {% if form.estado.value == "ACTV" %}
-    <div class="col-12 mb-2">
-        <a id="add" class="btn btn-secondary green-bg btn-sm" href="{% url 'participante_nuevo' orden_id %}"><i
-            class="fas fa-plus"></i>Agregar Participante</a>
+<div class="row">
+    <div class="col-12">
+        <div class="row mb-3">
+            <div class="mt-2 campo p-2 pl-3 col-12">
+                <h5 class="black-text text-uppercase mb-0">Participantes</h5>
+            </div>
+        </div>
+        {% if form.estado.value == "ACTV" %}
+        <div class="row mb-2">
+            <div class="col-12">
+                <a id="add" class="btn btn-secondary green-bg btn-sm" href="{% url 'participante_nuevo' orden_id %}"><i
+                        class="fas fa-plus"></i>Agregar Participante</a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div id="tabla" class="col-12">
+                <table id="participantes-table" class="table table-responsive-md border-bottom">
+                    <thead class="darkgreen-bg white-text">
+                        <tr>
+                            <th>Participante</th>
+                            <th>Nombre del evento</th>
+                            <th>Código del evento</th>
+                            <th>Valor Evento</th>
+                            <th>Descuento</th>
+                            <th>Valor total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    {% if participantes %}
+
+                    <tbody>
+
+                        {% for p in participantes %}
+                        <tr class="text-center">
+                            <td>{{ p.participante }}</td>
+                            <td>{{ p.nombre_evento }}</td>
+                            <td>{{ p.cod_evento }}</td>
+                            <td class="sum">{{ p.valor_evento|currency}}</td>
+                            <td>{{ p.descuento|porcentaje }}</td>
+                            <td class="sum">{{ p.valor|currency }}</td>
+                            <td>
+                                {% if form.estado.value == "ACTV" %}
+
+                                <a class="btn btn-light btn-sm" href="{% url 'participante_editar' p.id orden_id %}"><i
+                                        class="fas fa-edit darkgreen-text"></i></a>
+                                <a onclick='eliminar({{ p.id }});' class="btn btn-light btn-sm" data-toggle='modal'
+                                    data-target="#ordenEliminarCenter" href='#'><i
+                                        class="fas fa-trash darkgreen-text"></i></a>
+                                {% endif %}
+
+                            </td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                    {% endif %}
+                </table>
+
+            </div>
+        </div>
+
+        <div id="summary" class="form-row">
+            <div class="col-6 col-md-3">{{ form.subtotal|as_crispy_field }}</div>
+            <div class="col-6 col-md-3">{{ form.descuento_fact|as_crispy_field }}</div>
+            <div class="col-6 col-md-3">{{ form.descuento_total|as_crispy_field }}</div>
+            <div class="col-6 col-md-3">{{ form.valor_total|as_crispy_field }}</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
+                    id="confirmar_guardar">Guardar</a>
+                <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
+                {% if form.estado.value == "ACTV" %}
+                <button id="env-sol" class="btn btn-success darkgreen-bg float-right">Enviar
+                    solicitud</button>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    {% endif %}
-    <div id="tabla" class="table-container col-12">
-        <table id="participantes-table" class="table table-responsive-md border-bottom">
-            <thead class="darkgreen-bg white-text">
-                <tr>
-                    <th>Participante</th>
-                    <th>Nombre del evento</th>
-                    <th>Código del evento</th>
-                    <th>Valor Evento</th>
-                    <th>Descuento</th>
-                    <th>Valor total</th>
-                    <th></th>
-                </tr>
-            </thead>
-            {% if participantes %}
-
-            <tbody>
-
-                {% for p in participantes %}
-                <tr class="text-center">
-                    <td>{{ p.participante }}</td>
-                    <td>{{ p.nombre_evento }}</td>
-                    <td>{{ p.cod_evento }}</td>
-                    <td class="sum">{{ p.valor_evento|currency}}</td>
-                    <td>{{ p.descuento|porcentaje }}</td>
-                    <td class="sum">{{ p.valor|currency }}</td>
-                    <td>
-                        {% if form.estado.value == "ACTV" %}
-
-                        <a class="btn btn-secondary btn-sm" href="{% url 'participante_editar' p.id orden_id %}"><i
-                                class="fas fa-edit"></i></a>
-                        <a onclick='eliminar({{ p.id }});' class="btn btn-danger btn-sm" data-toggle='modal'
-                            data-target="#ordenEliminarCenter" href='#'><i class="fas fa-trash"></i></a>
-                        {% endif %}
-
-                    </td>
-                </tr>
-                {% endfor%}
-            </tbody>
-            {% endif %}
-        </table>
-
-    </div>
-</div>
-<div id="summary" class="form-row">
-    <div class="col-6 col-md-3">{{ form.subtotal|as_crispy_field }}</div>
-    <div class="col-6 col-md-3">{{ form.descuento_fact|as_crispy_field }}</div>
-    <div class="col-6 col-md-3">{{ form.descuento_total|as_crispy_field }}</div>
-    <div class="col-6 col-md-3">{{ form.valor_total|as_crispy_field }}</div>
-</div>
-<div class="mt-3">
-    <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
-        id="confirmar_guardar">Guardar</a>
-    <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
-    {% if form.estado.value == "ACTV" %}
-    <button id="env-sol" class="btn btn-success darkgreen-bg float-right">Enviar
-        solicitud</button>
-    {% endif %}
 </div>
 
 
@@ -198,7 +216,7 @@
             $(this).children("td").each(function () {
                 if ($(this).is(".sum")) {
                     if (s.length < col + 1) s[col] = 0;
-                    var val = parseFloat($(this).html().replace(',', '.').replace('$','').replace('%',''));
+                    var val = parseFloat($(this).html().replace(',', '.').replace('$', '').replace('%', ''));
 
                     s[col] = s[col] + val;
                 } else {
@@ -214,7 +232,7 @@
 
     $('.select2').trigger('change.select2')
 
-    $('#env-sol').click(function(e){
+    $('#env-sol').click(function (e) {
         e.preventDefault();
         $("#id_estado").val("SLCE");
         $("#form-fact").trigger("submit");

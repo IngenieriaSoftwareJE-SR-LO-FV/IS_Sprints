@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,  redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import OrdenFacturacion, Persona_Natural, Juridica, OrdenFacturacionParticipante
@@ -128,8 +128,9 @@ def load_info(request):
             cliente=Juridica.objects.get(ruc=id)
             direccion= cliente.direccion
             telefono= cliente.telefono
-            contacto=cliente.contacto_nombres
+            contacto=cliente.contacto_nombres+" "+cliente.contacto_apellidos
     return JsonResponse({'direccion': direccion, 'telefono': telefono, 'contacto': contacto})
+    
 def load_info_ci(request):
     pk = request.GET.get("pk")
     ci=""
@@ -207,7 +208,6 @@ class ParticipanteDelete(DeleteView):
 """
     def post(self, request, *args, **kwargs):
         self.object=self.get_object()
-        print("GOLA")
         orden_id=kwargs['fk']
         self.object.delete()
         #p_id=kwargs['pk']
@@ -220,3 +220,16 @@ def participante_conf_elim(request):
     orden_id=request.GET.get('fk')
     p=OrdenFacturacionParticipante.objects.get(id=p_id)
     return render(request,"eliminar_participante.html",{"p":p, "orden_id":orden_id})
+
+def aprobar_orden_facturacion(request, pk):
+    if(request.method == 'POST'):
+        p = get_object_or_404(OrdenFacturacion, pk=pk)
+        form = OrdenFacturacionFinalForm(request.POST, instance=p)
+        if(form.is_valid()):
+            form.save()
+            return redirect('pendiente_aprobacion')
+    else:
+        p = get_object_or_404(OrdenFacturacion, pk=pk)
+        form = OrdenFacturacionFinalForm(instance=p)
+        participantes=OrdenFacturacionParticipante.objects.filter(orden_id=pk)
+        return render(request, 'orden_facturacion_aprobar.html', {'form': form, 'participantes':participantes, "orden":p})

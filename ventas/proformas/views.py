@@ -33,7 +33,7 @@ def proforma_view(request):
 class ProformaUpdate(UpdateView):
     model=Proforma
     form_class=ProformaForm
-    template_name='proforma_form.html'
+    template_name='proforma_editar.html'
     success_url=reverse_lazy('proforma_lista')
 
 

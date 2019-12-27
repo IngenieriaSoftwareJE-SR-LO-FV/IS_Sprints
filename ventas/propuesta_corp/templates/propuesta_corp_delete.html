@@ -7,8 +7,8 @@
         <h3>¿Está seguro que desea eliminar la propuesta {{ object.cod_propuesta }} {{ object.empresa}}?</h3>
         <div class="col">
             <div class="row justify-content-center">
-                    <button class="btn btn-danger mr-3" type="submit"> Sí </button>
-                    <a class="btn btn-secondary" href="{% url 'propuesta_corporativa' %}"> No </a>
+                <a class="btn btn-secondary" href="{% url 'propuesta_corporativa' %}"> Cancelar </a>
+                <button class="btn btn-secondary green-bg ml-3" type="submit"> Confirmar </button>
             </div>
         </div>
     </form>

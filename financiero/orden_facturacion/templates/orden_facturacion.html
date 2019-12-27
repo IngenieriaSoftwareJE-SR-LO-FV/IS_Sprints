@@ -56,12 +56,11 @@
 
 <div class="row mt-4">
     <div class="col-12">
-        {% if filter.qs %}
         <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip"
                 data-placement="top" title="Exportar a pdf"></i></a>
         <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
                 data-placement="top" title="Exportar a excel"></i></a>
-        <table id="dtBasicExample" class="table table-responsive-md">
+        <table id="dtBasicExample" class="table table-responsive-md border-bottom">
             <thead class="white-text darkgreen-bg">
                 <!--
                     <tr>
@@ -95,6 +94,7 @@
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
+            {% if filter.qs %}
 
             <tbody>
 
@@ -113,15 +113,15 @@
                     <td scope="row">
 
                         {% if orden.estado != 'ANLD' %}
-                        <a class="btn btn-secondary btn-sm" href="{% url 'orden_facturacion_editar' orden.id %}">
-                            <i class="fas fa-edit"></i></a>
-                        <a onclick='eliminar({{ orden.id }});' class="btn btn-danger btn-sm" data-toggle='modal'
+                        <a class="btn btn-light btn-sm" href="{% url 'orden_facturacion_editar' orden.id %}">
+                            <i class="fas fa-edit darkgreen-text"></i></a>
+                        <a onclick='eliminar({{ orden.id }});' class="btn btn-light btn-sm" data-toggle='modal'
                             data-target="#ordenEliminarCenter" href='#'>
-                            <i class="fas fa-trash"></i></a>
+                            <i class="fas fa-trash darkgreen-text"></i></a>
                         {% endif%}
-                        <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top"
+                        <a class="btn btn-light btn-sm" href="#" data-toggle="tooltip" data-placement="top"
                             title="Imprimir">
-                            <i class="fas fa-print"></i></a>
+                            <i class="fas fa-print darkgreen-text"></i></a>
                         <!--
                             {% if orden.anexo_factura %}
                             <a class="btn btn-secondary btn-sm" href="{{orden.anexo_factura.url}}" target="_blank">
@@ -135,11 +135,11 @@
 
 
             </tbody>
-
+            {% else %}
+            <h2>No hay elementos que mostrar</h2>
+            {% endif %}
         </table>
-        {% else %}
-        <h4>No hay elementos que mostrar</h4>
-        {% endif %}
+       
     </div>
 </div>
 <div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"

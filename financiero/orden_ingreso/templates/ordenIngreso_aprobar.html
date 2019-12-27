@@ -4,81 +4,89 @@
 
 
 {% block content %}
-  <form method="post" enctype="multipart/form-data" >
-    {% csrf_token %}
-    <h2>Orden de Ingreso</h2>
-	<h2 class="text-uppercase">aprobar <span class="darkgreen-text"> Orden de Ingreso</span></h2>
-	<div>
-		<div class="row">
+<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12">
+			<h2 class="text-uppercase">Autorizar <span class="darkgreen-text"> Orden de Ingreso</span></h2>
+		</div>
+	</div>
+	<div class="row mb-2">
+		<div class="col-12">
+		<div class="form-row">
 			<div class="col-xl-3">
-				{{form.fecha|as_crispy_field}}	
+				{{form.fecha|as_crispy_field}}
 			</div>
 			<div class="col-xl-3">
-				{{form.numeroTramite|as_crispy_field}}	
+				{{form.numeroTramite|as_crispy_field}}
 			</div>
 			<div class="col-xl-3">
-				{{form.numeroFactura|as_crispy_field}}	
+				{{form.numeroFactura|as_crispy_field}}
 			</div>
 			<div class="col-xl-3">
-				{{form.identificacion|as_crispy_field}}	
+				{{form.identificacion|as_crispy_field}}
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-xl-6">
-				{{form.razonSocial|as_crispy_field}}	
+				{{form.razonSocial|as_crispy_field}}
 			</div>
 			<div class="col-xl-6">
-				{{form.centroCosto|as_crispy_field}}	
+				{{form.centroCosto|as_crispy_field}}
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-xl-12">
-				{{form.descripcion|as_crispy_field}}	
+				{{form.descripcion|as_crispy_field}}
 			</div>
-			
+
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-4">
-				{{form.formaPago|as_crispy_field}}	
+				{{form.formaPago|as_crispy_field}}
 			</div>
 			<div class="col-4">
-				{{form.fechaPago|as_crispy_field}}	
+				{{form.fechaPago|as_crispy_field}}
 			</div>
 			<div class="col-4">
-				{{form.numeroDocumento|as_crispy_field}}	
+				{{form.numeroDocumento|as_crispy_field}}
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-4">
-				{{form.banco|as_crispy_field}}	
+				{{form.banco|as_crispy_field}}
 			</div>
 			<div class="col-4">
 				{{form.emisoraTarjeta|as_crispy_field}}
 			</div>
 			<div class="col-4">
-				{{form.valor|as_crispy_field}}	
+				{{form.valor|as_crispy_field}}
 			</div>
 		</div>
-		<div class="row">
+		<div class="form-row">
 			<div class="col-xl-5">
-				{{form.anexo|as_crispy_field}}	
+				{{form.anexo|as_crispy_field}}
 			</div>
-			
+
 		</div>
-		<div class="campo"><h5 class="campo">Aprobar orden de ingreso</h5></div>
 		<div class="row">
+			<div class="mt-2 campo p-2 pl-3 col-12">
+				<h5 class="black-text text-uppercase mb-0">Autorizar orden de ingreso</h5>
+			</div>
+		</div>
+		<div class="form-row">
 			<div class="col-4 col-xl-4">
 				{{ form.estado|as_crispy_field }}
 			</div>
 		</div>
 	</div>
 	<div class="row">
-			<div class="col-12">
-				<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
-				<a class="btn btn-secondary" href="{% url 'ordenIngreso' %}"> Cancelar </a>
-			</div>
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'ordenIngreso' %}"> Cancelar </a>
+		</div>
 	</div>
-    
-  </form>
-  
+
+</form>
+
 {% endblock %}

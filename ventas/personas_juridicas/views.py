@@ -51,7 +51,7 @@ class SectorAutocomplete(autocomplete.Select2QuerySetView):
 		return True
 # Create your views here.
 def index_juridicas(request):
-	juridicas_list = Juridica.objects.all().order_by("id")
+	juridicas_list = Juridica.objects.all().order_by("pk")
 
 	filter = forms.JuridicaFilter(request.GET, queryset=juridicas_list )
 	paginator = Paginator(filter.qs, 30) 
@@ -90,18 +90,17 @@ def juridicas_editar(request,pk):
 		p = get_object_or_404(Juridica, pk=pk)
 		form = forms.JuridicaForm(instance=p)
 		#form.fields["fecha"].value=None
-	return render(request, 'personas_juridicas/forma.html', {'form': form})
+	return render(request, 'personas_juridicas/editar_forma.html', {'form': form})
 
 
 def juridicas_eliminar(request,pk=None):
 	if(request.method == "POST"):
-		p = get_object_or_404(Juridica,pk=pk);
+		p = get_object_or_404(Juridica,pk=pk)
 		p.delete()
 		return redirect("index_juridicas")
 	else:
-
-	
 		pk= request.GET.get('pk')
-		p = get_object_or_404(Juridica,pk=pk);
-
+		if len(pk)<13:
+			pk="0"+str(pk)
+		p = get_object_or_404(Juridica,pk=pk)
 		return render(request, 'personas_juridicas/eliminar.html', {'object': p})

@@ -4,127 +4,126 @@
 
 
 {% block content %}
-  <form enctype="multipart/form-data" method="post">
-    {% csrf_token %}
-    <h2>Proformas de Eventos</h2>
-    <div class="campo">
-    	<h5 class="campo">Registro Proforma</h5>
-	</div>
-	<div>
-		<div class="row">
-			<div class="col-xl-3">
-				{{form.codigo|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.version|as_crispy_field}}	
-			</div>
-			<div class="col-xl-6">
-				{{form.nombreProforma|as_crispy_field}}	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-4">
-				{{form.tipoEmpresa|as_crispy_field}}	
-			</div>
-			<div class="col-xl-8">
-				{{form.empresa|as_crispy_field}}	
-			</div>		
-		</div>
-		<div class="row">
-			<div class="col-xl-6">
-				{{form.sector|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.fechaSolicitud|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.fechaEnvio|as_crispy_field}}	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-3">
-				{{form.numeroParticipantes|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.horas|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.cantidadCursos|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.montoProforma|as_crispy_field}}	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-3">
-				{{form.estado|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.porcentExito|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.porcentDesc|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.montoDesc|as_crispy_field}}	
-			</div>
-		</div>
-		<div class=row>
-			<div class="col-xl-12">
-				{{form.observacion|as_crispy_field}}
-			</div>	
-		</div>
-		<div class=row>
-			<div class="col-xl-12">
-				{{form.anexos|as_crispy_field}}
-			</div>
-		</div>
-		<div class=row>
-			<div class="col-xl-12">
-				{{form.nombre|as_crispy_field}}
-			</div>	
+<form enctype="multipart/form-data" method="post">
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12 col-xl-12">
+			<h2 class="text-uppercase darkgreen-text">
+				{% block regedit %}
+				Registro Proformas de Eventos
+				{% endblock regedit %}
+			</h2>
 		</div>
 	</div>
-	<div class="campo">
-	    	<h5 class="campo">Aceptación Proforma</h5>
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-xl-3">
+					{{form.codigo|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.version|as_crispy_field}}
+				</div>
+				<div class="col-xl-6">
+					{{form.nombreProforma|as_crispy_field}}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xl-4">
+					{{form.tipoEmpresa|as_crispy_field}}
+				</div>
+				<div class="col-xl-8">
+					{{form.empresa|as_crispy_field}}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xl-6">
+					{{form.sector|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.fechaSolicitud|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.fechaEnvio|as_crispy_field}}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xl-3">
+					{{form.numeroParticipantes|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.horas|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.cantidadCursos|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.montoProforma|as_crispy_field}}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xl-3">
+					{{form.estado|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.porcentExito|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.porcentDesc|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.montoDesc|as_crispy_field}}
+				</div>
+			</div>
+			<div class=form-row>
+				<div class="col-xl-12">
+					{{form.observacion|as_crispy_field}}
+				</div>
+			</div>
+			<div class=form-row>
+				<div class="col-xl-6">
+					{{form.anexos|as_crispy_field}}
+				</div>
+				<div class="col-xl-6">
+					{{form.nombre|as_crispy_field}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt-2 campo p-2 pl-3 col-12">
+					<h5 class="black-text text-uppercase mb-0">Aceptación Proforma</h5>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-xl-3 mr-xl-5">
+					{{form.fechaRespuesta|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.montoAceptado|as_crispy_field}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-3 mr-xl-5">
+					{{form.montoEjecutado|as_crispy_field}}
+				</div>
+				<div class="col-xl-3">
+					{{form.montoPorEjecutarse|as_crispy_field}}
+				</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<div class="row">
-			<div class="col-xl-3 mr-xl-5">
-				{{form.fechaRespuesta|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.montoAceptado|as_crispy_field}}	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xl-3 mr-xl-5">
-				{{form.montoEjecutado|as_crispy_field}}	
-			</div>
-			<div class="col-xl-3">
-				{{form.montoPorEjecutarse|as_crispy_field}}	
-			</div>
-		</div>
-		<div class="row mt-3">
-			<div class="col-12">
-				<button type="submit" class="btn btn-secondary">Guardar</button>
-				<a class="btn btn-light" href="{% url 'proforma_lista' %}"> Cancelar </a>
-			</div>
+
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'proforma_lista' %}"> Cancelar </a>
 		</div>
 	</div>
-	
-    
-    {{ form.media }}
-  </form>
-  {% block extrafooter %}
-  <script src="{% static 'js/proforma_nuevo.js' %}"></script>
-  {% endblock extrafooter %}
-  
+
+
+	{{ form.media }}
+</form>
+{% block extrafooter %}
+<script src="{% static 'js/proforma_nuevo.js' %}"></script>
+{% endblock extrafooter %}
+
 {% endblock %}
-
-
-		
-
-
-
-

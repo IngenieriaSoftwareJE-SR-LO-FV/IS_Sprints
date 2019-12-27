@@ -6,20 +6,17 @@
 
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/natural.css' %}">
-<div class="row" id="title">
-	<div class="col-9">
-		<h2>Persona Natural</h2>
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>CONSULTAS <span class="darkgreen-text">PERSONA NATURAL</span></h2>
 	</div>
-	<div class="col-3 ">
-		<a class="btn btn-secondary float-right" href="nuevo"><i class="fas fa-plus"></i> Agregar nuevo</a>
+	<div class="col-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="nuevo"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>
 	</div>
 </div>
-<div class="campo">
-	<h5 class="consultas campo" class="col-12 col-xl-12">Consultas</h5>
-</div>
-<div class="row">
-	<div class="col-12 col-xl-12">
+<div class="row darkwhite-bg py-2">
+	<div class="col-12">
 		<form method="GET">
 			{% csrf_token %}
 			<div class="row">
@@ -88,86 +85,86 @@
 				</div>
 			</div>
 			<div>
-				<button type="submit" class="btn btn-secondary float-right">
+				<button type="submit" class="btn btn-secondary green-bg float-right">
 					<i class="fas fa-search"></i> Buscar</button>
 			</div>
 		</form>
 	</div>
 </div>
 <br>
-<div class="row">
+<div class="row mt-2">
 	<div class="col-12 col-xl-12">
-		{% if naturales %}
-		<div class="table-container">
-			<table id="dtBasicExample" class="table table-bordered">
-				<thead class="thead-light">
-					<tr>
-						<th scope="col">Acciones</th>
-						<th scope="col">Cédula</th>
-						<th scope="col">Apellidos</th>
-						<th scope="col">Nombres</th>
-						<th scope="col">Fecha de Nacimiento</th>
-						<th scope="col">Telefono</th>
-						<th scope="col">Celular</th>
-						<th scope="col">Email</th>
-						<th scope="col">Ciudad</th>
-						<th scope="col">Dirección</th>
-						<th scope="col">Nivel de Estudio</th>
-						<th scope="col">Titulo Tercer Nivel</th>
-						<th scope="col">Universidad Tercer Nivel</th>
-						<th scope="col">Titulo Postgrado</th>
-						<th scope="col">Universidad Postgrado</th>
-						<th scope="col">Profesión</th>
-						<th scope="col">Trabajo</th>
-						<th scope="col">Empresa</th>
-						<th scope="col">Cargo</th>
-						<th scope="col">Ciudad Trabajo</th>
-						<th scope="col">Area/Departamento</th>
-						<th scope="col">Dirección Trabajo</th>
-						<th scope="col">Teléfono Trabajo</th>
-						<th scope="col">Red Social</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for persona in naturales %}
-					<tr>
-						<td scope="row">
-							<a class="btn btn-secondary btn-sm"
-								href="{% url 'natural_editar' persona.cedula %}"><i class="fas fa-edit"></i></a>
-							<a href='javascript:;' onclick='eliminar({{ persona.cedula }});'
-								class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-						</td>
-						<td scope="row">{{ persona.cedula }}</td>
-						<td scope="row">{{ persona.apellidos }}</td>
-						<td scope="row">{{ persona.nombres }}</td>
-						<td scope="row">{{ persona.fecha_nacimiento }}</td>
-						<td scope="row">{{ persona.tel_domicilio }}</td>
-						<td scope="row">{{ persona.celular }}</td>
-						<td scope="row">{{ persona.email }}</td>
-						<td scope="row">{{ persona.ci_domicilio }}</td>
-						<td scope="row">{{ persona.dir_domicilio }}</td>
-						<td scope="row">{{ persona.nivel_estudio }}</td>
-						<td scope="row">{{ persona.ti_tercernivel }}</td>
-						<td scope="row">{{ persona.un_tercernivel }}</td>
-						<td scope="row">{{ persona.ti_postgrado }}</td>
-						<td scope="row">{{ persona.un_postgrado }}</td>
-						<td scope="row">{{ persona.profesion }}</td>
-						<td scope="row">{{ persona.forma_trabajo }}</td>
-						<td scope="row">{{ persona.empresa }}</td>
-						<td scope="row">{{ persona.cargo }}</td>
-						<td scope="row">{{ persona.ci_trabajo }}</td>
-						<td scope="row">{{ persona.area }}</td>
-						<td scope="row">{{ persona.dir_trabajo }}</td>
-						<td scope="row">{{ persona.tel_trabajo }}</td>
-						<td scope="row">{{ persona.medios }}</td>
-					</tr>
-					{% endfor%}
-				</tbody>
-			</table>
-		</div>
-		{% else %}
-		<h4>No hay elementos que mostrar</h4>
-		{% endif %}
+		<table id="dtBasicExample" class="table table-responsive">
+			<thead class="white-text darkgreen-bg">
+				<tr>
+					<th scope="col">Cédula</th>
+					<th scope="col">Apellidos</th>
+					<th scope="col">Nombres</th>
+					<th scope="col">Fecha de Nacimiento</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Celular</th>
+					<th scope="col">Email</th>
+					<th scope="col">Ciudad</th>
+					<th scope="col">Dirección</th>
+					<th scope="col">Nivel de Estudio</th>
+					<th scope="col">Titulo Tercer Nivel</th>
+					<th scope="col">Universidad Tercer Nivel</th>
+					<th scope="col">Titulo Postgrado</th>
+					<th scope="col">Universidad Postgrado</th>
+					<th scope="col">Profesión</th>
+					<th scope="col">Trabajo</th>
+					<th scope="col">Empresa</th>
+					<th scope="col">Cargo</th>
+					<th scope="col">Ciudad Trabajo</th>
+					<th scope="col">Area/Departamento</th>
+					<th scope="col">Dirección Trabajo</th>
+					<th scope="col">Teléfono Trabajo</th>
+					<th scope="col">Red Social</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			{% if naturales %}
+
+			<tbody>
+				{% for persona in naturales %}
+				<tr class="text-center">
+					<td scope="row">{{ persona.cedula }}</td>
+					<td scope="row">{{ persona.apellidos }}</td>
+					<td scope="row">{{ persona.nombres }}</td>
+					<td scope="row">{{ persona.fecha_nacimiento }}</td>
+					<td scope="row">{{ persona.tel_domicilio }}</td>
+					<td scope="row">{{ persona.celular }}</td>
+					<td scope="row">{{ persona.email }}</td>
+					<td scope="row">{{ persona.ci_domicilio }}</td>
+					<td scope="row">{{ persona.dir_domicilio }}</td>
+					<td scope="row">{{ persona.nivel_estudio }}</td>
+					<td scope="row">{{ persona.ti_tercernivel }}</td>
+					<td scope="row">{{ persona.un_tercernivel }}</td>
+					<td scope="row">{{ persona.ti_postgrado }}</td>
+					<td scope="row">{{ persona.un_postgrado }}</td>
+					<td scope="row">{{ persona.profesion }}</td>
+					<td scope="row">{{ persona.forma_trabajo }}</td>
+					<td scope="row">{{ persona.empresa }}</td>
+					<td scope="row">{{ persona.cargo }}</td>
+					<td scope="row">{{ persona.ci_trabajo }}</td>
+					<td scope="row">{{ persona.area }}</td>
+					<td scope="row">{{ persona.dir_trabajo }}</td>
+					<td scope="row">{{ persona.tel_trabajo }}</td>
+					<td scope="row">{{ persona.medios }}</td>
+					<td scope="row">
+						<a class="btn btn-light btn-sm btn-block" href="{% url 'natural_editar' persona.cedula %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+						<a onclick='eliminar({{ persona.cedula }});' class="btn btn-light btn-sm btn-block"
+							data-toggle='modal' data-target="#personaEliminar" href='#'><i
+								class="fas fa-trash darkgreen-text"></i></a>
+					</td>
+				</tr>
+				{% endfor%}
+			</tbody>
+			{% else %}
+			<h2>No hay elementos que mostrar</h2>
+			{% endif %}
+		</table>
 	</div>
 </div>
 <!--
@@ -213,10 +210,10 @@
 
 </ul>
 -->
-<div id="myModal" class="modal">
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<div id="modal-form">
+<div class="modal fade" id="personaEliminar" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
 		</div>
 	</div>
 </div>
@@ -229,37 +226,13 @@
 <script>
 
 	function eliminar(id) {
-		var modal = document.getElementById("myModal");
-		modal.style.display = "block";
-
-		var span = document.getElementsByClassName("close")[0];
-
-
-		span.onclick = function () {
-			modal.style.display = "none";
-		}
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-
 		$.ajax({
 			url: "{% url 'natural_eliminar' %}",
 			data: { "cedula": id },
 			success: function (data) {
-				$("#modal-form").html(data);
+				$(".modal-content").html(data);
 			}
 		});
-	}
-
-	function cerrar(e) {
-		var modal = document.getElementById("myModal");
-		modal.style.display = "block";
-		modal.style.display = "none";
-
 	}
 </script>
 {% endblock extrafooter %}

@@ -42,7 +42,7 @@ def natural_nuevo(request):
 class NaturalUpdate(UpdateView):
 	model = Persona_Natural
 	form_class = Natural_NuevoForm
-	template_name = 'personas_naturales/natural_nuevo.html'
+	template_name = 'personas_naturales/natural_editar.html'
 	success_url = reverse_lazy('natural_lista')
 
 def natural_delete(request, pk=None):

@@ -6,80 +6,92 @@
 
 {% block content %}
 
-<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
+<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}"
+	data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2 class="text-uppercase darkgreen-text">Registro Orden de Pago</h2>
-	<div class="form-row">
-		<div class="col-3">
-			{{ form.estado|as_crispy_field }}
-		</div>
-		<div class="col-3">
-			{{ form.cod_ord_pago|as_crispy_field }}
-		</div>
-		<div class="col-3">
-			{{ form.n_tramite|as_crispy_field }}
-		</div>
-		<div class="col-3">
-			{{ form.fecha|as_crispy_field }}
+	<div class="row mb-2">
+		<div class="col-12">
+			<h2 class="text-uppercase darkgreen-text">Registro Orden de Pago</h2>
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="col-3 col-xl-3">
-			{{ form.tipo_proveedor|as_crispy_field }}
-		</div>
-		<div class="col-8 col-xl-6" id="field-proveedor">
-			<div id="div_id_ruc_ci" class="form-group">
-		        <label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField" id="ruc_ci">Razón social/Nombre</label><span
-		          class="asteriskField">*</span>
-		        <div>
-		          {{ form.proveedor}}
-		          {% if form.proveedor.errors %}
-		          {% for error in form.proveedor.errors %}
-		          <p class="invalid-feedback d-block">
-		            <strong>{{ error }}</strong>
-		          </p>
-		          {% endfor %}
-		          {% endif %}
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-3">
+					{{ form.estado|as_crispy_field }}
+				</div>
+				<div class="col-3">
+					{{ form.cod_ord_pago|as_crispy_field }}
+				</div>
+				<div class="col-3">
+					{{ form.n_tramite|as_crispy_field }}
+				</div>
+				<div class="col-3">
+					{{ form.fecha|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-3 col-xl-3">
+					{{ form.tipo_proveedor|as_crispy_field }}
+				</div>
+				<div class="col-8 col-xl-6" id="field-proveedor">
+					<div id="div_id_ruc_ci" class="form-group">
+						<label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField"
+							id="ruc_ci">Razón
+							social/Nombre</label><span class="asteriskField">*</span>
+						<div>
+							{{ form.proveedor}}
+							{% if form.proveedor.errors %}
+							{% for error in form.proveedor.errors %}
+							<p class="invalid-feedback d-block">
+								<strong>{{ error }}</strong>
+							</p>
+							{% endfor %}
+							{% endif %}
 
-		        </div>
-      		</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-3 col-xl-3">
+					{{ form.centro_costos|as_crispy_field }}
+				</div>
+				<div class="col-9 col-xl-6">
+					{{ form.egreso|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4 col-xl-4">
+					{{ form.tipo_comprobante|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.n_comprobante|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.forma_pago|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-6">
+					{{ form.concepto|as_crispy_field }}
+				</div>
+				<div class="col-12 col-xl-6">
+					{{ form.observacion|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-6">
+					{{ form.anexo|as_crispy_field }}
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="col-3 col-xl-3">
-			{{ form.centro_costos|as_crispy_field }}
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
 		</div>
-		<div class="col-9 col-xl-6">
-			{{ form.egreso|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-4 col-xl-4">
-			{{ form.tipo_comprobante|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.n_comprobante|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.forma_pago|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-6">
-			{{ form.concepto|as_crispy_field }}
-		</div>
-		<div class="col-12 col-xl-6">
-			{{ form.observacion|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-6">
-			{{ form.anexo|as_crispy_field }}
-		</div>
-	</div>
-	<div class="mt-3">
-		<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
-		<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
 	</div>
 	{{ form.media }}
 </form>
@@ -90,23 +102,23 @@
 <script src="{% static 'js/orden_pago.js' %}"></script>
 
 <script type="text/javascript">
-	window.onload = function() {
-       	document.getElementById("id_cod_ord_pago").readOnly=true;
-       	document.getElementById("id_estado").disabled=true;
-    };
+	window.onload = function () {
+		document.getElementById("id_cod_ord_pago").readOnly = true;
+		document.getElementById("id_estado").disabled = true;
+	};
 
-    $("#id_centro_costos").change(function () {
-      	var url = $("#ordenPagoForm").attr("data-egresos-url");
-      	var ccId = $(this).val();
-      	$.ajax({                       
-        	url: url,
-        	data: {
-          		'centroc': ccId
-        	},
-	        success: function (data) {
-	          	$("#id_egreso").html(data);
-	        }
-      	});
-    });
+	$("#id_centro_costos").change(function () {
+		var url = $("#ordenPagoForm").attr("data-egresos-url");
+		var ccId = $(this).val();
+		$.ajax({
+			url: url,
+			data: {
+				'centroc': ccId
+			},
+			success: function (data) {
+				$("#id_egreso").html(data);
+			}
+		});
+	});
 </script>
 {% endblock %}

@@ -5,20 +5,19 @@
 {% block title %}{{ "EC - Presupuestos Evento" }}{% endblock title %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/presupuestos.css' %}">
-<div class="row">
-		<h2 class="col-9 col-xl-9">Presupuestos Eventos</h2>
-		<div class="col-3 col-xl-3">
-			<a class="btn btn-secondary float-right" href="{% url 'nuevo_presupuestos' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+<div class="row d-flex mb-2 white-bg">
+	<div class="col-9 v-align">
+        <h2 class="text-uppercase">CONSULTAS <span class="darkgreen-text">Presupuestos Eventos</span></h2>
+    </div>
+	<div class="col-3 col-xl-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="{% url 'nuevo_presupuestos' %}"><i class="fas fa-plus"></i>
+			Agregar nuevo</a>
 	</div>
 </div>
-<div class="campo ">
-	<h5 class="campo consultas">Consultas</h5>
-</div>
-<div class="row">
+<div class="row darkwhite-bg py-2 mb-2">
 	<div class="col-12 col-xl-12">
 		<form method="get">
 			{% csrf_token %}
-			<h5>Información Presupuesto</h5>
 			<div class="row">
 				<div class="col-4 col-xl-4">
 					{{ filter.form.codigo|as_crispy_field }}
@@ -29,7 +28,7 @@
 				<div class="col-4 col-xl-4">
 					{{ filter.form.aula|as_crispy_field }}
 				</div>
-				
+
 			</div>
 			<div class="row">
 				<div class="col-4 col-xl-4">
@@ -70,27 +69,26 @@
 			<div class="row">
 
 
-				
+
 				<div class="col-4 col-xl-4">
 					{{ filter.form.estado|as_crispy_field }}
 				</div>
 			</div>
-	
-			<button  type="submit" class="btn btn-secondary float-right">
+
+			<button type="submit" class="btn btn-secondary green-bg float-right">
 				<i class="fas fa-search"></i> Buscar</button>
 			{{ filter.form.media }}
 		</form>
-		
+
 	</div>
 </div>
 
-{% if presupuestos %}
-<div class="row">
+<div class="row mt-4">
 	<div class="col-12 col-xl-12">
-		<table id="dtBasicExample" class="table table-bordered">
-			<thead class="thead-light">
+		<table id="dtBasicExample" class="table table-responsive-md  border-bottom">
+			<thead class="white-text darkgreen-bg">
 				<tr>
-					<th scope="col">Código</th> 
+					<th scope="col">Código</th>
 					<th scope="col">Nombre</th>
 					<th scope="col">Fecha</th>
 					<th scope="col">Aula</th>
@@ -101,10 +99,11 @@
 					<th scope="col">Opciones</th>
 				</tr>
 			</thead>
+			{% if presupuestos %}
 			<tbody>
 				{% for p in presupuestos %}
-				<tr>
-					<td scope="row">{{p.codigo}}</td> 
+				<tr class="text-center">
+					<td scope="row">{{p.codigo}}</td>
 					<td scope="row">{{p.nombre}}</td>
 					<td scope="row">{{p.fecha}}</td>
 					<td scope="row">{{p.aula}}</td>
@@ -113,21 +112,24 @@
 					<td scope="row">{{p.n_participantes}}</td>
 					<td scope="row">{{p.estado}}</td>
 					<td scope="row">
-						<a class="btn btn-secondary btn-sm" href="{% url 'editar_presupuestos' pk=p.id %}"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-secondary btn-sm" href="{% url 'editar_presupuestos' pk=p.id %}"><i
+								class="fas fa-edit"></i></a>
 
-						<a href='javascript:;' onclick='eliminar({{ p.id }});' class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='eliminar({{ p.id }});' class="btn btn-danger btn-sm"><i
+								class="fas fa-trash"></i></a>
 					</td>
 				</tr>
 				{% endfor %}
 			</tbody>
+			{% else %}
+			<h2>No hay elementos que mostrar</h2>
+			{% endif %}
 		</table>
 	</div>
 </div>
 
 
-{% else %}
-<h2>No hay elementos que mostrar</h2>
-{% endif %}
+
 <!--
 <ul class="pagination justify-content-center">
 		{% if presupuestos.has_previous %}
@@ -171,51 +173,51 @@
 
   </ul>
 -->
-  
+
 <div id="myModal" class="modal">
 
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="modal-form">
-    	
-    </div>
-  </div>
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<div id="modal-form">
+
+		</div>
+	</div>
 </div>
 {% endblock %}
 {% block extrafooter%}
 <script src="{% static 'js/table.js' %}"></script>
 
 <script>
-  	function eliminar(id){
-  		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
+	function eliminar(id) {
+		var modal = document.getElementById("myModal");
+		modal.style.display = "block";
 
 		var span = document.getElementsByClassName("close")[0];
 
 
-		span.onclick = function() {
-		  modal.style.display = "none";
+		span.onclick = function () {
+			modal.style.display = "none";
 		}
 
 		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  if (event.target == modal) {
-		    modal.style.display = "none";
-		  }
-		  	}
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
 
-		  	$.ajax({
-		        url: "{% url 'eliminar_presupuestos' %}",  
-		        data:{"pk":id}, 
-		        success: function (data) {   
-		           $("#modal-form").html(data);  
-		      }
-		  });
+		$.ajax({
+			url: "{% url 'eliminar_presupuestos' %}",
+			data: { "pk": id },
+			success: function (data) {
+				$("#modal-form").html(data);
+			}
+		});
 	}
 
-	function cerrar(e){
+	function cerrar(e) {
 		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
+		modal.style.display = "block";
 		modal.style.display = "none";
 
 	}

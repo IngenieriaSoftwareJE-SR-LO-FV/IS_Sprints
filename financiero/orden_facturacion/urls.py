@@ -19,5 +19,6 @@ urlpatterns = [
     path('participante/editar/<pk>/<fk>/',views.ParticipanteUpdate.as_view(),name='participante_editar'),
     path('participante/eliminar/<pk>/<fk>/',views.ParticipanteDelete.as_view(),name='participante_eliminar'),
     path('ajax/confirmar-eliminar-par',views.participante_conf_elim,name='participante_confirmar_eliminar'),
+    path('aprobar/<pk>',views.aprobar_orden_facturacion, name="orden_facturacion_aprobar"),
 
 ]

@@ -1,28 +1,31 @@
-
 {% extends 'base_ventas.html' %}
 {% load static %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 {% block title %}{{ "EC - Persona Jurídica" }}{% endblock title %}
 {% block extraheader %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/juridicas_index.css' %}"> 
 {% endblock extraheader %}
 {% block content %}
-<div class="row">
-		<h2 class="col-9 col-xl-9">Persona Jurídica</h2>
-		<div class="col-3 col-xl-3">
-			<a class="btn btn-secondary float-right" href="{% url 'juridicas_view' %}"><i class="fas fa-plus"></i> Agregar nuevo</a>
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>CONSULTAS <span class="darkgreen-text">PERSONAS JURÍDICAS</span></h2>
+	</div>
+	<div class="col-3 col-xl-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="{% url 'juridicas_view' %}"><i class="fas fa-plus"></i>
+			Agregar
+			nuevo</a>
 	</div>
 </div>
-<div class="campo ">
-	<h5 class="campo consultas">Consultas</h5>
-</div>
-<div class="row">
+<div class="row darkwhite-bg pb-2">
 	<div class="col-12 col-xl-12">
 		<form method="get" id="forma_test" data-cities-url="{% url 'ajax_load_ciudades' %}" novalidate>
 			{% csrf_token %}
-			<h5>Información Empresa</h5>
-			<div class="row">
+			<div class="row mb-2">
+				<div class="campo p-2 pl-3 col-12">
+					<h5 class="black-text text-uppercase mb-0">Información Empresa</h5>
+				</div>
+			</div>
+			<div class="form-row">
 				<div class="col-8 col-xl-8">
 					{{ filter.form.nombre|as_crispy_field }}
 				</div>
@@ -30,7 +33,7 @@
 					{{ filter.form.ruc|as_crispy_field }}
 				</div>
 			</div>
-			<div class="row">
+			<div class="form-row">
 				<div class="col-5 col-xl-5">
 					{{ filter.form.tipo_empresa|as_crispy_field }}
 				</div>
@@ -38,7 +41,7 @@
 					{{ filter.form.sector|as_crispy_field }}
 				</div>
 			</div>
-			<div class="row">
+			<div class="form-row">
 
 				<div class="col-2 col-xl-2">
 					{{ filter.form.provincia|as_crispy_field }}
@@ -50,9 +53,7 @@
 					{{ filter.form.direccion|as_crispy_field }}
 				</div>
 			</div>
-			<div class="row">
-
-
+			<div class="form-row">
 				<div class="col-3 col-xl-3">
 					{{ filter.form.telefono|as_crispy_field }}
 				</div>
@@ -66,9 +67,13 @@
 					{{ filter.form.forma_pago|as_crispy_field }}
 				</div>
 			</div>
-			<h5>Contacto empresa</h5>
+			<div class="row my-2">
+				<div class="campo p-2 pl-3 col-12">
+					<h5 class="black-text text-uppercase mb-0">Contacto Empresa</h5>
+				</div>
+			</div>
 
-			<div class="row">
+			<div class="form-row">
 				<div class="col-4 col-xl-4">
 					{{ filter.form.contacto_cedula|as_crispy_field }}
 				</div>
@@ -79,9 +84,7 @@
 					{{ filter.form.contacto_apellidos|as_crispy_field }}
 				</div>
 			</div>
-			<div class="row">
-
-
+			<div class="form-row">
 				<div class="col-4 col-xl-4">
 					{{ filter.form.contacto_telefono|as_crispy_field }}
 				</div>
@@ -92,24 +95,21 @@
 					{{ filter.form.contacto_correo|as_crispy_field }}
 				</div>
 			</div>
-			
-			<button  type="submit" class="btn btn-secondary float-right">
+
+			<button type="submit" class="btn btn-secondary green-bg float-right">
 				<i class="fas fa-search"></i> Buscar</button>
 			{{ filter.form.media }}
 		</form>
-		
+
 	</div>
 </div>
 
-{% if juridicas %}
-<div class="row">
+<div class="row mt-4">
 	<div class="col-12 col-xl-12 table-container">
-		{# Each "contact" is a Contact model object. #}
-		<table id="dtBasicExample" class="table table-bordered">
-			<thead class="thead-light">
+		<table id="dtBasicExample" class="table table-responsive border-bottom">
+			<thead class="white-text darkgreen-bg">
 				<tr>
-					<th scope="col">Acciones</th> 
-					<th scope="col">RUC</th> 
+					<th scope="col">RUC</th>
 					<th scope="col">Razón Social</th>
 					<th scope="col">Ciudad</th>
 					<th scope="col">Provincia</th>
@@ -119,22 +119,19 @@
 					<th scope="col">Teléfono</th>
 					<th scope="col">Celular</th>
 					<th scope="col">Representante legal</th>
-					<th scope="col">Contacto Empresa</th>
-					<th scope="col">Contacto Empresa Teléfono</th>
-					<th scope="col">Contacto Empresa Celular</th>
-					<th scope="col">Contacto Empresa Email</th>
+					<th scope="col">Contacto </th>
+					<th scope="col">Contacto Teléfono</th>
+					<th scope="col">Contacto Celular</th>
+					<th scope="col">Contacto Email</th>
+					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
+			{% if juridicas %}
 			<tbody>
 				{% for j in juridicas %}
-				<tr>
-					<td scope="row">
-						<a class="btn btn-secondary btn-sm" href="{% url 'editar_juridica' pk=j.id %}"><i class="fas fa-edit"></i></a>
-
-						<a href='javascript:;' onclick='eliminar({{ j.id }});' class="btn btn-danger btn-sm" ><i class="fas fa-trash"></i></a>
-					</td>
+				<tr class="text-center">
 					<td scope="row">{{j.ruc}}</td>
-					 <td scope="row">{{j.nombre}}</td>
+					<td scope="row">{{j.nombre}}</td>
 					<td scope="row">{{j.ciudad}}</td>
 					<td scope="row">{{j.provincia}}</td>
 					<td scope="row">{{j.tipo_empresa}}</td>
@@ -147,126 +144,64 @@
 					<td scope="row">{{j.contacto_telefono}}</td>
 					<td scope="row">{{j.contacto_celular}}</td>
 					<td scope="row">{{j.contacto_correo}}</td>
+					<td scope="row">
+						<a class="btn btn-light btn-sm btn-block" href="{% url 'editar_juridica' pk=j.pk %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+
+						<a onclick='eliminar({{ j.pk }});' class="btn btn-light btn-sm btn-block" data-toggle='modal'
+							data-target="#personaEliminar" href='#'><i class="fas fa-trash darkgreen-text"></i></a>
+					</td>
 				</tr>
 				{% endfor %}
 			</tbody>
+
+			{% else %}
+			<h2>No hay elementos que mostrar</h2>
+			{% endif %}
 		</table>
 	</div>
 </div>
-
-
-{% else %}
-<h2>No hay elementos que mostrar</h2>
-{% endif %}
-<!--
-<ul class="pagination justify-content-center">
-		{% if juridicas.has_previous %}
-		
-		<li class="page-item">
-
-			<a class="page-link" href="?page={{ juridicas.previous_page_number }}">Anterior</a>
-		</li>
-		<li class="page-item">
-			<a class="page-link" href="?page={{ juridicas.previous_page_number }}">{{ juridicas.previous_page_number }}</a>
-		</li>
-
-		{% else %}
-			<li class="page-item disabled">
-			<a class="page-link" tabindex="-1" href="#">Anterior</a>
-		</li>
-		{% endif %}
-
-    
-    <li class="page-item active">
-    	<span class="page-link">
-        {{ juridicas.number }}
-        <span class="sr-only">(current)</span>
-      </span>
-    </li>
-
-    {% if juridicas.has_next %}
-    <li class="page-item">
-			<a class="page-link" href="?page={{ juridicas.next_page_number }}">{{ juridicas.next_page_number }}</a>
-		</li>
-    	<li class="page-item">
-			<a class="page-link" href="?page={{ juridicas.next_page_number }}">Siguiente</a>
-		</li>
-		
-	
-	{% else %}
-		<li class="page-item disabled">
-			<a class="page-link" tabindex="-1" href="#">Siguiente</a>
-		</li>
-	{% endif %}
-
-  </ul>
--->
+<div class="modal fade" id="personaEliminar" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		</div>
+	</div>
+</div>
 {% endblock %}
 
-{% block extrafooter %}  
+{% block extrafooter %}
 <script src="{% static 'js/table.js' %}"></script>
 
 <script>
 	$("#id_provincia").change(function () {
-      var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
-      var countryId = $(this).val();  // get the selected country ID from the HTML input
+		var url = $("#forma_test").attr("data-cities-url");  // get the url of the `load_cities` view
+		var countryId = $(this).val();  // get the selected country ID from the HTML input
 
-      $.ajax({                       // initialize an AJAX request
-        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
-        data: {
-          'provincia': countryId       // add the country id to the GET parameters
-      },
-        success: function (data) {   // `data` is the return of the `load_cities` view function
-          $("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server
-      }
-  });
+		$.ajax({                       // initialize an AJAX request
+			url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+			data: {
+				'provincia': countryId       // add the country id to the GET parameters
+			},
+			success: function (data) {   // `data` is the return of the `load_cities` view function
+				$("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server
+			}
+		});
 
-  });
+	});
 </script>
 
 
-<div id="myModal" class="modal">
-
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="modal-form">
-    	
-    </div>
-  </div>
-</div>
 <script>
-  	function eliminar(id){
-  		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
-
-		var span = document.getElementsByClassName("close")[0];
-
-
-		span.onclick = function() {
-		  modal.style.display = "none";
-		}
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  if (event.target == modal) {
-		    modal.style.display = "none";
-		  }
-		  	}
-
-		  	$.ajax({
-		        url: "{% url 'eliminar_juridica' %}",  
-		        data:{"pk":id}, 
-		        success: function (data) {   
-		           $("#modal-form").html(data);  
-		      }
-		  });
+	function eliminar(id) {
+		$.ajax({
+			url: "{% url 'eliminar_juridica' %}",
+			data: { "pk": id },
+			success: function (data) {
+				$(".modal-content").html(data);
+			}
+		});
 	}
 
-	function cerrar(e){
-		var modal = document.getElementById("myModal");
-  		modal.style.display = "block";
-		modal.style.display = "none";
-
-	}
 </script>
 {% endblock %}

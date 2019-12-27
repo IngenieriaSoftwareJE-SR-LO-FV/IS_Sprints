@@ -36,14 +36,13 @@
     </div>
 </div>
 
-<div class="row mt-5">
+<div class="row mt-4">
     <div class="col-12">
-        {% if filter.qs %}
         <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip"
                 data-placement="top" title="Exportar a pdf"></i></a>
         <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
                 data-placement="top" title="Exportar a excel"></i></a>
-        <table id="dtBasicExample" class="table table-responsive-md">
+        <table id="dtBasicExample" class="table table-responsive-md border-bottom">
             <thead class="darkgreen-bg white-text">
                 <tr>
                     <th>Fecha</th>
@@ -55,6 +54,8 @@
 
                 </tr>
             </thead>
+            {% if filter.qs %}
+
             <tbody>
 
 
@@ -89,10 +90,11 @@
                 {% endfor %}
 
             </tbody>
-        </table>
-        {% else %}
-        <h4>No hay elementos que mostrar</h4>
+            {% else %}
+        <h2>No hay elementos que mostrar</h2>
         {% endif %}
+        </table>
+        
     </div>
 </div>
 <div class="modal fade" id="ordenEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"

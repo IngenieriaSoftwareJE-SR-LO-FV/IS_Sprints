@@ -5,7 +5,7 @@
 <!doctype "html5">
 
 
-<html>
+<html lang="en" class="full-height">
 
 <head>
 
@@ -14,179 +14,196 @@
 		{% block title %}{{ page_title|default:"Educación Continua Ventas" }}{% endblock title %}
 	</title>
 	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 	<link href="{% static 'css/addons/datatables.min.css' %}" rel="stylesheet">
+	{% bootstrap_css %}
+	{% fontawesome_5_static %}
+
 	{% block extraheader %}
 
 	{% endblock extraheader %}
 
 
-	{% bootstrap_css %}
-	{% fontawesome_5_static %}
-
 </head>
 
 <body>
 	<div class="container-fluid">
-		<div class="row">
-			<header class="col-12 col-xl-12">
-				<div class="row">
-					<a class="col-xl-3 col-6" href="#">
-						<img class="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
-					</a>
-					<div class="col-xl-5 col-">
+		<div id="main" class="row">
+			<div class="col-12 col-xl-2" id="mainmenu">
+				<div class="row p-3" id="userinfo">
+					<div class="col-12 px-5 d-flex justify-content-center">
+						<img src="{% static 'img/user.png' %}" class="rounded-circle" alt="userimg">
 					</div>
-					<div class="col-6 col-xl-2">
-						<p id="username">user@mail.com</p>
-					</div>
-
-					<div class="col-6 col-xl-2">
-						<a href=# class="align-middle btn btn-secondary btn-block">Salir</a>
-					</div>
-				</div>
-			</header>
-		</div>
-		<div class="row">
-			<div class="col-3 col-xl-3">
-				<div id="menu" class="row menulat">
-					<div class="col-12 mlat">
-						<div id="titulo" class="row">
-							<h5>Menú</h5>
+					<div class="col-12 mt-2">
+						<div class=" d-flex row justify-content-center">
+							<span>user@mail.com</span>
+						</div>
+						<div class="d-flex row justify-content-center">
+							<small>Nombre del Usuario</small>
 						</div>
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-12 py-2">
+						MENÚ
+					</div>
+				</div>
+				<div class="row" id="accordion">
 					<div class="col-12">
-						<a class="menu" href="{% url 'natural_lista' %}">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span> Persona Natural</span>
+						<div id="menu" class="row" data-toggle="collapse" data-target="#collapseTwo"
+							aria-expanded="true" aria-controls="collapseTwo">
+							<div class="col-12 mlat">
+								<div id="titulo" class="row">
+									<div class="col-10">
+										<span class="px-2">PERSONAS</span>
+									</div>
+									<div class="col-2">
+										<i class="fas fa-angle-down"></i>
+									</div>
 								</div>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="{% url 'index_juridicas' %}">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span> Persona Jurídica</span>
-								</div>
+						</div>
+						<div id="collapseTwo" class="collapse row">
+							<div class="col-12">
+								<a class="menu" href="{% url 'natural_lista' %}">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Persona Natural</span>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row border-bottom">
-								<div class="col-12">
-									<span>Consultas/Reportes</span>
-								</div>
+							<div class="col-12">
+								<a class="menu" href="{% url 'index_juridicas' %}">
+									<div class="row">
+										<div class="col-12">
+											<span class="pl-4">Persona Jurídica</span>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="menu" href="#">
-							<div class="row">
-								<div class="col-12">
-									<span> Informe Ventas</span>
-								</div>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="#">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="px-2">CONSULTAS/REPORTES</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 col-xl-12">
-						<a class='mlat' href="{% url 'reporte_contacto' %}">
-							<div class="row">
-								<div class="col-2">
-									<i class="fas fa-map"></i>
-								</div>
-								<div class="col-8">
-									<span> Reporte de contacto </span>
-								</div>
-								<div class="col-2">
-									<i class="fas fa-angle-right"></i>
-								</div>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="#">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="px-2">INFORME VENTAS</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 col-xl-12">
-						<a class="mlat" href="{% url 'propuesta_corporativa' %}">
-							<div class="row">
-								<div class="col-2">
-									<i class="fas fa-file-contract"></i>
-								</div>
-								<div class="col-8">
-									Propuestas
-								</div>
-								<div class="col-2">
-									<i class="fas fa-angle-right"></i>
-								</div>
+						</div>
+						<div id="menu" class="row">
+
+							<div class="col-12 mlat">
+								<a class="menu" href="{% url 'reporte_contacto' %}">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="pl-2">REPORTE CONTACTO</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="mlat" href="#">
-							<div class="row">
-								<div class="col-2">
-									<i class="fas fa-map-marked-alt"></i>
-								</div>
-								<div class="col-8">
-									Seguimientos
-								</div>
-								<div class="col-2">
-									<i class="fas fa-angle-right"></i>
-								</div>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="{% url 'propuesta_corporativa' %}">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="pl-2">PROPUESTAS</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="mlat" href="{% url 'proforma_lista' %}">
-							<div class="row">
-								<div class="col-2">
-									<i class="fas fa-file-contract"></i>
-								</div>
-								<div class="col-8">
-									Proformas
-								</div>
-								<div class="col-2">
-									<i class="fas fa-angle-right"></i>
-								</div>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="#">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="pl-2">SEGUIMIENTOS</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<a class="mlat" href="#">
-							<div class="row">
-								<div class="col-2">
-									<i class="fas fa-globe"></i>
-								</div>
-								<div class="col-8">
-									Leads
-								</div>
-								<div class="col-2">
-									<i class="fas fa-angle-right"></i>
-								</div>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="{% url 'proforma_lista' %}">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="pl-2">PROFORMAS</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
 							</div>
-						</a>
+						</div>
+						<div id="menu" class="row">
+							<div class="col-12 mlat">
+								<a class="menu" href="#">
+									<div id="titulo" class="row">
+										<div class="col-10">
+											<span class="pl-2">LEADS</span>
+										</div>
+										<div class="col-2">
+											<i class="fas fa-angle-right"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-9 col-xl-9">
-				<div class="row">
+			<div class="col-12 col-xl-10">
+				<div class="row mb-3">
+					<header class="col-12 col-xl-12 darkwhite-bg">
+						<div class="row">
+							<div class="col-xl-3" href="#">
+								<img class="img-fluid" src="{% static 'img/logo_EC.png' %}" alt="logo">
+							</div>
+
+							<div class="col-xl-7 d-flex justify-content-center">
+								<span id ="fenix" class="v-align">FÉNIX 4.0</span>
+							</div>
+							<div class="col-xl-2 d-flex justify-content-center">
+								<a href=# class="v-align align-middle btn btn-light">Cerrar Sesion <i class="fas fa-sign-out-alt"></i></a>
+							</div>
+						</a>
+					</header>
+				</div>
+				<div class="row menulat">
 					<div class="col-12 col-xl-12">
 						{% block content %}
 						{% endblock %}

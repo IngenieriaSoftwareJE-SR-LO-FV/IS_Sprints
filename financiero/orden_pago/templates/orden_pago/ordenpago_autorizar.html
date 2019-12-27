@@ -6,90 +6,105 @@
 
 {% block content %}
 
-<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
+<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}"
+	data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2>Procesar Orden de Pago</h2>
-	<div class="form-row">
-		<div class="col-5"></div>
-		<div class="col-5"></div>
-		<div class="col-2">
-			{{ form.estado|as_crispy_field }}
+	<div class="row mb-2">
+		<div class="col">
+			<h2 class="text-uppercase ">Autorizar <span class="darkgreen-text">Orden de Pago</span></h2>
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="col-4 col-xl-4">
-			{{ form.cod_ord_pago|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.n_tramite|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.fecha|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-3 col-xl-3">
-			{{ form.tipo_proveedor|as_crispy_field }}
-		</div>
-		<div class="col-9 col-xl-9" id="field-proveedor">
-			<div id="div_id_ruc_ci" class="form-group">
-		        <label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField" id="ruc_ci">Razón social/Nombre</label><span
-		          class="asteriskField">*</span>
-		        <div>
-		          {{ form.proveedor}}
-		          {% if form.proveedor.errors %}
-		          {% for error in form.proveedor.errors %}
-		          <p class="invalid-feedback d-block">
-		            <strong>{{ error }}</strong>
-		          </p>
-		          {% endfor %}
-		          {% endif %}
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-5"></div>
+				<div class="col-5"></div>
+				<div class="col-2">
+					{{ form.estado|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4 col-xl-4">
+					{{ form.cod_ord_pago|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.n_tramite|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.fecha|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-3 col-xl-3">
+					{{ form.tipo_proveedor|as_crispy_field }}
+				</div>
+				<div class="col-9 col-xl-9" id="field-proveedor">
+					<div id="div_id_ruc_ci" class="form-group">
+						<label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField"
+							id="ruc_ci">Razón social/Nombre</label><span class="asteriskField">*</span>
+						<div>
+							{{ form.proveedor}}
+							{% if form.proveedor.errors %}
+							{% for error in form.proveedor.errors %}
+							<p class="invalid-feedback d-block">
+								<strong>{{ error }}</strong>
+							</p>
+							{% endfor %}
+							{% endif %}
 
-		        </div>
-      		</div>
+						</div>
+					</div>
+				</div>
+				<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
+			</div>
+			<div class="form-row">
+				<div class="col-3 col-xl-3">
+					{{ form.centro_costos|as_crispy_field }}
+				</div>
+				<div class="col-9 col-xl-9">
+					{{ form.egreso|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4 col-xl-4">
+					{{ form.tipo_comprobante|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.n_comprobante|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-4">
+					{{ form.forma_pago|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-12">
+					{{ form.concepto|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-12">
+					{{ form.observacion|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-12">
+					{{ form.anexo|as_crispy_field }}
+				</div>
+			</div>
 		</div>
-		<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
 	</div>
-	<div class="form-row">
-		<div class="col-3 col-xl-3">
-			{{ form.centro_costos|as_crispy_field }}
-		</div>
-		<div class="col-9 col-xl-9">
-			{{ form.egreso|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-4 col-xl-4">
-			{{ form.tipo_comprobante|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.n_comprobante|as_crispy_field }}
-		</div>
-		<div class="col-4 col-xl-4">
-			{{ form.forma_pago|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-12">
-			{{ form.concepto|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-12">
-			{{ form.observacion|as_crispy_field }}
-		</div>
-	</div>
-	<div class="form-row">
-		<div class="col-12 col-xl-12">
-			{{ form.anexo|as_crispy_field }}
+	<div class="row mt-3">
+		<div class="mt-2 campo p-2 pl-3 col-12">
+			<h5 class="black-text text-uppercase mb-0">Autorizar orden de pago</h5>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary">Guardar</button>
 			<a class="btn btn-light" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
-			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}	
-				<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
+			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}
+			<a class="btn btn-success float-right"
+				href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
 			{% endif %}
 		</div>
 	</div>
@@ -102,24 +117,24 @@
 <script src="{% static 'js/orden_pago.js' %}"></script>
 
 <script type="text/javascript">
-	window.onload = function() {
-       	document.getElementById("id_cod_ord_pago").readOnly=true;
-       	document.getElementById("id_estado").disabled=true;
-    };
+	window.onload = function () {
+		document.getElementById("id_cod_ord_pago").readOnly = true;
+		document.getElementById("id_estado").disabled = true;
+	};
 
-    $("#id_centro_costos").change(function () {
-      	var url = $("#ordenPagoForm").attr("data-egresos-url");
-      	var ccId = $(this).val();
-      	$.ajax({                       
-        	url: url,
-        	data: {
-          		'centro_costos': ccId
-        	},
-	        success: function (data) {
-	          	$("#id_egreso").html(data);
-	        }
-      	});
-    });
+	$("#id_centro_costos").change(function () {
+		var url = $("#ordenPagoForm").attr("data-egresos-url");
+		var ccId = $(this).val();
+		$.ajax({
+			url: url,
+			data: {
+				'centro_costos': ccId
+			},
+			success: function (data) {
+				$("#id_egreso").html(data);
+			}
+		});
+	});
 
 </script>
 {% endblock %}

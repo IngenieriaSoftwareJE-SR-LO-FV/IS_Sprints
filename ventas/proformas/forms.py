@@ -77,7 +77,7 @@ class ProformaForm(forms.ModelForm):
 			'porcentDesc': forms.NumberInput(attrs={'class':'form-control','min': 0, 'max': 100}),
 			'montoProforma': forms.NumberInput(attrs={'class':'form-control','min': 0}),
 			'montoDesc': forms.NumberInput(attrs={'class':'form-control','min': 0}),
-			'observacion': forms.TextInput(attrs={'class':'form-control'}),
+			'observacion': forms.Textarea(attrs={'class':'form-control', 'rows':2}),
 			'anexos': forms.ClearableFileInput(attrs={'class':'form-control','multiple': True}),
 			'nombre': forms.TextInput(attrs={'class':'form-control'}),
 			'fechaRespuesta': forms.DateInput(attrs={'class':'form-control',"type":"date"}),
