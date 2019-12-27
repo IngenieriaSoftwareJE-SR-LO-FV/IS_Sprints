@@ -1,10 +1,15 @@
 {% load crispy_forms_tags %}
 
 <div class="row justify-content-md-center mt-5">
-    <form method="POST" action="{% url 'orden_pago_anular' object.id %}">
+    <form method="post" action="{% url 'orden_pago_anular' object.id %}">
         {% csrf_token %}
         <h4>¿Está seguro que desea anular la siguiente orden de pago?</h4>
         <h4>Código: {{ object.cod_ord_pago }}</h4>
+
+        {% for field in form %}
+
+            {{ field.as_hidden }}
+        {% endfor %}
         {{ form.motivo_anular|as_crispy_field }}
         <div class="col">
             <div class="row justify-content-center">
@@ -14,3 +19,9 @@
         </div>
     </form>
 </div>
+
+<script>function close_form(e){
+    var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+    modal.style.display = "none";
+  }</script>

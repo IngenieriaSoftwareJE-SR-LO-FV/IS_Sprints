@@ -58,7 +58,8 @@ class OrdenFacturacion(models.Model):
     def delete(self, *arg, **kwargs):
         self.anexo_factura.delete()
         super().delete(*arg,**kwargs)
-
+    def __str__(self):
+        return self.cod_orden_fact+" - "+self.razon_nombres
 
 class OrdenFacturacionParticipante(models.Model):
     participante=models.ForeignKey(Persona_Natural,on_delete=models.SET_NULL, blank=False, null=True)

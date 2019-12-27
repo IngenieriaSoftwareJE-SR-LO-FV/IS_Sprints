@@ -110,3 +110,46 @@ $(document).on('change','.select2-participantes',function(){
     }
   });
 });
+
+$(document).on('change','.select2-participantes',function(){
+  var clickedselect=$(this).val();
+  var id=$(this).attr('id');
+  $('.select2-participantes').each(function(e){
+    if($(this).attr('id')!=id){
+      if($(this).val()==clickedselect){
+        $(this).val("None").trigger('change');
+      }
+    }
+  });
+});
+
+//$('document').ready(function(){});
+
+$(document).ready(function(){
+  var parts = window.location.pathname.split('/');
+  var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
+
+  var integer = parseInt(lastSegment, 10);
+
+  if(!isNaN(integer)){
+    var url = $('#form-fact').attr("data-orden-url");
+    var persona = $("#id_tipo_cliente").val();
+    if (persona != "") {
+      var url = url
+      $.ajax({
+        url: url,
+        data: {
+          'pk': integer,
+        },
+        success: function (data) {
+            $("#id_ruc_ci").val( data.ci.toString(10));
+            $('#select2-id_ruc_ci-container').text($('#id_ruc_ci').val());
+            $("#id_ruc_ci").trigger('change')
+        }
+      });
+
+    }
+
+  }
+  
+});

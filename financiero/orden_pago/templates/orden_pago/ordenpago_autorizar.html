@@ -8,18 +8,22 @@
 
 <form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}" data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
-	<h2 class="text-uppercase darkgreen-text">Orden de Pago</h2>
+	<h2>Procesar Orden de Pago</h2>
 	<div class="form-row">
-		<div class="col-3">
+		<div class="col-5"></div>
+		<div class="col-5"></div>
+		<div class="col-2">
 			{{ form.estado|as_crispy_field }}
 		</div>
-		<div class="col-4 col-xl-3">
+	</div>
+	<div class="form-row">
+		<div class="col-4 col-xl-4">
 			{{ form.cod_ord_pago|as_crispy_field }}
 		</div>
-		<div class="col-4 col-xl-3">
+		<div class="col-4 col-xl-4">
 			{{ form.n_tramite|as_crispy_field }}
 		</div>
-		<div class="col-4 col-xl-3">
+		<div class="col-4 col-xl-4">
 			{{ form.fecha|as_crispy_field }}
 		</div>
 	</div>
@@ -27,7 +31,7 @@
 		<div class="col-3 col-xl-3">
 			{{ form.tipo_proveedor|as_crispy_field }}
 		</div>
-		<div class="col-9 col-xl-6" id="field-proveedor">
+		<div class="col-9 col-xl-9" id="field-proveedor">
 			<div id="div_id_ruc_ci" class="form-group">
 		        <label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField" id="ruc_ci">Razón social/Nombre</label><span
 		          class="asteriskField">*</span>
@@ -50,7 +54,7 @@
 		<div class="col-3 col-xl-3">
 			{{ form.centro_costos|as_crispy_field }}
 		</div>
-		<div class="col-9 col-xl-6">
+		<div class="col-9 col-xl-9">
 			{{ form.egreso|as_crispy_field }}
 		</div>
 	</div>
@@ -66,31 +70,26 @@
 		</div>
 	</div>
 	<div class="form-row">
-		<div class="col-12 col-xl-6">
+		<div class="col-12 col-xl-12">
 			{{ form.concepto|as_crispy_field }}
 		</div>
-		<div class="col-12 col-xl-6">
+	</div>
+	<div class="form-row">
+		<div class="col-12 col-xl-12">
 			{{ form.observacion|as_crispy_field }}
 		</div>
 	</div>
 	<div class="form-row">
-		<div class="col-12 col-xl-6">
+		<div class="col-12 col-xl-12">
 			{{ form.anexo|as_crispy_field }}
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-12">
-			{% if form.estado.value == 'ENVD' %}
-				<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
-				<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
-			{% elif form.estado.value == 'AUTR' %}
-				<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Atrás </a>
-			{% else %}
-				<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
-				<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
-				{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}	
-					<a class="btn btn-success float-right" href="{% url 'orden_pago_enviar' form.cod_ord_pago.value %}">Enviar Solicitud</a>
-				{% endif %}
+			<button type="submit" class="btn btn-secondary">Guardar</button>
+			<a class="btn btn-light" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}	
+				<a class="btn btn-success float-right" href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
 			{% endif %}
 		</div>
 	</div>

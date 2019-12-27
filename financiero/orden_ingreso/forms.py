@@ -35,7 +35,16 @@ class OrdenIngresoForm(forms.ModelForm):
 			'banco':forms.TextInput(attrs={'class':'form-control'}),
 			'emisoraTarjeta':forms.Select(attrs={'class':'select form-control'}),
 			'formaPago':forms.Select(attrs={'id':'seleccion',"onchange":"run()"})
-		}
+			}
+	def clean(self):
+		
+		cd = self.cleaned_data
+		if(cd.get('valor')==None):
+			self.add_error('valor', 'Valor excede máxima cantidad soportada')
+		elif ((cd.get('orden_facturacion').valor_pendiente - cd.get('valor')) <0) :
+			self.add_error('valor', 'El valor a pagar excede el valor pendiente de la orden de facturación, pendiente: $'+str(cd.get('orden_facturacion').valor_pendiente))
+		return cd
+
 
 class OrdenIngresoUpdateForm(forms.ModelForm):
 

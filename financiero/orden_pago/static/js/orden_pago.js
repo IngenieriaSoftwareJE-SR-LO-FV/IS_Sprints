@@ -56,3 +56,8 @@ $('#id_razon_nombres').on('change', function () {
 })
 
 
+function close_form(e){
+    var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+    modal.style.display = "none";
+  }

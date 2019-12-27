@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import OrdenPagoForm
+from .forms import OrdenPagoForm, OrdenPagoFinalForm
 from .models import OrdenPago, Centro_Costos, Egresos
 from ventas.personas_naturales.models import Persona_Natural
 from ventas.personas_juridicas.models import Juridica
@@ -66,26 +66,52 @@ def orden_pago_editar(request, pk):
 	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})
 
 
-"""def orden_pago_vistaFinal(request, pk):
-	p = get_object_or_404(OrdenPago, pk=pk)
-	form = OrdenPagoFinalForm(instance=p)
-	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})"""
+def orden_pago_editarAUTR_analista(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoFinalForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect('orden_pago_lista')
+	else:
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoFinalForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})
+
+
+def orden_pago_editarAUTR(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoFinalForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect('pendiente_aprobacion')
+	else:
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoFinalForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_autorizar.html', {'form': form})
+
+
+def orden_pago_enviar(request, pk):
+	p = get_object_or_404(OrdenPago, cod_ord_pago=pk)
+	p.estado = 'ENVD'
+	p.save()
+	return redirect('orden_pago_lista')
 
 
 def orden_pago_autorizar(request, pk):
 	p = get_object_or_404(OrdenPago, cod_ord_pago=pk)
 	p.estado = 'AUTR'
 	p.save()
-	return redirect('orden_pago_lista')
+	return redirect('pendiente_aprobacion')
 
 
 def orden_pago_anular(request, pk=None):
 	if(request.method == "POST"):
 		p = get_object_or_404(OrdenPago, pk=pk)
-		p.estado = 'ANLD'
-		p.save()
-		form = OrdenPagoForm(request.POST, instance=p)
+		form = OrdenPagoForm(request.POST,instance=p)
 		if(form.is_valid()):
+			form.instance.estado = 'ANLD'
 			form.save()
 		return redirect('orden_pago_lista')
 	else:
@@ -93,4 +119,5 @@ def orden_pago_anular(request, pk=None):
 		p = get_object_or_404(OrdenPago, pk=pk)
 		form = OrdenPagoForm(instance=p)
 		return render(request, 'orden_pago/ordenpago_anular.html', {'object':p, 'form':form})
+
 

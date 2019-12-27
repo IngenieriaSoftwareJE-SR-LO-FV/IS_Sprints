@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from financiero.presupuestos.models import PresupuestoEvento
 from financiero.orden_facturacion.models import OrdenFacturacion
+from financiero.orden_pago.models import OrdenPago
 from django.http import JsonResponse, HttpResponseRedirect
 
 
@@ -18,7 +19,8 @@ def index_coordinador(request):
 def por_aprobar(request):
 	presupuestos_ev = PresupuestoEvento.objects.filter(estado=None)
 	orden_fact=OrdenFacturacion.objects.filter(estado='SLCE')
-	return render(request, 'por_aprobar.html', {"presupuestos_ev":presupuestos_ev, "orden_fact":orden_fact})
+	orden_pago = OrdenPago.objects.filter(estado='ENVD')
+	return render(request, 'por_aprobar.html', {"presupuestos_ev":presupuestos_ev, "orden_fact":orden_fact, "orden_pago":orden_pago})
 
 def aprobar_orden_fact(request, pk):
 	orden=OrdenFacturacion.objects.get(pk=pk)
