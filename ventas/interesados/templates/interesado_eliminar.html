@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="ordenTitle">Eliminar interesado {{interesado.pk}}</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form method="POST" action="{% url 'interesado_eliminar' interesado.pk %}">
+    {% csrf_token %}
+
+    <div class="modal-body">
+        ¿Está seguro que desea eliminar al siguiente interesado?
+        Código: {{interesado.nombre}} {{interesado.apellido}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-secondary green-bg mr-3" type="submit"> Eliminar </button>
+    </div>
+</form>

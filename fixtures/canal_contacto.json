@@ -1,0 +1,23 @@
+[
+	{
+		"model":"interesados.CanalContacto",
+		"pk": 1,
+		"fields": {
+			"nombre": "Facebook"
+		}
+	},
+	{
+		"model":"interesados.CanalContacto",
+		"pk": 2,
+		"fields": {
+			"nombre": "Twitter"
+		}
+	},
+	{
+		"model":"interesados.CanalContacto",
+		"pk": 3,
+		"fields": {
+			"nombre": "Sitio web"
+		}
+	}
+]

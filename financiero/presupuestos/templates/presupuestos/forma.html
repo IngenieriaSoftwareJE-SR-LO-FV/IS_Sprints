@@ -28,9 +28,22 @@
 	{% csrf_token %}
 	<div class="row darkwhite-bg py-2">
 		<div class="col-12">
+
+
+
+			<div class="form-row">
+				<div class="col-12">
+					<h2>Datos Generales</h2>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="col-12">
 			<div class="form-row">
 				<div class="col-4 col-xl-4">
 					{{ form.codigo |as_crispy_field}}
+					{{ form_tarifario.docente | as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
 					{{ form.nombre|as_crispy_field}}
@@ -73,14 +86,40 @@
 				</div>
 			</div>
 			<div class="form-row">
+				<div class="col-12">
+					<h2>Ingresos</h2>
+				</div>
+			</div>
+			<div class="form-row">
 				<div class="col-4 col-xl-4">
 					{{ form.ingresos |as_crispy_field}}
 				</div>
+			</div>
+
+
+			<div class="form-row">
+				<div class="col-12">
+					<h2>Egresos</h2>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-8">
+					<h2>Egresos fijos</h2>
+				</div>
+			</div>
+			<div class="form-row">
 				<div class="col-4 col-xl-4">
 					{{ form.honorario_instructor|as_crispy_field}}
 				</div>
 				<div class="col-4 col-xl-4">
 					{{ form.movilizacion_personal|as_crispy_field}}
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="col-12">
+					<h2>Egresos Variables</h2>
 				</div>
 			</div>
 			<div class="form-row">

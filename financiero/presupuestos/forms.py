@@ -22,6 +22,13 @@ class PresupuestoEventoForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 
+class PresupuestoTarifario(forms.ModelForm):
+	class Meta:
+		model = Tarifario
+		fields = "__all__"
+		widgets = {"docente": forms.Select(attrs={"class":"form-control"}),}
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
 
 class PresupuestoEventoFilter(django_filters.FilterSet):
 	fecha = django_filters.DateFilter(

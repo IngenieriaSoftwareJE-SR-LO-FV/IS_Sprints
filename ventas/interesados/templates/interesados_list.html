@@ -1,0 +1,144 @@
+{% extends "base_financiero.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row mb-2 d-flex white-bg">
+    <div class="col-9 v-align">
+        <h2 class="text-uppercase">Consultas <span class="darkgreen-text">Orden de Ingreso</span></h2>
+    </div>
+    <div class="col-3 v-align">
+        <div class="row" >
+            <div class="col-6">
+                <a class="btn btn-secondary green-bg float-right" href="{% url 'interesados_nuevo' %}"><i class="fas fa-plus"></i>
+                    Agregar Interesado</a>
+            </div>
+
+            <div class="col-6">
+                <a class="btn btn-secondary green-bg float-right" href="{% url 'interesados_cargar' %}"><i class="fas fa-plus"></i>Cargar Interesados</a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="row darkwhite-bg py-2">
+    <div class="col-12">
+        <form action="" method="get">
+            {% csrf_token %}
+            <div class="form-row ">
+                <div class="col-4">
+                    {{ filter.form.nombre|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.apellido|as_crispy_field }}
+                </div>
+                <div class="col-4">
+                    {{ filter.form.celular|as_crispy_field }}
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="col-6">
+                    {{ filter.form.correo|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ filter.form.canal_de_contacto|as_crispy_field }}
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-secondary green-bg float-right">
+                    <span class="fas fa-search"></span> Buscar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-pdf" data-toggle="tooltip"
+                data-placement="top" title="Exportar a pdf"></i></a>
+        <a class="btn btn-lg float-right btn-light" href="#"><i class="fas fa-file-excel" data-toggle="tooltip"
+                data-placement="top" title="Exportar a excel"></i></a>
+        <table id="dtBasicExample" class="table table-responsive-md border-bottom">
+            <thead class="darkgreen-bg white-text">
+                <tr>
+                    <th>Nombre</th>
+                    <!--<th>Anexo</th>-->
+                    <th>Apellido</th>
+                    <th>Celular</th>
+                    <th>Correo</th>
+                    <th>Canal de Contacto</th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+            {% if filter.qs %}
+
+            <tbody>
+
+
+                {% for interesado in filter.qs %}
+                <tr class="text-center">
+                    <td>{{interesado.nombre}}</td>
+                    <!--
+                    <td>
+                        {% if ordenIngreso.anexo %}
+                            <a class="btn btn-secondary" href="{{ordenIngreso.anexo.url}}" target="_blank">
+                                Descargar
+                            </a>
+                        {% else %}
+                            No anexo
+                        {% endif %}
+                    </td>
+                    -->
+                    <td>{{interesado.apellido}}</td>
+                    <td>{{interesado.celular}}</td>
+                    <td>{{interesado.correo}}</td>
+                    <td>{{interesado.canal_de_contacto}}</td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm"
+                            href="{% url 'interesados_editar' interesado.pk %}"><i class="fas fa-edit"></i></a>
+                        <a onclick='eliminar({{ interesado.pk }});' class="btn btn-danger btn-sm"
+                            data-toggle='modal' data-target="#interesadoEliminarCenter" href='#'><i
+                                class="fas fa-trash"></i></a>
+                        <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top"title="Imprimir">
+                            <i class="fas fa-print"></i></a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+            {% else %}
+        <h2>No hay elementos que mostrar</h2>
+        {% endif %}
+        </table>
+        
+    </div>
+</div>
+<div class="modal fade" id="interesadoEliminarCenter" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extrafooter%}
+<script src="{% static 'js/table.js' %}"></script>
+<script>
+    function eliminar(id) {
+        $.ajax({
+            url: "{% url 'interesado_confirmar_eliminar' %}",
+            data: {
+                'pk': id
+            },
+            success: function (data) {
+                console.log(data);
+                $(".modal-content").html(data)
+            }
+        });
+    };
+</script>
+{% endblock extrafooter %}

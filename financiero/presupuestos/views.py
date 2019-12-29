@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
+#from django.core import serializers
+from rest_framework import serializers
+from rest_framework.renderers import JSONRenderer
+
 
 from .models import *
 
@@ -43,7 +47,8 @@ def presupuestos_nuevo(request):
 			return redirect("index_presupuestos")
 	else:
 		form = forms.PresupuestoEventoForm()
-	return render(request,"presupuestos/forma.html", {"form":form})
+		form_tarifario = forms.PresupuestoTarifario()
+	return render(request,"presupuestos/forma.html", {"form":form,"form_tarifario":form_tarifario})
 
 def presupuestos_editar(request,pk):
 	if(request.method == "POST"):
@@ -86,3 +91,100 @@ def presupuestos_aprobar(request,pk):
 	return render(request, 'presupuestos/aprobar.html', {'form': form})
 
 
+class TarifarioHospedajeAlimentacionDocenteSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioHospedajeAlimentacionDocente
+
+class TarifarioDocenteSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioDocente
+
+class TarifarioHospedajeAlimentacionPersonalSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioHospedajeAlimentacionPersonal
+
+class TarifarioServicioAereoSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioServicioAereo
+
+class TarifarioInstalacionSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioInstalacion
+
+class TarifarioPlantillaDelPersonalSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioPlantillaDelPersonal
+
+class TarifarioMaterialSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioMaterial
+
+class TarifarioServicioAlimentacionSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioServicioAlimentacion
+
+class TarifarioPrecioSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioPrecio
+
+class TarifarioAportacionSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioAportacion
+
+class TarifarioProductoSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioProducto
+
+class TarifarioProspectoSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioProspecto
+
+class TarifarioPublicidadSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioPublicidad
+
+class TarifarioOtroSuministroSerializer(serializers.ModelSerializer):
+	class Meta:
+		fields = '__all__'
+		model = TarifarioOtroSuministro
+
+class TarifarioSerializer(serializers.ModelSerializer):
+	docente = TarifarioDocenteSerializer(many=True,read_only=True)
+	hospedaje_alimentacion_docente = TarifarioHospedajeAlimentacionDocenteSerializer(many=True,read_only=True)
+	hospedaje_alimentacion_personal = TarifarioHospedajeAlimentacionPersonalSerializer(many=True,read_only=True)
+	servicios_aereos = TarifarioServicioAereoSerializer(many=True,read_only=True)
+	instalaciones = TarifarioInstalacionSerializer(many=True,read_only=True)
+	plantilla_del_personal = TarifarioPlantillaDelPersonalSerializer(many=True,read_only=True)
+	materiales_del_evento = TarifarioMaterialSerializer(many=True,read_only=True)
+	servicio_de_alimentacion = TarifarioServicioAlimentacionSerializer(many=True,read_only=True)
+	precios = TarifarioPrecioSerializer(many=True,read_only=True)
+	aportaciones = TarifarioAportacionSerializer(many=True,read_only=True)
+	productos = TarifarioProductoSerializer(many=True,read_only=True)
+	prospecto = TarifarioProspectoSerializer(many=True,read_only=True)
+	publicidad = TarifarioPublicidadSerializer(many=True,read_only=True)
+	otros_suministros = TarifarioOtroSuministroSerializer(many=True,read_only=True)
+
+	class Meta:
+		fields = '__all__'
+		model = Tarifario
+
+def load_tarifario(request):
+	
+	tarifario = Tarifario.objects.get(pk=1)
+	data = TarifarioSerializer([tarifario], many=True).data
+	return HttpResponse(JSONRenderer().render(data), content_type='application/json');
+	#return HttpResponse(serializers.serialize("json", [tarifario]), content_type='application/json')
+	

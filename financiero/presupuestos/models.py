@@ -10,53 +10,77 @@ class Modalidad(models.Model):
 	nombre = models.CharField(max_length=100)
 	def __str__(self):
 		return self.nombre
-class TarifarioItem(models.Model):
+
+class TarifarioDocente(models.Model):
 	descripcion = models.CharField(max_length=100);
 	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
 	version = models.IntegerField(null=True,blank=True);
 
+class TarifarioHospedajeAlimentacionDocente(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioDocente(TarifarioItem):
-	pass
+class TarifarioHospedajeAlimentacionPersonal(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioHospedajeAlimentacionDocente(TarifarioItem):
-	pass
-
-class TarifarioHospedajeAlimentacionPersonal(TarifarioItem):
-	pass
-
-class TarifarioServicioAereo(TarifarioItem):
-	pass
+class TarifarioServicioAereo(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 	
-class TarifarioInstalacion(TarifarioItem):
-	pass
+class TarifarioInstalacion(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioPlantillaDelPersonal(TarifarioItem):
-	pass
+class TarifarioPlantillaDelPersonal(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioMaterial(TarifarioItem):
+class TarifarioMaterial(models.Model):
 	costo_con_iva = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
+class TarifarioServicioAlimentacion(models.Model):
+	incluye_iva = models.BooleanField(default=False)
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
+class TarifarioPrecio(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioServicioAlimentacion(TarifarioItem):
-	 incluye_iva = models.BooleanField(default=False)
+class TarifarioAportacion(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
+	porcentaje_facultades = models.BooleanField(default=False);
 
-class TarifarioPrecio(TarifarioItem):
-	pass
+class TarifarioProducto(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioAportacion(TarifarioItem):
-	pass
+class TarifarioProspecto(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioProducto(TarifarioItem):
-	pass
+class TarifarioPublicidad(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
-class TarifarioProspecto(TarifarioItem):
-	pass
-
-class TarifarioPublicidad(TarifarioItem):
-	pass
-
-class TarifarioOtroSuministro(TarifarioItem):
-	pass
+class TarifarioOtroSuministro(models.Model):
+	descripcion = models.CharField(max_length=100);
+	costo = models.DecimalField(max_digits=10,decimal_places=3,validators=[financiero.validaciones.validate_positivo]);
+	version = models.IntegerField(null=True,blank=True);
 
 
 

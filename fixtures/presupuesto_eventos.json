@@ -1,0 +1,765 @@
+[
+    {
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Internacional A",
+            "costo": 500.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Internacional B",
+            "costo": 350.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Internacional C",
+            "costo": 250.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Internacional D",
+            "costo": 150.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Nacional A",
+            "costo": 100.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Nacional B",
+            "costo": 50.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioDocente",
+        "pk": 7,
+        "fields": {
+            "descripcion":"Nacional C",
+            "costo": 30.00
+        }
+    },
+	
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionDocente",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionDocente",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Hotel (3 estrellas)",
+            "costo": 66.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionDocente",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Hotel (4 estrellas)",
+            "costo": 105.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionDocente",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Hotel (5 estrellas)",
+            "costo": 187.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionPersonal",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionPersonal",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Hotel (3 estrellas)",
+            "costo": 66.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioHospedajeAlimentacionPersonal",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Hotel (4 estrellas)",
+            "costo": 88.00
+        }
+    },
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioServicioAereo",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAereo",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Nacional",
+            "costo": 275.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAereo",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Regional",
+            "costo": 800.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAereo",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Europa",
+            "costo": 1200.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAereo",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Asia",
+            "costo": 2500.00
+        }
+    },
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Hotel (3 estrellas)",
+            "costo": 68.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Hotel (4 estrellas)",
+            "costo": 148.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Hotel (5 estrellas)",
+            "costo": 157.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Instalaciones de la empresa",
+            "costo": 30.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Centros de negocio",
+            "costo": 137.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Empresas Públicas",
+            "costo": 46.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 7,
+        "fields": {
+            "descripcion":"ESPOL PEÑAS",
+            "costo": 46.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 8,
+        "fields": {
+            "descripcion":"ESPOL PROSPERINA",
+            "costo": 46.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 9,
+        "fields": {
+            "descripcion":"EC PEÑAS",
+            "costo": 58.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioInstalacion",
+        "pk": 10,
+        "fields": {
+            "descripcion":"EC PROSPERINA",
+            "costo": 67.00
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioPlantillaDelPersonal",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Curso Abierto",
+            "costo": 78.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPlantillaDelPersonal",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Programa Abierto",
+            "costo": 68.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPlantillaDelPersonal",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Curso Corporativo",
+            "costo": 58.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPlantillaDelPersonal",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Programa Corporativo",
+            "costo": 50.00
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Carpeta cartón con logo EC",
+            "costo": 0.60,
+			"costo_con_iva": 0.60
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Block",
+            "costo": 0.60,
+			"costo_con_iva": 0.60
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Lapiz",
+            "costo": 0.50,
+			"costo_con_iva": 0.56
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Pluma con logo EC",
+            "costo": 0.53,
+			"costo_con_iva": 0.59
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Certificados",
+            "costo": 1.50,
+			"costo_con_iva": 1.68
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Credencial",
+            "costo": 0.10,
+			"costo_con_iva": 0.11
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 7,
+        "fields": {
+            "descripcion":"Pendrive",
+            "costo": 8.93,
+			"costo_con_iva": 10.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioMaterial",
+        "pk": 8,
+        "fields": {
+            "descripcion":"CD",
+            "costo": 1.12,
+			"costo_con_iva": 1.25
+        }
+    },
+
+
+
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioServicioAlimentacion",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.00,
+			"incluye_iva": true
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAlimentacion",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Break Regular",
+            "costo": 2.52,
+			"incluye_iva": true
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAlimentacion",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Break Especial",
+            "costo": 3.36,
+			"incluye_iva": true
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioServicioAlimentacion",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Almuerzo",
+            "costo": 5.60,
+			"incluye_iva": false
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 1,
+        "fields": {
+            "descripcion":"ESPOL",
+            "costo": 8.00,
+			"porcentaje_facultades": false
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 2,
+        "fields": {
+            "descripcion":"ESPOL-TECH E.P.",
+            "costo": 5.00,
+			"porcentaje_facultades": false
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Ministerio de Finanzas",
+            "costo": 0.50,
+			"porcentaje_facultades": false
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 4,
+        "fields": {
+            "descripcion":"ESPOL-TECH E.P.",
+            "costo": 5.00,
+			"porcentaje_facultades": false
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 5,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.00,
+			"porcentaje_facultades": true
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioAportacion",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Aplica",
+            "costo": 8.00,
+			"porcentaje_facultades": true
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Curso A",
+            "costo": 800.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Curso B",
+            "costo": 600.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Curso C",
+            "costo": 400.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Curso D",
+            "costo": 180.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Curso E",
+            "costo": 100.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Programa A",
+            "costo": 3000.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 7,
+        "fields": {
+            "descripcion":"Programa B",
+            "costo": 2500.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 8,
+        "fields": {
+            "descripcion":"Programa C",
+            "costo": 2000.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 9,
+        "fields": {
+            "descripcion":"Programa D",
+            "costo": 1500.00
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPrecio",
+        "pk": 10,
+        "fields": {
+            "descripcion":"Conferencias",
+            "costo": 600.00
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioProducto",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Curso",
+            "costo": 0.0
+        }
+    },
+	
+	{
+        "model":"presupuestos.TarifarioProducto",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Conferencia",
+            "costo": 0.0
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioProspecto",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioProspecto",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Curso",
+            "costo": 700.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioProspecto",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Programa",
+            "costo": 400.0
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 1,
+        "fields": {
+            "descripcion":"Pautación en Facebook",
+            "costo": 10.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Mail Masivo",
+            "costo": 240.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 3,
+        "fields": {
+            "descripcion":"Publicidad en Radio",
+            "costo": 10.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 4,
+        "fields": {
+            "descripcion":"Publicidad en medio impreso",
+            "costo": 1500.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 5,
+        "fields": {
+            "descripcion":"Publicidad digital",
+            "costo": 0.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 6,
+        "fields": {
+            "descripcion":"Banners",
+            "costo": 30.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioPublicidad",
+        "pk": 7,
+        "fields": {
+            "descripcion":"Merchandising",
+            "costo": 0.0
+        }
+    },
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioOtroSuministro",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.0
+        }
+    },
+	{
+        "model":"presupuestos.TarifarioOtroSuministro",
+        "pk": 2,
+        "fields": {
+            "descripcion":"Cafeteria y limpieza",
+            "costo": 3.0
+        }
+    },
+	
+	
+	
+	
+	{
+        "model":"presupuestos.TarifarioOtroSuministro",
+        "pk": 1,
+        "fields": {
+            "descripcion":"No aplica",
+            "costo": 0.0
+        }
+    },
+	{
+        "model":"presupuestos.Tarifario",
+        "pk": 1,
+        "fields": {
+            "docente":[1,2,3,4,5,6,7],
+			"hospedaje_alimentacion_docente":[1,2,3,4],
+			"hospedaje_alimentacion_personal":[1,2,3],
+			"servicios_aereos":[1,2,3,4,5],
+			"instalaciones":[1,2,3,4,5,6,7,8,9,10],
+			"plantilla_del_personal":[1,2,3,4],
+			"materiales_del_evento":[1,2,3,4,5,6,7,8],
+			"servicio_de_alimentacion":[1,2,3,4],
+			"aportaciones":[1,2,3,4,5],
+			"precios":[1,2,3,4,5,6,7,8,9,10],
+			"productos":[1,2],
+			"prospecto":[1,2,3],
+			"publicidad":[1,2,3,4,5,6,7],
+			"otros_suministros":[1,2]
+			
+        }
+    }
+	
+]
+	
+	
