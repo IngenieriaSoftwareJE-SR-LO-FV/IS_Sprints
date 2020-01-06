@@ -31,6 +31,7 @@ urlpatterns = [
     path("financiero/presupuestos/",include("financiero.presupuestos.urls")),
     path("financiero/orden_pago/",include("financiero.orden_pago.urls")),
     path("financiero/pago_eventos/",include("financiero.pago_eventos.urls")),
+    path("financiero/presupuestos_anuales/",include("financiero.presupuestos_anuales.urls")),
     path('admin/', admin.site.urls),
 ]
 

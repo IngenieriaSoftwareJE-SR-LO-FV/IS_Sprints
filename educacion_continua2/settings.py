@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "financiero.presupuestos",
     "financiero.orden_pago",
     "financiero.pago_eventos",
+    "financiero.presupuestos_anuales",
 
 
 ]
