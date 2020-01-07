@@ -3,6 +3,8 @@ import financiero.validaciones
 
 # MODELO PARA FUNDESPOL
 class Fundespol(models.Model):
+	año = models.PositiveIntegerField()
+	nombre = models.CharField(max_length=100, blank=True)
 	# ingresos
 	se_maestrias = models.DecimalField(max_digits=10 ,decimal_places=2,validators=[financiero.validaciones.validate_positivo]) 
 	se_curs_prog = models.DecimalField(max_digits=10 ,decimal_places=2,validators=[financiero.validaciones.validate_positivo])
@@ -449,6 +451,8 @@ class Fundespol(models.Model):
 
 # MODELO PARA ESPOLTECH
 class Espoltech(models.Model):
+	año = models.PositiveIntegerField()
+	nombre = models.CharField(max_length=100, blank=True)
 	# ingresos corrientes
 	vb_serv_tecnicos_espec = models.DecimalField(max_digits=10 ,decimal_places=2,validators=[financiero.validaciones.validate_positivo]) #14.03.99
 	vb_curs_sem_maes = models.DecimalField(max_digits=10 ,decimal_places=2,validators=[financiero.validaciones.validate_positivo]) #14.03.99

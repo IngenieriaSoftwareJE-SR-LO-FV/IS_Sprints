@@ -1,0 +1,1075 @@
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Presupuesto Anual Nuevo Registro" }}{% endblock title %}
+
+{% block content %}
+
+<form method="POST" novalidate>
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12 col-xl-12">
+			<h2 class="text-uppercase darkgreen-text">
+				{% block regedit %}
+				Registro Presupuesto Anual ESPOLTECH
+				{% endblock regedit %}
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Código</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text text-uppercase mb-0">Rubros</p>
+		</div>
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Valor Planificado</p>
+		</div>
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Valor Ejecutado</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Ingresos corrientes</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">14.03.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Venta de Bienes y Servicios (Otros Servicio Técnicos y Especializados: análisis de laboratorio, ensayos, pruebas, etc)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.vb_serv_tecnicos_espec }}</div>
+		<div class="col-2 col-xl-2">{{ form.vb_serv_tecnicos_espec_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">14.03.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Venta de Bienes y Servicios (Cursos, Seminarios y Maestrías)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.vb_curs_sem_maes }}</div>
+		<div class="col-2 col-xl-2">{{ form.vb_curs_sem_maes_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">18.01.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Corrientes Sector Público Provenientes del Gobierno Central</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_gobcen }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_gobcen_ejec }}</div>Transferencia y Donaciones Corrientes Sector Público Provenientes
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">18.01.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Corrientes Sector Público Provenientes de Entidades Descentralizadas y Autónomas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_entdesc }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_entdesc_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">18.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Corrientes Sector Público Provenientes de Empresas Públicas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_entpub }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_entpub_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">18.01.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Corrientes Sector Público Provenientes de Gobiernos Autónomos Descentralizados</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_gobaut }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_prov_gobaut_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">19.04.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros no especificados</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_ingCorr }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_ingCorr_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">INGRESOS DE FINANCIAMIENTO</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">37.01.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Saldos de Fondos de Autogestión (Saldos de los centros de costos)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.fondo_autogest }}</div>
+		<div class="col-2 col-xl-2">{{ form.fondo_autogest_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">38.01.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Cuentas por cobras de años anteriores</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cta_x_cobrar }}</div>
+		<div class="col-2 col-xl-2">{{ form.cta_x_cobrar_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">INGRESOS DE CAPITAL</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">28.01.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Capital e Inversión Sector Público Provenientes del Gobierno Central</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_gobcen }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_gobcen_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">28.01.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Entidades Descentralizadas y Autónomas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_entdesc }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_entdesc_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">28.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Empresas Públicas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_entpub }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_entpub_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">28.01.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transferencia y Donaciones Capital e Inversión Sector Público Provenientes de Gobiernos Autónomos Descentralizados</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_gobaut }}</div>
+		<div class="col-2 col-xl-2">{{ form.td_cap_prov_gobaut_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">28.03.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Donaciones Capital del Sector Externo Provenientes de Gobiernos y Organismos Gubernamentales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.don_cap_ext }}</div>
+		<div class="col-2 col-xl-2">{{ form.don_cap_ext_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-8 col-xl-8">
+			<p class="black-text mb-0">TOTAL INGRESOS AÑO</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">GASTOS CORRIENTES</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">GASTOS EN PERSONAL</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.01.05</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Remuneraciones Unificadas (RMU)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.rem_unificadas }}</div>
+		<div class="col-2 col-xl-2">{{ form.rem_unificadas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.01.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Horas Extraordinarias y Suplementarias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.h_ext_supl }}</div>
+		<div class="col-2 col-xl-2">{{ form.h_ext_supl_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.13</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Encargos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.encargos }}</div>
+		<div class="col-2 col-xl-2">{{ form.encargos_ejec }}}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.02.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Decimotercer Sueldo (RMU/12)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.dec_ter_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.dec_ter_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.02.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Decimocuarto Sueldo (Salario Básico Unificado/12)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.dec_cua_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.dec_cua_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.06.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Aporte Patronal (RMU*9,65%)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.aporte_patronal }}</div>
+		<div class="col-2 col-xl-2">{{ form.aporte_patronal_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.06.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Fondo de Reserva (RMU*8,33%)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.fondo_reserva }}</div>
+		<div class="col-2 col-xl-2">{{ form.fondo_reserva_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.07.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Compensación por Desahucio</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.comp_desahucio }}</div>
+		<div class="col-2 col-xl-2">{{ form.comp_desahucio_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.07.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Compensación por Vacaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.comp_vacaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.comp_vacaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Honorarios Profesionales/ Director del Proyecto</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hp_director }}</div>
+		<div class="col-2 col-xl-2">{{ form.hp_director_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Honorarios Profesionales/ Coordinadores</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hp_coordinador }}</div>
+		<div class="col-2 col-xl-2">{{ form.hp_coordinador_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Honorarios Profesionales/ Expertos (detallar el cargo)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hp_expertos }}</div>
+		<div class="col-2 col-xl-2">{{ form.hp_expertos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Honorarios Profesionales/ Otros Cargos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hp_otros }}</div>
+		<div class="col-2 col-xl-2">{{ form.hp_otros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.05.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Honorarios Profesionales/ Dictado de Clases</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hp_dict_clases }}</div>
+		<div class="col-2 col-xl-2">{{ form.hp_dict_clases_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.07.11</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Indemnizaciones Laborales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ind_laborales }}</div>
+		<div class="col-2 col-xl-2">{{ form.ind_laborales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">BIENES Y SERVICIOS DE CONSUMO</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.01.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Agua Potable</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.agua }}</div>
+		<div class="col-2 col-xl-2">{{ form.agua_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.01.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Energía Eléctrica</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.energia_elec }}</div>
+		<div class="col-2 col-xl-2">{{ form.energia_elec_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.01.05</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Telecomunicaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.telecomunicaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.telecomunicaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">51.01.06</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicio de Correo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.correo }}</div>
+		<div class="col-2 col-xl-2">{{ form.correo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transporte de Personal</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.trans_personal }}</div>
+		<div class="col-2 col-xl-2">{{ form.trans_personal_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Edición, Impresión, Reproducción y Publicaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.impresion }}</div>
+		<div class="col-2 col-xl-2">{{ form.impresion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Difusión, Información y Publicidad</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.publicidad }}</div>
+		<div class="col-2 col-xl-2">{{ form.publicidad_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.08</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios Seguridad y Vigilancia</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_seguridad }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_seguridad_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios de Aseo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_aseo }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_aseo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.39</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Membresías</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.membresias }}</div>
+		<div class="col-2 col-xl-2">{{ form.membresias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.02.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros Servicios Generales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_serv_generales }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_serv_generales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.03.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Pasajes al Interior</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_int }}</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_int_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.03.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Pasajes al Exterior</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_ext }}</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_ext_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.03.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Viáticos y Subsistencias al Interior</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.viaticos_int }}</div>
+		<div class="col-2 col-xl-2">{{ form.viaticos_int_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.03.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Viáticos y Subsistencias al Exterior</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.viaticos_ext }}</div>
+		<div class="col-2 col-xl-2">{{ form.viaticos_ext_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Edificios, Locales, Residencias y Cableado Estructurado (Instalación, Mantenimiento y Reparaciones)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.edificios }}</div>
+		<div class="col-2 col-xl-2">{{ form.edificios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos de Mantenimiento de Mobiliarios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_mobil }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_mobil_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos de Mantenimiento de Maquinarias y Equipos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_equipos }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_equipos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.05</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos de Mantenimiento de Vehículos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_vehic }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_mant_vehic_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos en Libros y Colecciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_libros }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_libros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.04.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros Gastos en Instalaciones, Mantenimiento y Reparaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_gastos }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_gastos }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.05.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Arrendamientos de Edificios, Locales y Residencias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.arr_edificios }}</div>
+		<div class="col-2 col-xl-2">{{ form.arr_edificios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.05.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Arrendamiento de Mobiliarios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.arr_mobiliarios }}</div>
+		<div class="col-2 col-xl-2">{{ form.arr_mobiliarios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.05.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Arrendamientos de Maquinarias y Equipos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.arr_maquinaria }}</div>
+		<div class="col-2 col-xl-2">{{ form.arr_maquinaria_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.06.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Contratación de Estudios e Investigaciones (Subcontrataciones)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cont_estudios }}</div>
+		<div class="col-2 col-xl-2">{{ form.cont_estudios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.06.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicio de Capacitación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_capacitacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_capacitacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.06.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Fiscalización e Inspecciones Técnicas (Subcontrataciones)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.fiscalizacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.fiscalizacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.07.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Arrendamiento de Equipos Informáticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.arr_equipos }}</div>
+		<div class="col-2 col-xl-2">{{ form.arr_equipos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.07.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Mantenimiento y Reparación de Equipos y Sistemas Informáticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mant_equipos_info }}</div>
+		<div class="col-2 col-xl-2">{{ form.mant_equipos_info_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios de Alimentación*</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_alimentacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_alimentacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos en Vestimenta, Uniformes, Prendas de Protección</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_vestimenta }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_vestimenta_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Combustibles y Lubricantes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.combustible }}</div>
+		<div class="col-2 col-xl-2">{{ form.combustible_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales de Oficina</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.materiales_ofician }}</div>
+		<div class="col-2 col-xl-2">{{ form.materiales_ofician_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.05</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales de Aseo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.materiales_aseo }}</div>
+		<div class="col-2 col-xl-2">{{ form.materiales_aseo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.06</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Herramientas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.herramientas_53 }}</div>
+		<div class="col-2 col-xl-2">{{ form.herramientas_53_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales de Impresión, Fotografía, Reproducción</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_impresion }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_impresion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Medicinas y Productos Farmacéuticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.medicinas }}</div>
+		<div class="col-2 col-xl-2">{{ form.medicinas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.10</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales Para Laboratorio y Uso Médico</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_laboratorio }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_laboratorio }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.11</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales de Construcción, Eléctricos, Plomería</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_construccion }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_construccion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.12</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales Didácticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_didacticos }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_didacticos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.13</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Repuestos y Accesorios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.respuestos }}</div>
+		<div class="col-2 col-xl-2">{{ form.respuestos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.14</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Suministros para Actividades Agropecuaria, Pesca y Caza</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.suministros_agrop }}</div>
+		<div class="col-2 col-xl-2">{{ form.suministros_agrop_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.08.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros Bienes de Uso y Consumo Corriente</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_bienes }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_bienes_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.14.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Mobiliarios (Bienes Muebles no Despreciables)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mobiliarios_bienes }}</div>
+		<div class="col-2 col-xl-2">{{ form.mobiliarios_bienes_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.14.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Maquinarias y Equipos (Bienes Muebles no Despreciables)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.maquinaria_equipos_bienes }}</div>
+		<div class="col-2 col-xl-2">{{ form.maquinaria_equipos_bienes_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.14.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Equipos, Sistemas y Paquetes Informáticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.equipos_sist_paq_53 }}</div>
+		<div class="col-2 col-xl-2">{{ form.equipos_sist_paq_53_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.14.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Libros y Colecciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.libros_53 }}</div>
+		<div class="col-2 col-xl-2">{{ form.libros_53_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">53.14.11</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Partes y Repuestos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.partes_repuestos_53 }}</div>
+		<div class="col-2 col-xl-2">{{ form.partes_repuestos_53_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">OTROS GASTOS CORRIENTES</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.01.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Impuesto al Valor Agregado (debe hacerse el cálculo estimado del IVA de todos los gastos contemplados en el presente presupuesto, excepto los que gravan tarifa 0%)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.iva }}</div>
+		<div class="col-2 col-xl-2">{{ form.iva_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.01.02</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Tasas Generales, Impuestos, Contribuciones, Permisos, Licencias y Patentes (incluye aporte 5*1000)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.tasas }}</div>
+		<div class="col-2 col-xl-2">{{ form.tasas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.01.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros Impuestos, Tasas y Contribuyentes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_imp }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_imp_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.02.01</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Seguros</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seguros }}</div>
+		<div class="col-2 col-xl-2">{{ form.seguros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.02.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Comisiones Bancarias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.comisiones_banc }}</div>
+		<div class="col-2 col-xl-2">{{ form.comisiones_banc_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.02.19</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Devoluciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.devoluciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.devoluciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">57.02.99</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Otros Gastos Financieros</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.otros_gastos_fin }}</div>
+		<div class="col-2 col-xl-2">{{ form.otros_gastos_fin_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">TRANSF. CORRIENTES: APORTACIONES DE ACUERDO A LINEAMIENTOS</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">58.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">ESPOL-TECH E.P 7% en base a los ingresos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.espoltech_ep }}</div>
+		<div class="col-2 col-xl-2">{{ form.espoltech_ep_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">58.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">PARTICIPACIÓN ESPOL 7% ó 28,13% en base a los ingresos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.part_espol }}</div>
+		<div class="col-2 col-xl-2">{{ form.part_espol_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">58.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">PARTICIPACIÓN UNIDAD 11% en base a los ingresos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.part_unidad }}</div>
+		<div class="col-2 col-xl-2">{{ form.part_unidad_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-xl-8">
+			<p class="black-text mb-0">GASTOS DE CAPITAL</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">ACTIVOS FIJOS (DEBE INCLUIRSE TODO BIEN CUYO VALOR SEA IGUAL O SUPERIOR A $100)</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.03</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Mobiliarios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mobiliarios }}</div>
+		<div class="col-2 col-xl-2">{{ form.mobiliarios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.04</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Maquinarias y Equipos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.maquinaria_equipos }}</div>
+		<div class="col-2 col-xl-2">{{ form.maquinaria_equipos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.05</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Vehículos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.vehiculos }}</div>
+		<div class="col-2 col-xl-2">{{ form.vehiculos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.06</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Herramientas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.herramientas_84 }}</div>
+		<div class="col-2 col-xl-2">{{ form.herramientas_84_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.07</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Equipos, Sistemas y Paquetes Informáticos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.equipos_sist_paq_84 }}</div>
+		<div class="col-2 col-xl-2">{{ form.equipos_sist_paq_84_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.08</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Bienes artísticos y culturales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.bienes_artisticos }}</div>
+		<div class="col-2 col-xl-2">{{ form.bienes_artisticos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.09</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Libros y Colecciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.libros_84 }}</div>
+		<div class="col-2 col-xl-2">{{ form.libros_84 }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text mb-0">84.01.11</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Partes y Repuestos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.partes_repuestos_84 }}</div>
+		<div class="col-2 col-xl-2">{{ form.partes_repuestos_84_ejec }}</div>
+	</div>
+
+</form>
+
+{% endblock %}

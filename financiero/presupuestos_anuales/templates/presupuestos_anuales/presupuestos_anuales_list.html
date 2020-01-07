@@ -1,0 +1,27 @@
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Presupuesto Anual" }}{% endblock title %}
+
+{% block content %}
+
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>CONSULTAS <span class="darkgreen-text">PRESUPUESTO ANUAL</span></h2>
+	</div>
+	<div class="col-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="nuevo"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>
+	</div>
+</div>
+<div class="row darkwhite-bg py-2">
+	<div class="col-12">
+		<form method="GET">
+			{% csrf_token %}
+		</form>
+	</div>
+</div>
+
+{% endblock %}
