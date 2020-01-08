@@ -12,7 +12,7 @@
 		<h2>CONSULTAS <span class="darkgreen-text">PRESUPUESTO ANUAL</span></h2>
 	</div>
 	<div class="col-3 v-align">
-		<a class="btn btn-secondary green-bg float-right" href="nuevo"><i class="fas fa-plus"></i>
+		<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
 			Agregar Nuevo</a>
 	</div>
 </div>
@@ -20,8 +20,70 @@
 	<div class="col-12">
 		<form method="GET">
 			{% csrf_token %}
+			<div class="row">
+				<div class="col-3 col-xl-3">
+					{{ filter.form.año|as_crispy_field }}
+				</div>
+				<div class="col-9 col-xl-9">
+					{{ filter.form.nombre|as_crispy_field }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 col-xl-4">
+					{{ filter.form.centro_costos|as_crispy_field }}
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-secondary green-bg float-right"><i class="fas fa-search"></i> Buscar</button>
+			</div>
 		</form>
+	</div>
+</div>
+<br>
+<div class="row mt-2">
+	<div class="col-12 col-xl-12">
+		<table id="dtBasicExample" class="table table-responsive">
+			<thead class="white-text darkgreen-bg">
+				<tr>
+					<th scope="col">Año</th>
+					<th scope="col">Centro de costos</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			{% if presupuestos_an %}
+			<tbody>
+				{% for pre in filter.qs %}
+				<tr class="text-center">
+					<td scope="row">{{ pre.año }}</td>
+					<td scope="row">{{ pre.centro_costos }}</td>
+					<td scope="row">{{ pre.nombre }}</td>
+					<td scope="row">{{ pre.estado }}</td>
+					<td scope="row">
+						<a class="btn btn-light btn-sm btn-block" href="{% url 'presupuesto_anual_editar' pre.pk %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+					</td>
+				</tr>
+				{% endfor%}
+			</tbody>
+			{% else %}
+			<h2>No hay elementos que mostrar</h2>
+			{% endif %}
+		</table>
+	</div>
+</div>
+
+<div class="modal fade" id="personaEliminar" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		</div>
 	</div>
 </div>
 
 {% endblock %}
+
+{% block extrafooter %}
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock extrafooter %}

@@ -4,7 +4,7 @@
 
 {% load static %}
 {% load staticfiles %}
-{% block title %}{{ "EC - Presupuesto Anual Nuevo Registro" }}{% endblock title %}
+{% block title %}{{ "EC - Presupuesto Anual" }}{% endblock title %}
 
 {% block content %}
 
@@ -14,7 +14,11 @@
 		<div class="col-12 col-xl-12">
 			<h2 class="text-uppercase darkgreen-text">
 				{% block regedit %}
-				Registro Presupuesto Anual ESPOLTECH
+				{% if form.estado.value == 'ENVD' %}
+					Autorizar Presupuesto Anual ESPOLTECH
+				{% else %}
+					Edición Presupuesto Anual ESPOLTECH
+				{% endif %}
 				{% endblock regedit %}
 			</h2>
 		</div>
@@ -25,10 +29,10 @@
 		</div>
 	</div>
 	<div class="row darkwhite-bg py-2">
-		<div class="col-2 col-xl-2">
+		<div class="col-1 col-xl-1">
 			{{ form.año|as_crispy_field }}
 		</div>
-		<div class="col-10 col-xl-10">
+		<div class="col-11 col-xl-11">
 			{{ form.nombre|as_crispy_field }}
 		</div>
 	</div>
@@ -224,7 +228,7 @@
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0">GASTOS CORRIENTES</p>
 		</div>
-		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-2 col-xl-2  mt-2 campo p-2 pl-3"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 	</div>
 	<div class="row">
@@ -880,7 +884,7 @@
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0">OTROS GASTOS CORRIENTES</p>
 		</div>
-		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3 "></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 	</div>
 	<div class="row">
@@ -1091,6 +1095,13 @@
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
 			<a class="btn btn-secondary" href="{% url 'presupuesto_anual_lista' %}"> Cancelar </a>
+			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}
+				<a class="btn btn-success float-right" href="{% url 'presupuesto_anual_enviar' form.pk.value %}">Enviar
+				Solicitud</a>
+			{% endif %}
+			{% if form.estado.value == 'ENVD' %}
+				<a class="btn btn-success float-right" href="{% url 'presupuesto_anual_autorizar' form.pk.value %}">Aprobar</a>
+			{% endif %}
 		</div>
 	</div>
 	{{ form.media }}
