@@ -6,8 +6,9 @@ class Fundespol(models.Model):
 	ESTADO_CHOICES = [("GRBD","Grabado"),("ENVD","Enviado"),("AUTR","Autorizado"),("ANLD","Anulado"),]
 	año = models.PositiveIntegerField()
 	nombre = models.CharField(max_length=100, blank=True)
-	centro_costos = models.CharField(max_length=10, default='FUNDESPOL')
+	centro_costos = models.CharField(max_length=10, default='FUNDESPOL', blank=True, null=True)
 	estado = models.CharField(max_length=5, default="GRBD", choices=ESTADO_CHOICES, blank=True, null=True)
+	motivo_anular = models.CharField(max_length=500, blank=True, null=True)
 	# ingresos
 	se_maestrias = models.DecimalField(max_digits=10 ,decimal_places=2, blank=True, null=True, validators=[financiero.validaciones.validate_positivo]) 
 	se_curs_prog = models.DecimalField(max_digits=10 ,decimal_places=2, blank=True, null=True, validators=[financiero.validaciones.validate_positivo])
@@ -459,6 +460,7 @@ class Espoltech(models.Model):
 	nombre = models.CharField(max_length=100, blank=True)
 	centro_costos = models.CharField(max_length=10, default='ESPOLTECH', blank=True, null=True)
 	estado = models.CharField(max_length=5, default="GRBD", choices=ESTADO_CHOICES, blank=True, null=True)
+	motivo_anular = models.CharField(max_length=500, blank=True, null=True)
 	# ingresos corrientes
 	vb_serv_tecnicos_espec = models.DecimalField(max_digits=10 ,decimal_places=2, blank=True, null=True, validators=[financiero.validaciones.validate_positivo]) #14.03.99
 	vb_curs_sem_maes = models.DecimalField(max_digits=10 ,decimal_places=2, blank=True, null=True, validators=[financiero.validaciones.validate_positivo]) #14.03.99

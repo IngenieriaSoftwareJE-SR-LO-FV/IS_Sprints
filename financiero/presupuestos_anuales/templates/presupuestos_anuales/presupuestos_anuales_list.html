@@ -6,7 +6,7 @@
 {% block title %}{{ "EC - Presupuesto Anual" }}{% endblock title %}
 
 {% block content %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/presupuestoanual.css' %}">
 <div class="row mb-2 d-flex white-bg">
 	<div class="col-9 v-align">
 		<h2>CONSULTAS <span class="darkgreen-text">PRESUPUESTO ANUAL</span></h2>
@@ -63,6 +63,7 @@
 					<td scope="row">
 						<a class="btn btn-light btn-sm btn-block" href="{% url 'presupuesto_anual_editar' pre.id %}"><i
 								class="fas fa-edit darkgreen-text"></i></a>
+						<a href='javascript:;' onclick='anular({{ pre.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
 					</td>
 				</tr>
 				{% endfor%}
@@ -74,16 +75,53 @@
 	</div>
 </div>
 
-<div class="modal fade" id="personaEliminar" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
-	aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-		</div>
-	</div>
+<div id="myModal" class="modal">
+  	<div class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="modal-form">
+	    </div>
+  	</div>
 </div>
 
 {% endblock %}
 
 {% block extrafooter %}
 <script src="{% static 'js/table.js' %}"></script>
+<script>
+  	function anular(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		$.ajax({
+			url: "{% url 'presupuesto_anual_anular' %}",  
+			data:{
+				"pk": id
+			}, 
+			success: function (data) {   
+				$("#modal-form").html(data);  
+			}
+		});
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+	}
+
+</script>
 {% endblock extrafooter %}

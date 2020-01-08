@@ -65,3 +65,19 @@ def presupuesto_anual_autorizar(request, pk):
 	p.estado = 'AUTR'
 	p.save()
 	return redirect('pendiente_aprobacion')
+
+
+def presupuesto_anual_anular(resquest, pk=None):
+	if(request.method == "POST"):
+		p = get_object_or_404(Espoltech, pk=pk)
+		form = EspoltechForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.instance.estado = 'ANLD'
+			form.save()
+		return redirect('presupuesto_anual_lista')
+	else:
+		pk = request.GET.get('pk')
+		p = get_object_or_404(Espoltech, pk=pk)
+		form = EspoltechForm(instance=p)
+		return render(request, 'presupuestos_anuales/presupuestos_anuales_anular.html', {'object':p, 'form':form})
+
