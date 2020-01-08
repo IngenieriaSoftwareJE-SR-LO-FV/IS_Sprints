@@ -67,7 +67,7 @@ def presupuesto_anual_autorizar(request, pk):
 	return redirect('pendiente_aprobacion')
 
 
-def presupuesto_anual_anular(resquest, pk=None):
+def presupuesto_anual_anular(request, pk=None):
 	if(request.method == "POST"):
 		p = get_object_or_404(Espoltech, pk=pk)
 		form = EspoltechForm(request.POST, instance=p)
