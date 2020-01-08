@@ -1094,10 +1094,9 @@
 	<div class="row mt-3">
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
-			<a class="btn btn-secondary" href="{% url 'presupuesto_anual_lista' %}"> Cancelar </a>
-			{% if form.estado.value == 'GRBD' %}
-				<a class="btn btn-success float-right" href="{% url 'presupuesto_anual_enviar' p.id %}">Enviar
-				Solicitud</a>
+			<a class="btn btn-secondary" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+			{% if form.estado.value == 'ENVD' %}
+				<a class="btn btn-success float-right" href="{% url 'presupuesto_anual_autorizar' p.id %}">Aprobar</a>
 			{% endif %}
 		</div>
 	</div>

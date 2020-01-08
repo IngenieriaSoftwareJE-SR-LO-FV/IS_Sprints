@@ -191,7 +191,7 @@
 						{% for p in presupuestos_an %}
 						<tr class="text-center">
 							<td scope="row"><a class="btn btn-secondary float-right"
-									href="{% url 'presupuesto_anual_editar' pk=p.id %}"><i class="fas fa-eye"></i></a></td>
+									href="{% url 'presupuesto_anual_editarAUTR' pk=p.id %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{p.año}}</td>
 							<td scope="row">{{p.centro_costos}}</td>
 							<td scope="row">{{p.nombre}}</td>

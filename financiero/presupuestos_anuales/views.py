@@ -19,9 +19,7 @@ def index(request):
 def presupuestos_anuales_nuevo(request):
 	if(request.method == 'POST'):
 		form = EspoltechForm(request.POST)
-		print("antes del is valid")
 		if(form.is_valid()):
-			print("en el is valid")
 			form.save()
 			return redirect("presupuesto_anual_lista")
 	else:
@@ -39,7 +37,20 @@ def presupuesto_anual_editar(request, pk):
 	else:
 		p = get_object_or_404(Espoltech, pk=pk)
 		form = EspoltechForm(instance=p)
-	return render(request, "presupuestos_anuales/espoltech_editar.html", {'form': form})
+	return render(request, "presupuestos_anuales/espoltech_editar.html", {'form': form, 'p':p})
+
+
+def presupuesto_anual_editarAUTR(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(Espoltech, pk=pk)
+		form = EspoltechForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect("pendiente_aprobacion")
+	else:
+		p = get_object_or_404(Espoltech, pk=pk)
+		form = EspoltechForm(instance=p)
+	return render(request, "presupuestos_anuales/espoltech_aprobar.html", {'form': form, 'p':p})
 
 
 def presupuesto_anual_enviar(request, pk):

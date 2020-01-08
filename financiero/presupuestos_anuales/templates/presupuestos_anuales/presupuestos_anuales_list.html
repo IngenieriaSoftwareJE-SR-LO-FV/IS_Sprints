@@ -59,9 +59,9 @@
 					<td scope="row">{{ pre.año }}</td>
 					<td scope="row">{{ pre.centro_costos }}</td>
 					<td scope="row">{{ pre.nombre }}</td>
-					<td scope="row">{{ pre.estado }}</td>
+					<td scope="row">{{ pre.get_estado_display }}</td>
 					<td scope="row">
-						<a class="btn btn-light btn-sm btn-block" href="{% url 'presupuesto_anual_editar' pre.pk %}"><i
+						<a class="btn btn-light btn-sm btn-block" href="{% url 'presupuesto_anual_editar' pre.id %}"><i
 								class="fas fa-edit darkgreen-text"></i></a>
 					</td>
 				</tr>
