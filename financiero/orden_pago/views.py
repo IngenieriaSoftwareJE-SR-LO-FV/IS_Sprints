@@ -13,7 +13,10 @@ from django.http import JsonResponse
 # Create your views here.
 
 def index(request):
-	ordPago_lista = OrdenPago.objects.all().exclude(estado='ANLD')
+	if (request.GET.get('estado',None)!=None and 'ANLD' in request.GET['estado']):
+		ordPago_lista = OrdenPago.objects.all()
+	else:
+		ordPago_lista = OrdenPago.objects.all().exclude(estado='ANLD')
 	ordPago_filter = OrdenPagoFilter(request.GET, queryset=ordPago_lista)
 	return render(request, "orden_pago/ordenpago_list.html", {"ordenes_pago":ordPago_lista, "filter":ordPago_filter})
 

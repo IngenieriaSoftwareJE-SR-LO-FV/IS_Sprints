@@ -71,11 +71,11 @@
 						<tr class="text-center">
 							<td scope="row">
 								{% if orden.estado == 'ENVD' %}
-									<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editarAUTR_analista' orden.id %}"><i class="fas fa-edit"></i></a>
+									<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editarAUTR_analista' orden.id %}"><i class="fas fa-edit"></i></a>
 								{% else %}
-									<a class="btn btn-secondary btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+									<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
 								{% endif %}
-								<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+								<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
 	                		</td>
 							<td scope="row">{{ orden.cod_ord_pago }}</td>
 							<td scope="row">{{ orden.fecha }}</td>
@@ -93,7 +93,7 @@
 				                {% endif %}
 							</td>
 							<td>
-								<a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
+								<a class="btn darkgreen-text btn-light btn-sm" href="#" data-toggle="tooltip" data-placement="top" title="Imprimir">
 									<i class="fas fa-print"></i></a>
 							</td>
 						</tr>

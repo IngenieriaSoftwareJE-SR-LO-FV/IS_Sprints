@@ -42,7 +42,7 @@
 <br>
 <div class="row mt-2">
 	<div class="col-12 col-xl-12">
-		<table id="dtBasicExample" class="table table-responsive">
+		<table id="dtBasicExample" class="table table-responsive-md">
 			<thead class="white-text darkgreen-bg">
 				<tr>
 					<th scope="col">Año</th>
@@ -61,9 +61,9 @@
 					<td scope="row">{{ pre.nombre }}</td>
 					<td scope="row">{{ pre.get_estado_display }}</td>
 					<td scope="row">
-						<a class="btn btn-light btn-sm btn-block" href="{% url 'presupuesto_anual_editar' pre.id %}"><i
+						<a class="btn btn-light btn-sm" href="{% url 'presupuesto_anual_editar' pre.id %}"><i
 								class="fas fa-edit darkgreen-text"></i></a>
-						<a href='javascript:;' onclick='anular({{ pre.id }});' class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='anular({{ pre.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
 					</td>
 				</tr>
 				{% endfor%}

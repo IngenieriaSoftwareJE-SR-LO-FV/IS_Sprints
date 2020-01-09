@@ -79,7 +79,7 @@ class OrdenPagoFinalForm(forms.ModelForm):
 			"n_comprobante":"N° documento",
 			"concepto":"Concepto",
 			"forma_pago":"Forma de pago",
-			"observacion":"Observación",
+			"observacion":"Documentos",
 			"anexo":"Anexos",
 			"motivo_anular":"Motivo de Anulación",
 		}

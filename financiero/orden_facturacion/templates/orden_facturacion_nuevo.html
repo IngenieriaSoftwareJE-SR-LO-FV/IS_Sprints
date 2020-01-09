@@ -75,16 +75,16 @@
           <label for="contacto" class="col-form-label">Contacto</label>
           <input type="text" id="contacto" class="form-control" disabled>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-5">
           <label for="direccion" class="col-form-label">Dirección</label>
           <input type="text" id="direccion" class="form-control" disabled>
         </div>
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-2">
           <label for="telefono" class="col-form-label">Teléfono</label>
           <input type="text" id="telefono" class="form-control" disabled>
         </div>
         <input type="hidden" name="centro_costos" value='{{form.centro_costos.value}}' />
-        <div class="col-6 col-md-4">{{ form.centro_costos|as_crispy_field }}</div>
+        <div class="col-6 col-md-2">{{ form.centro_costos|as_crispy_field }}</div>
         {% block n_par %}
         {{ form.n_participantes}}
         {% endblock n_par %}
