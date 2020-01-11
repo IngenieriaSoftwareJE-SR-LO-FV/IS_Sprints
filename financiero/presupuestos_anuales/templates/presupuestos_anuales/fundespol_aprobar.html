@@ -1,0 +1,1961 @@
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Presupuesto Anual" }}{% endblock title %}
+
+{% block content %}
+
+<form method="POST" novalidate>
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12 col-xl-12">
+			<h2 class="text-uppercase darkgreen-text">
+				{% block regedit %}
+				{% if form.estado.value == 'ENVD' %}
+					Autorizar Presupuesto Anual FUNDESPOL
+				{% else %}
+					Edición Presupuesto Anual FUNDESPOL
+				{% endif %}
+				{% endblock regedit %}
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="mt-2 campo p-2 pl-3 col-12">
+			<h5 class="black-text text-uppercase mb-0">Información básica</h5>
+		</div>
+	</div>
+	<div class="row darkwhite-bg py-2">
+		<div class="col-2 col-xl-2">
+			{{ form.año|as_crispy_field }}
+		</div>
+		<div class="col-10 col-xl-10">
+			{{ form.nombre|as_crispy_field }}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Código</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text text-uppercase mb-0">Rubros</p>
+		</div>
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Valor Planificado</p>
+		</div>
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">Valor Ejecutado</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
+			<p class="black-text mb-0">INGRESOS</p>
+		</div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios Educacionales - Maestrias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.se_maestrias }}</div>
+		<div class="col-2 col-xl-2">{{ form.se_maestrias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios Educacionales - Cursos y Programas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.se_curs_prog }}</div>
+		<div class="col-2 col-xl-2">{{ form.se_curs_prog_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios Educacionales - Conferencias y Eventos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.se_conf_even }}</div>
+		<div class="col-2 col-xl-2">{{ form.se_conf_even_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Servicios de Arriendos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.s_arriendos }}</div>
+		<div class="col-2 col-xl-2">{{ form.s_arriendos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002008</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Aportes para Proyectos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.aporte_proy }}</div>
+		<div class="col-2 col-xl-2">{{ form.aporte_proy_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Certificados, Tasas y Otros aranceles</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cert_tasas_otros }}</div>
+		<div class="col-2 col-xl-2">{{ form.cert_tasas_otros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">40101002006</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">(-) Devoluciones Estudiantes y Otros Ajustes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.dev_est_otros }}</div>
+		<div class="col-2 col-xl-2">{{ form.dev_est_otros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><strong>TOTAL DE INGRESOS</strong></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
+			<p class="black-text mb-0">EGRESOS</p>
+		</div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><strong>501</strong></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><strong>COSTO DEL SERVICIO - DEDUCIBLES</strong></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50101</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Honorarios profesionales</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50101001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Honorarios profesionales - Docentes</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50101001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Honorarios Docentes Locales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hd_locales }}</div>
+		<div class="col-2 col-xl-2">{{ form.hd_locales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50101001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Honorarios Docentes Extranjeros</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.hd_extranjeros }}</div>
+		<div class="col-2 col-xl-2">{{ form.hd_extranjeros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50101002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Honorarios profesionales y Dieta</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.h_prof_dietas }}</div>
+		<div class="col-2 col-xl-2">{{ form.h_prof_dietas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50102</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gasto de personal(docentes y coordinación académica) en relación de dependencia</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Sueldos, Salarios y Demás Remuneraciones (gravadas al IESS)</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Unificación Salarial</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.unif_salarial }}</div>
+		<div class="col-2 col-xl-2">{{ form.unif_salarial_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Horas Extras</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.h_extras }}</div>
+		<div class="col-2 col-xl-2">{{ form.h_extras_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Bonificaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.bonificaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.bonificaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Beneficios Sociales, Indemnizaciones y Otras Remuneraciones</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Décimo Tercer Sueldo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.dec_ter_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.dec_ter_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Décimo Cuarto Sueldo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.dec_cua_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.dec_cua_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Fondo Reserva</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.f_reserva }}</div>
+		<div class="col-2 col-xl-2">{{ form.f_reserva_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102002004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Vacaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.vacaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.vacaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Aporte a la Seguridad Social</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102003001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Aporte Patronal 11,15%</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.aport_patronal }}</div>
+		<div class="col-2 col-xl-2">{{ form.aport_patronal_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102003002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		1% CCC (IECE - SECAP)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ccc_1 }}</div>
+		<div class="col-2 col-xl-2">{{ form.ccc_1_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50102003003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Seguro Social Tiempo Parcial</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ss_tiempo_parcial }}</div>
+		<div class="col-2 col-xl-2">{{ form.ss_tiempo_parcial_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50103</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Sueldos personal con nombramiento</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.s_pers_nomb }}</div>
+		<div class="col-2 col-xl-2">{{ form.s_pers_nomb_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50104</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Suministros y materiales</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50104001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Material Didáctico Físico</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.md_fisico }}</div>
+		<div class="col-2 col-xl-2">{{ form.md_fisico_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50104002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Material Didáctico Digital</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.md_digital }}</div>
+		<div class="col-2 col-xl-2">{{ form.md_digital_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50104003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Copias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.copias }}</div>
+		<div class="col-2 col-xl-2">{{ form.copias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50104004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Suministros y otros</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.suministros }}</div>
+		<div class="col-2 col-xl-2">{{ form.suministros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50105</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Licencias Renovables</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.licencias }}</div>
+		<div class="col-2 col-xl-2">{{ form.licencias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50106</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Alimentación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50106001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio deAlimentación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.s_alimentacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.s_alimentacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50106002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Comisión por Servicio de Alimentación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.com_salimentacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.com_salimentacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50107</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Hospedaje</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50107001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio de Hospedaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.s_hopedaje }}</div>
+		<div class="col-2 col-xl-2">{{ form.s_hopedaje_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50107002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Comisión por Servicio de Hospedaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.com_shopedaje }}</div>
+		<div class="col-2 col-xl-2">{{ form.com_shopedaje_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50107003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Tasa de Pernoctación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.tasa_per }}</div>
+		<div class="col-2 col-xl-2">{{ form.tasa_per_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50108</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Pasaje aéreos</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Pasajes nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.p_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.p_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Servicio de Emisión de Boleto</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seb_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.seb_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seguro_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.seguro_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Pasajes internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.p_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.p_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Servicio de Emisión de Boleto</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seb_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.seb_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50108002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seguro_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.seguro_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50109</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transporte</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.transporte }}</div>
+		<div class="col-2 col-xl-2">{{ form.transporte_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50110</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Seguro estudiantil</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seg_estud }}</div>
+		<div class="col-2 col-xl-2">{{ form.seg_estud_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>50111</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de viaje</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50111001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Viáticos nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.v_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.v_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50111002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Viáticos internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.v_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.v_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">50112</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Capacitación a docentes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cap_docente }}</div>
+		<div class="col-2 col-xl-2">{{ form.cap_docente_ejec }}</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><strong>601</strong></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><strong>GASTOS DEDUCIBLES</strong></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60101</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de perosnal(administrativo) en relación de dependencia</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Sueldos, Salarios y Demás Remuneraciones(gravadas al IESS)</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Unificación Salarial</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_unif_salarial }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_unif_salarial_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Horas Extras</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_h_extras }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_h_extras_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Bonificaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_bonificaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_bonificaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Beneficios Sociales, Indemnizaciones y Otras Remuneraciones</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Décimo Tercer Sueldo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_dec_ter_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_dec_ter_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Décimo Cuarto Sueldo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_dec_cua_sueldo }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_dec_cua_sueldo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Fondo de Reserva</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_f_reserva }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_f_reserva_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101002004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Vacaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_vacaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_vacaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Aporte a la Seguridad Social</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101003001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Aporte Patronal 11,15%</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_aport_patronal }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_aport_patronal_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101003002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		1% CCC (IECE - SECAP)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_ccc_1 }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_ccc_1_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60101003003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Seguro Social Tiempo Parcial</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_ss_tiempo_parcial }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_ss_tiempo_parcial_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60102</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Honorarios</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60102001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Honorarios Profresionales y Dietas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_h_prof_dietas }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_h_prof_dietas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60102002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicios Ocasionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_ocasionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_ocasionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60103</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos en servicios administrativos</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Correo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.correo }}</div>
+		<div class="col-2 col-xl-2">{{ form.correo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio Telefónico</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_telef }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_telef_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio de Internet</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_internet }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_internet_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Vigilancia</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.vigilancia }}</div>
+		<div class="col-2 col-xl-2">{{ form.vigilancia_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103005</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Parqueo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.parqueo }}</div>
+		<div class="col-2 col-xl-2">{{ form.parqueo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103006</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Uniforme Personal</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.unif_personal }}</div>
+		<div class="col-2 col-xl-2">{{ form.unif_personal_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103007</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Seguro Médico Salud</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seg_med }}</div>
+		<div class="col-2 col-xl-2">{{ form.seg_med_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103008</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Suscripciones y Membresías</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.susc_memb }}</div>
+		<div class="col-2 col-xl-2">{{ form.susc_memb_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103009</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Capacitación personal administrativo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cap_per_admin }}</div>
+		<div class="col-2 col-xl-2">{{ form.cap_per_admin_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103010</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Otros servicios biblioteca</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_biblioteca }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_biblioteca_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103011</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Pasajes aéreos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_aereos }}</div>
+		<div class="col-2 col-xl-2">{{ form.pasajes_aereos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103012</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Gastos de viaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_viaje }}</div>
+		<div class="col-2 col-xl-2">{{ form.gastos_viaje_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60103013</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Alimentación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_alimentacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_alimentacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60104</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Mantenimiento y reparaciones</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60104001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Mantenimiento y Reparaciones en General</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.man_rep_generales }}</div>
+		<div class="col-2 col-xl-2">{{ form.man_rep_generales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60104002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Mantenimiento y Reparaciones de Equipos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.man_rep_equipos }}</div>
+		<div class="col-2 col-xl-2">{{ form.man_rep_equipos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60105</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Materiales de ferretería y construcción</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_ferreteria }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_ferreteria_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60106</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Provisiones</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Provisiones para Jubilacion Patronal</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.p_jubil_patr }}</div>
+		<div class="col-2 col-xl-2">{{ form.p_jubil_patr_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Provisiones para Desahucio</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.p_desahucio }}</div>
+		<div class="col-2 col-xl-2">{{ form.p_desahucio_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Despido Intepestivo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.desp_intepestivo }}</div>
+		<div class="col-2 col-xl-2">{{ form.desp_intepestivo_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Provisiones para Cuentas Incobrables</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.prov_cuent_incobrables }}</div>
+		<div class="col-2 col-xl-2">{{ form.prov_cuent_incobrables_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106005</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Provisiones por Deterioro del Valor de los Activos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.prov_det_activos }}</div>
+		<div class="col-2 col-xl-2">{{ form.prov_det_activos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60106006</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	otras Provisiones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.prov_otras }}</div>
+		<div class="col-2 col-xl-2">{{ form.prov_otras_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60107</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Alquiler de Equipos</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60107001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Alquiler de equipos de Audio y Video</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.alq_equipos }}</div>
+		<div class="col-2 col-xl-2">{{ form.alq_equipos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60108</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Suministro y Materiales</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60108001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Suministros de oficina</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.sum_oficina }}</div>
+		<div class="col-2 col-xl-2">{{ form.sum_oficina_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60108002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Suminstros de Limpieza</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.sum_limpieza }}</div>
+		<div class="col-2 col-xl-2">{{ form.sum_limpieza_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60108003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Copias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_copias }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_copias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60109</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Transporte</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_transporte }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_transporte_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60110</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Seguros y Reaseguros(primas y Cesiones)</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.seg_reaseg }}</div>
+		<div class="col-2 col-xl-2">{{ form.seg_reaseg_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60111</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de Jardinería y Ornamentación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60111001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Material de Jardinería</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_jardineria }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_jardineria_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60111002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio de Jardinería</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.serv_jardineria }}</div>
+		<div class="col-2 col-xl-2">{{ form.serv_jardineria_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60111003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Alimentación de Tortugas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.alim_tortugas }}</div>
+		<div class="col-2 col-xl-2">{{ form.alim_tortugas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60111004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Atención Médica y Medicina de Tortugas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.med_tortugas }}</div>
+		<div class="col-2 col-xl-2">{{ form.med_tortugas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60112</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de marketing</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Promoción y publicidad</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Material Publicitario</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.mat_publicitario }}</div>
+		<div class="col-2 col-xl-2">{{ form.mat_publicitario_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Publicidad en Medios Impresos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pub_impresos }}</div>
+		<div class="col-2 col-xl-2">{{ form.pub_impresos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Publicidad en Medios Digitales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pub_digitales }}</div>
+		<div class="col-2 col-xl-2">{{ form.pub_digitales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112001004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Congresos, Eventos y Ferias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.cong_even_fer }}</div>
+		<div class="col-2 col-xl-2">{{ form.cong_even_fer_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60112002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Comisiones en ventas</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.com_ventas }}</div>
+		<div class="col-2 col-xl-2">{{ form.com_ventas_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60113</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de acreditación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60113001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	AACSB</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.aacsb }}</div>
+		<div class="col-2 col-xl-2">{{ form.aacsb_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60113002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	GAC/PMI</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gac_pmi }}</div>
+		<div class="col-2 col-xl-2">{{ form.gac_pmi_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60113003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	ISO</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.iso }}</div>
+		<div class="col-2 col-xl-2">{{ form.iso_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60113004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	AMBA</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.amba }}</div>
+		<div class="col-2 col-xl-2">{{ form.amba_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60114</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de representación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Hospedaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_hospedaje }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_hospedaje_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Gastos de viaje</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Viáticos Nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_v_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_v_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Viáticos Internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_v_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_v_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Pasajes aéreos</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasajes Nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Pasajes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_p_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_p_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Servicios de Emisión de Boletos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seb_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seb_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasajes Internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Pasajes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_p_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_p_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Servicio de Emisión de Boletos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seb_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seb_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114003002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60114004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Convenciones y Eventos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.conv_eventos }}</div>
+		<div class="col-2 col-xl-2">{{ form.conv_eventos_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60115</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de investigación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Capacitación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_capacitacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_capacitacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Gastos de Viaje</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Viáticos Nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_v_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_v_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Viáticos Internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_v_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_v_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Pasajes aéreos</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasajes Nacionales</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003001001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Pasajes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_p_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_p_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003001002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Servicio de Emisión de Boletos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seb_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seb_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003001003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_nacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_nacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">		Pasajes Internacionales</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form. }}</div>
+		<div class="col-2 col-xl-2">{{ form._ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003002001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Pasajes</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_p_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_p_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003002002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Servicio de Emisión de Boletos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seb_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seb_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115003002003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">			Seguro</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_internacionales }}</div>
+		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_internacionales_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115004</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Honorarios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_honorarios }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_honorarios_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115005</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Alimentación</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_alimentacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_alimentacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115006</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Hospedaje</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_hospedaje }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_hospedaje_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115007</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Suscripciones y Membresías</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.gd_susc_memb }}</div>
+		<div class="col-2 col-xl-2">{{ form.gd_susc_memb_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115008</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Publicaciones</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.publicaciones }}</div>
+		<div class="col-2 col-xl-2">{{ form.publicaciones_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60115009</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"> Convenciones, evnentos y proyectos</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.conv_even_proy }}</div>
+		<div class="col-2 col-xl-2">{{ form.conv_even_proy_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60116</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de Intereses</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60116001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Intereses Bancarios Local</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.i_banc_local }}</div>
+		<div class="col-2 col-xl-2">{{ form.i_banc_local_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60116002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	InteresesPagados a Terceros Relacionados Local</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.i_pag_local }}</div>
+		<div class="col-2 col-xl-2">{{ form.i_pag_local_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60116003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	InteresesPagados a Terceros No Relacionados Local</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.i_pag_no_local }}</div>
+		<div class="col-2 col-xl-2">{{ form.i_pag_no_local_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60117</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de Comisiones Bancarias</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60117001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Comisiones Bancarias</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.com_bancarias }}</div>
+		<div class="col-2 col-xl-2">{{ form.com_bancarias_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60117002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">|Comisiones por Cobro con Tarjeta de Crédito</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.com_tarj_cred }}</div>
+		<div class="col-2 col-xl-2">{{ form.com_tarj_cred_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60118</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Impuestos, Contribuciones y Otros</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.imp_cont }}</div>
+		<div class="col-2 col-xl-2">{{ form.imp_cont_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60119</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos por Impuesto</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60119001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	IVA que se carga al costo o gasto</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.iva }}</div>
+		<div class="col-2 col-xl-2">{{ form.iva_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60119002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Impuesto Salida Divisa</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.isd }}</div>
+		<div class="col-2 col-xl-2">{{ form.isd_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60119003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	ICE</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ice }}</div>
+		<div class="col-2 col-xl-2">{{ form.ice_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60120</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Gastos de depreciación</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60120001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Depreciación de Propiedades, Planta y Equipo No Acelerada</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.d_propiedades }}</div>
+		<div class="col-2 col-xl-2">{{ form.d_propiedades_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60120002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Depreciación del Reavalúo del Propiedades, Planta y Equipo</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.d_revaluo_prop }}</div>
+		<div class="col-2 col-xl-2">{{ form.d_revaluo_prop_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60120003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Depreciación de Propiedades de Inversión</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.d_prop_inversion }}</div>
+		<div class="col-2 col-xl-2">{{ form.d_prop_inversion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60121</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Gastos de amortización</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.g_amortizacion }}</div>
+		<div class="col-2 col-xl-2">{{ form.g_amortizacion_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60122</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Servicios públicos</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60122001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Agua</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.agua }}</div>
+		<div class="col-2 col-xl-2">{{ form.agua_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60122002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Luz</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.luz }}</div>
+		<div class="col-2 col-xl-2">{{ form.luz_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60122003</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Servicio Telefónico</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.fono }}</div>
+		<div class="col-2 col-xl-2">{{ form.fono_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"></p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form. }}</div>
+		<div class="col-2 col-xl-2">{{ form._ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"><em>60123</em></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><em>Aportes Institucionales</em></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60123001</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Aporte ESPOL 10%</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ap_espol }}</div>
+		<div class="col-2 col-xl-2">{{ form.ap_espol_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60123002</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">	Aporte FUNDESPOL 4,5%</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.ap_fundespol }}</div>
+		<div class="col-2 col-xl-2">{{ form.ap_fundespol_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0">60124</p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0">Pago por otros bienes y servicios</p>
+		</div>
+		<div class="col-2 col-xl-2">{{ form.pago_otros }}</div>
+		<div class="col-2 col-xl-2">{{ form.pago_otros_ejec }}</div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0"><strong>TOTAL DE COSTOS Y GASTOS DEDUCIBLES</strong></p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row">
+		<div class="col-2 col-xl-2">
+			<p class="black-text text-uppercase mb-0"></p>
+		</div>
+		<div class="col-6 col-xl-6">
+			<p class="black-text mb-0 text-center">RESULTADOS</p>
+		</div>
+		<div class="col-2 col-xl-2"></div>
+		<div class="col-2 col-xl-2"></div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+			{% if form.estado.value == 'ENVD' %}
+				<a class="btn btn-success float-right" href="{% url '#' p.id %}">Aprobar</a>
+			{% endif %}
+		</div>
+	</div>
+	{{ form.media }}
+
+</form>
+
+{% endblock %}
