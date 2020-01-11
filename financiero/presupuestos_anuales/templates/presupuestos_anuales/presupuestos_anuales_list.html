@@ -12,8 +12,15 @@
 		<h2>CONSULTAS <span class="darkgreen-text">PRESUPUESTO ANUAL</span></h2>
 	</div>
 	<div class="col-3 v-align">
-		<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
-			Agregar Nuevo</a>
+		<!--<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>-->
+		<div class="dropdown">
+			<button class="btn btn-secondary green-bg float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agregar Nuevo</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="{% url 'presupuesto_anual_nuevo' %}">Espoltech</a>
+				<a class="dropdown-item" href="{% url 'presupuestos_anuales_nuevo_fundespol' %}">Fundespol</a>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="row darkwhite-bg py-2">
@@ -52,8 +59,9 @@
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
-			{% if presupuestos_an %}
+			{% if presupuestos_an or presupuesto_lista_f %}
 			<tbody>
+				<!-- ESPOLTECH -->
 				{% for pre in filter.qs %}
 				<tr class="text-center">
 					<td scope="row">{{ pre.año }}</td>
@@ -63,10 +71,26 @@
 					<td scope="row">
 						<a class="btn btn-light btn-sm" href="{% url 'presupuesto_anual_editar' pre.id %}"><i
 								class="fas fa-edit darkgreen-text"></i></a>
-						<a href='javascript:;' onclick='anular({{ pre.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
+						<a href='javascript:;' onclick='anular({{ pre.id }}, "ESPOLTECH");' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
 					</td>
 				</tr>
 				{% endfor%}
+
+				<!-- FUNDESPOL -->
+				{% for pre in filter_f.qs %}
+				<tr class="text-center">
+					<td scope="row">{{ pre.año }}</td>
+					<td scope="row">{{ pre.centro_costos }}</td>
+					<td scope="row">{{ pre.nombre }}</td>
+					<td scope="row">{{ pre.get_estado_display }}</td>
+					<td scope="row">
+						<a class="btn btn-light btn-sm" href="{% url 'presupuesto_anual_editar_fundespol' pre.id %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+						<a href='javascript:;' onclick='anular({{ pre.id }}, "FUNDESPOL");' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
+					</td>
+				</tr>
+				{% endfor%}
+
 			</tbody>
 			{% else %}
 			<h2>No hay elementos que mostrar</h2>
@@ -88,7 +112,7 @@
 {% block extrafooter %}
 <script src="{% static 'js/table.js' %}"></script>
 <script>
-  	function anular(id){
+  	function anular(id, centro_costos){
   		var modal = document.getElementById("myModal");
   		modal.style.display = "block";
 
@@ -106,8 +130,15 @@
 			}
 		}
 
+		var url_d;
+		if(centro_costos == "ESPOLTECH"){
+			url_d = "{% url 'presupuesto_anual_anular' %}"
+		}else{
+			url_d = "{% url 'presupuesto_anual_anular_fundespol' %}"
+		}
+
 		$.ajax({
-			url: "{% url 'presupuesto_anual_anular' %}",  
+			url: url_d,  
 			data:{
 				"pk": id
 			}, 

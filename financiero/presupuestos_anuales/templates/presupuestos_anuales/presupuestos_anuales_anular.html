@@ -4,9 +4,9 @@
     <form method="post" action="{% url 'presupuesto_anual_anular' object.id %}">
         {% csrf_token %}
         <h4>¿Está seguro que desea anular el siguiente presupuesto anual?</h4>
-        <h4>Año: {{ object.cod_ord_pago }}</h4>
+        <h4>Año: {{ object.id }}</h4>
         <h4>Nombre: {{ object.nombre }}</h4>
-        <h4>Centro de Costo: {{ object.centro_costo }}</h4>
+        <h4>Centro de Costo: {{ object.centro_costos }}</h4>
 
         {% for field in form %}
 
