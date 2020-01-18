@@ -1,0 +1,121 @@
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Plan Anual de Compras" }}{% endblock title %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static '#' %}">
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>CONSULTAS <span class="darkgreen-text">PLAN ANUAL DE COMPRAS</span></h2>
+	</div>
+	<div class="col-3 v-align">
+		<a class="btn btn-secondary green-bg float-right" href="{% url '#' %}"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>
+	</div>
+</div>
+<div class="row darkwhite-bg py-2">
+	<div class="col-12">
+		<form method="GET">
+			{% csrf_token %}
+			<div class="row">
+				<div class="col-3 col-xl-3">
+					{{ filter.form.año|as_crispy_field }}
+				</div>
+				<div class="col-9 col-xl-9">
+					{{ filter.form.nombre|as_crispy_field }}
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-secondary green-bg float-right"><i class="fas fa-search"></i> Buscar</button>
+			</div>
+		</form>
+	</div>
+</div>
+<br>
+<div class="row mt-2">
+	<div class="col-12 col-xl-12">
+		<table id="dtBasicExample" class="table table-responsive-md">
+			<thead class="white-text darkgreen-bg">
+				<tr>
+					<th scope="col">Año</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Fecha Creación</th>
+					<th scope="col">Acciones</th>
+				</tr>
+			</thead>
+			{% if pac_lista %}
+			<tbody>
+				{% for pac in filter.qs %}
+				<tr class="text-center">
+					<td scope="row">{{ pac.año }}</td>
+					<td scope="row">{{ pac.nombre }}</td>
+					<td scope="row">{{ pac.fecha }}</td>
+					<td scope="row">
+						<a class="btn btn-light btn-sm" href="{% url '#' pac.id %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+						<a href='javascript:;' onclick='eliminar({{ pac.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
+					</td>
+				</tr>
+				{% endfor%}
+			</tbody>
+			{% else %}
+			<h2>No hay elementos que mostrar</h2>
+			{% endif %}
+		</table>
+	</div>
+</div>
+
+<div id="myModal" class="modal">
+  	<div class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="modal-form">
+	    </div>
+  	</div>
+</div>
+
+{% endblock %}
+
+{% block extrafooter %}
+<script>
+  	function eliminar(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		$.ajax({
+			url: "{% url '#' %}",  
+			data:{
+				"pk": id
+			}, 
+			success: function (data) {   
+				$("#modal-form").html(data);  
+			}
+		});
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+	}
+
+</script>
+<script src="{% static 'js/table.js' %}"></script>
+{% endblock %}

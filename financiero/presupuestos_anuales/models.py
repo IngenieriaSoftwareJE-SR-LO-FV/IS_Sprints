@@ -704,10 +704,3 @@ class Espoltech(models.Model):
 
 
 
-
-
-
-
-
-
-
