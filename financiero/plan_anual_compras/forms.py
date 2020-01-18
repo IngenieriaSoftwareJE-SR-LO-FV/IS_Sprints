@@ -22,6 +22,7 @@ class PartidaForm(forms.ModelForm):
 			"año":"Año",
 			"centro_costos":"Centro de Costos",
 			"partida":"Partida Presupuestaria",
+			"tipo_compra":"Tipo de Compra",
 			"producto":"Producto/Servicio",
 			"cantidad_anual":"Cantidad Anual",
 			"unidad_medida":"Unidad de medida",

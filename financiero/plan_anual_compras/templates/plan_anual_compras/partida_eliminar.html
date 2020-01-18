@@ -1,0 +1,18 @@
+{% extends 'base_financiero.html' %}
+
+{% block content %}
+<div class="row justify-content-md-center mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        <h3>¿Está seguro que desea eliminar el siguiente producto/servicio?</h3>
+        <h3>Partida Presupuestaria: {{ object.partida }}</h3>
+        <h3>Producto/Servicio {{ object.producto }}</h3>
+        <div class="col">
+            <div class="row justify-content-center">
+                    <a class="btn btn-secondary " href="{% url 'pac_editar' pac_id %}">Cancelar</a>
+                    <button class="btn btn-secondary green-bg ml-3" type="submit">Confirmar</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

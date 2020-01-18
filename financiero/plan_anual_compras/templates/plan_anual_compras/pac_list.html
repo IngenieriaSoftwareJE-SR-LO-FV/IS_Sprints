@@ -7,14 +7,13 @@
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static '#' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/pac.css' %}">
 <div class="row mb-2 d-flex white-bg">
 	<div class="col-9 v-align">
 		<h2>CONSULTAS <span class="darkgreen-text">PLAN ANUAL DE COMPRAS</span></h2>
 	</div>
 	<div class="col-3 v-align">
-		<a class="btn btn-secondary green-bg float-right" href="{% url '#' %}"><i class="fas fa-plus"></i>
-			Agregar Nuevo</a>
+		<a class="btn btn-secondary green-bg float-right" href="{% url 'pac_nuevo' %}"><i class="fas fa-plus"></i>Agregar Nuevo</a>
 	</div>
 </div>
 <div class="row darkwhite-bg py-2">
@@ -55,7 +54,7 @@
 					<td scope="row">{{ pac.nombre }}</td>
 					<td scope="row">{{ pac.fecha }}</td>
 					<td scope="row">
-						<a class="btn btn-light btn-sm" href="{% url '#' pac.id %}"><i
+						<a class="btn btn-light btn-sm" href="{% url 'pac_editar' pac.id %}"><i
 								class="fas fa-edit darkgreen-text"></i></a>
 						<a href='javascript:;' onclick='eliminar({{ pac.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
 					</td>
@@ -100,7 +99,7 @@
 		}
 
 		$.ajax({
-			url: "{% url '#' %}",  
+			url: "{% url 'pac_eliminar' %}",  
 			data:{
 				"pk": id
 			}, 

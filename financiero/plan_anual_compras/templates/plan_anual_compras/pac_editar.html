@@ -1,0 +1,70 @@
+{% extends 'plan_anual_compras/pac_nuevo.html' %}
+
+{% block regedit %}
+Edición Plan Anual de Compras
+{% endblock regedit %}
+
+{% block tablas %}
+
+<div class="row">
+	<div class=" campo p-2 pl-3 col-12">
+		<h5 class="black-text text-uppercase mb-0">Producto/Servicio</h5>
+	</div>
+</div>
+<div class="row my-3">
+  	<div id="tabla" class="table-container col-12">
+    	<table class="table border-bottom table-responsive table-sm">
+      		<thead class="white-text darkgreen-bg">
+        		<tr>
+        			<th>Acciones</th>
+		          	<th>Código</th>
+		          	<th>Año</th>
+		          	<th>Centro de Costos</th>
+		          	<th>Partida Presupuestaria</th>
+		          	<th>Tipo de Compra</th>
+		          	<th>Detalle del Producto</th>
+		          	<th>Cantidad Anual</th>
+		          	<th>Unidad de Medida</th>
+		          	<th>Costo Unitario</th>
+		          	<th>Subtotal</th>
+		          	<th>Valor Total</th>
+        		</tr>
+      		</thead>
+
+      		{% if partidas %}
+      		<tbody>
+				{% for p in partidas %}
+        			<tr class="text-center">
+        				<td>
+				            <a class="btn btn-light btn-block btn-sm" href="{% url 'partida_editar' p.id pac_id %}"><i
+				                class="fas fa-edit darkgreen-text"></i></a>
+				            <a class="btn btn-light btn-block btn-sm" href="{% url 'partida_eliminar' p.id pac_id %}"><i
+				                class="fas fa-trash darkgreen-text"></i></a>
+			          	</td>
+			          	<td>{{ p.codigo }}</td>
+			          	<td>{{ p.año }}</td>
+			          	<td>{{ p.centro_costos }}</td>
+			          	<td>{{ p.partida }}</td>
+			          	<td>{{ p.tipo_compra }}</td>
+			          	<td>{{ p.producto }}</td>
+			          	<td>{{ p.cantidad_anual }}</td>
+			          	<td>{{ p.unidad_medida }}</td>
+			          	<td>{{ p.costo_unitario }}</td>
+			          	<td>{{ p.subtotal }}</td>
+			          	<td>{{ p.total }}</td>
+        		</tr>
+        		{% endfor%}
+      		</tbody>
+      		{% endif %}
+    	</table>
+    	<a class="btn btn-secondary green-bg" href="{% url 'partida_nuevo' pac_id %}">Agregar Producto/servicio</a>
+  	</div>
+</div>
+<div class="row mt-5">
+	<div class="col-12">
+		<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+	    <a class="btn btn-secondary" href="{% url 'pac_index' %}">Cancelar</a>
+	</div>
+</div>
+
+{% endblock tablas %}

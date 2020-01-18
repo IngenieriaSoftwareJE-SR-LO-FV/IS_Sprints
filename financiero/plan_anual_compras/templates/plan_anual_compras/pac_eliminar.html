@@ -1,0 +1,23 @@
+{% load crispy_forms_tags %}
+
+<div class="row justify-content-md-center mt-5">
+    <form method="post" action="{% url 'pac_eliminar' object.id %}">
+        {% csrf_token %}
+        <h4>¿Está seguro que desea eliminar el Plan Anual de Compras?</h4>
+        <h4>Año: {{ object.año }}</h4>
+        <h4>Nombre: {{ object.nombre }}</h4>
+        <div class="col">
+            <div class="row justify-content-center">
+                <a href='javascript:;' onclick='cerrar(event);' class="btn btn-secondary"> Cancelar </a>
+                <button class="btn btn-secondary green-bg mr-3" type="submit" onclick="close_form(event)"> Confirmar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>function close_form(e) {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+        modal.style.display = "none";
+    }</script>
