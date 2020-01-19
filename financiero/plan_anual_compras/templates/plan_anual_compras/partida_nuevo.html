@@ -62,3 +62,26 @@
   	</div>
 </form>
 {% endblock %}
+
+{% block extrafooter %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		document.getElementById("id_cantidad_anual").oninput = function(){
+			var precio = document.getElementById("id_costo_unitario").value;
+			var cant = document.getElementById("id_cantidad_anual").value;
+			console.log(precio*cant);
+			var total = precio*cant;
+			document.getElementById("id_subtotal").value = total;
+			document.getElementById("id_total").value = total + (total*0.12);
+		};
+		document.getElementById("id_costo_unitario").oninput = function(){
+			var precio = document.getElementById("id_costo_unitario").value;
+			var cant = document.getElementById("id_cantidad_anual").value;
+			console.log(precio*cant);
+			var total = precio*cant;
+			document.getElementById("id_subtotal").value = total;
+			document.getElementById("id_total").value = total + (total*0.12);
+		};
+	});
+</script>
+{% endblock %}

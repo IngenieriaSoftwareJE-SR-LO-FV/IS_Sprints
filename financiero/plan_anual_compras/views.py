@@ -19,7 +19,7 @@ class PACCreate(CreateView):
 	model = PlanAnualCompras
 	template_name = 'plan_anual_compras/pac_nuevo.html'
 	form_class = PlanAnualComprasForm
-	success_url = 'editar'
+	success_url = '/financiero/plan_anual_compras/editar'
 
 	def post(self, request, *args, **kwargs):
 		self.object = self.get_object
