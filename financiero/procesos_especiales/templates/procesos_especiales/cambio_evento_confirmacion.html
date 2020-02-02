@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="ordenTitle">Confirmar cambio de evento</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form action="#" id="modal_form">
+    {% csrf_token %}
+
+    <div class="modal-body">
+        ¿Está seguro que desea cambiar a esta persona de evento?
+        <br>
+            Cédula: {{ object.pk }}
+        <br>
+            Nombres y Apellidos: {{ object.nombres }} {{ object.apellidos }}
+        <br>
+            Evento origen: {{ eo.nombre_evento }}
+        <br>
+            Evento destino: {{ ed.nombre_evento }}
+            {{form.}}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-secondary green-bg ml-3" type="submit"> Cambiar </button>
+    </div>
+
+
+</form>
+
+<script>
+    $("#modal_form").on('submit', function(event){
+        event.preventDefault();
+        console.log("modal called")
+        send=1;
+
+        $('.my_form').submit();
+
+    });
+
+</script>

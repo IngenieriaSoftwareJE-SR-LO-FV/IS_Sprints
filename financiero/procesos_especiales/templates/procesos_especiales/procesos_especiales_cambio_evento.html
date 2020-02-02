@@ -3,25 +3,83 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% load staticfiles %}
+{% load index %}
 {% block title %}{{ "EC - Procesos Especiales" }}{% endblock title %}
-
 {% block content %}
-<div class="row mb-2 d-flex white-bg">
-	<div class="col-9 v-align">
-		<h2>CONSULTAS <span class="darkgreen-text">PROCESOS ESPECIALES</span></h2>
+<form method="POST" class="my_form" novalidate id="form-fact" enctype="multipart/form-data" 
+data-persona-url="{% url 'ajax_load_personas_evento' %}"
+data-evento-url="{% url 'ajax_load_eventos' %}">
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12">
+			<h2 class="text-uppercase darkgreen-text">Registro cambio de evento</h2>
+		</div>
 	</div>
-	<div class="col-3 v-align">
-		<!--<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
-			Agregar Nuevo</a>-->
-		
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-4">
+					{{form.participante|as_crispy_field}}
+				</div>
+				<div class="col-4">
+					{{ form.evento_origen|as_crispy_field }}
+				</div>
+				<div class="col-4">
+					{{form.evento_destino|as_crispy_field}}
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="row darkwhite-bg py-2">
-	<div class="col-12">
-		<a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_participante' %}"><i
-								class="fas fa-edit darkgreen-text"></i></a>
-	</div>
-</div>
-<br>
 
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg" data-toggle='modal' data-target="#econfirmacion">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'procesos_especiales_cambio_evento' %}"> Cancelar </a>
+		</div>
+	</div>
+ {{ form.media }}
+
+</form>
+<div class="modal fade" id="econfirmacion" tabindex="1" role="dialog" aria-labelledby="ordenTitle"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+
+{% block extrafooter %}
+
+
+
+<script>
+	var send = 0;
+	$('form').on('submit', function(event){
+		if(send==0){
+			event.preventDefault();
+	    	$.ajax({
+				url: "{% url 'confirmar_cambio' %}",
+				data: { "cedula": $("#id_participante").val(),
+						"evento_origen": $("#id_evento_origen").val(),
+						"evento_destino":$("#id_evento_destino").val(),
+						"form":$('form').serialize() },
+				success: function (data) {
+					$(".modal-content").html(data);
+
+				}
+			});
+			console.log("PREVENT");
+		}else{
+			console.log("SUCESS");
+			return true;
+		}
+    	
+	});
+
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="{% static 'js/cambio_evento.js' %}"></script>
 {% endblock extrafooter %}
