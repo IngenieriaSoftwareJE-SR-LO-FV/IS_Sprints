@@ -1,0 +1,27 @@
+{% extends 'base_financiero.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Procesos Especiales" }}{% endblock title %}
+
+{% block content %}
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>CONSULTAS <span class="darkgreen-text">PROCESOS ESPECIALES</span></h2>
+	</div>
+	<div class="col-3 v-align">
+		<!--<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>-->
+		
+	</div>
+</div>
+<div class="row darkwhite-bg py-2">
+	<div class="col-12">
+		<a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_participante' %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
+	</div>
+</div>
+<br>
+
+{% endblock extrafooter %}

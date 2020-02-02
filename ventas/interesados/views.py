@@ -46,8 +46,8 @@ def cargar_personas_thread(f):
 			interesado = Interesado()
 			interesado.nombre=data[0]
 			interesado.apellido = data[1]
-			interesado.celular = data[2]
-			interesado.correo = data[3]
+			interesado.celular = data[3]
+			interesado.correo = data[2]
 			try:
 				interesado.canal_de_contacto = CanalContacto.objects.get(nombre=data[4])
 				interesado.save()

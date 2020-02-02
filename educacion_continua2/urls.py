@@ -33,6 +33,7 @@ urlpatterns = [
     path("financiero/pago_eventos/",include("financiero.pago_eventos.urls")),
     path("financiero/presupuestos_anuales/",include("financiero.presupuestos_anuales.urls")),
     path("financiero/plan_anual_compras/",include("financiero.plan_anual_compras.urls")),
+    path("financiero/procesos_especiales/",include("financiero.procesos_especiales.urls")),
     path('admin/', admin.site.urls),
 ]
 
