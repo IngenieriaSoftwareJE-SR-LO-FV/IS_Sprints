@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView,UpdateView,DeleteView
 from .models import OrdenIngreso
-from .forms import OrdenIngresoForm, OrdenIngresoUpdateForm
+from .forms import OrdenIngresoForm, OrdenIngresoUpdateForm, OrdenIngresoPrintForm
 from django.urls import reverse_lazy
 from datetime import date
 from financiero.orden_facturacion.models import OrdenFacturacion
@@ -59,6 +59,12 @@ class OrdenIngresoUpdate(UpdateView):
     model=OrdenIngreso
     form_class=OrdenIngresoUpdateForm
     template_name='ordenIngreso_editar.html'
+    success_url=reverse_lazy('ordenIngreso')
+
+class OrdenIngresoPrint(UpdateView):
+    model=OrdenIngreso
+    form_class=OrdenIngresoPrintForm
+    template_name='ordenIngreso_print.html'
     success_url=reverse_lazy('ordenIngreso')
 
 class OrdenIngresoDelete(DeleteView):

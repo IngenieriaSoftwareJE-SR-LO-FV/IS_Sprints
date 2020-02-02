@@ -10,7 +10,7 @@
 	{% csrf_token %}
 	<div class="row mb-2">
 		<div class="col-12">
-			<h2 class="text-uppercase darkgreen-text">Registro Nota de Crédito</h2>
+			<h2 class="text-uppercase darkgreen-text">Edición Nota de Crédito</h2>
 		</div>
 	</div>
 	<div class="row darkwhite-bg py-2">
@@ -87,7 +87,17 @@
 			<br>
 			<div class="form-row">
 				<div class="col-12 col-xl-6">
-					{{ form.anexo }}
+					{% if form.anexo.value %}
+					<label for="id_anexo_factura" class="col-form-label requiredField">
+                		Anexo de factura<span class="asteriskField">*</span>
+            		</label>
+            		<div class="">
+                		<a class="btn btn-secondary btn-sm" href="{{form.anexo_factura.value.url}}" target="_blank">
+                    		Descargar
+                		</a>
+                	{% else %}
+                		{{ form.anexo }}
+                	{% endif %}
 				</div>
 			</div>
 		</div>

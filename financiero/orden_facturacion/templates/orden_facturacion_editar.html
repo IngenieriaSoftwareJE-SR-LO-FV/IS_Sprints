@@ -128,9 +128,15 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
+                {% if form.estado.value == "ANLD" %}
+                <hr>
+                {{form.motivo_anular|as_crispy_field}}
+                {% else %}
                 <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
                     id="confirmar_guardar">Guardar</a>
                 <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
+                {% endif %}
+
                 {% if form.estado.value == "ACTV" %}
                 <button id="env-sol" class="btn btn-success darkgreen-bg float-right">Enviar
                     solicitud</button>

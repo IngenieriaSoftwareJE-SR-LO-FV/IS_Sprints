@@ -105,16 +105,19 @@
                     <td scope="row">{{orden.ruc_ci}}</td>
                     <td scope="row">{{orden.fecha}}</td>
                     <td scope="row">{{orden.n_participantes}}</td>
-                    <td scope="row">{{orden.valor_total}}</td>
+                    <td scope="row">{{orden.valor_total|currency}}</td>
                     <td scope="row">{{orden.get_estado_display}}</td>
                     <td scope="row">{{orden.n_tramite}}</td>
                     <td scope="row">{{orden.n_factura}}</td>
 
                     <td scope="row">
 
-                        {% if orden.estado != 'ANLD' %}
+                        
                         <a class="btn btn-light btn-sm" href="{% url 'orden_facturacion_editar' orden.id %}">
                             <i class="fas fa-edit darkgreen-text"></i></a>
+                        
+
+                        {% if orden.estado == 'ACTV' %}
                         <a onclick='eliminar({{ orden.id }});' class="btn btn-light btn-sm" data-toggle='modal'
                             data-target="#ordenEliminarCenter" href='#'>
                             <i class="fas fa-trash darkgreen-text"></i></a>

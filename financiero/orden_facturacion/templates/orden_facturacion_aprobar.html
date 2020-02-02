@@ -6,7 +6,8 @@
 {% load my_tags %}
 <div class="row mb-2">
     <div class="col-12">
-        <h2 class="text-uppercase">Autorizar <span class="darkgreen-text ">Orden de Facturación {{form.cod_orden_fact.value}}</span> </h2>
+        <h2 class="text-uppercase">Autorizar <span class="darkgreen-text ">Orden de Facturación
+                {{form.cod_orden_fact.value}}</span> </h2>
     </div>
 </div>
 {% if form.estado.value == "ACPF" or form.estado.value == "PNDP" %}
@@ -112,14 +113,14 @@
             <div class="col-6 col-md-3">{{ form.descuento_total|as_crispy_field }}</div>
             <div class="col-6 col-md-3">{{ form.valor_total|as_crispy_field }}</div>
         </div>
-        <div class="row mt-3">
-			<div class="mt-2 campo p-2 pl-3 col-12">
-				<h5 class="black-text text-uppercase mb-0">Autorizar orden de ingreso</h5>
-			</div>
-		</div>
+        <div class="row my-3">
+            <div class="mt-2 campo p-2 pl-3 col-12">
+                <h5 class="black-text text-uppercase mb-0">Autorizar orden de facturación</h5>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
-                
+
                 <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#orden-AP" href='#'>Aprobar</a>
                 <a class="btn btn-secondary " data-toggle='modal' data-target="#orden-RP" href='#'>Anular</a>
             </div>
@@ -128,53 +129,55 @@
 </div>
 
 
-<div class="modal fade" id="orden-AP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
-    aria-hidden="true">
+<div class="modal fade" id="orden-AP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ordenTitle">Confirmación</h5>
+                <h5 class="modal-title" id="ordenTitle">Confirmación de Aprobación</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="modal-confirmacion">
-                ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder.
+                ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder a la Aprobación.
             </div>
             <div class="modal-footer">
-                <a class="btn btn-secondary green-bg" href="{% url 'aprobar_orden_fact' orden.id %}">Confirmar <i
-                    class="fas fa-check"></i></a>
+                <a class="btn btn-secondary green-bg" href="{% url 'orden_facturacion_aprobar' orden.id %}">Confirmar <i
+                        class="fas fa-check"></i></a>
                 <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="orden-RP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ordenTitle">Confirmación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="modal-confirmacion">
-                ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder.
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-secondary green-bg" href="{% url 'anular_orden_fact' orden.pk %}">Confirmar <i
-                    class="fas fa-check"></i></a>
-                <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock tablas %}
 
 {% block confirmar%}
-
+<div class="modal fade" id="orden-RP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ordenTitle">Confirmación de Anulación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'orden_facturacion_anular' orden.id %}">
+                {% csrf_token %}
+                <div class="modal-body" id="modal-confirmacion">
+                    ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder a la Anulación.
+                    <br>
+                    <br>
+                    {{ form.motivo_anular|as_crispy_field }}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary green-bg" type="submit"><i class="fas fa-check"></i> Confirmar </button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock confirmar%}
 
 {% block n_par %}

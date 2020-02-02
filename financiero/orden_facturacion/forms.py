@@ -27,6 +27,7 @@ class OrdenFacturacionForm(forms.ModelForm):
             'descuento_fact': '% Descuentos',
             'descuento_total': '$ Descuento total',
             'valor_total': '$ Valor total',
+            "motivo_anular":"Motivo de Anulación",
         }
 
         widgets = {
@@ -45,6 +46,7 @@ class OrdenFacturacionForm(forms.ModelForm):
             'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            "motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
         }
 
 
@@ -73,6 +75,7 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'descuento_fact': '% Descuentos',
             'descuento_total': '$ Descuento total',
             'valor_total': '$ Valor total',
+            "motivo_anular":"Motivo de Anulación",
         }
 
 
@@ -97,7 +100,7 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             "valor_pendiente":forms.HiddenInput(),
-
+            "motivo_anular":forms.Textarea(attrs={'readonly': True, "class":"form-control", "rows":2}),
         }
 
 
@@ -125,6 +128,7 @@ class OrdenFacturacionFinalForm(forms.ModelForm):
             'descuento_fact':'% Descuentos',
             'descuento_total':'$ Descuento total',
             'valor_total':'$ Valor total',
+            "motivo_anular":"Motivo de Anulación",
         }
         widgets = {
             'cod_orden_fact': forms.HiddenInput(),
@@ -146,6 +150,8 @@ class OrdenFacturacionFinalForm(forms.ModelForm):
             'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            "motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
+
         }
 
 

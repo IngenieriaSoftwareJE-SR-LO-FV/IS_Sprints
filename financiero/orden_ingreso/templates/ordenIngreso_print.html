@@ -1,0 +1,163 @@
+{% extends 'base_financiero.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load index %}
+
+{% block title %}{{ "EC - Orden de Ingreso" }}{% endblock title %}
+
+{% block extraheader %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/print.css' %}" type="text/css" media="print" charset="utf-8">
+{% endblock extraheader %}
+
+{% block content %}
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12">
+            <h2 class="text-uppercase black-text" style="text-align: center;">Orden de Ingreso</h2>
+            <h2 class="text-uppercase black-text" style="text-align: center;">Educación Continua</h2>
+        </div>
+        <div class="col-10">
+            <p class="text-uppercase black-text" style="text-align: left;font-weight: bold;">Campus "Las Peñas"</p>
+            <p class="text-uppercase black-text" style="text-align: left;font-weight: bold;">Malecón 100 y Loja Fax: 2081014</p>
+            <p class="text-uppercase black-text" style="text-align: left;font-weight: bold;">Teléfono: 2081130 Apartado: 09-01-5863</p>
+            <p class="text-uppercase black-text" style="text-align: left;font-weight: bold;">Fecha:</p>
+        </div>
+        <div class="col-2">
+            <div   style="font-weight: bold;">
+                {{form.n_tramite|as_crispy_field}}
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+    <p class="black-text" style="text-align: left;font-weight: bold;">Señor Gerente de ESPOLTECH EP sírvase registrar el ingreso de valores de la siguiente factura:</p>
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-6 col-md-3 mb-0">
+					{{ form.fecha|as_crispy_field }}
+				</div>
+				<div class="col-6 col-md-3 mb-0 " id="field-ruc-ci">
+					<div id="div_id_ruc_ci" class="form-group">
+						<label for="{{ form.ruc_ci.id_for_label}}" class="col-form-label requiredField"
+							id="ruc_ci">Identificación</label><span class="asteriskField">*</span>
+						<div>
+							{{ form.ruc_ci}}
+							{% if form.ruc_ci.errors %}
+							{% for error in form.ruc_ci.errors %}
+							<p class="invalid-feedback d-block">
+								<strong>{{ error }}</strong>
+							</p>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<div class="col-6 col-md-3 mb-0 " id="field-razon">
+					<div id="div_id_razon_nombres" class="form-group">
+						<label for="{{ form.razon_nombres.id_for_label}}" class="col-form-label requiredField"
+							id="ra_nom">Razón
+							Social</label><span class="asteriskField">*</span>
+						<div>
+
+							{{ form.razon_nombres}}
+							{% if form.razon_nombres.errors %}
+							{% for error in form.razon_nombres.errors %}
+							<p class="invalid-feedback d-block">
+								<strong>{{ error }}</strong>
+							</p>
+							{% endfor %}
+							{% endif %}
+
+						</div>
+					</div>
+				</div>
+				<input type="hidden" id='rc' value="{{form.ruc_ci.value}}">
+				<input type="hidden" id='rn' value="{{form.razon_nombres.value}}">
+			</div>
+			<div class="row">
+				<div class="col-12">
+					{{form.descripcion|as_crispy_field}}
+				</div>
+			</div>
+			<div class="mt-2 campo p-2">
+				<h2 class="black-text text-uppercase">Detalle del Pago</h2>
+			</div>
+			<div class="row">
+				<div class="col-4">
+					{{form.formaPago|as_crispy_field}}
+				</div>
+				<div class="col-4">
+					{{form.fechaPago|as_crispy_field}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					{{form.numeroDocumento|as_crispy_field}}
+				</div>
+				<div class="col-3">
+					{{form.banco|as_crispy_field}}
+				</div>
+				<div class="col-3">
+					<label for="{{ form.emisoraTarjeta.id_for_label}}" class="col-form-label"
+						id="id_emisoraTarjeta">Emisora
+						TC</label><span class="asteriskField" id="asterisco">*</span>
+					{{form.emisoraTarjeta}}
+				</div>
+				<div class="col-3">
+					{{form.valor|as_crispy_field}}
+				</div>
+			</div>
+        </div>
+        
+	</div>
+    <div class="firmas row justify-content-center mt-5">
+        <div class="col-5 justify-content-center">
+            <p  style="text-align: center;font-weight: bold;">Elaborado por:</p >
+            <br>
+            <br>
+            <br>
+            <hr align="center" width="70%">
+            <p  style="text-align: center;font-weight: bold;">Firma y sello</p>
+        </div>
+        <div class="col-5 justify-content-center">
+            <p  style="text-align: center;font-weight: bold;">Revisado por:</p >
+            <br>
+            <br>
+            <br>
+            <hr align="center" width="70%">
+            <p  style="text-align: center;font-weight: bold;">Firma y sello</p>
+        </div>
+    </div>
+
+    <div class="firmas row justify-content-center mt-5">
+        <div class="col-5 justify-content-center">
+            <p  style="text-align: center;font-weight: bold;">Autorizado por:</p >
+            <br>
+            <br>
+            <br>
+            <hr align="center" width="70%">
+            <p  style="text-align: center;font-weight: bold;">DIRECTOR EDUCACIÓN CONTINUA</p>
+        </div>
+        <div class="col-5 justify-content-center">
+            <p  style="text-align: center;font-weight: bold;">Recibido por:</p >
+            <br>
+            <br>
+            <br>
+            <hr align="center" width="70%">
+            <p  style="text-align: center;font-weight: bold;">ESPOLTECH EP</p>
+        </div>
+    </div>
+
+
+	</div>
+	<div class="row mt-3">
+		<div class="col-12">
+			<button class="btn btn-secondary imprimir" onclick="print()">Imprimir</button>
+		</div>
+	</div>
+
+
+
+{% endblock %}

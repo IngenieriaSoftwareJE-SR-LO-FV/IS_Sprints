@@ -38,3 +38,4 @@ def anular_orden_fact(request, pk):
 	orden.estado="ANLD"
 	orden.save()
 	return HttpResponseRedirect("/financiero/perfiles/pendiente_aprobacion/")
+
