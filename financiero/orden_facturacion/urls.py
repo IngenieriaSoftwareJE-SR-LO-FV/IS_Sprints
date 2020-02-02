@@ -11,7 +11,7 @@ urlpatterns = [
     path('ajax/verificar-campos',views.verificar_campos,name='ajax_verificar_campos'),
     path('ajax/info-cliente',views.load_info,name='ajax_info_id'),
     path('ajax/orden-ci',views.load_info_ci,name="ajax_orden_ci"),
-    path('', FilterView.as_view(filterset_class=OrdenFacturacionFilter,template_name="orden_facturacion.html"), name='orden_facturacion'),
+    path('', views.index, name='orden_facturacion'),
     path('editar/<pk>/', views.OrdenFacturacionUpdate.as_view(), name='orden_facturacion_editar'),    
     path('eliminar/<pk>/', views.OrdenFacturacionDelete.as_view(), name='orden_facturacion_eliminar'),
     path('cambiar-estado/<pk>/', views.cambiar_estado, name='orden_facturacion_estado'),
@@ -20,5 +20,5 @@ urlpatterns = [
     path('participante/eliminar/<pk>/<fk>/',views.ParticipanteDelete.as_view(),name='participante_eliminar'),
     path('ajax/confirmar-eliminar-par',views.participante_conf_elim,name='participante_confirmar_eliminar'),
     path('aprobar/<pk>',views.aprobar_orden_facturacion, name="orden_facturacion_aprobar"),
-
+    path('anular/<pk>',views.anular_orden_facturacion, name="orden_facturacion_anular"),
 ]

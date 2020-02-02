@@ -8,10 +8,14 @@
     {% csrf_token %}
 
     <div class="modal-body">
-        ¿Está segura que desea solicitar la anulación la siguiente orden de facturación?
+        ¿Está segura que desea anular la siguiente orden de facturación?
         Código: {{orden.cod_orden_fact}}
         <br>
         Estado: {{orden.get_estado_display}}
+        <br>
+        <br>
+        Ingrese el motivo de la anulación
+        {{ form.motivo_anular }}
     </div>
     <div class="modal-footer">
         <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

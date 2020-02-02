@@ -52,8 +52,9 @@ class OrdenFacturacion(models.Model):
     descuento_fact=models.FloatField(blank=True, null=True,default=0.0)
     descuento_total=models.FloatField(blank=True, null=True,default=0.0)
 
-    valor_total=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo], blank=True, null=True)
-    valor_pendiente=models.DecimalField(max_digits=10,decimal_places=3,validators=[val_fin.validate_positivo], blank=True, null=True,default=0)
+    valor_total=models.DecimalField(max_digits=10,decimal_places=2,validators=[val_fin.validate_positivo], blank=True, null=True)
+    valor_pendiente=models.DecimalField(max_digits=10,decimal_places=2,validators=[val_fin.validate_positivo], blank=True, null=True,default=0)
+    motivo_anular = models.CharField(max_length=500, blank=True, null=True)
 
     def delete(self, *arg, **kwargs):
         self.anexo_factura.delete()

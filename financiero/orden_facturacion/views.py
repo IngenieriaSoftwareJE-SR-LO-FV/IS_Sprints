@@ -7,8 +7,16 @@ from django.template.loader import render_to_string
 from django.http import JsonResponse, HttpResponseRedirect
 from datetime import date
 from django.views.decorators.csrf import ensure_csrf_cookie
+from .filters import OrdenFacturacionFilter
 # Create your views here.
 
+def index(request):
+	if (request.GET.get('estado',None)!=None and 'ANLD' in request.GET['estado']):
+		ordFac_lista = OrdenFacturacion.objects.all()
+	else:
+		ordFac_lista = OrdenFacturacion.objects.all().exclude(estado='ANLD')
+	ordFac_filter = OrdenFacturacionFilter(request.GET, queryset=ordFac_lista)
+	return render(request, "orden_facturacion.html", {"filter":ordFac_filter})
 
 class OrdenFacturacionCreate(CreateView):
     model=OrdenFacturacion
@@ -75,17 +83,21 @@ class OrdenFacturacionDelete(DeleteView):
     model=OrdenFacturacion
     template_name='orden_facturacion_eliminar.html'
     success_url=reverse_lazy('orden_facturacion')
-
+    form_class=OrdenFacturacionForm
     def post(self, request, *args, **kwargs):
         self.object=self.get_object()
         self.object.estado="ANLD"
+        motivo=dict(request.POST).get("motivo_anular")[0]
+        self.object.motivo_anular=motivo
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
 def orden_fact_conf_elim(request):
     orden_id=request.GET.get('pk')
     orden=OrdenFacturacion.objects.get(id=orden_id)
-    return render(request,"orden_facturacion_eliminar.html",{"orden":orden})
+    print(orden.tipo_cliente)
+    form=OrdenFacturacionForm(instance=orden)
+    return render(request,"orden_facturacion_eliminar.html",{"orden":orden,"form":form})
 
 
 
@@ -228,6 +240,21 @@ def aprobar_orden_facturacion(request, pk):
         if(form.is_valid()):
             form.save()
             return redirect('pendiente_aprobacion')
+    else:
+        p = get_object_or_404(OrdenFacturacion, pk=pk)
+        form = OrdenFacturacionFinalForm(instance=p)
+        participantes=OrdenFacturacionParticipante.objects.filter(orden_id=pk)
+        return render(request, 'orden_facturacion_aprobar.html', {'form': form, 'participantes':participantes, "orden":p})
+
+
+def anular_orden_facturacion(request, pk):
+    if(request.method == 'POST'):
+        p = get_object_or_404(OrdenFacturacion, pk=pk)
+        p.estado="ANLD"
+        motivo=dict(request.POST).get("motivo_anular")[0]
+        p.motivo_anular=motivo
+        p.save()
+        return redirect('pendiente_aprobacion')
     else:
         p = get_object_or_404(OrdenFacturacion, pk=pk)
         form = OrdenFacturacionFinalForm(instance=p)

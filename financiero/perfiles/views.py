@@ -23,15 +23,3 @@ def por_aprobar(request):
 	orden_pago = OrdenPago.objects.filter(estado='ENVD')
 	presupuestos_an = Espoltech.objects.filter(estado='ENVD')
 	return render(request, 'por_aprobar.html', {"presupuestos_ev":presupuestos_ev, "orden_fact":orden_fact, "orden_pago":orden_pago, "presupuestos_an":presupuestos_an})
-
-def aprobar_orden_fact(request, pk):
-	orden=OrdenFacturacion.objects.get(pk=pk)
-	orden.estado="ACPF"
-	orden.save()
-	return HttpResponseRedirect("/financiero/perfiles/pendiente_aprobacion/")
-
-def anular_orden_fact(request, pk):
-	orden=OrdenFacturacion.objects.get(pk=pk)
-	orden.estado="ANLD"
-	orden.save()
-	return HttpResponseRedirect("/financiero/perfiles/pendiente_aprobacion/")
