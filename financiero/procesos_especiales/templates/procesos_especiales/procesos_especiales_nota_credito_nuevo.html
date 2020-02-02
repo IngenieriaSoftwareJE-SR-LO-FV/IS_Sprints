@@ -1,0 +1,101 @@
+{% extends 'base_financiero.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load staticfiles %}
+{% block title %}{{ "EC - Devolución de valores" }}{% endblock %}
+
+{% block content %}
+
+<form method="POST" id="notaCreditoForm" novalidate>
+	{% csrf_token %}
+	<div class="row mb-2">
+		<div class="col-12">
+			<h2 class="text-uppercase darkgreen-text">Registro Nota de Crédito</h2>
+		</div>
+	</div>
+	<div class="row darkwhite-bg py-2">
+		<div class="col-12">
+			<div class="form-row">
+				<div class="col-3 col-xl-3">
+					{{ form.cod_nota_cred|as_crispy_field }}
+				</div>
+				<div class="col-3">
+					{{ form.estado|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4">
+					{{ form.motivo|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-6">
+					{{ form.concepto|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4">
+					{{ form.documento|as_crispy_field }}
+				</div>
+				<div class="col-4">
+					{{ form.n_documento|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12">
+					{{ form.evento|as_crispy_field }}
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-4">
+					{{ form.valor_evento|as_crispy_field }}
+				</div>
+				<div class="col-4">
+					{{ form.descuento|as_crispy_field }}
+				</div>
+				<div class="col-4">
+					{{ form.valor_pagar|as_crispy_field }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="mt-2 campo p-2 pl-3 col-12">
+					<h5 class="black-text text-uppercase mb-0">Detalles del participantes</h5>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-12">
+					<a class="btn btn-light btn-sm btn-block" href="{% url '#' %}"><i
+								class="fas fa-edit darkgreen-text"></i>Ver Participantes del Evento</a>
+					<a class="btn btn-light btn-sm btn-block" href="{% url '#' %}"><i class="fas fa-user-friends"></i>Eliminar Participantes</a>
+				</div>
+			</div>
+			<div>
+				<table id="dtBasicExample" class="table table-responsive-md border-bottom">
+					<thead class="white-text darkgreen-bg">
+						<tr>
+							<th scope="col">Participante</th>
+							<th scope="col">Curso</th>
+							<th scope="col">Valor</th>
+							<th scope="col">Código Evento</th>
+						</tr>
+					</thead>
+					<h2>No hay elementos que mostrar</h2>
+				</table>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-6">
+					{{ form.anexo|as_crispy_field }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-12">
+			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
+			<a class="btn btn-secondary" href="{% url '#' %}"> Cancelar </a>
+		</div>
+	</div>
+	{{ form.media }}
+</form>
+
+{% endblock %}
