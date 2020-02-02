@@ -85,4 +85,43 @@ class OrdenIngresoUpdateForm(forms.ModelForm):
 			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'select form-control-plaintext textinput textInput form-control'}),
 			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'})
 		}
+class OrdenIngresoPrintForm(forms.ModelForm):
+
+	class Meta:
+		model=OrdenIngreso
+		fields='__all__'
+
+		labels={
+			'cod_orden_ing': 'Código',
+			'tipo_cliente':'Cliente',
+			'fecha':'Fecha',
+			'n_tramite':'N° de Trámite',
+			'ruc_ci':'RUC',
+			'razon_nombres':'Razón Social',
+			'descripcion':'Descripción',
+			'formaPago':'Forma de Pago',
+			'valor':'Valor',
+			'anexo':'Anexo Comprobante de Pago',
+			'fechaPago':'Fecha Pago',
+			'numeroDocumento':'N° Documento',
+			'banco':"Banco",
+			'emisoraTarjeta':"Emisora TC",
+		}
+
+		widgets={
+			'cod_orden_ing':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'fecha':forms.DateInput(attrs={'readonly':True,'class':'form-control-plaintext','type':'date','value':date.today}),
+			'fechaPago':forms.DateInput(attrs={'readonly':True,'class':'form-control-plaintext','type':'date','value':date.today}),
+			'n_tramite':forms.TextInput(attrs={'readonly':True, 'class':'form-control'}),
+			'tipo_cliente':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'razon_nombres':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+            'ruc_ci':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+			'descripcion':forms.Textarea(attrs={'readonly':True,'rows':2,'class':'form-control-plaintext'}),
+			'valor':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'anexo':forms.ClearableFileInput(attrs={'class':'form-control'}),
+			'numeroDocumento':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
+			'banco':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
+			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'select form-control-plaintext textinput textInput form-control'}),
+			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'})
+		}
 
