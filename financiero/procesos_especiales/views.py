@@ -4,7 +4,8 @@ from .models import NotaCredito
 
 # Create your views here.
 def index(request):
-	return render(request, "procesos_especiales/procesos_especiales_index.html")
+	nota_credito = NotaCredito.objects.all()
+	return render(request, "procesos_especiales/procesos_especiales_index.html", {"nota_credito":nota_credito})
 
 def cambio_participante_index(request):
 	return render(request, "procesos_especiales/procesos_especiales_index.html")

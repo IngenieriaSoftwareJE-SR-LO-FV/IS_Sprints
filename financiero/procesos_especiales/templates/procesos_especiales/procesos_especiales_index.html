@@ -8,7 +8,7 @@
 {% block content %}
 <div class="row mb-2 d-flex white-bg">
 	<div class="col-9 v-align">
-		<h2>CONSULTAS <span class="darkgreen-text">PROCESOS ESPECIALES</span></h2>
+		<h2>CREACIÓN <span class="darkgreen-text">PROCESOS ESPECIALES</span></h2>
 	</div>
 	<div class="col-3 v-align">
 		<!--<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
@@ -23,6 +23,58 @@
 		<li><a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_evento' %}">Cambio de eventos</a></li>
 		<li><a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_devolucion' %}">Devolución de Valores</a></li>
 		</ul>
+	</div>
+</div>
+<br>
+<div class="row mb-2 d-flex white-bg">
+	<div class="col-9 v-align">
+		<h2>LISTADO <span class="darkgreen-text">PROCESOS ESPECIALES</span></h2>
+	</div>
+	<div class="col-3 v-align">
+		<!--<a class="btn btn-secondary green-bg float-right" href="{% url 'presupuesto_anual_nuevo' %}"><i class="fas fa-plus"></i>
+			Agregar Nuevo</a>-->
+		
+	</div>
+</div>
+<div class="campo mt-2 p-2">
+	<h5 class="text-uppercase black-text mb-0">Devoluciones de valores</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<div class="row">
+			<div class="col-12 col-xl-12">
+				<table class="table table-responsive-md border-bottom">
+					<thead class="white-text darkgreen-bg">
+						<tr>
+							<th scope="col">Ver Detalles</th>
+							<th scope="col">Código</th>
+							<th scope="col">Documento</th>
+							<th scope="col">Evento</th>
+							<th scope="col">Valor a Pagar</th>
+							<th scope="col">Anexo</th>
+						</tr>
+					</thead>
+					{% if nota_credito %}
+					<tbody>
+						{% for nota in nota_credito %}
+						<tr class="text-center">
+							<td scope="row"><a class="btn btn-light btn-sm darkgreen-text"
+								href="#"><i class="fas fa-eye"></i></a></td>
+							<td scope="row">{{nota.cod_nota_cred}}</td>
+							<td scope="row">{{nota.documento}}</td>
+							<td scope="row">{{nota.evento}}</td>
+							<td scope="row">{{nota.valor_pagar}}</td>
+							<td scope="row">{{nota.anexo}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+					{% else %}
+					<h2>No hay órdenes de facturación por aprobar</h2>
+					{% endif %}
+				</table>
+			</div>
+		</div>
+
 	</div>
 </div>
 <br>
