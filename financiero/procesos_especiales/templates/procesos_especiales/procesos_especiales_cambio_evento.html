@@ -18,13 +18,10 @@
 </div>
 <div class="row darkwhite-bg py-2">
 	<div class="col-12">
-		<ul>
-		<li><a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_participante' %}">Cambio de participante</a></li>
-		<li><a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_evento' %}">Cambio de eventos</a></li>
-		<li><a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_devolucion' %}">Devolución</a></li>
-		</ul>
+		<a class="btn btn-light btn-sm" href="{% url 'procesos_especiales_cambio_participante' %}"><i
+								class="fas fa-edit darkgreen-text"></i></a>
 	</div>
 </div>
 <br>
 
-{% endblock %}
+{% endblock extrafooter %}
