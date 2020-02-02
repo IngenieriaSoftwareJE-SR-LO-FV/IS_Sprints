@@ -86,11 +86,15 @@ def confirmar_cambio(request):
 	return render(request, 'procesos_especiales/cambio_evento_confirmacion.html', {'object': p,"eo":e_o,"ed":e_d})
 def cambio_evento_autorizar(request, pk):
 	tmp = CambioEvento.objects.get(pk=pk)
-	orden=Persona_Natural.objects.get(pk=tmp.participante.pk)
+	orden_origen = OrdenFacturacionParticipante.objects.get(participante=tmp.participante.pk)
 	orden_destino = OrdenFacturacionParticipante.objects.get(cod_evento=tmp.evento_destino)
-	orden.nombre_evento=orden_destino.nombre_evento
-	orden.cod_evento=orden_destino.cod_evento
-	orden.save()
+
+	
+	orden_origen.nombre_evento=orden_destino.nombre_evento
+	orden_origen.cod_evento=orden_destino.cod_evento
+	orden_origen.descuento=orden_destino.descuento
+	orden_origen.valor=orden_destino.valor
+	orden_origen.save()
 	tmp.estado = "ACPF";
 	tmp.save()
 	return HttpResponseRedirect("/financiero/perfiles/pendiente_aprobacion/")
