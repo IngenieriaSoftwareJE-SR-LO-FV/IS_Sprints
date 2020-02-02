@@ -59,12 +59,18 @@
 						{% for nota in nota_credito %}
 						<tr class="text-center">
 							<td scope="row"><a class="btn btn-light btn-sm darkgreen-text"
-								href="#"><i class="fas fa-eye"></i></a></td>
+								href="{% url 'procesos_especiales_devolucion_editar' nota.id %}"><i class="fas fa-edit"></i></a></td>
 							<td scope="row">{{nota.cod_nota_cred}}</td>
-							<td scope="row">{{nota.documento}}</td>
+							<td scope="row">{{nota.get_documento_display}}</td>
 							<td scope="row">{{nota.evento}}</td>
 							<td scope="row">{{nota.valor_pagar}}</td>
-							<td scope="row">{{nota.anexo}}</td>
+							<td scope="row">
+								{% if nota.anexo %}
+				                    <a class="btn btn-secondary" href="#" target="_blank"> Descargar</a>
+				                {% else %}
+				                    No anexo
+				                {% endif %}
+							</td>
 						</tr>
 						{% endfor %}
 					</tbody>
