@@ -32,6 +32,8 @@ class OrdenPago(models.Model):
 	cod_ord_pago = models.CharField(max_length=15, blank=True, null=True)
 	n_tramite = models.CharField(max_length=15, blank=True, null=True)
 	fecha = models.CharField(max_length=30)
+	fecha_tramite = models.CharField(max_length=30)
+	fecha_pago = models.CharField(max_length=30)
 	estado = models.CharField(max_length=5, default="GRBD",choices=ESTADO_CHOICES, blank=True, null=True)
 	tipo_proveedor = models.CharField(max_length=10, choices=PROVEEDORES_CHOICES)
 	proveedor = models.CharField(max_length=200)

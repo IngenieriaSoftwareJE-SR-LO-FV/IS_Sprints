@@ -17,16 +17,13 @@
 	<div class="row darkwhite-bg py-2">
 		<div class="col-12">
 			<div class="form-row">
-				<div class="col-3">
+				<div class="col-4">
 					{{ form.estado|as_crispy_field }}
 				</div>
-				<div class="col-3">
+				<div class="col-4">
 					{{ form.cod_ord_pago|as_crispy_field }}
 				</div>
-				<div class="col-3">
-					{{ form.n_tramite|as_crispy_field }}
-				</div>
-				<div class="col-3">
+				<div class="col-4">
 					{{ form.fecha|as_crispy_field }}
 				</div>
 			</div>
@@ -87,6 +84,11 @@
 			</div>
 		</div>
 	</div>
+	{% if form.errors %}
+   {% for error in form.errors %}
+      <li><strong>{{ error|escape }}</strong></li>
+   {% endfor %}
+{% endif %}
 	<div class="row mt-3">
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>

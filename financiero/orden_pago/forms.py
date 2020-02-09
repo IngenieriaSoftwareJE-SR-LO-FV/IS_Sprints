@@ -6,12 +6,26 @@ class OrdenPagoForm(forms.ModelForm):
 	class Meta:
 		model = OrdenPago
 
-		fields = "__all__"
+		fields = {
+			"cod_ord_pago",
+			"fecha",
+			"estado",
+			"tipo_proveedor",
+			"proveedor",
+			"centro_costos",
+			"egreso",
+			"tipo_comprobante",
+			"n_comprobante",
+			"concepto",
+			"forma_pago",
+			"observacion",
+			"anexo",
+			"motivo_anular",
+		}
 
 		labels = {
 			"cod_ord_pago":"Código",
-			"n_tramite":"N° trámite",
-			"fecha":"Fecha elaboracón",
+			"fecha":"Fecha elaboración",
 			"estado":"Estado",
 			"tipo_proveedor":"Tipo de proveedor",
 			"proveedor":"Razón social/Nombre",
@@ -28,7 +42,6 @@ class OrdenPagoForm(forms.ModelForm):
 
 		widgets = {
 			"cod_ord_pago":forms.TextInput(attrs={'class':'form-control'}),
-			"n_tramite":forms.TextInput(attrs={"class":"form-control"}),
 			"fecha":forms.DateInput(attrs={'class':'form-control',"type":"date", "value":date.today}),
 			"estado":forms.Select(attrs={"class":"select form-control"}),
 			"tipo_proveedor":forms.Select(attrs={"class":"form-control select2"}),
@@ -69,7 +82,7 @@ class OrdenPagoFinalForm(forms.ModelForm):
 		labels = {
 			"cod_ord_pago":"Código",
 			"n_tramite":"N° trámite",
-			"fecha":"Fecha elaboracón",
+			"fecha":"Fecha elaboración",
 			"estado":"Estado",
 			"tipo_proveedor":"Tipo de provedor",
 			"proveedor":"Razón social/Nombre",
