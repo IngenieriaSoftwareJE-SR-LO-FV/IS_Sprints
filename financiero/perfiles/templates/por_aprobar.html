@@ -200,4 +200,53 @@
 
 	</div>
 </div>
+
+<div class="campo mt-2 p-2">
+	<h5 class="black-text text-uppercase mb-0">Cambio de evento</h5>
+</div>
+<div class="row">
+	<div class="col-12 col-xl-12">
+		<div class="row">
+			<div class="col-12 col-xl-12">
+				<table class="table table-responsive-md border-bottom">
+					<thead class="white-text darkgreen-bg">
+						<tr>
+							
+							<th scope="col">Participante</th>
+							<th scope="col">Evento origen</th>
+							<th scope="col">Evento destino</th>
+							<th scope="col">Acciones</th>
+						</tr>
+					</thead>
+					{% if cambio_eventos %}
+
+					<tbody>
+						{% for p in cambio_eventos %}
+						<tr class="text-center">
+							
+							<td scope="row">{{p.participante}}</td>
+							<td scope="row">{{p.evento_origen}}</td>
+							<td scope="row">{{p.evento_destino}}</td>
+							<td scope="row">
+
+								<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'procesos_especiales_cambio_evento_autorizar' pk=p.id %}" data-toggle="tooltip" data-placement="top"title="Aprobar"><i
+										class="fas fa-check"></i></a>
+								<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'procesos_especiales_cambio_evento_anular' pk=p.id %}" data-toggle="tooltip" data-placement="top"title="Anular"><i
+										class="fas fa-times"></i></a>
+
+
+
+								</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+					{% else %}
+					<h2>No hay cambios de evento por aprobar</h2>
+					{% endif %}
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>
 {% endblock %}
