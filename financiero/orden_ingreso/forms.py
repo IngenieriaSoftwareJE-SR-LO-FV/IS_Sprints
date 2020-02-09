@@ -83,7 +83,8 @@ class OrdenIngresoUpdateForm(forms.ModelForm):
 			'numeroDocumento':forms.NumberInput(attrs={'readonly':True,'class':'form-control-plaintext form-control'}),
 			'banco':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'}),
 			'emisoraTarjeta':forms.TextInput(attrs={'readonly':True,'class':'select form-control-plaintext textinput textInput form-control'}),
-			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'})
+			'formaPago':forms.TextInput(attrs={'readonly':True,'id':'seleccion'}),
+			'orden_facturacion':forms.TextInput(attrs={'readonly':True,'class':'form-control-plaintext'})
 		}
 class OrdenIngresoPrintForm(forms.ModelForm):
 

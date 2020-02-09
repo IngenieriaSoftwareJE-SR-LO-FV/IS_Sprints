@@ -21,11 +21,9 @@
                     {{ filter.form.fecha|as_crispy_field }}
                 </div>
                 <div class="col-4">
-                    {{ filter.form.numeroTramite|as_crispy_field }}
+                    {{ filter.form.n_tramite|as_crispy_field }}
                 </div>
-                <div class="col-4">
-                    {{ filter.form.numeroFactura|as_crispy_field }}
-                </div>
+                
             </div>
             <div>
                 <button type="submit" class="btn btn-secondary green-bg float-right">
@@ -79,14 +77,11 @@
                     <td>
                         <a class="btn btn-secondary btn-sm"
                             href="{% url 'ordenIngreso_editar' ordenIngreso.id %}"><i class="fas fa-edit"></i></a>
-                            <a class="btn btn-secondary btn-sm"
-                            href="{% url 'ordenIngreso_print' ordenIngreso.id %}"><i class="fas fa-edit"></i></a>
                         <a onclick='eliminar({{ ordenIngreso.id }});' class="btn btn-danger btn-sm"
                             data-toggle='modal' data-target="#ordenEliminarCenter" href='#'><i
                                 class="fas fa-trash"></i></a> 
-                        <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top"title="Imprimir" onclick="print()">
-                            <i class="fas fa-print"></i></a>
-
+                        <a class="btn btn-secondary btn-sm"
+                        href="{% url 'ordenIngreso_print' ordenIngreso.id %}"><i class="fas fa-print"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

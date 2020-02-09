@@ -80,14 +80,14 @@ def confirmar_cambio(request):
 
 	p = Persona_Natural.objects.get(pk=pk)
 
-	e_o = OrdenFacturacionParticipante.objects.get(cod_evento=request.GET.get('evento_origen'))
-	e_d = OrdenFacturacionParticipante.objects.get(cod_evento=request.GET.get('evento_destino'))
+	e_o = OrdenFacturacionParticipante.objects.filter(cod_evento=request.GET.get('evento_origen'))[0]
+	e_d = OrdenFacturacionParticipante.objects.filter(cod_evento=request.GET.get('evento_destino'))[0]
 	print({'object': p,"eo":e_o,"ed":e_d});
 	return render(request, 'procesos_especiales/cambio_evento_confirmacion.html', {'object': p,"eo":e_o,"ed":e_d})
 def cambio_evento_autorizar(request, pk):
 	tmp = CambioEvento.objects.get(pk=pk)
-	orden_origen = OrdenFacturacionParticipante.objects.get(participante=tmp.participante.pk)
-	orden_destino = OrdenFacturacionParticipante.objects.get(cod_evento=tmp.evento_destino)
+	orden_origen = OrdenFacturacionParticipante.objects.filter(participante=tmp.participante.pk)[0]
+	orden_destino = OrdenFacturacionParticipante.objects.filter(cod_evento=tmp.evento_destino)[0]
 
 	
 	orden_origen.nombre_evento=orden_destino.nombre_evento
