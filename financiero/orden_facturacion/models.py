@@ -67,6 +67,6 @@ class OrdenFacturacionParticipante(models.Model):
     nombre_evento=models.CharField(max_length=500)
     cod_evento=models.CharField(max_length=20)
     valor_evento=models.FloatField(default=0)
-    descuento=models.FloatField(default=0)
+    descuento=models.IntegerField(default=0)
     valor=models.FloatField(default=0)
     orden=models.ForeignKey(OrdenFacturacion, on_delete=models.SET_NULL, blank=True, null=True)

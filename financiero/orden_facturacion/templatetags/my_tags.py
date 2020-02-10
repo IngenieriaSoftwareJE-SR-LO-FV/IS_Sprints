@@ -7,7 +7,7 @@ def index(List, i):
 
 @register.filter
 def currency(value):
-    return "${}".format(value)
+    return "${:.2f}".format(value)
 
 @register.filter
 def porcentaje(value):

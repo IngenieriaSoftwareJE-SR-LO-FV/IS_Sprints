@@ -129,6 +129,9 @@
 </div>
 
 
+{% endblock tablas %}
+
+{% block confirmar%}
 <div class="modal fade" id="orden-AP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -138,21 +141,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="modal-confirmacion">
-                ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder a la Aprobación.
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-secondary green-bg" href="{% url 'orden_facturacion_aprobar' orden.id %}">Confirmar <i
-                        class="fas fa-check"></i></a>
-                <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
+            <form method="POST" action="{% url 'orden_facturacion_aprobar' orden.id %}">
+                {% csrf_token %}
+                <div class="modal-body" id="modal-confirmacion">
+                    ¿Está seguro/a que desea continuar? Verifíque los datos antes de proceder a la Aprobación.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary green-bg" >Confirmar <i
+                            class="fas fa-check"></i></button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+                </form>
         </div>
     </div>
 </div>
 
-{% endblock tablas %}
 
-{% block confirmar%}
 <div class="modal fade" id="orden-RP" tabindex="-1" role="dialog" aria-labelledby="ordenTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

@@ -236,10 +236,9 @@ def participante_conf_elim(request):
 def aprobar_orden_facturacion(request, pk):
     if(request.method == 'POST'):
         p = get_object_or_404(OrdenFacturacion, pk=pk)
-        form = OrdenFacturacionFinalForm(request.POST, instance=p)
-        if(form.is_valid()):
-            form.save()
-            return redirect('pendiente_aprobacion')
+        p.estado="ACPF"
+        p.save()
+        return redirect('pendiente_aprobacion')
     else:
         p = get_object_or_404(OrdenFacturacion, pk=pk)
         form = OrdenFacturacionFinalForm(instance=p)

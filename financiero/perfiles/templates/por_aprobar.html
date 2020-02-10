@@ -1,6 +1,7 @@
 {% extends 'base_coordinador.html' %}
 {% load static %}
 {% load bootstrap4 %}
+{% load my_tags %}
 
 {% block title %}{{ "EC - Pendientes de Aprobación" }}{% endblock title %}
 
@@ -29,8 +30,6 @@
 							<th scope="col">Cant. Partic.</th>
 							<th scope="col">Costo</th>
 							<th scope="col">Estado</th>
-							<th scope="col">N° trámite</th>
-							<th scope="col">N° factura</th>
 						</tr>
 					</thead>
 					{% if orden_fact %}
@@ -44,10 +43,8 @@
 							<td scope="row">{{orden.ruc_ci}}</td>
 							<td scope="row">{{orden.fecha}}</td>
 							<td scope="row">{{orden.n_participantes}}</td>
-							<td scope="row">{{orden.valor_total}}</td>
+							<td scope="row">{{orden.valor_total |currency}}</td>
 							<td scope="row">{{orden.get_estado_display}}</td>
-							<td scope="row">{{orden.n_tramite}}</td>
-							<td scope="row">{{orden.n_factura}}</td>
 						</tr>
 						{% endfor %}
 					</tbody>
@@ -174,7 +171,7 @@
 						<tr>
 							<th scope="col">Ver Detalles</th>
 							<th scope="col">Año</th>
-							<th scope="col">Centro de  Costos</th>
+							<th scope="col">Centro de Costos</th>
 							<th scope="col">Nombre</th>
 						</tr>
 					</thead>

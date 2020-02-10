@@ -87,7 +87,7 @@ def validate_ruc(value):
         )
 
 def validate_letras(value):
-	if (not value.isalpha()):
+	if (not all(x.isalpha() or x.isspace() for x in value)):
 		raise ValidationError(
             _('%(value)s no contiene únicamente letras'),
             code="invalid",

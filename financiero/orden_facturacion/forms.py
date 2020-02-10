@@ -42,10 +42,10 @@ class OrdenFacturacionForm(forms.ModelForm):
             'ruc_ci': forms.Select(attrs={'class': 'form-control select2'}),
             'n_tramite': forms.TextInput(attrs={'class': 'form-control textinput textInput form-control'}),
             'n_factura': forms.TextInput(attrs={'class': 'form-control textinput textInput form-control'}),
-            'subtotal': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'subtotal': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_fact': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'valor_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             "motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
         }
 
@@ -95,10 +95,10 @@ class OrdenFacturacionUpdateForm(forms.ModelForm):
             'fecha': forms.DateInput(attrs={'readonly': True, 'class': 'form-control-plaintext'}),
             'razon_nombres': forms.TextInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'ruc_ci': forms.TextInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'subtotal': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'subtotal': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_fact': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'valor_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             "valor_pendiente":forms.HiddenInput(),
             "motivo_anular":forms.Textarea(attrs={'readonly': True, "class":"form-control", "rows":2}),
         }
@@ -146,12 +146,11 @@ class OrdenFacturacionFinalForm(forms.ModelForm):
             'fecha': forms.DateInput(attrs={'readonly': True, 'class': 'form-control-plaintext'}),
             'razon_nombres': forms.TextInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             'ruc_ci': forms.TextInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'subtotal': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_fact': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'descuento_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
-            'valor_total': forms.NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'subtotal': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_fact': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'descuento_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
+            'valor_total': forms.HiddenInput(),#NumberInput(attrs={'readonly': True, 'class': 'form-control-plaintext form-control'}),
             "motivo_anular":forms.Textarea(attrs={"class":"form-control", "rows":2}),
-
         }
 
 
