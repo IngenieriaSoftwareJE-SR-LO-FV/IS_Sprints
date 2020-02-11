@@ -28,17 +28,16 @@
 					{{ form.cod_ord_pago|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
-					{{ form.n_tramite|as_crispy_field }}
-				</div>
-				<div class="col-4 col-xl-4">
 					{{ form.fecha|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+				<input type="hidden" name="tipo_proveedor" value='{{form.tipo_proveedor.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.tipo_proveedor|as_crispy_field }}
 				</div>
-				<div class="col-9 col-xl-9" id="field-proveedor">
+				<input type="hidden" name="proveedor" value='{{form.proveedor.value}}' />
+				<div class="col-9 col-xl-6" id="field-proveedor">
 					<div id="div_id_ruc_ci" class="form-group">
 						<label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField"
 							id="ruc_ci">Razón social/Nombre</label><span class="asteriskField">*</span>
@@ -58,20 +57,24 @@
 				<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
 			</div>
 			<div class="form-row">
+				<input type="hidden" name="centro_costos" value='{{form.centro_costos.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.centro_costos|as_crispy_field }}
 				</div>
+				<input type="hidden" name="egreso" value='{{form.egreso.value}}' />
 				<div class="col-9 col-xl-9">
 					{{ form.egreso|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+				<input type="hidden" name="tipo_comprobante" value='{{form.tipo_comprobante.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.tipo_comprobante|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
 					{{ form.n_comprobante|as_crispy_field }}
 				</div>
+				<input type="hidden" name="forma_pago" value='{{form.forma_pago.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.forma_pago|as_crispy_field }}
 				</div>
@@ -86,11 +89,6 @@
 					{{ form.observacion|as_crispy_field }}
 				</div>
 			</div>
-			<div class="form-row">
-				<div class="col-12 col-xl-12">
-					{{ form.anexo|as_crispy_field }}
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="row mt-3">
@@ -102,13 +100,21 @@
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary">Guardar</button>
 			<a class="btn btn-light" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
+			<a href='javascript:;' onclick='anular({{ p.id }});' class="btn btn-secondary float-right">Anular</a>
 			{% if form.estado.value != 'AUTR' and form.estado.value != 'ANLD' %}
-			<a class="btn btn-success float-right"
+			<a class="btn btn-success float-right mr-2"
 				href="{% url 'orden_pago_autorizar' form.cod_ord_pago.value %}">Autorizar</a>
 			{% endif %}
 		</div>
 	</div>
 	{{ form.media }}
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <div id="modal-form">
+		  </div>
+		</div>
+	</div>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -135,6 +141,41 @@
 			}
 		});
 	});
+
+	function anular(id){
+  		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+
+		var span = document.getElementsByClassName("close")[0];
+
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+
+		$.ajax({
+			url: "{% url 'orden_pago_anular' %}",  
+			data:{
+				"pk": id
+			}, 
+			success: function (data) {   
+				$("#modal-form").html(data);  
+			}
+		});
+	}
+
+	function cerrar(e){
+		var modal = document.getElementById("myModal");
+  		modal.style.display = "block";
+		modal.style.display = "none";
+	}
 
 </script>
 {% endblock %}

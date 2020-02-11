@@ -10,34 +10,34 @@
 	data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
 	{% csrf_token %}
 	<div class="row mb-2">
-		<div class="col">
+		<div class="col-12">
 			<h2 class="text-uppercase darkgreen-text">Edición Orden de Pago</h2>
 		</div>
 	</div>
 	<div class="row darkwhite-bg py-2">
 		<div class="col-12">
 			<div class="form-row">
-				<div class="col-3">
+				<div class="col-4">
 					{{ form.estado|as_crispy_field }}
 				</div>
-				<div class="col-4 col-xl-3">
+				<div class="col-4">
 					{{ form.cod_ord_pago|as_crispy_field }}
 				</div>
-				<div class="col-4 col-xl-3">
-					{{ form.n_tramite|as_crispy_field }}
-				</div>
-				<div class="col-4 col-xl-3">
+				<div class="col-4">
 					{{ form.fecha|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+                <input type="hidden" name="tipo_proveedor" value='{{form.tipo_proveedor.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.tipo_proveedor|as_crispy_field }}
-				</div>
-				<div class="col-9 col-xl-6" id="field-proveedor">
+                </div>
+				<input type="hidden" name="proveedor" value='{{form.proveedor.value}}' />
+				<div class="col-8 col-xl-6" id="field-proveedor">
 					<div id="div_id_ruc_ci" class="form-group">
 						<label for="{{ form.proveedor.id_for_label }}" class="col-form-label requiredField"
-							id="ruc_ci">Razón social/Nombre</label><span class="asteriskField">*</span>
+							id="ruc_ci">Razón
+							social/Nombre</label><span class="asteriskField">*</span>
 						<div>
 							{{ form.proveedor}}
 							{% if form.proveedor.errors %}
@@ -54,39 +54,45 @@
 				<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
 			</div>
 			<div class="form-row">
+                <input type="hidden" name="centro_costos" value='{{form.centro_costos.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.centro_costos|as_crispy_field }}
-				</div>
+                </div>
+                <input type="hidden" name="egreso" value='{{form.egreso.value}}' />
 				<div class="col-9 col-xl-6">
 					{{ form.egreso|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+                <input type="hidden" name="tipo_comprobante" value='{{form.tipo_comprobante.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.tipo_comprobante|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
 					{{ form.n_comprobante|as_crispy_field }}
-				</div>
+                </div>
+                <input type="hidden" name="forma_pago" value='{{form.forma_pago.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.forma_pago|as_crispy_field }}
 				</div>
 			</div>
-			<div class="form-row">
+            <div class="form-row">
 				<div class="col-12 col-xl-6">
 					{{ form.concepto|as_crispy_field }}
-				</div>
-				<div class="col-12 col-xl-6">
-					{{ form.observacion|as_crispy_field }}
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="col-12 col-xl-6">
-					{{ form.anexo|as_crispy_field }}
-				</div>
+                </div>
+                {% if form.estado.value == "ENVD" %}
+                    <div class="col-12 col-xl-6">
+                        {{ form.observacion|as_crispy_field }}
+                    </div>
+                {% endif %}
 			</div>
 		</div>
 	</div>
+	{% if form.errors %}
+   {% for error in form.errors %}
+      <li><strong>{{ error|escape }}</strong></li>
+   {% endfor %}
+{% endif %}
 	<div class="row mt-3">
 		<div class="col-12">
 			{% if form.estado.value == 'ENVD' %}
@@ -125,13 +131,12 @@
 		$.ajax({
 			url: url,
 			data: {
-				'centro_costos': ccId
+				'centroc': ccId
 			},
 			success: function (data) {
 				$("#id_egreso").html(data);
 			}
 		});
 	});
-
 </script>
 {% endblock %}

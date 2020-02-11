@@ -70,12 +70,20 @@
 					{% for orden in filter.qs %}
 						<tr class="text-center">
 							<td scope="row">
-								{% if orden.estado == 'ENVD' %}
-									<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editarAUTR_analista' orden.id %}"><i class="fas fa-edit"></i></a>
-								{% else %}
-									<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+								{% if orden.estado != 'ANLD' %}
+									{% if orden.estado == 'ENVD' %}
+										<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editarAUTR_analista' orden.id %}"><i class="fas fa-edit"></i></a>
+									{% elif orden.estado == 'AUTR'%}
+										<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editarPOST_AUTR' orden.id %}"><i class="fas fa-edit"></i></a>
+									{% elif orden.estado == 'PGDO'%}
+										<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editarPGDO' orden.id %}"><i class="fas fa-edit"></i></a>
+									{% else %}
+										<a class="btn btn-light darkgreen-text btn-sm" href="{% url 'orden_pago_editar' orden.id %}"><i class="fas fa-edit"></i></a>
+									{% endif %}
 								{% endif %}
+								{% if orden.estado == "GRBD" %}
 								<a href='javascript:;' onclick='anular({{ orden.id }});' class="btn btn-light darkgreen-text btn-sm"><i class="fas fa-trash"></i></a>
+								{% endif %}
 	                		</td>
 							<td scope="row">{{ orden.cod_ord_pago }}</td>
 							<td scope="row">{{ orden.fecha }}</td>

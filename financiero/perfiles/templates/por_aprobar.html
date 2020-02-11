@@ -66,7 +66,7 @@
 	<div class="col-12 col-xl-12">
 		<div class="row">
 			<div class="col-12 col-xl-12">
-				<table class="table table-responsive-md">
+				<table class="table table-responsive-md border-bottom">
 					<thead class="white-text darkgreen-bg">
 						<tr>
 							<th scope="col">Ver Detalles</th>
@@ -83,7 +83,7 @@
 					<tbody>
 						{% for ord in orden_pago %}
 						<tr class="text-center">
-							<td scope="row"><a class="btn btn-secondary float-right"
+							<td scope="row"><a class="btn btn-light btn-sm darkgreen-text"
 									href="{% url 'orden_pago_editarAUTR' ord.id %}"><i class="fas fa-eye"></i></a></td>
 							<td scope="row">{{ ord.cod_ord_pago }}</td>
 							<td scope="row">{{ ord.fecha }}</td>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import OrdenPagoForm, OrdenPagoFinalForm
+from .forms import OrdenPagoForm, OrdenPagoEditarFinalForm, OrdenPagoEditarThirdForm, OrdenPagoEditarFirstForm, OrdenPagoEditarSecondForm
 from .models import OrdenPago, Centro_Costos, Egresos
 from ventas.personas_naturales.models import Persona_Natural
 from ventas.personas_juridicas.models import Juridica
@@ -66,33 +66,60 @@ def orden_pago_editar(request, pk):
 	else:
 		p = get_object_or_404(OrdenPago, pk=pk)
 		form = OrdenPagoForm(instance=p)
-	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})
+	return render(request, 'orden_pago/ordenpago_editar_1.html', {'form': form})
 
 
 def orden_pago_editarAUTR_analista(request, pk):
 	if(request.method == 'POST'):
 		p = get_object_or_404(OrdenPago, pk=pk)
-		form = OrdenPagoFinalForm(request.POST, instance=p)
+		form = OrdenPagoEditarSecondForm(request.POST, instance=p)
 		if(form.is_valid()):
 			form.save()
 			return redirect('orden_pago_lista')
 	else:
 		p = get_object_or_404(OrdenPago, pk=pk)
-		form = OrdenPagoFinalForm(instance=p)
-	return render(request, 'orden_pago/ordenpago_editar.html', {'form': form})
+		form = OrdenPagoEditarSecondForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar_1.html', {'form': form})
 
 
 def orden_pago_editarAUTR(request, pk):
 	if(request.method == 'POST'):
 		p = get_object_or_404(OrdenPago, pk=pk)
-		form = OrdenPagoFinalForm(request.POST, instance=p)
+		form = OrdenPagoEditarSecondForm(request.POST, instance=p)
 		if(form.is_valid()):
 			form.save()
 			return redirect('pendiente_aprobacion')
 	else:
 		p = get_object_or_404(OrdenPago, pk=pk)
-		form = OrdenPagoFinalForm(instance=p)
-	return render(request, 'orden_pago/ordenpago_autorizar.html', {'form': form})
+		form = OrdenPagoEditarSecondForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_autorizar.html', {'form': form, "p":p})
+
+def orden_pago_editarPOST_AUTR(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoEditarThirdForm(request.POST, request.FILES, instance=p)
+		if(form.is_valid()):
+			form.save()
+			p = get_object_or_404(OrdenPago, pk=pk)
+			p.estado = 'PGDO'
+			p.save()
+			return redirect('orden_pago_lista')
+	else:
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoEditarThirdForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar_2.html', {'form': form})
+
+def orden_pago_editarPGDO(request, pk):
+	if(request.method == 'POST'):
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoEditarFinalForm(request.POST, instance=p)
+		if(form.is_valid()):
+			form.save()
+			return redirect('orden_pago_lista')
+	else:
+		p = get_object_or_404(OrdenPago, pk=pk)
+		form = OrdenPagoEditarFinalForm(instance=p)
+	return render(request, 'orden_pago/ordenpago_editar_2.html', {'form': form, "p":p})
 
 
 def orden_pago_enviar(request, pk):

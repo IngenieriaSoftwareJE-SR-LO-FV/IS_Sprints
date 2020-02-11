@@ -6,31 +6,45 @@
 
 {% block content %}
 
-<form method="POST" id="ordenPagoForm" data-egresos-url="{% url 'ajax_load_egresos' %}"
-	data-proveedor-url="{% url 'ajax_load_proveedor' %}" novalidate>
+<form method="POST" novalidate id="ordenPagoForm" enctype="multipart/form-data" data-egresos-url="{% url 'ajax_load_egresos' %}"
+	data-proveedor-url="{% url 'ajax_load_proveedor' %}"  >
 	{% csrf_token %}
 	<div class="row mb-2">
-		<div class="col-12">
-			<h2 class="text-uppercase darkgreen-text">Registro Orden de Pago</h2>
+		<div class="col">
+			<h2 class="text-uppercase darkgreen-text">Edición Orden de Pago</h2>
 		</div>
 	</div>
 	<div class="row darkwhite-bg py-2">
 		<div class="col-12">
 			<div class="form-row">
-				<div class="col-4">
+				<input type="hidden" name="estado" value='{{form.estado.value}}' />
+				<div class="col-3">
 					{{ form.estado|as_crispy_field }}
 				</div>
-				<div class="col-4">
+				<div class="col-4 col-xl-3">
 					{{ form.cod_ord_pago|as_crispy_field }}
 				</div>
-				<div class="col-4">
+				<div class="col-4 col-xl-3">
+					{{ form.n_tramite|as_crispy_field }}
+				</div>
+				
+			</div>
+			<div class="form-row">
+				<div class="col-4 col-xl-3">
 					{{ form.fecha|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-3">
+					{{ form.fecha_tramite|as_crispy_field }}
+				</div>
+				<div class="col-4 col-xl-3">
+					{{ form.fecha_pago|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+                <input type="hidden" name="tipo_proveedor" value='{{form.tipo_proveedor.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.tipo_proveedor|as_crispy_field }}
-				</div>
+                </div>
 				<input type="hidden" name="proveedor" value='{{form.proveedor.value}}' />
 				<div class="col-8 col-xl-6" id="field-proveedor">
 					<div id="div_id_ruc_ci" class="form-group">
@@ -53,41 +67,86 @@
 				<input type="hidden" id='rn' value="{{ form.proveedor.value }}">
 			</div>
 			<div class="form-row">
+				<input type="hidden" name="centro_costos" value='{{form.centro_costos.value}}' />
 				<div class="col-3 col-xl-3">
 					{{ form.centro_costos|as_crispy_field }}
 				</div>
+				<input type="hidden" name="egreso" value='{{form.egreso.value}}' />
 				<div class="col-9 col-xl-6">
 					{{ form.egreso|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
+				<input type="hidden" name="tipo_comprobante" value='{{form.tipo_comprobante.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.tipo_comprobante|as_crispy_field }}
 				</div>
 				<div class="col-4 col-xl-4">
 					{{ form.n_comprobante|as_crispy_field }}
 				</div>
+				<input type="hidden" name="forma_pago" value='{{form.forma_pago.value}}' />
 				<div class="col-4 col-xl-4">
 					{{ form.forma_pago|as_crispy_field }}
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-12 col-xl-6">
+					{{ form.documentos|as_crispy_field }}
+				</div>
+				<div id="div_id_anexo" class="form-group">
+					<label for="id_anexo" class="col-form-label requiredField">
+						Anexo<span class="asteriskField">*</span>
+					</label>
+					<div class="">
+						{% if form.anexo.value %}
+						<a class="btn btn-secondary btn-sm" href="{{form.anexo.value.url}}" target="_blank">
+							Descargar
+						</a>
+						{% else %}
+						{{form.anexo}}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-12 col-xl-6">
 					{{ form.concepto|as_crispy_field }}
+				</div>
+				<div class="col-12 col-xl-6">
+					{{ form.observacion|as_crispy_field }}
 				</div>
 			</div>
 		</div>
 	</div>
-	{% if form.errors %}
-   {% for error in form.errors %}
-      <li><strong>{{ error|escape }}</strong></li>
-   {% endfor %}
-{% endif %}
+	{% if messages %}
+    {% for message in messages %}
+      <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+    {% endfor %}
+  {% endif %}
+
+  {% if form.errors %}
+    <div class="alert alert-error">
+      <h4>Please fix the following errors</h4>
+      <ul>
+        {% for field in form %}
+          {% if field.errors %}
+            {% for error in field.errors %}
+              <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+      {% endif %}
+    </div>
+  {% endif %}
 	<div class="row mt-3">
 		<div class="col-12">
 			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
 			<a class="btn btn-secondary" href="{% url 'orden_pago_lista' %}"> Cancelar </a>
 		</div>
+		
 	</div>
 	{{ form.media }}
 </form>
@@ -109,12 +168,13 @@
 		$.ajax({
 			url: url,
 			data: {
-				'centroc': ccId
+				'centro_costos': ccId
 			},
 			success: function (data) {
 				$("#id_egreso").html(data);
 			}
 		});
 	});
+
 </script>
 {% endblock %}

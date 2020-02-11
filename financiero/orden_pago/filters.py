@@ -3,7 +3,7 @@ import django_filters
 from django import forms
 
 class OrdenPagoFilter(django_filters.FilterSet):
-	ESTADO_CHOICES = [("GRBD","Grabado"),("ENVD","Enviado"),("AUTR","Autorizado"),("ANLD","Anulado"),]
+	ESTADO_CHOICES = [("GRBD","Grabado"),("ENVD","Enviado"),("AUTR","Autorizado"),("ANLD","Anulado"),("PGDO","Pagado")]
 
 	cod_ord_pago = django_filters.CharFilter(label="", lookup_expr='icontains', widget=forms.TextInput(attrs={'placeholder': 'Código orden pago'}))
 	estado = django_filters.ChoiceFilter(label="", empty_label='Estado', choices=ESTADO_CHOICES)
