@@ -1,50 +1,44 @@
-function suma_valores(){
-	var res = 0.0;
-	for(i = 0; i < arguments.length; i++){
-		if(arguments[i]!=""){
-			res = res+parseFloat(arguments[i]);
-		}
-	}
-	return res;
-}
-
 $(document).ready(function(){
 	//INGRESOS CORRIENTES
-	$("#ing_corrientes_div :input").change(function(e){
-		var cn = e.target.className;
-		if(cn.includes('plan')){
-			console.log("plan");
-			var ac = document.getElementById("id_ing_corrientes").value;
-			if(ac==""){
-				ac = 0.0;
-			}
-			document.getElementById("id_ing_corrientes").value = parseFloat(ac) + parseFloat((e.target).value);
-		}else{
-			console.log('ejec');
-			var ac = document.getElementById("id_ing_corrientes_ejec").value;
-			if(ac==""){
-				ac = 0.0;
-			}
-			document.getElementById("id_ing_corrientes_ejec").value = parseFloat(ac) + parseFloat((e.target).value);
-		}					
-	});
 	
+		var v1 = document.getElementById("id_vb_serv_tecnicos_espec").value;
+		var v2 = document.getElementById("id_vb_curs_sem_maes").value;
+		var v3 = document.getElementById("id_td_prov_gobcen").value;
+		var v4 = document.getElementById("id_td_prov_entdesc").value;
+		var v5 = document.getElementById("id_td_prov_entpub").value;
+		var v6 = document.getElementById("id_td_prov_gobaut").value;
+		var v7 = document.getElementById("id_otros_ingCorr").value;
+		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
+		document.getElementById("id_ing_corrientes").value = res;
+});
+$(document).ready(function(){
+		var v1 = document.getElementById("id_vb_serv_tecnicos_espec_ejec").value;
+		var v2 = document.getElementById("id_vb_curs_sem_maes_ejec").value;
+		var v3 = document.getElementById("id_td_prov_gobcen_ejec").value;
+		var v4 = document.getElementById("id_td_prov_entdesc_ejec").value;
+		var v5 = document.getElementById("id_td_prov_entpub_ejec").value;
+		var v6 = document.getElementById("id_td_prov_gobaut_ejec").value;
+		var v7 = document.getElementById("id_otros_ingCorr_ejec").value;
+		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
+		document.getElementById("id_ing_corrientes_ejec").value = res;
+});	
+
 	//INGRESOS DE FINANCIAMIENTO
-	document.getElementById("id_ing_financiamiento").onclick = function(){
+$(document).ready(function(){
 		var v1 = document.getElementById("id_fondo_autogest").value;
 		var v2 = document.getElementById("id_cta_x_cobrar").value;
 		var res = suma_valores(v1,v2);
 		document.getElementById("id_ing_financiamiento").value = res;
-	};
-	document.getElementById("id_ing_financiamiento_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_fondo_autogest_ejec").value;
 		var v2 = document.getElementById("id_cta_x_cobrar_ejec").value;
 		var res = suma_valores(v1,v2);
 		document.getElementById("id_ing_financiamiento_ejec").value = res;
-	};
+});	
 
 	//INGRESOS DE CAPITAL
-	document.getElementById("id_ing_capital").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_td_cap_prov_gobcen").value;
 		var v2 = document.getElementById("id_td_cap_prov_entdesc").value;
 		var v3 = document.getElementById("id_td_cap_prov_entpub").value;
@@ -52,8 +46,8 @@ $(document).ready(function(){
 		var v5 = document.getElementById("id_don_cap_ext").value;
 		var res = suma_valores(v1,v2,v3,v4,v5);
 		document.getElementById("id_ing_capital").value = res;
-	};
-	document.getElementById("id_ing_capital_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_td_cap_prov_gobcen_ejec").value;
 		var v2 = document.getElementById("id_td_cap_prov_entdesc_ejec").value;
 		var v3 = document.getElementById("id_td_cap_prov_entpub_ejec").value;
@@ -61,44 +55,44 @@ $(document).ready(function(){
 		var v5 = document.getElementById("id_don_cap_ext_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4,v5);
 		document.getElementById("id_ing_capital_ejec").value = res;
-	};
+});	
 
 	//TOTAL INGRESOS AÑO
-	document.getElementById("id_total_ingresos").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_ing_corrientes").value;
 		var v2 = document.getElementById("id_ing_financiamiento").value;
 		var v3 = document.getElementById("id_ing_capital").value;
 		var res = suma_valores(v1,v2,v3);
 		document.getElementById("id_total_ingresos").value = res;
-	};
-	document.getElementById("id_total_ingresos_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_ing_corrientes_ejec").value;
 		var v2 = document.getElementById("id_ing_financiamiento_ejec").value;
 		var v3 = document.getElementById("id_ing_capital_ejec").value;
 		var res = suma_valores(v1,v2,v3);
 		document.getElementById("id_total_ingresos_ejec").value = res;
-	};
+});	
 
 	//GASTOS CORRIENTES
-	document.getElementById("id_total_g_corrientes").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_g_personal").value;
 		var v2 = document.getElementById("id_bs_consumo").value;
 		var v3 = document.getElementById("id_otros_gastos_corr").value;
 		var v4 = document.getElementById("id_transf_corrientes").value;
 		var res = suma_valores(v1,v2,v3,v4);
 		document.getElementById("id_total_g_corrientes").value = res;
-	};
-	document.getElementById("id_total_g_corrientes_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_g_personal_ejec").value;
 		var v2 = document.getElementById("id_bs_consumo_ejec").value;
 		var v3 = document.getElementById("id_otros_gastos_corr_ejec").value;
 		var v4 = document.getElementById("id_transf_corrientes_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4);
 		document.getElementById("id_total_g_corrientes_ejec").value = res;
-	};
+});	
 
 	//GASTOS EN PERSONAL
-	document.getElementById("id_g_personal").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_rem_unificadas").value;
 		var v2 = document.getElementById("id_h_ext_supl").value;
 		var v3 = document.getElementById("id_encargos").value;
@@ -116,8 +110,8 @@ $(document).ready(function(){
 		var v15 = document.getElementById("id_ind_laborales").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15);
 		document.getElementById("id_g_personal").value = res;
-	};
-	document.getElementById("id_g_personal_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_rem_unificadas_ejec").value;
 		var v2 = document.getElementById("id_h_ext_supl_ejec").value;
 		var v3 = document.getElementById("id_encargos_ejec").value;
@@ -135,10 +129,10 @@ $(document).ready(function(){
 		var v15 = document.getElementById("id_ind_laborales_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15);
 		document.getElementById("id_g_personal_ejec").value = res;
-	};
+});	
 
 	//BIENES Y SERVICIOS DE CONSUMO
-	document.getElementById("id_bs_consumo").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_agua").value;
 		var v2 = document.getElementById("id_energia_elec").value;
 		var v3 = document.getElementById("id_telecomunicaciones").value;
@@ -189,8 +183,8 @@ $(document).ready(function(){
 		var v48 = document.getElementById("id_partes_repuestos_53").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17,v18,v19,v20,v21,v22,v23,v24,v25,v26,v27,v28,v29,v30,v31,v32,v33,v34,v35,v36,v37,v38,v39,v40,v41,v42,v43,v44,v45,v46,v47,v48);
 		document.getElementById("id_bs_consumo").value = res;
-	};
-	document.getElementById("id_bs_consumo_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_agua_ejec").value;
 		var v2 = document.getElementById("id_energia_elec_ejec").value;
 		var v3 = document.getElementById("id_telecomunicaciones_ejec").value;
@@ -241,10 +235,10 @@ $(document).ready(function(){
 		var v48 = document.getElementById("id_partes_repuestos_53_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17,v18,v19,v20,v21,v22,v23,v24,v25,v26,v27,v28,v29,v30,v31,v32,v33,v34,v35,v36,v37,v38,v39,v40,v41,v42,v43,v44,v45,v46,v47,v48);
 		document.getElementById("id_bs_consumo_ejec").value = res;
-	};
+});	
 
 	//OTROS GASTOS CORRIENTES
-	document.getElementById("id_otros_gastos_corr").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_iva").value;
 		var v2 = document.getElementById("id_tasas").value;
 		var v3 = document.getElementById("id_otros_imp").value;
@@ -254,8 +248,8 @@ $(document).ready(function(){
 		var v7 = document.getElementById("id_otros_gastos_fin").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
 		document.getElementById("id_otros_gastos_corr").value = res;
-	};
-	document.getElementById("id_otros_gastos_corr_ejec").onclick = function(){
+});
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_iva_ejec").value;
 		var v2 = document.getElementById("id_tasas_ejec").value;
 		var v3 = document.getElementById("id_otros_imp_ejec").value;
@@ -265,38 +259,38 @@ $(document).ready(function(){
 		var v7 = document.getElementById("id_otros_gastos_fin_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
 		document.getElementById("id_otros_gastos_corr_ejec").value = res;
-	};
+});	
 
 	//TRANSF. CORRIENTES: APORTACIONES DE ACUERDO A LINEAMIENTOS
-	document.getElementById("id_transf_corrientes").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_espoltech_ep").value;
 		var v2 = document.getElementById("id_part_espol").value;
 		var v3 = document.getElementById("id_part_unidad").value;
 		var res = suma_valores(v1,v2,v3);
 		document.getElementById("id_transf_corrientes").value = res;
-	};
-	document.getElementById("id_transf_corrientes_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_espoltech_ep_ejec").value;
 		var v2 = document.getElementById("id_part_espol_ejec").value;
 		var v3 = document.getElementById("id_part_unidad_ejec").value;
 		var res = suma_valores(v1,v2,v3);
 		document.getElementById("id_transf_corrientes_ejec").value = res;
-	};
+});	
 
 	//GASTOS DE CAPITAL
-	document.getElementById("id_g_capital").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_act_fijos").value;
 		var res = suma_valores(v1);
 		document.getElementById("id_g_capital").value = res;
-	};
-	document.getElementById("id_g_capital_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_act_fijos_ejec").value;
 		var res = suma_valores(v1);
 		document.getElementById("id_g_capital_ejec").value = res;
-	};
+});	
 
 	//ACTIVOS FIJOS
-	document.getElementById("id_act_fijos").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_mobiliarios").value;
 		var v2 = document.getElementById("id_maquinaria_equipos").value;
 		var v3 = document.getElementById("id_vehiculos").value;
@@ -307,8 +301,8 @@ $(document).ready(function(){
 		var v8 = document.getElementById("id_partes_repuestos_84").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8);
 		document.getElementById("id_act_fijos").value = res;
-	};
-	document.getElementById("id_act_fijos_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_mobiliarios_ejec").value;
 		var v2 = document.getElementById("id_maquinaria_equipos_ejec").value;
 		var v3 = document.getElementById("id_vehiculos_ejec").value;
@@ -319,20 +313,19 @@ $(document).ready(function(){
 		var v8 = document.getElementById("id_partes_repuestos_84_ejec").value;
 		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7,v8);
 		document.getElementById("id_act_fijos_ejec").value = res;
-	};
+});	
 
 	//TOTAL GASTOS AÑO
-	document.getElementById("id_total_gastos").onclick = function(){
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_g_capital").value;
 		var v2 = document.getElementById("id_total_g_corrientes").value;
 		var res = suma_valores(v1,v2);
 		document.getElementById("id_total_gastos").value = res;
-	};
-	document.getElementById("id_total_gastos_ejec").onclick = function(){
+});	
+$(document).ready(function(){	
 		var v1 = document.getElementById("id_g_capital_ejec").value;
 		var v2 = document.getElementById("id_total_g_corrientes_ejec").value;
 		var res = suma_valores(v1,v2);
 		document.getElementById("id_total_gastos_ejec").value = res;
-	};
-});
+});	
 
