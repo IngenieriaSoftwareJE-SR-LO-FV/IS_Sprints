@@ -10,29 +10,25 @@ function suma_valores(){
 
 $(document).ready(function(){
 	//INGRESOS CORRIENTES
-	document.getElementById("id_ing_corrientes").onclick = function(){
-		var v1 = document.getElementById("id_vb_serv_tecnicos_espec").value;
-		var v2 = document.getElementById("id_vb_curs_sem_maes").value;
-		var v3 = document.getElementById("id_td_prov_gobcen").value;
-		var v4 = document.getElementById("id_td_prov_entdesc").value;
-		var v5 = document.getElementById("id_td_prov_entpub").value;
-		var v6 = document.getElementById("id_td_prov_gobaut").value;
-		var v7 = document.getElementById("id_otros_ingCorr").value;
-		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
-		document.getElementById("id_ing_corrientes").value = res;
-	};
-	document.getElementById("id_ing_corrientes_ejec").onclick = function(){
-		var v1 = document.getElementById("id_vb_serv_tecnicos_espec_ejec").value;
-		var v2 = document.getElementById("id_vb_curs_sem_maes_ejec").value;
-		var v3 = document.getElementById("id_td_prov_gobcen_ejec").value;
-		var v4 = document.getElementById("id_td_prov_entdesc_ejec").value;
-		var v5 = document.getElementById("id_td_prov_entpub_ejec").value;
-		var v6 = document.getElementById("id_td_prov_gobaut_ejec").value;
-		var v7 = document.getElementById("id_otros_ingCorr_ejec").value;
-		var res = suma_valores(v1,v2,v3,v4,v5,v6,v7);
-		document.getElementById("id_ing_corrientes_ejec").value = res;
-	};
-
+	$("#ing_corrientes_div :input").change(function(e){
+		var cn = e.target.className;
+		if(cn.includes('plan')){
+			console.log("plan");
+			var ac = document.getElementById("id_ing_corrientes").value;
+			if(ac==""){
+				ac = 0.0;
+			}
+			document.getElementById("id_ing_corrientes").value = parseFloat(ac) + parseFloat((e.target).value);
+		}else{
+			console.log('ejec');
+			var ac = document.getElementById("id_ing_corrientes_ejec").value;
+			if(ac==""){
+				ac = 0.0;
+			}
+			document.getElementById("id_ing_corrientes_ejec").value = parseFloat(ac) + parseFloat((e.target).value);
+		}					
+	});
+	
 	//INGRESOS DE FINANCIAMIENTO
 	document.getElementById("id_ing_financiamiento").onclick = function(){
 		var v1 = document.getElementById("id_fondo_autogest").value;

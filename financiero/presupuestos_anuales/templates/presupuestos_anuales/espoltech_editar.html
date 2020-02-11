@@ -50,6 +50,7 @@
 			<p class="black-text text-uppercase mb-0">Valor Ejecutado</p>
 		</div>
 	</div>
+	<div id="ing_corrientes_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -128,7 +129,9 @@
 		<div class="col-2 col-xl-2">{{ form.otros_ingCorr }}</div>
 		<div class="col-2 col-xl-2">{{ form.otros_ingCorr_ejec }}</div>
 	</div>
+	</div>
 	<br>
+	<div id="ing_financiamiento_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -157,6 +160,8 @@
 		<div class="col-2 col-xl-2">{{ form.cta_x_cobrar }}</div>
 		<div class="col-2 col-xl-2">{{ form.cta_x_cobrar_ejec }}</div>
 	</div>
+	</div>
+	<div id="ing_capital_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -215,22 +220,23 @@
 		<div class="col-2 col-xl-2">{{ form.don_cap_ext }}</div>
 		<div class="col-2 col-xl-2">{{ form.don_cap_ext_ejec }}</div>
 	</div>
-	<div class="row">
+	</div>
+	<div id="total_ingresos_div" class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
-			<p class="black-text mb-0">TOTAL INGRESOS AÑO</p>
+			<p class="black-text mb-0"><strong>TOTAL INGRESOS AÑO</strong></p>
 		</div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="total_ingresos" id="id_total_ingresos" readonly="True"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="total_ingresos_ejec" id="id_total_ingresos_ejec" readonly="True"></div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
-		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
-			<p class="black-text mb-0">GASTOS CORRIENTES</p>
+	<div id="total_g_corrientes_div" class="row">
+		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
+			<p class="black-text mb-0"><strong>GASTOS CORRIENTES</strong></p>
 		</div>
-		<div class="col-2 col-xl-2  mt-2 campo p-2 pl-3"><input type="number" name="total_g_corrientes" id="id_total_g_corrientes" readonly="True"></div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="total_g_corrientes" id="id_total_g_corrientes" readonly="True"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="total_g_corrientes_ejec" id="id_total_g_corrientes_ejec" readonly="True"></div>
 	</div>
+	<div id="g_personal_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -389,7 +395,9 @@
 		<div class="col-2 col-xl-2">{{ form.ind_laborales }}</div>
 		<div class="col-2 col-xl-2">{{ form.ind_laborales_ejec }}</div>
 	</div>
+	</div>
 	<br>
+	<div id="bs_consumo_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -878,13 +886,15 @@
 		<div class="col-2 col-xl-2">{{ form.partes_repuestos_53 }}</div>
 		<div class="col-2 col-xl-2">{{ form.partes_repuestos_53_ejec }}</div>
 	</div>
+	</div>
 	<br>
+	<div id="otros_gastos_corr_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0">OTROS GASTOS CORRIENTES</p>
 		</div>
-		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3 "><input type="number" name="otros_gastos_corr" id="id_otros_gastos_corr" readonly="True"></div>
+		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="otros_gastos_corr" id="id_otros_gastos_corr" readonly="True"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="otros_gastos_corr_ejec" id="id_otros_gastos_corr_ejec" readonly="True"></div>
 	</div>
 	<div class="row">
@@ -957,6 +967,8 @@
 		<div class="col-2 col-xl-2">{{ form.otros_gastos_fin }}</div>
 		<div class="col-2 col-xl-2">{{ form.otros_gastos_fin_ejec }}</div>
 	</div>
+	</div>
+	<div id="transf_corrientes_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -995,14 +1007,16 @@
 		<div class="col-2 col-xl-2">{{ form.part_unidad }}</div>
 		<div class="col-2 col-xl-2">{{ form.part_unidad_ejec }}</div>
 	</div>
+	</div>
 	<br>
-	<div class="row">
+	<div id="g_capital_div" class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
-			<p class="black-text mb-0">GASTOS DE CAPITAL</p>
+			<p class="black-text mb-0"><strong>GASTOS DE CAPITAL</strong></p>
 		</div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="g_capital" id="id_g_capital" readonly="True"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="g_capital_ejec" id="id_g_capital_ejec" readonly="True"></div>
 	</div>
+	<div id="act_fijos_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-6 col-xl-6 mt-2 campo p-2 pl-3">
@@ -1091,7 +1105,8 @@
 		<div class="col-2 col-xl-2">{{ form.partes_repuestos_84 }}</div>
 		<div class="col-2 col-xl-2">{{ form.partes_repuestos_84_ejec }}</div>
 	</div>
-	<div class="row">
+	</div>
+	<div id="total_gastos_div" class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0"><strong>TOTAL GASTOS AÑO</strong></p>
 		</div>
@@ -1115,6 +1130,6 @@
 {% endblock %}
 
 {% block extrafooter %}
-<script type="text/javascript" src="{% static 'js/espoltech.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/espoltech_cargar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/espoltech.js' %}"></script>
 {% endblock %}
