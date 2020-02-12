@@ -152,7 +152,7 @@
                 {% else %}
                 <a class="btn btn-secondary green-bg" data-toggle='modal' data-target="#ordenAgregarCenter" href='#'
                     id="confirmar_guardar">Guardar</a>
-                <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}">Cancelar</a>
+                <a class="btn btn-secondary" href="{% url 'orden_facturacion' %}" id="cancelar">Cancelar</a>
                 {% endif %}
 
                 {% if form.estado.value == "ACTV" %}
@@ -221,6 +221,11 @@
             }
         });
     };
+
+    $(document).click('#cancelar',function(e){
+        $('form').submit();
+        e.preventDefault();
+    })
 </script>
 <script src="{% static 'js/calcular_valores_tabla.js' %}"></script>
 <script>

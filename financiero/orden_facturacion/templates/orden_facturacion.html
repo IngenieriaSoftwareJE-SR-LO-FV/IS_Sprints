@@ -92,6 +92,7 @@
                     <th scope="col">N° trámite</th>
                     <th scope="col">N° factura</th>
                     <th scope="col">Acciones</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             {% if filter.qs %}
@@ -109,7 +110,6 @@
                     <td scope="row">{{orden.get_estado_display}}</td>
                     <td scope="row">{{orden.n_tramite}}</td>
                     <td scope="row">{{orden.n_factura}}</td>
-
                     <td scope="row">
 
                         
@@ -133,6 +133,9 @@
                             {% endif %}
                             -->
                     </td>
+                    {% if orden.estado == 'ANLD' %}
+                    <td scope="row">{{orden.motivo_anular}}</td>
+                    {%endif%}
                 </tr>
                 {% endfor %}
 
@@ -171,5 +174,15 @@
             }
         });
     };
+</script>
+<script>
+    $(document).on("change",'#id_motivo_anular', function(){
+        if ($(this).val().length>20){
+            $('#anular').attr('disabled',false);
+        }
+        else{
+            $('#anular').attr('disabled',true);
+        }
+    })
 </script>
 {% endblock extrafooter %}

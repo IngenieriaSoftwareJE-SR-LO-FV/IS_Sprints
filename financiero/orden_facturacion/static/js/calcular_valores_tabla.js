@@ -38,7 +38,7 @@ $('#env-sol').click(function (e) {
 });
 
 if ($('#participantes-table tbody tr').length > 0) {
-    $('#env-sol').removeClass('disabled');
+    $('#env-sol').attr('disabled',false);
 
     s = sumtr("#participantes-table");
     
@@ -53,7 +53,7 @@ if ($('#participantes-table tbody tr').length > 0) {
     $("#descuento_fact").val(roundToTwo(((s[3] - s[5]) / s[3]) * 100)+' %');
 }
 else {
-    $('#env-sol').addClass('disabled');
+    $('#env-sol').attr('disabled',true);
     $("#id_subtotal").val(0);
     $("#id_valor_total").val(0);
     $("#id_descuento_total").val(0);
