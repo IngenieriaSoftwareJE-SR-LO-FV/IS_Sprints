@@ -1,3 +1,13 @@
+function suma_valores(){
+	var res = 0.0;
+	for(i = 0; i < arguments.length; i++){
+		if(arguments[i]!=""){
+			res = res+parseFloat(arguments[i]);
+		}
+	}
+	return res;
+}
+
 	//INGRESOS
 	$(document).ready(function(){
 		var v1 = document.getElementById("id_se_maestrias").value;

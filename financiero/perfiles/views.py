@@ -23,9 +23,10 @@ def por_aprobar(request):
 	orden_fact=OrdenFacturacion.objects.filter(estado='SLCE')
 	orden_pago = OrdenPago.objects.filter(estado='ENVD')
 	presupuestos_an = Espoltech.objects.filter(estado='ENVD')
+	presupuestos_an_fundespol = Fundespol.objects.filter(estado='ENVD')
 	cambios = CambioEvento.objects.filter(estado='SLCE')
 	return render(request, 'por_aprobar.html', {"presupuestos_ev":presupuestos_ev, "orden_fact":orden_fact, "orden_pago":orden_pago, "presupuestos_an":presupuestos_an,
-		"cambio_eventos":cambios})
+		"cambio_eventos":cambios, "presupuestos_an_fundespol":presupuestos_an_fundespol})
 
 def aprobar_orden_fact(request, pk):
 	orden=OrdenFacturacion.objects.get(pk=pk)

@@ -4,7 +4,7 @@
 
 {% load static %}
 {% load staticfiles %}
-{% block title %}{{ "EC - Presupuesto Anual Nuevo Registro" }}{% endblock title %}
+{% block title %}{{ "EC - Presupuesto Anual" }}{% endblock title %}
 
 {% block content %}
 
@@ -58,6 +58,8 @@
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 	</div>
+	<div id="resultado_total_div">
+	<div id="total_ingresos_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">40101002001</p>
@@ -128,6 +130,7 @@
 		<div class="col-2 col-xl-2">{{ form.dev_est_otros }}</div>
 		<div class="col-2 col-xl-2">{{ form.dev_est_otros_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2"></div>
 		<div class="col-6 col-xl-6">
@@ -144,6 +147,7 @@
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
 	</div>
+	<div id="cos_gas_deduc_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><strong>501</strong></p>
@@ -154,6 +158,8 @@
 		<div class="col-2 col-xl-2"><input type="number" name="total_ingresos" id="id_costos_deducibles" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="total_ingresos" id="id_costos_deducibles_ejec" readonly="True"></div>
 	</div>
+	<div id="costo_serv_total_div">
+	<div id="h_prof_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>50101</em></p>
@@ -164,6 +170,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="h_profesionales" id="id_h_profesionales" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="h_profesionales_ejec" id="id_h_profesionales_ejec" readonly="True"></div>
 	</div>
+	<div id="h_prof_doc_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50101001</p>
@@ -174,6 +181,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hp_docentes" id="id_hp_docentes" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hp_docentes_ejec" id="id_hp_docentes_ejec" readonly="True"></div>
 	</div>
+	<div id="h_profesionales_doc_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50101001001</p>
@@ -194,6 +202,8 @@
 		<div class="col-2 col-xl-2">{{ form.hd_extranjeros }}</div>
 		<div class="col-2 col-xl-2">{{ form.hd_extranjeros_ejec }}</div>
 	</div>
+	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50101002</p>
@@ -203,6 +213,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.h_prof_dietas }}</div>
 		<div class="col-2 col-xl-2">{{ form.h_prof_dietas_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -214,6 +225,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="g_personal" id="id_g_personal" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="g_personal_ejec" id="id_g_personal_ejec" readonly="True"></div>
 	</div>
+	<div id="g_pers_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102001</p>
@@ -224,6 +236,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="suel_sal_rem" id="id_suel_sal_rem" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="suel_sal_rem_ejec" id="id_suel_sal_rem_ejec" readonly="True"></div>
 	</div>
+	<div id="ssrem_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102001001</p>
@@ -254,6 +267,7 @@
 		<div class="col-2 col-xl-2">{{ form.bonificaciones }}</div>
 		<div class="col-2 col-xl-2">{{ form.bonificaciones_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102002</p>
@@ -264,6 +278,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="ben_iden_rem" id="id_ben_iden_rem" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="ben_iden_rem_ejec" id="id_ben_iden_rem_ejec" readonly="True"></div>
 	</div>
+	<div id="bsirem_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102002001</p>
@@ -304,6 +319,7 @@
 		<div class="col-2 col-xl-2">{{ form.vacaciones }}</div>
 		<div class="col-2 col-xl-2">{{ form.vacaciones_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102003</p>
@@ -314,6 +330,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="ap_seg_soc" id="id_ap_seg_soc" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="ap_seg_soc_ejec" id="id_ap_seg_soc_ejec" readonly="True"></div>
 	</div>
+	<div id="aport_ss_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50102003001</p>
@@ -344,6 +361,8 @@
 		<div class="col-2 col-xl-2">{{ form.ss_tiempo_parcial }}</div>
 		<div class="col-2 col-xl-2">{{ form.ss_tiempo_parcial_ejec }}</div>
 	</div>
+	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50103</p>
@@ -364,6 +383,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="sum_mat" id="id_sum_mat" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="sum_mat_ejec" id="id_sum_mat_ejec" readonly="True"></div>
 	</div>
+	<div id="sum_mat_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50104001</p>
@@ -404,6 +424,7 @@
 		<div class="col-2 col-xl-2">{{ form.suministros }}</div>
 		<div class="col-2 col-xl-2">{{ form.suministros_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50105</p>
@@ -424,6 +445,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="alimentacion" id="id_alimentacion" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="alimentacion_ejec" id="id_alimentacion_ejec" readonly="True"></div>
 	</div>
+	<div id="alm_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50106001</p>
@@ -444,6 +466,7 @@
 		<div class="col-2 col-xl-2">{{ form.com_salimentacion }}</div>
 		<div class="col-2 col-xl-2">{{ form.com_salimentacion_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>50107</em></p>
@@ -454,6 +477,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_hosp" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp_ejec" id="id_hosp_ejec" readonly="True"></div>
 	</div>
+	<div id="hosp_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50107001</p>
@@ -484,6 +508,7 @@
 		<div class="col-2 col-xl-2">{{ form.tasa_per }}</div>
 		<div class="col-2 col-xl-2">{{ form.tasa_per_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>50108</em></p>
@@ -494,6 +519,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pareos" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pareos_ejec" readonly="True"></div>
 	</div>
+	<div id="p_ar_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50108001</p>
@@ -504,6 +530,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pnacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pnacional_ejec" readonly="True"></div>
 	</div>
+	<div id="p_nac_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50108001001</p>
@@ -534,6 +561,7 @@
 		<div class="col-2 col-xl-2">{{ form.seguro_nacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.seguro_nacionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50108002</p>
@@ -544,6 +572,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pinternacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_pinternacional_ejec" readonly="True"></div>
 	</div>
+	<div id="p_int_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50108002001</p>
@@ -573,6 +602,8 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.seguro_internacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.seguro_internacionales_ejec }}</div>
+	</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -604,6 +635,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gastosviaje" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gastosviaje_ejec" readonly="True"></div>
 	</div>
+	<div id="gas_v_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50111001</p>
@@ -624,6 +656,7 @@
 		<div class="col-2 col-xl-2">{{ form.v_internacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.v_internacionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">50112</p>
@@ -633,6 +666,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.cap_docente }}</div>
 		<div class="col-2 col-xl-2">{{ form.cap_docente_ejec }}</div>
+	</div>
 	</div>
 	<br>
 	<div class="row">
@@ -645,6 +679,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdeducibles" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdeducibles_ejec" readonly="True"></div>
 	</div>
+	<div id="gast_deduc_total_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60101</em></p>
@@ -655,6 +690,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_gast_pers" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_gast_pers_ejec" readonly="True"></div>
 	</div>
+	<div id="gast_deduc_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101001</p>
@@ -665,6 +701,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_suel_sal_rem" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_suel_sal_rem_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_ssrem_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101001001</p>
@@ -695,6 +732,7 @@
 		<div class="col-2 col-xl-2">{{ form.gd_bonificaciones }}</div>
 		<div class="col-2 col-xl-2">{{ form.gd_bonificaciones_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101002</p>
@@ -705,6 +743,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_ben_iden_rem" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_ben_iden_rem_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_bsirem_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101002001</p>
@@ -745,6 +784,7 @@
 		<div class="col-2 col-xl-2">{{ form.gd_vacaciones }}</div>
 		<div class="col-2 col-xl-2">{{ form.gd_vacaciones_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101003</p>
@@ -755,6 +795,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_ap_seg_soc" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_ap_seg_soc_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_aport_ss_total_div" >
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60101003001</p>
@@ -785,6 +826,8 @@
 		<div class="col-2 col-xl-2">{{ form.gd_ss_tiempo_parcial }}</div>
 		<div class="col-2 col-xl-2">{{ form.gd_ss_tiempo_parcial_ejec }}</div>
 	</div>
+	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60102</em></p>
@@ -795,6 +838,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_honorarios" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_honorarios_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_hon_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60102001</p>
@@ -815,6 +859,7 @@
 		<div class="col-2 col-xl-2">{{ form.serv_ocasionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.serv_ocasionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60103</em></p>
@@ -825,6 +870,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_ser_admin" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_ser_admin_ejec" readonly="True"></div>
 	</div>
+	<div id="gast_sad_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60103001</p>
@@ -955,6 +1001,7 @@
 		<div class="col-2 col-xl-2">{{ form.gd_alimentacion }}</div>
 		<div class="col-2 col-xl-2">{{ form.gd_alimentacion_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60104</em></p>
@@ -965,6 +1012,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_mant_rep" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_mant_rep_ejec" readonly="True"></div>
 	</div>
+	<div id="mrep_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60104001</p>
@@ -984,6 +1032,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.man_rep_equipos }}</div>
 		<div class="col-2 col-xl-2">{{ form.man_rep_equipos_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1005,6 +1054,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_prov" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_prov_ejec" readonly="True"></div>
 	</div>
+	<div id="prov_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60106001</p>
@@ -1065,6 +1115,7 @@
 		<div class="col-2 col-xl-2">{{ form.prov_otras }}</div>
 		<div class="col-2 col-xl-2">{{ form.prov_otras_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60107</em></p>
@@ -1075,6 +1126,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_alq_eqpos" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_alq_eqpos_ejec" readonly="True"></div>
 	</div>
+	<div id="alq_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60107001</p>
@@ -1084,6 +1136,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.alq_equipos }}</div>
 		<div class="col-2 col-xl-2">{{ form.alq_equipos_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1095,6 +1148,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_sum_mat" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_sum_mat_ejec" readonly="True"></div>
 	</div>
+	<div id="sm_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60108001</p>
@@ -1124,6 +1178,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.gd_copias }}</div>
 		<div class="col-2 col-xl-2">{{ form.gd_copias_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1155,6 +1210,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_jar_orn" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_jar_orn_ejec" readonly="True"></div>
 	</div>
+	<div id="gast_jar_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60111001</p>
@@ -1195,6 +1251,7 @@
 		<div class="col-2 col-xl-2">{{ form.med_tortugas }}</div>
 		<div class="col-2 col-xl-2">{{ form.med_tortugas_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60112</em></p>
@@ -1205,6 +1262,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_mark" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_mark_ejec" readonly="True"></div>
 	</div>
+	<div id="g_mark_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60112001</p>
@@ -1215,6 +1273,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_prom_pub" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_prom_pub_ejec" readonly="True"></div>
 	</div>
+	<div id="pro_pub_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60112001001</p>
@@ -1255,6 +1314,7 @@
 		<div class="col-2 col-xl-2">{{ form.cong_even_fer }}</div>
 		<div class="col-2 col-xl-2">{{ form.cong_even_fer_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60112002</p>
@@ -1264,6 +1324,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.com_ventas }}</div>
 		<div class="col-2 col-xl-2">{{ form.com_ventas_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1275,6 +1336,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_acred" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_acred_ejec" readonly="True"></div>
 	</div>
+	<div id="g_acred_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60113001</p>
@@ -1315,6 +1377,7 @@
 		<div class="col-2 col-xl-2">{{ form.amba }}</div>
 		<div class="col-2 col-xl-2">{{ form.amba_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60114</em></p>
@@ -1325,6 +1388,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_repre" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_repre_ejec" readonly="True"></div>
 	</div>
+	<div id="gast_rep_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114001</p>
@@ -1345,6 +1409,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_viaje" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_viaje_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_gviaje_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114002001</p>
@@ -1375,6 +1440,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pareos" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pareos_ejec" readonly="True"></div>
 	</div>
+	<div id="gd_pareos_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114003001</p>
@@ -1385,6 +1451,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pnacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pnacional_ejec" readonly="True"></div>
 	</div>
+	<div id="gdrep_pnac_total">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114003001001</p>
@@ -1415,6 +1482,7 @@
 		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_nacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_nacionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114003002</p>
@@ -1425,6 +1493,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pinternacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gd_pinternacional_ejec" readonly="True"></div>
 	</div>
+	<div id="gdrep_pint_total">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114003002001</p>
@@ -1455,6 +1524,9 @@
 		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_internacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.gdrep_seguro_internacionales_ejec }}</div>
 	</div>
+	</div>
+	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60114004</p>
@@ -1464,6 +1536,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.conv_eventos }}</div>
 		<div class="col-2 col-xl-2">{{ form.conv_eventos_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1475,6 +1548,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_ejec" readonly="True"></div>
 	</div>
+	<div id="gastos_inves_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115001</p>
@@ -1495,6 +1569,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_inv_gas_viaje" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_inv_gas_viaje_ejec" readonly="True"></div>
 	</div>
+	<div id="gv_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115002001</p>
@@ -1515,6 +1590,7 @@
 		<div class="col-2 col-xl-2">{{ form.gdinv_v_internacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.gdinv_v_internacionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115003</p>
@@ -1525,6 +1601,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_paereos" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_paereos_ejec" readonly="True"></div>
 	</div>
+	<div id="gdinv_pareos_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115003001</p>
@@ -1535,6 +1612,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_pnacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_pnacional_ejec" readonly="True"></div>
 	</div>
+	<div id="gbinv_pnac_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115003001001</p>
@@ -1565,6 +1643,7 @@
 		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_nacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_nacionales_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115003002</p>
@@ -1575,6 +1654,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_pinternacional" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gdinv_pinternacional_ejec" readonly="True"></div>
 	</div>
+	<div id="gbinv_pint_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60115003002001</p>
@@ -1604,6 +1684,8 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_internacionales }}</div>
 		<div class="col-2 col-xl-2">{{ form.gdinv_seguro_internacionales_ejec }}</div>
+	</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1665,6 +1747,7 @@
 		<div class="col-2 col-xl-2">{{ form.conv_even_proy }}</div>
 		<div class="col-2 col-xl-2">{{ form.conv_even_proy_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60116</em></p>
@@ -1675,6 +1758,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_interes" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gast_interes_ejec" readonly="True"></div>
 	</div>
+	<div id="gas_int_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60116001</p>
@@ -1705,6 +1789,7 @@
 		<div class="col-2 col-xl-2">{{ form.i_pag_no_local }}</div>
 		<div class="col-2 col-xl-2">{{ form.i_pag_no_local_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60117</em></p>
@@ -1715,6 +1800,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_com_ban" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_com_ban_ejec" readonly="True"></div>
 	</div>
+	<div id="gas_com_ban_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60117001</p>
@@ -1734,6 +1820,7 @@
 		</div>
 		<div class="col-2 col-xl-2">{{ form.com_tarj_cred }}</div>
 		<div class="col-2 col-xl-2">{{ form.com_tarj_cred_ejec }}</div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
@@ -1755,6 +1842,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_impu" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_impu_ejec" readonly="True"></div>
 	</div>
+	<div id="gas_imp_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60119001</p>
@@ -1785,6 +1873,7 @@
 		<div class="col-2 col-xl-2">{{ form.ice }}</div>
 		<div class="col-2 col-xl-2">{{ form.ice_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60120</em></p>
@@ -1795,6 +1884,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_depre" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_gas_depre_ejec" readonly="True"></div>
 	</div>
+	<div id="gas_depre_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60120001</p>
@@ -1825,6 +1915,7 @@
 		<div class="col-2 col-xl-2">{{ form.d_prop_inversion }}</div>
 		<div class="col-2 col-xl-2">{{ form.d_prop_inversion_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60121</p>
@@ -1845,6 +1936,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_serv_pub" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_serv_pub_ejec" readonly="True"></div>
 	</div>
+	<div id="serv_pub_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60122001</p>
@@ -1875,6 +1967,7 @@
 		<div class="col-2 col-xl-2">{{ form.fono }}</div>
 		<div class="col-2 col-xl-2">{{ form.fono_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"><em>60123</em></p>
@@ -1885,6 +1978,7 @@
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_aport_inst" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_aport_inst_ejec" readonly="True"></div>
 	</div>
+	<div id="ap_inst_total_div">
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60123001</p>
@@ -1905,6 +1999,7 @@
 		<div class="col-2 col-xl-2">{{ form.ap_fundespol }}</div>
 		<div class="col-2 col-xl-2">{{ form.ap_fundespol_ejec }}</div>
 	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0">60124</p>
@@ -1915,6 +2010,8 @@
 		<div class="col-2 col-xl-2">{{ form.pago_otros }}</div>
 		<div class="col-2 col-xl-2">{{ form.pago_otros_ejec }}</div>
 	</div>
+	</div>
+	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2">
 			<p class="black-text text-uppercase mb-0"></p>
@@ -1924,6 +2021,7 @@
 		</div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_total_gastos" readonly="True"></div>
 		<div class="col-2 col-xl-2"><input type="number" name="hosp" id="id_total_gastos_ejec" readonly="True"></div>
+	</div>
 	</div>
 	<div class="row">
 		<div class="col-2 col-xl-2 campo p-2 pl-3 col-12">
@@ -1940,7 +2038,7 @@
 			<button type="submit" class="btn btn-secondary green-bg">Guardar</button>
 			<a class="btn btn-secondary" href="{% url 'pendiente_aprobacion' %}"> Cancelar </a>
 			{% if form.estado.value == 'ENVD' %}
-				<a class="btn btn-success float-right" href="{% url '#' p.id %}">Aprobar</a>
+				<a class="btn btn-success float-right" href="{% url 'presupuesto_anual_autorizar_fundespol' p.id %}">Aprobar</a>
 			{% endif %}
 		</div>
 	</div>
@@ -1951,6 +2049,6 @@
 {% endblock %}
 
 {% block extrafooter %}
-<script type="text/javascript" src="{% static 'js/fundespol.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/fundespol_cargar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/fundespol.js' %}"></script>
 {% endblock %}
