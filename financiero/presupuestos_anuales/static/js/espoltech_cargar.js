@@ -1,3 +1,13 @@
+function suma_valores(){
+	var res = 0.0;
+	for(i = 0; i < arguments.length; i++){
+		if(arguments[i]!=""){
+			res = res+parseFloat(arguments[i]);
+		}
+	}
+	return res;
+}
+
 $(document).ready(function(){
 	//INGRESOS CORRIENTES
 	
@@ -71,24 +81,6 @@ $(document).ready(function(){
 		var v3 = document.getElementById("id_ing_capital_ejec").value;
 		var res = suma_valores(v1,v2,v3);
 		document.getElementById("id_total_ingresos_ejec").value = res;
-});	
-
-	//GASTOS CORRIENTES
-$(document).ready(function(){	
-		var v1 = document.getElementById("id_g_personal").value;
-		var v2 = document.getElementById("id_bs_consumo").value;
-		var v3 = document.getElementById("id_otros_gastos_corr").value;
-		var v4 = document.getElementById("id_transf_corrientes").value;
-		var res = suma_valores(v1,v2,v3,v4);
-		document.getElementById("id_total_g_corrientes").value = res;
-});	
-$(document).ready(function(){	
-		var v1 = document.getElementById("id_g_personal_ejec").value;
-		var v2 = document.getElementById("id_bs_consumo_ejec").value;
-		var v3 = document.getElementById("id_otros_gastos_corr_ejec").value;
-		var v4 = document.getElementById("id_transf_corrientes_ejec").value;
-		var res = suma_valores(v1,v2,v3,v4);
-		document.getElementById("id_total_g_corrientes_ejec").value = res;
 });	
 
 	//GASTOS EN PERSONAL
@@ -277,17 +269,23 @@ $(document).ready(function(){
 		document.getElementById("id_transf_corrientes_ejec").value = res;
 });	
 
-	//GASTOS DE CAPITAL
+	//GASTOS CORRIENTES
 $(document).ready(function(){	
-		var v1 = document.getElementById("id_act_fijos").value;
-		var res = suma_valores(v1);
-		document.getElementById("id_g_capital").value = res;
+		var v1 = document.getElementById("id_g_personal").value;
+		var v2 = document.getElementById("id_bs_consumo").value;
+		var v3 = document.getElementById("id_otros_gastos_corr").value;
+		var v4 = document.getElementById("id_transf_corrientes").value;
+		var res = suma_valores(v1,v2,v3,v4);
+		document.getElementById("id_total_g_corrientes").value = res;
 });	
 $(document).ready(function(){	
-		var v1 = document.getElementById("id_act_fijos_ejec").value;
-		var res = suma_valores(v1);
-		document.getElementById("id_g_capital_ejec").value = res;
-});	
+		var v1 = document.getElementById("id_g_personal_ejec").value;
+		var v2 = document.getElementById("id_bs_consumo_ejec").value;
+		var v3 = document.getElementById("id_otros_gastos_corr_ejec").value;
+		var v4 = document.getElementById("id_transf_corrientes_ejec").value;
+		var res = suma_valores(v1,v2,v3,v4);
+		document.getElementById("id_total_g_corrientes_ejec").value = res;
+});
 
 	//ACTIVOS FIJOS
 $(document).ready(function(){	
@@ -315,6 +313,18 @@ $(document).ready(function(){
 		document.getElementById("id_act_fijos_ejec").value = res;
 });	
 
+	//GASTOS DE CAPITAL
+$(document).ready(function(){	
+		var v1 = document.getElementById("id_act_fijos").value;
+		var res = suma_valores(v1);
+		document.getElementById("id_g_capital").value = res;
+});	
+$(document).ready(function(){	
+		var v1 = document.getElementById("id_act_fijos_ejec").value;
+		var res = suma_valores(v1);
+		document.getElementById("id_g_capital_ejec").value = res;
+});	
+	
 	//TOTAL GASTOS AÑO
 $(document).ready(function(){	
 		var v1 = document.getElementById("id_g_capital").value;

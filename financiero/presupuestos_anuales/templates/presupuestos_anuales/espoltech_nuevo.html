@@ -46,6 +46,7 @@
 			<p class="black-text text-uppercase mb-0">Valor Ejecutado</p>
 		</div>
 	</div>
+	<div id="total_ingresos_div">
 	<div id="ing_corrientes_div">
 	<div class="row">
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"></div>
@@ -217,7 +218,8 @@
 		<div class="col-2 col-xl-2">{{ form.don_cap_ext_ejec }}</div>
 	</div>
 	</div>
-	<div id="total_ingresos_div" class="row">
+	</div>
+	<div class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0"><strong>TOTAL INGRESOS AÑO</strong></p>
 		</div>
@@ -225,7 +227,9 @@
 		<div class="col-2 col-xl-2 mt-2 campo p-2 pl-3"><input type="number" name="total_ingresos_ejec" id="id_total_ingresos_ejec" readonly="True"></div>
 	</div>
 	<br>
-	<div id="total_g_corrientes_div" class="row">
+	<div id="total_gastos_total_div">
+	<div id="total_g_corrientes_div">
+	<div class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0"><strong>GASTOS CORRIENTES</strong></p>
 		</div>
@@ -1004,6 +1008,7 @@
 		<div class="col-2 col-xl-2">{{ form.part_unidad_ejec }}</div>
 	</div>
 	</div>
+	</div>
 	<br>
 	<div id="g_capital_div" class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
@@ -1102,6 +1107,7 @@
 		<div class="col-2 col-xl-2">{{ form.partes_repuestos_84_ejec }}</div>
 	</div>
 	</div>
+	</div>
 	<div id="total_gastos_div" class="row">
 		<div class="col-8 col-xl-8 mt-2 campo p-2 pl-3">
 			<p class="black-text mb-0"><strong>TOTAL GASTOS AÑO</strong></p>
@@ -1122,5 +1128,5 @@
 {% endblock %}
 
 {% block extrafooter %}
-<script type="text/javascript" src="{% static 'js/espoltech.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/espoltech_convar.js' %}"></script>
 {% endblock %}
